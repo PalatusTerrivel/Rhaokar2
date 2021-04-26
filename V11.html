@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mapa de Rhaokar</title>
+    <script type="text/javascript" src="js/stuquery.js"></script>
+    <script type="text/javascript" src="js/stuquery.hexmap.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MRWNB3H');</script>
+<!-- End Google Tag Manager -->
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stuquery.hexmap.css">
+<style>
+.hexcontent{ height:100%; width: 100%; padding:0; font-size: 24px; color: rgb(0, 0, 0);}
+.hexcontent div{height:100%; width: 100%}
+.batata span {padding-top: 15px; display: block}
+.batata:hover {opacity: 0.5}
+.capital {background-image:url(img/capital.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.capital_nevada {background-image:url(img/capital_nevada.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.hamlet {background-image:url(img/hamlet.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.hamlet_snow {background-image:url(img/hamlet_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.large_city {background-image:url(img/large_city.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.large_city_snow {background-image:url(img/large_city_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.large_town {background-image:url(img/large_town.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.large_town_snow {background-image:url(img/large_town_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.metropolis {background-image:url(img/metropolis.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.metropolis_snow {background-image:url(img/metropolis_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.military_fort {background-image:url(img/military_fort.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.mine {background-image:url(img/mine.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.oasis {background-image:url(img/oasis.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.ruin {background-image:url(img/ruin.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.ruin_large {background-image:url(img/ruin_large.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.small_city {background-image:url(img/small_city.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.small_city_snow {background-image:url(img/small_city_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.small_town_snow {background-image:url(img/small_town_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.thorp {background-image:url(img/thorp.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.thorp_snow {background-image:url(img/thorp_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.village {background-image:url(img/village.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.village_snow {background-image:url(img/village_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.small_town {background-image:url(img/small_town.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.agua_profunda { background-image:url(img/Tile-AguaSemFundo.gif); background-size: cover; background-position:center; background-color: rgb(0, 50, 187);}
+.agua_rasa {background-image:url(img/Tile-AguaSemFundo.gif); background-size: cover; background-position:center; background-color: rgb(0, 127, 212);}
+.bosque {background-image:url(img/Tile-Bosque.gif); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+.bosque_nevado {background-image:url(img/Tile-BosqueNevado.gif); background-size: cover; background-position:center; background-color: rgb(111, 177, 116);}
+.floresta {background-image:url(img/Tile-Floresta.gif); background-size: cover; background-position:center; background-color: rgb(46, 95, 61);}
+.floresta_nevada {background-image:url(img/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: rgb(70, 122, 78);}
+.montanha {background-image:url(img/Tile-Montanha.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+.montanha_nevada {background-image:url(img/Tile-MontanhaNevada.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+.planicie {background-image:url(img/Tile-Planicie.gif); background-size: cover; background-position:center; background-color: rgb(121, 240, 147);}
+.planicie_nevada {background-image:url(img/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: rgb(169, 202, 171);}
+.deserto {background-image:url(img/Tile-Deserto.gif); background-size: cover; background-position:center; background-color: rgb(247, 255, 212);}
+.selva {background-image:url(img/Tile-Selva.gif); background-size: cover; background-position:center; background-color: rgb(6, 158, 74);}
+.montanha_com_floresta {background-image:url(img/Tile-MontanhaFloresta.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+.montanha_com_floresta_nevada {background-image:url(img/Tile-MontanhaFlorestaNevada.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+.montanha_com_selva {background-image:url(img/Tile-MontanhaSelva.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+.pantano {background-image:url(img/Tile-Pantano.gif); background-size: cover; background-position:center; background-color: rgb(76, 116, 82);}
+.vulcao {background-image:url(img/Tile-Vulcao.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+.mana_wastes {background-image:url(img/Tile-ErmosDeMana.gif); background-size: cover; background-position:center; background-color: rgb(67, 74, 78);}
+
+</style>
+  </head>
+
+  <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRWNB3H"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div id="hexmap-8">
+        <code>
+        {
+            "layout":"odd-q",
+            "hexes": {
+
+              "A15":{"n":"A15","q":"0","r":-14,"type":"floresta_nevada"},
+              "A16":{"n":"A16","q":"0","r":-15,"type":"floresta_nevada"},
+              "A17":{"n":"A17","q":"0","r":-16,"type":"floresta_nevada"},
+              "A18":{"n":"A18","q":"0","r":-17,"type":"planicie_nevada"},
+
+              "B14":{"n":"B14","q":"1","r":-13,"type":"floresta_nevada"},
+              "B15":{"n":"B15","q":"1","r":-14,"type":"floresta_nevada"},
+              "B16":{"n":"B16","q":"1","r":-15,"type":"floresta_nevada"},
+              "B17":{"n":"B17","q":"1","r":-16,"type":"floresta_nevada"},
+              "B18":{"n":"B18","q":"1","r":-17,"type":"planicie_nevada"},
+
+              "C14":{"n":"C14","q":"2","r":-13,"type":"small_town_snow"},
+              "C15":{"n":"C15","q":"2","r":-14,"type":"floresta_nevada"},
+              "C16":{"n":"C16","q":"2","r":-15,"type":"floresta_nevada"},
+              "C17":{"n":"C17","q":"2","r":-16,"type":"small_town_snow"},
+              "C18":{"n":"C18","q":"2","r":-17,"type":"floresta_nevada"},
+              "C19":{"n":"C19","q":"2","r":-18,"type":"planicie_nevada"},
+
+              "D13":{"n":"D13","q":"3","r":-12,"type":"floresta_nevada"},
+              "D14":{"n":"D14","q":"3","r":-13,"type":"floresta_nevada"},
+              "D15":{"n":"D15","q":"3","r":-14,"type":"floresta_nevada"},
+              "D16":{"n":"D16","q":"3","r":-15,"type":"floresta_nevada"},
+              "D17":{"n":"D17","q":"3","r":-16,"type":"floresta_nevada"},
+              "D18":{"n":"D18","q":"3","r":-17,"type":"floresta_nevada"},
+              "D19":{"n":"D19","q":"3","r":-18,"type":"planicie_nevada"},
+
+              "E14":{"n":"E14","q":"4","r":-13,"type":"floresta_nevada"},
+              "E15":{"n":"E15","q":"4","r":-14,"type":"floresta_nevada"},
+              "E16":{"n":"E16","q":"4","r":-15,"type":"floresta_nevada"},
+              "E17":{"n":"E17","q":"4","r":-16,"type":"floresta_nevada"},
+              "E18":{"n":"E18","q":"4","r":-17,"type":"floresta_nevada"},
+              "E19":{"n":"E19","q":"4","r":-18,"type":"planicie_nevada"},
+
+              "F14":{"n":"F14","q":"5","r":-13,"type":"floresta_nevada"},
+              "F15":{"n":"F15","q":"5","r":-14,"type":"floresta_nevada"},
+              "F16":{"n":"F16","q":"5","r":-15,"type":"floresta_nevada"},
+              "F17":{"n":"F17","q":"5","r":-16,"type":"floresta_nevada"},
+              "F18":{"n":"F18","q":"5","r":-17,"type":"planicie_nevada"},
+
+              "G15":{"n":"G15","q":"6","r":-14,"type":"floresta_nevada"},
+              "G16":{"n":"G16","q":"6","r":-15,"type":"floresta_nevada"},
+              "G17":{"n":"G17","q":"6","r":-16,"type":"floresta_nevada"},
+              "G18":{"n":"G18","q":"6","r":-17,"type":"planicie_nevada"}
+
+            }
+        }
+        </code>
+        </div>
+<!--Raise Nova-->
+<div id="conteudoModalA1"
+class="modal fade">
+   <div class="modal-dialog">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Teste</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+        <ul>
+           <li>           </li>
+           <li>           </li>
+        </ul>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<script type="text/javascript">
+  S(document).ready(function(){
+    var hexmap = S.hexmap('hexmap-8');
+    hexmap.setLayout('odd-q');
+    hexmap.positionHexes();
+
+    // Define the content of each hex
+    hexmap.setContent(function(id,hex){
+      return '<div class="'+hex.type+' batata" data-toggle="modal" data-target="#conteudoModal'+hex.n+'"> <span>'+hex.q+','+Math.abs(hex.r)+'</span></div>';
+    });
+  });
+</script>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="Mapa_rhaokar.html">Voltar</a>
+  </body>
+</html>

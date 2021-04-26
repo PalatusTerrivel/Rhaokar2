@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Povo-Fera</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+    body{
+        background-image: url("img/papyrus.jpg");
+        background-attachment: fixed;
+    }
+</style>
+<style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body 
+    {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .honeycomb {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+        align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      transform: translateY(80px);
+    }
+    .honeycomb-cell {
+      -webkit-box-flex: 0;
+              flex: 0 1 250px;
+      max-width: 250px;
+      height: 137.5px;
+      margin: 65.4761904762px 12.5px 25px;
+      position: relative;
+      padding: 0.5em;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    }
+    .honeycomb-cell_title {
+      height: 100%;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
+      word-break: break-word;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.75em;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell_title > small {
+      font-weight: 300;
+      margin-top: 0.25em;
+    }
+    .honeycomb-cell_image {
+         object-fit: cover;
+         object-position: center;
+         filter: grayscale(100%);
+        
+    }
+    
+    
+    .honeycomb-cell::before,
+     .honeycomb-cell::after {
+      content: '';
+    }
+    .honeycomb-cell::before, 
+    .honeycomb-cell::after, 
+    .honeycomb-cell_image {
+      top: -50%;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      display: block;
+      position: absolute;
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      z-index: -1;
+    }
+    .honeycomb-cell::before {
+      background: #fff;
+      -webkit-transform: scale(1.055);
+              transform: scale(1.055);
+    }
+    .honeycomb-cell::after {
+      background: #111111;
+      opacity: 0.7;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_title {
+      opacity: 0;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_image
+    {
+        filter: grayscale(0%);
+    }
+    .honeycomb-cell:hover::before {
+      background: #fc5130;
+    }
+    .honeycomb-cell:hover::after {
+      opacity: 0;
+    }
+    .honeycomb_placeholder {
+      display: none;
+      opacity: 0;
+      width: 250px;
+      margin: 0 12.5px;
+    }
+    
+    @media (max-width: 550px) 
+    {
+      .honeycomb-cell 
+      {
+        margin: 81.25px 25px;
+      }
+    }
+    @media (min-width: 550px) and (max-width: 825px) 
+    {
+      .honeycomb-cell:nth-child(3n) 
+      {
+        margin-right: calc(50% - 125px);
+        margin-left: calc(50% - 125px);
+      }
+    
+      .honeycomb_placeholder:nth-child(3n + 5) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 825px) and (max-width: 1100px) {
+      .honeycomb-cell:nth-child(5n + 4) 
+      {
+        margin-left: calc(50% - 275px);
+      }
+    
+      .honeycomb-cell:nth-child(5n + 5) 
+      {
+        margin-right: calc(50% - 275px);
+      }
+    
+      .honeycomb_placeholder:nth-child(5n), 
+      .honeycomb_placeholder:nth-child(5n + 3) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 1100px) 
+    {
+      .honeycomb-cell:nth-child(7n + 5) {
+        margin-left: calc(50% - 400px);
+      }
+    
+      .honeycomb-cell:nth-child(7n + 7), 
+      .honeycomb-cell:nth-child(7n + 5):nth-last-child(2) 
+      {
+        margin-right: calc(50% - 400px);
+      }
+    
+      .honeycomb_placeholder:nth-child(7n + 7), 
+      .honeycomb_placeholder:nth-child(7n + 9), 
+      .honeycomb_placeholder:nth-child(7n + 11) 
+      {
+        display: block;
+      }
+    }
+    </style>
+    
+    
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script type="text/JAVASCRIPT"></script>
+<!-- Global site tag (gtag.js) - Google Ads: 927274398 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-927274398"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-927274398');
+</script>
+<!-- Event snippet for Raças conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-927274398/SEOaCJbo-IgCEJ6rlLoD'});
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80313978-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80313978-8');
+</script>
+
+</head>
+    <body>
+<H1 style="text-align: center;">Estes são os Povos-Fera e suas variações</H1>
+<div class="honeycomb">
+    <a id="elefantes" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal1">
+      <img class="honeycomb-cell_image" src="img/Beastfolk-Elephant.gif">
+      <div class="honeycomb-cell_title">Elefantes</div>
+    </a>
+    <a id="rinoceronte" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal2">
+      <img class="honeycomb-cell_image" src="img/Beastfolk-Rhino.gif">
+      <div class="honeycomb-cell_title">Rinocerontes</div>
+    </a>
+    <a id="leoes" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal3">
+      <img class="honeycomb-cell_image" src="img/Beastfolk-Lion.gif">
+      <div class="honeycomb-cell_title">Leões</div>
+    </a>
+    <a id="camundongos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal4">
+      <img class="honeycomb-cell_image" src="img/Beastfolk-Mouse.gif">
+      <div class="honeycomb-cell_title">Camundongos</div>
+    </a>
+    <a id="lobos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal5">
+      <img class="honeycomb-cell_image" src="img/wolf.png">
+      <div class="honeycomb-cell_title">Lobos</div>
+    </a>
+    <a id="gatos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal6">
+      <img class="honeycomb-cell_image" src="img/9 - felinian.gif">
+      <div class="honeycomb-cell_title">Gatos</div>
+    </a>
+    <a id="pandas" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal7">    
+      <img class="honeycomb-cell_image" src="img/7.c - pandabjornin.gif">
+      <div class="honeycomb-cell_title">Pandas</div>
+    </a>
+    <a id="pardos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal8">
+        <img class="honeycomb-cell_image" src="img/7.a - grizzlybjornin.gif">
+        <div class="honeycomb-cell_title">Ursos Pardos</div>
+    </a>
+    <a id="polares" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal9">
+        <img class="honeycomb-cell_image" src="img/7.b - polarbjornin.gif">
+        <div class="honeycomb-cell_title">Ursos Polares</div>
+    </a>
+    <a id="corvos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal10">
+        <img class="honeycomb-cell_image" src="img/crow.png">
+        <div class="honeycomb-cell_title">Corvos</div>
+    </a>
+    <a id="raposas" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal11">
+        <img class="honeycomb-cell_image" src="img/13 - kitsune.gif">
+        <div class="honeycomb-cell_title">Raposas</div>
+    </a>
+    <a id="ratos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal12">
+        <img class="honeycomb-cell_image" src="img/Beastfolk-Rat.gif">
+        <div class="honeycomb-cell_title">Ratos</div>
+    </a>
+    <a id="macacos" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal13">
+        <img class="honeycomb-cell_image" src="img/monkey.png">
+        <div class="honeycomb-cell_title">Macacos</div>
+    </a>
+    <a id="tartarugas" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal14">    
+        <img class="honeycomb-cell_image" src="img/11 - Honu.gif">
+        <div class="honeycomb-cell_title">Tartarugas</div>
+    </a>
+    <a id="pinguins" class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal15">    
+        <img class="honeycomb-cell_image" src="img/img01.png">
+        <div class="honeycomb-cell_title">Pinguins</div>
+    </a>
+    <a class="honeycomb-cell honeycomb_placeholder">
+    </a>
+ </div>
+
+<!--elefantes-->
+     <div id="conteudoModal1"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Elefantes</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>O Povo-Elefante</b> vive em Koba, em unidades familiares nômades na floresta, elas são compostas de uma matriarca mais velha e outras fêmeas e filhotes, são unidades pequenas, com 15 a 20 individuos, as fêmeas são as lideres dessas unidades e os machos, ao atingirem a idade adulta, passam a viver sozinhos, em geral como xamãs.</p>
+                <p>Ambos os sexos tem muito orgulho de suas presas, raramente as usando em combate, mesmo que sejam muito eficientes como armas.</p>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um membro do povo Elefante, seu tamanho é Large, ficando entre 2,5m até 2,7m de altura para as fêmeas e entre 2,8m até 3m de altura para os machos e um peso de até 450kg para as fêmeas e até 700kg para os machos
+                </li>
+                <li>STR +2, DEX -2, CON +2, WIS +2, CHA -2, o povo elefante é forte e resistente por conta do tamanho e são muito sábios, mas são introspectivos e tendem a não confiar muito em estranhos.
+                </li>
+                <li>+2 Natural Armor, como suas contrapartes animais, o povo Elefante tem a pele grossa e resistente.
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, o povo Elefante não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li>+2 em testes de Perception, assim como sua contraparte animal, o povo Elefante tem os sentidos bem aguçados.
+                </li>
+                <li><b>Move:</b> 6m,embora sejam lentos por conta do tamanho, são bem fortes e não são afetados por carga ou armaduras.
+                </li>
+                <li><b>Tusks:</b> Como sua contraparte animal, o povo elefante possui longas presas, que podem ser usadas facilmente como armas, essas presas são um pouco menores nas fêmeas do que nos machos. em abos os casos, são armas naturais primárias que causam 1d6 de dano.
+                </li>
+                <li><b>Trunk:</b> O povo elefante possui uma tromba característica de sua espécie, e eles a usam quase como um 5º membro. A tromba, embora tenha a destreza manual de um braço, não pode ser usada para empunhar armas.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+              <ul><h4><b>Variação do Povo Elefante</b></h4>
+                <li><ul><b>O Povo Mamute</b>
+                  <p>O comportamento do Povo-manute é muito semelhante ao do povo Elefante, mas seu habitat é diferente, podem ser encontrados nas Tundras geladas de Ymirgardr no polo norte.</p>
+                  <li>Todas as estatisticas são iguais, mas o povo mamute não recebe o bonus de +2 em WIS, eles recebem um total de +4 em STR</li>
+                  <li>Adicionalmente, eles recebem os beneficios de <i>Endure Elements</i> para climas frios e uma penalidade de -2 para resistir aos efeitos do clima quente</li>
+                </ul></li>
+
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Rinocerontes-->
+     <div id="conteudoModal2"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Rinocerontes</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>O Povo Rinoceronte</b> Grandes, lentos e muito fortes, o povo rinoceronte é solitário, em geral vivendo sozinhos em cabanas nas florestas de Koba, são guerreiros orgulhosos e, diferentemente da maior parte dos povos-fera, ostentam seus chifres com orgulho e os usam em combate sempre que podem. 
+              </p>
+                <li>Seu tipo é Monstruous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um membro do povo Rinoceronte, seu tamanho é Large, ficando entre 2,4m até 2,6m de altura para as fêmeas e entre 2,7m até 2,9m de altura para os machos e um peso de até 350kg para as fêmeas e até 600kg para os machos
+                </li>
+                <li>STR +4, DEX -2, CON +2, INT -2, o povo Rinoceronte é extremamente forte e muito resistente, mas não são muito ágeis ou sofisticados.
+                </li>
+                <li>+3 Natural Armor, como sua contraparte animal, o povo Rinoceronte possui uma pele muito grossa e resistente.
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li>+2 Perception checks related to smell and listen and -2 to sight related perception checks, como seus parentes animais, o povo Rinoceronte não enxerga bem, mas tem um sentido de olfato e audição aguçados.
+                </li>
+                <li><b>Move:</b> 6m, embora sejam lentos por conta do tamanho, são bem fortes e não são afetados por carga ou armaduras.
+                </li>
+                <li><b>Gore:</b>primary natural weapon, 1d8 piercing, como sua contraparte animal, o povo Rinoceronte possui um longo e afiado chifre que eles usam em combate com frequência, pode ser usado em investida como uma lança.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+              <ul><h4><b>Variação do Povo Rinoceronte</b></h4>
+                <li><ul><b>O Povo Hipopótamo</b>
+                  <p>O comportamento do Povo-Hipopótamo é um pouco diferente, eles não são solitários, mas vivem em vilarejos próximos a cursos d´água, entretanto, eles são tão agressivos ou até mais que seus parentes rinocerontes.</p>
+                  <li>O valores de habilidade são os mesmos, mas eles perdem o ataque de Gore, em seu lugar, eles recebem um deslocamento de natação de 6m e um ataque de mordida de 1d6 como arma primária.</li>
+                    </ul></li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Leôes-->
+     <div id="conteudoModal3"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Leões</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>O Povo-Leão</b> Lordes das savanas de Koba, o povo leão é orgulhoso e são caçadores e guerreiros habilidosos, os macho são guerreiros poderosos e dedicados na proteção de seus clãs, mas a caça é o dominio das fêmeas. </p>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um membro do povo Leão, seu tamanho é Medium, ficando entre 1,6 até 2m de altura para as fêmeas e entre 1,8m até 2,3m de altura para os machos e um peso de até 100kg para as fêmeas e até 150kg para os machos
+                </li>
+                <li>STR +2, CHA +2, INT -2 para os machos e DEX +2, CON +2, para as fêmeas
+                </li>
+                <li>+2 em testes de Perception, assim como sua contraparte animal, o povo leão tem os sentidos bem aguçados. Além disso, os Machos recebem +2 em Intimidate e as Fêmeas +2 em survival.
+                </li>
+                <li><b>Move:</b> 9m
+                </li>
+                <li><b>Fang & Claws:</b> O povo leão tem dois ataques de garras e um ataque de mordida, ambos causam 1d4 de dano e são armas primarias, ou secundárias se usadas em conjunto com armas normais.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+              <ul><h4><b>Variação do Povo Leão</b></h4>
+                <li><ul><b>O Povo Tigre</b>
+                  <p>O comportamento do Povo-Tigre difere do Povo Leão, pois tendem a ser caçadores solitários, eles vivem nas florestas do Shogunato</p>
+                  <li>Tanto Machos como fêmeas recebem os seguintes bonus de habilidade e perícias: STR +2, CHA +2, Survival +2, Stealth +2, eles substituem os do Povo Leão</li>
+                  </ul></li>
+               </ul>
+              
+                <li><b>O Povo Dentes de Sabre</b></li>
+                  <p>O comportamento do Povo Dentes de Sabre difere do Povo Leão, pois tendem a ser caçadores solitários, eles vivem nas floresttas de Ymirgardr</p></p>
+                  <li>Tanto Machos como fêmeas recebem os seguintes bonus de habilidade e perícias: STR +2, CON +2, CHA -2, Survival +2, Stealth +2, eles substituem os do Povo Leão</li>
+                  <li>Adicionalmente, sua mordida causa 1d6 de dano e suas garras 1d3</li>
+                </ul></li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Camundongos-->
+     <div id="conteudoModal4"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Camundongos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+            </div>
+             <!--conteudo modal centralizado-->
+            <div class="modal-body">
+              <ul><p><b>O Povo-Camundongo</b> Vivem nas florestas de Aetheomir em vilarejos aos pés das árvores, seus pequenos vilarejos se assemelham aos dos humanos, mas são reclusos em suas vilas e evitam contato com os de fora a todo o custo. </p>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um membro do povo Camundongo, seu tamanho é Tiny, ficando entre 50cm até 70cm de altura e pesando entre 5kg e 10kg para ambos os sexos
+                </li>
+                <li>STR -4, DEX +4, CHA +2, o povo Camundongo é ágil e amigável, mas não são fisicamente fortes por conta do seu tamanho.
+                  <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                  </li>
+                <li>+2 em testes de Perception, Acrobatics, Stealth e Survival.
+                </li>
+                <li><b>Move:</b> 6m, Escalada 6m.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+                </button>
+            </div>
+         </div>
+        </div> 
+      </div>
+<!--Lobos-->
+     <div id="conteudoModal5"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Lobos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Rougarou</b>Seus bandos de caça vivem vagando pelas florestas de Aetheomir, procuram por grandes presas, mas não caçam humanóides sem um bom motivo</p>
+                <li><a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Rougarou" target="_blank">Use o Rougarou</a>, exceto pelo tipo, que passa a ser Monstrous Humanoid e os idiomas adicionais, que são os seguintes:
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Gatos-->
+     <div id="conteudoModal6"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Gatos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>O Povo-Gato</b></p>
+                <li><img src="img/9 - felinian.gif"></li>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Catfolk" target="_blank">a mesma coisa do Catfolk</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Pandas-->
+     <div id="conteudoModal7"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Pandas</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>O Povo-Panda</b>, tende a viver vidas solitárias ou em pequenos grupos nas montanhas do shogunato
+              </p>
+              <li><img src="img/7.c - pandabjornin.gif"></li>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Tamanho: são criaturas Médias e, portanto, não recebem bônus ou penalidades devido ao tamanho.
+                </li>
+                <li>STR +2, WIS -2, CHA -2,  são fortes, tanto em espírito quanto em corpo, mas tendem a ser reclusos.
+                </li>
+                <li>+2 em testes de Perception, assim como sua contraparte animal, o povo Elefante tem os sentidos bem aguçados.
+                </li>
+                <li><b>Move:</b> 6m,embora sejam lentos por conta do tamanho, são bem fortes e não são afetados por carga ou armaduras.
+                </li>
+                <li><b>Atleta Natural:</b>  são fortes, tanto em espírito quanto em corpo, mas tendem a serem reclusos.
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Pardos-->
+     <div id="conteudoModal8"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Bjornin Pardos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p></p><b>Os Bjornin Pardos</b> são solitários, vivendo sozinhos em cabanas na floresta, onde caçam e colhem frutas, preferem evitar o combate, mas seu grande tamanho e força faz com que eles se tornem oponentes formidáveis 
+              </p>
+              <li><img src="img/7.a - grizzlybjornin.gif"></li>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um Bjornin Pardo, seu tamanho é Large, ficando entre 2,5m até 2,7m de altura e um peso de até 450kg para ambos os sexos
+                </li>
+                <li>STR +4, DEX -2, CON +2, São grandes e corpulentos, porem lentos.
+                </li>
+                <li><b>Forma Sólida:</b> Recebem um bônus racial de +2 para se testes de resistências contra magia ou efeitos de polimorfismo, contra doenças e contra venenos ingeridos ou inalados (mas não contra doenças ou venenos mágicos).
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li><b>Robusto:</b> Ganham +2 de bônus racial em DMC contra tentativas de atropelamento, derrubar ou agarrar feitas contra eles enquanto estiverem em solo.
+                </li>
+                <li><b>Move:</b> 9m.
+                </li>
+                <li><b>Ódio:</b> Recebem um bônus racial +1 nas jogadas de ataque contra aberrações e contra criaturas humanoides do subtipo gigante, devido a treinamento especial contra esses inimigos.
+                </li>
+                <li><b>Ataques Naturais:</b> Ganha um ataque corpo a corpo de mordida e dois ataques de garras sendo ambos são ataques naturais. O ataque de mordida causa 1d6 de dano e cada ataque de garra causa 1d6 de dano. Estes são ataques primários ou secundários se estiver segurando qualquer outra arma.
+                </li>
+                <li><b>Faro:</b> Ursos pardos possuem um olfato aguçado
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Polares-->
+     <div id="conteudoModal9"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Bjornin Polares</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p></p><b>Os Bjornin Polares</b> são solitários, vivendo sozinhos como nomades nos litorais frios do polo norte, onde caçam e pescam, preferem evitar o combate, mas seu grande tamanho e força faz com que eles se tornem oponentes formidáveis 
+              </p>
+              <li><img src="img/7.b - polarbjornin.gif"></li>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um Bjornin Polar, seu tamanho é Large, ficando entre 2,5m até 2,7m de altura e um peso de até 450kg para ambos os sexos.
+                </li>
+                <li>STR +4, DEX -2, CON +2, São grandes e corpulentos, porem lentos.
+                </li>
+                <li><b>Forma Sólida:</b> Recebem um bônus racial de +2 para se testes de resistências contra magia ou efeitos de polimorfismo, contra doenças e contra venenos ingeridos ou inalados (mas não contra doenças ou venenos mágicos).
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li><b>Robusto:</b> Ganham +2 de bônus racial em DMC contra tentativas de atropelamento, derrubar ou agarrar feitas contra eles enquanto estiverem em solo.
+                </li>
+                <li><b>Resistencia ao frio:</b> eles recebem os beneficios de <i>Endure Elements</i> para climas frios e uma penalidade de -2 para resistir aos efeitos do clima quente</li>
+                <li><b>Move:</b> 9m, natação de 6m.
+                </li>
+                <li><b>Ódio:</b> Recebem um bônus racial +1 nas jogadas de ataque contra aberrações e contra criaturas humanoides do subtipo gigante, devido a treinamento especial contra esses inimigos.
+                </li>
+                <li><b>Ataques Naturais:</b> Ganha um ataque corpo a corpo de mordida e dois ataques de garras sendo ambos são ataques naturais. O ataque de mordida causa 1d6 de dano e cada ataque de garra causa 1d6 de dano. Estes são ataques primários ou secundários se estiver segurando qualquer outra arma.
+                </li>
+                <li><b>Faro:</b> Ursos polares possuem um olfato aguçado.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Corvos-->
+     <div id="conteudoModal10"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Tengu</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Tengu</b></p>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Tengu" target="_blank">a mesma coisa do Tengu</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Raposas-->
+     <div id="conteudoModal11"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Kitsune</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Kitsune</b></p>
+                <li><img src="img/13 - kitsune.gif"></li>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Kitsune" target="_blank">a mesma coisa do Kitsune</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Ratos-->
+     <div id="conteudoModal12"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Ratos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>O Povo-rato</b></p>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Ratfolk" target="_blank">a mesma coisa do Ratfolk</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Macacos-->
+     <div id="conteudoModal13"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Vanara</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Vanara</b></p>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Vanara" target="_blank">a mesma coisa do Vanara</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Tartarugas-->
+     <div id="conteudoModal14"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Honu</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p></p><b>Os Honu</b> Os Honu, ou povo tartaruga, vive nos arquipelagos ao norte do shogunato, são pacificos, vivem em pequenas aldeias costeiras e vivem de pesca, consideram águas-vivas uma iguaria
+              </p>
+              <li><img src="img/11 - Honu.gif"></li>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Tamanho: são criaturas Médias e, portanto, não recebem bônus ou penalidades devido ao tamanho, medem entre 1,6m e 2,1m e podem pesar até 300kg.
+                </li>
+                <li>DEX -2, CON +2, WIS +2, o povo Honu é resistente.
+                </li>
+                <li><b>Move:</b> 6m, e não são afetados por carga ou armaduras. Natação 9m
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li><b>Hard Shell:</b> A Carabaça de um Honu dá os seguintes beneficios: +6 de bonus de Armadura na CA, +3 de bônus máximo de Destreza na CA, -4 de penalidade de armadura (como um peitoral de aço)
+                </li>
+                <li><b>RM:</b> Sua Carapaça provém uma resistencia a magia igual a 11+nivel de personagem
+                </li>
+                <li><b>Runas de Casco:</b> Um personagem com o Talento Craft Magical Tattoo, pode encantar o casco de um Honu como se fosse uma armadura.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Pinguins-->
+     <div id="conteudoModal15"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Pinguins</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p></p><b>Os Chryss</b>, ou povo pinguin, é uma espécie nativa do litoral de huntston, vivem em pequenas aldeias e nos portos de Huntston, são mercadores e vendedores de tudo que não estiver pregado ou em que eles possam colocar suas mãos, podem ser lentos em terra, mas são eximios nadadores, eles tendem a formar laços duradouros com seus parceiros.</p>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Seu Tamanho é Pequeno, medindo entre 80cm e 1,3m e pesando entre 15kg e 35kg
+                </li>
+                <li>STR -2, CON +2, CHA +2, seu tamanho não os torna muito fortes, mas são bem resistentes e amigáveis
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li>+2 em testes de Appraise, Sense Motive, Diplomacy e Bluff.
+                </li>
+                <li><b>Move:</b> 4,5m, Natação 12m
+                </li>
+                <li><b>Telepatia Limitada:</b> uma vez por semana, pode escolher um par, e pode se comunicar telepaticamente com este par a uma distancia de até 30m
+                </li>
+                <li><b>Bico:</b> um ataque natural primario com o bico, caisa 1d3 de dano
+                </li>
+                <li><b>Habilidades Similares a Magia:</b> uma vez por dia cada, pode usar <i>Detect Magic</i> e <i>Identify</i>, nivel de conjurador igual o nivel de personagem, é baseado em CHA.
+                <li><b>Resistencia ao frio:</b> eles recebem os beneficios de <i>Endure Elements</i> para climas frios e uma penalidade de -2 para resistir aos efeitos do clima quente
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligencia podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a class="btn btn-primary" href="especies.html">Voltar</a>
+    <footer>
+
+    </footer>
+    </body>
+</html>

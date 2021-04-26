@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Povos Élficos</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+    body{
+        background-image: url("img/papyrus.jpg");
+        background-attachment: fixed;
+    }
+</style>
+<style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body 
+    {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .honeycomb {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+        align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      transform: translateY(80px);
+    }
+    .honeycomb-cell {
+      -webkit-box-flex: 0;
+              flex: 0 1 250px;
+      max-width: 250px;
+      height: 137.5px;
+      margin: 65.4761904762px 12.5px 25px;
+      position: relative;
+      padding: 0.5em;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    }
+    .honeycomb-cell_title {
+      height: 100%;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
+      word-break: break-word;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.75em;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell_title > small {
+      font-weight: 300;
+      margin-top: 0.25em;
+    }
+    .honeycomb-cell_image {
+         object-fit: cover;
+         object-position: center;
+         filter: grayscale(100%);
+        
+    }
+    
+    
+    .honeycomb-cell::before,
+     .honeycomb-cell::after {
+      content: '';
+    }
+    .honeycomb-cell::before, 
+    .honeycomb-cell::after, 
+    .honeycomb-cell_image {
+      top: -50%;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      display: block;
+      position: absolute;
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      z-index: -1;
+    }
+    .honeycomb-cell::before {
+      background: #fff;
+      -webkit-transform: scale(1.055);
+              transform: scale(1.055);
+    }
+    .honeycomb-cell::after {
+      background: #111111;
+      opacity: 0.7;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_title {
+      opacity: 0;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_image
+    {
+        filter: grayscale(0%);
+    }
+    .honeycomb-cell:hover::before {
+      background: #fc5130;
+    }
+    .honeycomb-cell:hover::after {
+      opacity: 0;
+    }
+    .honeycomb_placeholder {
+      display: none;
+      opacity: 0;
+      width: 250px;
+      margin: 0 12.5px;
+    }
+    
+    @media (max-width: 550px) 
+    {
+      .honeycomb-cell 
+      {
+        margin: 81.25px 25px;
+      }
+    }
+    @media (min-width: 550px) and (max-width: 825px) 
+    {
+      .honeycomb-cell:nth-child(3n) 
+      {
+        margin-right: calc(50% - 125px);
+        margin-left: calc(50% - 125px);
+      }
+    
+      .honeycomb_placeholder:nth-child(3n + 5) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 825px) and (max-width: 1100px) {
+      .honeycomb-cell:nth-child(5n + 4) 
+      {
+        margin-left: calc(50% - 275px);
+      }
+    
+      .honeycomb-cell:nth-child(5n + 5) 
+      {
+        margin-right: calc(50% - 275px);
+      }
+    
+      .honeycomb_placeholder:nth-child(5n), 
+      .honeycomb_placeholder:nth-child(5n + 3) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 1100px) 
+    {
+      .honeycomb-cell:nth-child(7n + 5) {
+        margin-left: calc(50% - 400px);
+      }
+    
+      .honeycomb-cell:nth-child(7n + 7), 
+      .honeycomb-cell:nth-child(7n + 5):nth-last-child(2) 
+      {
+        margin-right: calc(50% - 400px);
+      }
+    
+      .honeycomb_placeholder:nth-child(7n + 7), 
+      .honeycomb_placeholder:nth-child(7n + 9), 
+      .honeycomb_placeholder:nth-child(7n + 11) 
+      {
+        display: block;
+      }
+    }
+    </style>
+    
+    
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script type="text/JAVASCRIPT"></script>
+<!-- Global site tag (gtag.js) - Google Ads: 927274398 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-927274398"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-927274398');
+</script>
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-927274398',
+    'value': 'replace with value',
+    'items': [{
+      'id': 'replace with value',
+      'location_id': 'replace with value',
+      'google_business_vertical': 'local'
+    }]
+  });
+</script>
+<!-- Event snippet for elfos botão conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-927274398/Sf8qCIfqookCEJ6rlLoD',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RPLLPJFDM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1RPLLPJFDM');
+</script>
+
+</head>
+    <body>
+<H1 style="text-align: center;">Estes são os Élficos</H1>
+<div class="honeycomb">
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal1">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Elfos da Floresta</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal2">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Elfos Aquáticos</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal3">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Elfos da Areia</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal4">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Drow</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal5">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Elfos da Noite</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal6">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Uldra</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal7">    
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+      <div class="honeycomb-cell_title">Elfos de Ferro</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal8">
+      <img class="honeycomb-cell_image" src="img/2.d - summerelf.gif">
+        <div class="honeycomb-cell_title">Altos Elfos</div>
+    </a>
+    <a class="honeycomb-cell honeycomb_placeholder">
+    </a>
+ </div>
+
+<!--elfos da floresta-->
+     <div id="conteudoModal1"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Tahar'Faer</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo Elfo da floresta-->
+             <div class="modal-body">
+              <ul><p><b>Os Tahar'Faer</b>, vivem nas florestas de Aetheomir e são seus principais residentes, fazendo suas casas nas gigantescas árvores da floresta, todos os Elfos da Floresta possuem uma caracteristica animal ou vegetal, eles vão acumulando essas caracteristicas e se tornando cada vez mais bestiais a medida que envelhecem, Tahar'Faer muito antigos parecem amalgamas de diversos animais.
+                <li>Seu tipo é Humanoid (Elf)</li>
+                <li>Seu tamanho é Medium</li>
+                <li>DEX +2, CON -2, WIS +2, os Tahar-Faer são ágeis e sábios, mas, como todos os elfos, tem uma constituição frágil</li>
+                <li>Low Light Vision, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.</li>
+                <li><b>Imunidades élficas:</b>Imune a efeitos mágicos de sono e +2 de bonus em testes contra magias e efeitos de encantamento</li>
+                <li><b>Move:</b> 12m</li>
+                <li><b>Sentidos Aguçados:</b> +2 em testes de Perception</li>
+                <li><b>Caminho da Floresta:</b> Tahar'Faer podem se mover por terreno dificil em Florestas. Terrenos alterados magicamente os afeta normalmente.</li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Elfico, membros com altos valores de inteligencia podem aprender: Draconico, Celestial, Gnomo, Ente, Orc, Goblin, e Silvestre.</li>
+              </ul>
+              <ul><h4><b>Caracteristica Animal:</b> nos niveis indicados, pode escolher uma das caracteristicas a seguir.</h4>
+                <li><ul><b>Caracteristicas de nivel 1</b>
+                  <li>Você tem as manchas de um Leopardo</li>
+                  <li>Você tem uma cauda de Gato</li>
+                  <li>Você tem uma camada de Penas</li>
+                  <li>Você tem sobrancelhas verdes e grossas</li>
+                  <li>Seu cabelo se torna um emaranhado de vinhas</li>
+                  <li>Sua pele se torna verde e escamosa</li>
+                  <li>Seu toque pode fazer as flores se abrirem</li>
+                  <li>Sua voz soa como a de um cão, embora ainda possa ser compreendido</li>
+                  <li>Você tem listras pelo corpo, como uma Zebra</li>
+                  </ul></li>
+                <ul><h4><b></b></h4>
+                  <li><ul><b>Caracteristicas de Nivel 4</b>
+                    <li>Você desenvolde uma corcova, como a de um Camelo, você pode passar até 5 dias sem água</li>
+                    <li>Você desenvolve uma camada de pelos brancos como os de urso polar, você recebe um bonus de +8 em testes de Stealth em áreas de Neve</li>
+                    <li>Seus pés desenvolvem a camada grudenta das patas de um lagarto, você recebe +4 em testes de natação</li>
+                    <li>Você se torna ágil como um Cervo, aumente seu deslocamento em 1,5m</li>
+                    <li>Você se torna convidativo como uma Dryad, você recebe um bonus de +4 em testes de Diplomacy</li>
+                    <li>Você se torna gracioso como um Gato, você recebe +4 em testes de Acrobacy</li>
+                    <li>Folhas crescem em você e você passa a fazer fotossíntese, consome a mesma quantidade de água, mas pode passar sem comida se ficar 1h por dia no sol.</li>
+                    <li>Seu sangue flui lento como seiva de árvore, a velocidade que dano progressivo como decomposição e sangramento te afeta, é cortada pela metade</li>
+                    <li>Seus olhos são aguçados como os de um rato, dobre o alcance da visão na penumbra</li>
+                    <li>Sua pele se adapta como a de um polvo, como ela muda de cor e textura, você recebe um bonus de +4 em testes de Stealth</li>
+                  </ul></li>
+                  <ul><h4><b></b></h4>
+                    <li><ul><b>Caracteristicas de Nivel 8</b>
+                      <li>Você desenvolve Galhos como os de um Cervo, pode fazer um ataque de Chifre, como uma arma natural primaria de 1d6 de dano</li>
+                      <li>Você desenvolve espinhos por todo o corpo, seus ataques desarmados causam dano de pircing e quem o agarrar ou atacar com armas naturais ou ataques desarmados, sofre 1d3 de dano</li>
+                      <li>Você pode Constringir como uma cobra, toda a vez que você tiver sucesso em um teste de agarrar contra uma criatura do seu tamanho ou menor, você causa 1d3 de dano</li>
+                      <li>Você pode tecer Teias como uma aranha, você pode usar a teia para capturar presas como uma Aranha Monstruosa do seu tamanho, mas não pode usar para atacar.</li>
+                      <li>Seus olhos são afiados como os de uma Águia, +4 em testes de Perception durante o dia</li>
+                      <li>Seus olhos são afiados como os de uma Coruja, +4 em testes de Perception na escuridão ou ao anoitecer</li>
+                      <li>Suas mãos desenvolvem garras como as de um Falcão, recebe dois ataques de garra de 1d4 cada, são armas naturais primárias e recebe o talento <i>Weapon Finesse</i> com elas</li>
+                      <li>Sua boa se alarga e você desenvolve a poderosa mordida de um Crocodilo, ganha um ataque primário de Mordida que causa 1d6 de dano</li>
+                      <li>Seus pés desenvolvem garras como as de um Leão, quando agarrar um openente e for bem sucedido em manter a manobra, pode fazer dois ataques de Rasgar que causam 1d4 de dano</li>
+                      <li>Você desenvolve Gelras como as de um peixe, pode respirar na água e na terra normalmente.</li>
+                    </ul></li>
+                    <ul><h4><b></b></h4>
+                      <li><ul><b>Caracteristicas de Nivel 12</b>
+                        <li>Você desenvolve um ferrão ácido, como o de uma Formiga Gigante, o ferrão causa 1d4 de dano+1d4 de dano de ácido, é uma arma natural primária.</li>
+                        <li>Você pode derrubar como um Lobo, sempre que atingir um openente com um ataque natura, pode iniciar a manobra Trip, como uma Free Action.</li>
+                        <li>Você pode entrar em um estado de fúria como um Carcaju, ao sofrer dano, pode entrar em fúria como um Bárbaro de nivel 1, se alguma habilidade fornecer a habilidade de Fúria, pode usar a habilidade como se tivessem 1 nivel a mais.</li>
+                        <li>Você tem a ferocidade de um Javali, pode continuar a lutar sem nenhuma penalidade mesmo com pontos de vida negativos.</li>
+                        <li>Você pode agarrar como um Urso, pode fazer um teste de Agarrar ao atingir um oponente com uma arma natural como uma Free Action.</li>
+                        <li>Você pode dar um bote como um Leopardo, ao saltar sobre um oponente durante a primeira rodada de combate, pode fazer uma ação de ataque total, mesmo que você já tenha se movido neste turno.</li>
+                        <li>Suas mãos são fortes como as de um Gorila, +2 de bonus em testes de STR para Quebrar objetos.</li>
+                        <li>Suas mandibulas são fortes como as de uma Doninha, ao atinigir um oponente com um ataque de mordida, você se prende ao oponente, caisando 1d3 de dano por rodada até se soltar, durante esse tempo, você perde seu bonus de DEX na CA</li>
+                        <li>Você pode soltar Tinta como uma Lula, se estiver na água, pode fazer uma nuvem de tinta de 3mx3m, ela fornece cobertua total e quem estiver dentro está em escuridão total, isso pode ser feito 1/min</li>
+                        <li>Seu Faro se torna aguçado como os de um Cão, você recebe a habilidade Faro.</li>
+                      </ul></li>
+                      <ul><h4><b></b></h4>
+                        <li><ul><b>Caracteristicas de Nivel 16</b>
+                          <li>Você desenvolve um Chifre, como o de um Unicórnio, +4 de bonus em testes de Fortitude contra Venenos e pode ser usado como uma arma naturam primária que causa 1d8 de dano</li>
+                          <li>Você desenvolve Asas como as de um pássaro ou um Morcego, você ganha a habilidade de Voo com capacidade de Manobra Boa e velocidade de 18m</li>
+                          <li>Você pode se enrolar em uma bola como um Ouriço, nesse estado, recebe +4 de armadura natural, mas não pode se mover ou atacar, se enrolar ou desenrolar, é uma ação Padrão</li>
+                          <li>Você se torna Gracioso como um Pixie, +2 em testes de reflexos</li>
+                          <li>Você desenvolve o sentido Sismico de uma Minhoca, ganha a habilidade de Tremor Sense, com um raio de 9m</li>
+                          <li>Seus dentes podem expelir veneno, você pode usar esse veneno em um ataque de mordida, a CD do veneno é 10+1/2 do seu nivel+CON o dano é de 1d4 de dano de DEX, um sucesso elimina o efeito</li>
+                          <li>Seus Sentidos são Aguçados como os de um Morcego, recebe Blind Sense com alcance de 9m</li>
+                          <li>Seus pés se tornam largos como os de um Elefante, pode usar a manobra Atropelar, o dano é 2d4 e o teste de resistencia é baseado em STR</li>
+                        </ul></li>
+
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--elfos da agua-->
+     <div id="conteudoModal2"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Lahar e Mahar Faer</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo elfos aquaticos-->
+             <div class="modal-body">
+              <ul><p><b>Os Lahar e Mahar Faer </b> </p>
+                <p>Os Lahar'Faer, ou elfos de agua doce vivem em lagos profundos e grandes rios espalhados pelo mundo, constroem suas casas com madeira submersa e algas, tendem a fazer comércio com os povos da superficie  vendendo peixes dos lagos onde vivem, desde que os locais preservem e cuidem do lago ou rio, suas comunidades mais conhecidas ficam nos grandes lagos de Aetheomir.
+                </p>
+                <p>Os Mahar'Faer, ou elfos do mar, vivem nos recifes de coral por todo o mundo, constroem suas casas de coral modelado para crescer nos formatos das construções.
+                </p>
+                <p>Fisicamente, ambas as espécies são totalmente identicas, mas eles acham que esse tipo de afirmação é extremamente racista, visto que as diferenças entre eles é terrivelmente evidente.
+                </p>
+              
+              <li>exceto pelo lore, funcionam exatamente como os <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Aquatic%20Elf" target="_blank">Elfos Aquáticos</a></li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--elfos da areia-->
+     <div id="conteudoModal3"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Sihar'Faer</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Os Sihar'Faer</b>, os elfos da areia ou Elfos Coroados, são os moradores do Deserto de Catarna, são nomades que vivem em pequenas comunidades vagando pelo deserto como mercadores.</p>
+                <p>Possuem peles de cor laranja e cobre, com listras instrincadas em vários tons de vermelho, todos eles tem uma coroa de chifres envolta da cabeca, o que lhes rende a alcunha de Elfos Coroados, esses chifres são mais proeminentes nos macho que nas fêmeas.</p>
+                <li>Seu tipo é Humanoid (Elf)</li>
+                <li>Seu tamanho é Medium</li>
+                <li>DEX +2, CON -2, WIS +2, os Sihar'Faer são ágeis e sábios, mas, como todos os elfos, tem uma constituição frágil</li>
+                <li><b>Dark Vision:</b> 18m</li>
+                <li><b>Move:</b> 9m</li>
+                <li><b>Corredor do Deserto:</b> +4 de bonus racial em testes de fortitude para resistir a Fadiga e Exaustão, assim como a qualquer efeito negativo de corridas, marchas forçadas, fome, sede e ambientes frios ou quentes.</li>
+                <li><b>Guerreiro do Deserto:</b> pode se mover pelo terreno dificil das dunas e do deserto sem penalidades, terreno alterado magicamente funciona normalmente</li>
+                <li><b>Resistencia ao Clima:</b> funciona como <i>Endure elements</i> que afeta o elfo constantemente</li>
+                <li><b>Sobrevivente Oculto:</b> +4 em Stealth e Survival no Deserto</li>
+                <li><b>Sentidos Aguçados:</b> +2 em testes de Perception</li>
+                <li><b>Familiaridade com Armas:</b> São proficientes com Kukris e Cimitarras e Lanças, e tratam qualquer arma com Elven no nome como arma Martial.</li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Elfico, membros com altos valores de inteligencia podem aprender: Draconico, Celestial, Gnomo, Ente, Orc, Goblin, e Silvestre.</li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--drow-->
+     <div id="conteudoModal4"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Drow</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+            </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Os Cahar'Faer</b></p>
+                <p>Vivem nas profundezas da terra, ao contrário de duas contrapartes de outros mundos, não são inerentemente malignos, mantém comércio com os Gnomos das Profundezas e com os Anões.</p>
+              <li>exceto pelo lore, funcionam exatamente como os <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Drow" target="_blank">Elfos Drow</a></li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+                </button>
+            </div>
+         </div>
+        </div> 
+      </div>
+<!--elfos da noite-->
+     <div id="conteudoModal5"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Nihar'Faer</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Os Nihar'Faer</b>Elfos noturnos são raros por todo o mundo, vivem em templos nos arquipélagos, mas raramente se aventuram fora de suas florestas</p>
+                <li>Seu tipo é Humanoid (Elf)</li>
+                <li>Seu tamanho é Medium</li>
+                <li>DEX +2, WIS +2, CHA-2 os Nihar'Faer são ágeis e sábios, mas reclusos e desconfiados</li>
+                <li><b>Dark Vision:</b> 18m</li>
+                <li><b>Move:</b> 9m</li>
+                <li><b>Resistencia da Natureza:</b> Elfos Noturnos tem Resistencia a ácido 5</li>
+                <li><b>Resistencia as Sombras:</b> Elfos Noturnos tem resistencia a Frio e Eletricidade 5 </li>
+                <li><b>Naturalista:</b> Elfos Noturnos tem +2 em Knowledge (Nature)</li>
+                <li><b>Mesclar-se as Sombras:</b> Em ambientes de pouca luz ou a noite, Elfos Noturnos recebem um bonus racial de +10 em Stealth se estiverem parados</li>
+                <li><b>Familiaridade com Armas:</b> São proficientes com Arcos, e tratam qualquer arma com "Elven" no nome como arma Martial.</li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Elfico, membros com altos valores de inteligencia podem aprender: Draconico, Celestial, Gnomo, Ente, Orc, Goblin, e Silvestre.</li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--uldra-->
+     <div id="conteudoModal6"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Uldra</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Os Uldhar'Faer</b></p>
+                <li>Seu tipo é Humanoid (Elf)</li>
+                <li>Seu tamanho é Medium</li>
+                <li>DEX +2, WIS +2, CHA-2 os Nihar'Faer são ágeis e sábios, mas reclusos e desconfiados</li>
+                <li><b>Dark Vision:</b> 18m</li>
+                <li><b>Move:</b> 9m</li>
+                <li><b>Imunidades élficas:</b>Imune a efeitos mágicos de sono e +2 de bonus em testes contra magias e efeitos de encantamento</li>
+                <li><b>Resistencia a Frio:</b> Elfos da Neve tem resistencia a Frio 5 </li>
+                <li><b>Sentidos Aguçados:</b> Elfos da Neve tem +2 de bonus racial em testes de Perception</li>
+                <li><b>Magia Élfica:</b> +2 de nivel de conjurador para testes para superar resistencia a magia, +2 em Spellcraft para identificar as propriedades de itens Mágicos</li>
+                <li><b>Familiaridade com Armas:</b> São proficientes com Arcos, espadas longas, machados de guerra e lanças, e tratam qualquer arma com "Elven" no nome como arma Martial.</li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Elfico, membros com altos valores de inteligencia podem aprender: Draconico, Celestial, Gnomo, Ente, Orc, Goblin, e Silvestre.</li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--elfos de ferro-->
+     <div id="conteudoModal7"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Irhar'Faer</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Os Irhar'Faer</b>Senhores da Montanha de Ferro no Polo Sul, Estão em guerra com Orchardhaven e são principais usuários de Magia Bélica.</p>
+                <li>Seu tipo é Humanoid (Elf)</li>
+                <li>Seu tamanho é Medium</li>
+                <li>DEX +2, INT +2, CHA-2 os Elfos de Ferro são ágeis e Inteligentes, mas reclusos e desconfiados</li>
+                <li><b>Sentidos Avançados:</b> Visão no escuro 18m e Visão na Penumbra</li>
+                <li><b>Move:</b> 9m</li>
+                <li><b>Alerta:</b>+2 de bonus em Perception</li>
+                <li><b>Sem Emoção:</b>-4 em Sense Motive</li>
+                <li><b>Construídos:</b> 
+                <p>Para efeitos que tornam ele um alvo e dependam do tipo (como o Favored Enemy do Ranger ou uma arma com a propriedade Bane), ele é considerado um Humanoid (elf) e um Construct</p>
+                <p>Irhar'Faer recebem um bonus racial de +4 em testes contra efeitos de ação mental, paralisia, venenos e Stun, não estão sujeitos a fatigue e Exhaustion e são imune a efeitos de sono e a doenças</p>
+                <p>Irhar'Faer não recebem bonus de Moral e são imunes a medo e a todos os efeitos baseados em emoções</p></li>
+                <li><b>Peças Intercambiáveis:</b> Irhar'Faer podem substituir seus membros por membros aprimorados como se fosse um Forjado</li>
+                <li><b>Familiaridade com Armas:</b> São proficientes com Armas de Fogo Leves e Longas, e tratam qualquer arma com "Elven" no nome como arma Martial.</li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Elfico, membros com altos valores de inteligencia podem aprender: Draconico, Celestial, Gnomo, Ente, Orc, Goblin, e Silvestre.</li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--altos elfos-->
+     <div id="conteudoModal8"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Faehar'Faer</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+              <ul><p><b>Os Faehar'Faer</b></p>
+                <p>São os principais moradores do reino mágico de Galorfindil</p>
+              <li>exceto pelo lore, funcionam exatamente como os <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Elf" target="_blank">Altos Elfos</a></li>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a class="btn btn-primary" onclick="return gtag_report_conversion('https://rhaokar.com.br/especies.html');" href="especies.html">Voltar</a>
+    <footer>
+
+    </footer>
+    </body>
+</html>

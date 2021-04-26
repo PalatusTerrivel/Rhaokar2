@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MRWNB3H');</script>
+<!-- End Google Tag Manager -->
+    <title>O Povo-Lagarto</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+    body{
+        background-image: url("img/papyrus.jpg");
+        background-attachment: fixed;
+    }
+</style>
+<style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body 
+    {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .honeycomb {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+        align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      transform: translateY(80px);
+    }
+    .honeycomb-cell {
+      -webkit-box-flex: 0;
+              flex: 0 1 250px;
+      max-width: 250px;
+      height: 137.5px;
+      margin: 65.4761904762px 12.5px 25px;
+      position: relative;
+      padding: 0.5em;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    }
+    .honeycomb-cell_title {
+      height: 100%;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
+      word-break: break-word;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.75em;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell_title > small {
+      font-weight: 300;
+      margin-top: 0.25em;
+    }
+    .honeycomb-cell_image {
+         object-fit: cover;
+         object-position: center;
+         filter: grayscale(100%);
+        
+    }
+    
+    
+    .honeycomb-cell::before,
+     .honeycomb-cell::after {
+      content: '';
+    }
+    .honeycomb-cell::before, 
+    .honeycomb-cell::after, 
+    .honeycomb-cell_image {
+      top: -50%;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      display: block;
+      position: absolute;
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      z-index: -1;
+    }
+    .honeycomb-cell::before {
+      background: #fff;
+      -webkit-transform: scale(1.055);
+              transform: scale(1.055);
+    }
+    .honeycomb-cell::after {
+      background: #111111;
+      opacity: 0.7;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_title {
+      opacity: 0;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_image
+    {
+        filter: grayscale(0%);
+    }
+    .honeycomb-cell:hover::before {
+      background: #fc5130;
+    }
+    .honeycomb-cell:hover::after {
+      opacity: 0;
+    }
+    .honeycomb_placeholder {
+      display: none;
+      opacity: 0;
+      width: 250px;
+      margin: 0 12.5px;
+    }
+    
+    @media (max-width: 550px) 
+    {
+      .honeycomb-cell 
+      {
+        margin: 81.25px 25px;
+      }
+    }
+    @media (min-width: 550px) and (max-width: 825px) 
+    {
+      .honeycomb-cell:nth-child(3n) 
+      {
+        margin-right: calc(50% - 125px);
+        margin-left: calc(50% - 125px);
+      }
+    
+      .honeycomb_placeholder:nth-child(3n + 5) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 825px) and (max-width: 1100px) {
+      .honeycomb-cell:nth-child(5n + 4) 
+      {
+        margin-left: calc(50% - 275px);
+      }
+    
+      .honeycomb-cell:nth-child(5n + 5) 
+      {
+        margin-right: calc(50% - 275px);
+      }
+    
+      .honeycomb_placeholder:nth-child(5n), 
+      .honeycomb_placeholder:nth-child(5n + 3) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 1100px) 
+    {
+      .honeycomb-cell:nth-child(7n + 5) {
+        margin-left: calc(50% - 400px);
+      }
+    
+      .honeycomb-cell:nth-child(7n + 7), 
+      .honeycomb-cell:nth-child(7n + 5):nth-last-child(2) 
+      {
+        margin-right: calc(50% - 400px);
+      }
+    
+      .honeycomb_placeholder:nth-child(7n + 7), 
+      .honeycomb_placeholder:nth-child(7n + 9), 
+      .honeycomb_placeholder:nth-child(7n + 11) 
+      {
+        display: block;
+      }
+    }
+    </style>
+    
+    
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script type="text/JAVASCRIPT"></script>
+</head>
+    <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRWNB3H"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<H1 style="text-align: center;">Estes são os Povos-Lagarto e suas variações</H1>
+<div class="honeycomb">
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal1">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Sóis verdes</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal2">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Sóis Antigos</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal3">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Veneno Crepuscular</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal4">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Sóis Vermelhos</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal5">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Sobekai</div>
+    </a>
+    <a class="honeycomb-cell honeycomb_placeholder">
+    </a>
+ </div>
+
+<!--Sois verdes-->
+     <div id="conteudoModal1"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Sóis Verdes</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+               <p>Sóis Esverdeados, o tipo mais comum do povo lagarto e o mais conhecido, vivem em pantanos e charcos, constroem vilas simples com cabanas feitas de barro e vegetação, são onivoros, mas preferem carne.</p>
+              <ul>
+                <li><b>Atributos</b>+2 STR, +2 CON</li>
+                <li><b>Tipo:</b>Humanoid (Reptilian)</li>
+                <li><b>Tamanho:</b>Médio</li>
+                <li><b>Movimento:</b>9m, natação 9m</li>
+                <li><b>Armadura Natural:</b>+4</li>
+                <li><b>Ataques Naturais:</b>garras e mordida de 1d4, armas primarias</li>
+                <ul><li><b>Qualidades Especiais:</b></li>
+                    <li><b>Visão no Escuro:</b> 18m</li>
+                    <li><b>Prender a Respiração:</b> pode prender a respiração por uma quantidade de minutos igual o valor de CON</li>
+                </ul>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Escamas Negras-->
+     <div id="conteudoModal2"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Sóis Antigos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+               <p>Sóis Antigos, são raros, vivem em selvas profundas no território de Krosa, e podem ser muito agressivos, vivem em pequenas unidades familiares como nomades, viajando de um campo de caça para o outro</p>
+              <ul>
+                <li><b>Atributos</b>+6 STR, -2 DEX, +2 CON</li>
+                <li><b>Tipo:</b>Monstrous Humanoid (Reptilian)</li>
+                <li><b>Tamanho:</b>Large</li>
+                <li><b>Movimento:</b>9m</li>
+                <li><b>Armadura Natural:</b>depende da espécie</li>
+                <li><b>Ataques Naturais:</b> depende da espécie</li>
+                <ul><b>Espécies:</b>
+                  <li><b>Tiranos:</b>Mordida como arma primária, 1d8 de dano, Faro, +4 de armadura natural, +2 em testes de <i>Survival</i> e <i>Intimidate</i>, esta é sempre uma perícia de classe</li>
+                  <li><b>Cristados:</b>Cone de dano sonico CON/dia, 1d6/4 níveis, CD baseada em CON, +2 em testes de<i>Perception</i>, ela é sempre considerada uma perícia de classe</li>
+                  <li><b>Três Chifres:</b>Ataque de Chifres como Arma Primária, 1d8 de dano, +5 de Armadura Natural, Faro</li>
+                  <li><b>Blindados:</b>Ataque de Cauda como arma primária (Clava ou Espinhos), 1d8 de dano, +7 de Armadura Natural, +2 em testes de<i>Perception</i>, ela é sempre considerada uma perícia de classe</li>
+                </ul>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--Veneno-->
+     <div id="conteudoModal3"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Veneno Crepuscular</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+               <p>Veneno Sombrio, são menores que os outros, vivem em regiões de matagal, embora possam ser ocasionalmente encontrados em florestas, vivem em pequenos grupos, são sempre carnivoros e tem um estilo de vida nomade</p>
+              <ul>
+                <li><b>Atributos:</b>+2 DEX, +2 CON</li>
+                <li><b>Tipo:</b>Humanoid (reptilian)</li>
+                <li><b>Tamanho:</b>Pequeno</li>
+                <li><b>Movimento:</b>12m</li>
+                <li><b>Armadura Natural:</b>+2</li>
+                <li><b>Ataques Naturais:</b>Garras e Mordidas primárias de 1d3</li>
+                <ul><li><b>Qualidades Especiais:</b></li>
+                    <li><b>Caçador Furtivo:</b>+2 de <i>Stealth</i> e <i>Survival</i>, elas são consideradas perícias de classe</li>
+                    <li><b>Pele Camaleonica:</b>Quando está parado, recebe um bonus adicional de +4 em testes de <i>Stealth</i></li>
+                    <li><b>Visão no escuro:</b>18m</li>
+                </ul>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<!--sois vermelhos-->
+     <div id="conteudoModal4"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Sois Vermelhos</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+            </div>
+             <!--conteudo modal centralizado-->
+            <div class="modal-body">
+              <p>São caçadores dos penhascos do deserto de Catarna</p>
+              <ul>
+              <li><b>Atributos:</b>+2 DEX, +2 CON</li>
+              <li><b>Tipo:</b>Humanoid (reptilian)</li>
+              <li><b>Tamanho:</b>Medio</li>
+              <li><b>Movimento:</b>15m</li>
+              <li><b>Armadura Natural:</b>+2</li>
+              <li><b>Ataques Naturais:</b>Garras e Mordida primárias de 1d4</li>
+              <ul><li><b>Qualidades Especiais:</b></li>
+                  <li><b>Caçador veloz:</b>+2 de <i>Acrobatics</i> e <i>Survival</i>, elas são consideradas perícias de classe</li>
+                  <li><b>Salto Prodigioso:</b>Recebe um bonus de +4 em testes de <i>Acrobatics</i> para Saltar pode fazer dois ataques com as garras ao final de um salto durante uma investida</li>
+              </ul>
+            </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+                </button>
+            </div>
+         </div>
+        </div> 
+      </div>
+<!--Sobekai-->
+     <div id="conteudoModal5"
+     class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <!--titulo modal centralizado-->
+             <div class="modal-header">
+                 <h4 id="titulo7">Sobekai</h4>
+                 <button 
+                 class="close" 
+                 data-dismiss="modal" 
+                 arial-label="fechar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <!--conteudo modal centralizado-->
+             <div class="modal-body">
+               <p>Sobekai, São encontrados quase que exclusivamente ao redor da Grande Pirâmide de Athankepesh, foram criados por Sobek, o Deus guardião e vivem para servir e proteger, são exclusivamente carnivoros.</p>
+              <ul>
+                <li><b>Atributos</b>+4 STR,- 2 DEX, +2 CON</li>
+                <li><b>Tipo:</b>Monstrous Humanoid (Reptilian)</li>
+                <li><b>Tamanho:</b>Large</li>
+                <li><b>Movimento:</b>6m, não é afetado pela carga ou armadura, natação 9m</li>
+                <li><b>Armadura Natural:</b>+4</li>
+                <li><b>Ataques Naturais:</b>garras e mordida de 1d4, armas primarias, cauda como arma secundária de 1d8</li>
+                <ul><li><b>Qualidades Especiais:</b></li>
+                    <li><b>Prender a Respiração:</b> pode prender a respiração por uma quantidade de minutos igual o valor de CON</li>
+                    <li><b>Guardião:</b>+2 de bonus em <i>Perception</i>, esta é sempre uma prícia de Classe</li>
+                    <li><b>Usar armas:</b>Sabe usar Alabardas e Cimitarras</li>
+                </ul>
+              </ul>
+            </div>
+             <!--rodapé do modal centralizado-->
+             <div class="modal-footer">
+                 <button 
+                 class="btn btn-secondary" 
+                 data-dismiss="modal">
+                 Fechar
+             </button>
+             </div>
+         </div>
+        </div> 
+      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a class="btn btn-primary" href="especies.html">Voltar</a>
+    <footer>
+
+    </footer>
+    </body>
+</html>

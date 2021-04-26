@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MRWNB3H');</script>
+<!-- End Google Tag Manager -->
+    <title>A Magia</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+    body{
+        background-image: url("img/papyrus.jpg");
+        background-attachment: fixed;
+    }
+</style>
+<style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body 
+    {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .honeycomb {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+        align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      transform: translateY(80px);
+    }
+    .honeycomb-cell {
+      -webkit-box-flex: 0;
+              flex: 0 1 250px;
+      max-width: 250px;
+      height: 137.5px;
+      margin: 65.4761904762px 12.5px 25px;
+      position: relative;
+      padding: 0.5em;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    }
+    .honeycomb-cell_title {
+      height: 100%;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
+      word-break: break-word;
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      font-size: 1.75em;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell_title > small {
+      font-weight: 300;
+      margin-top: 0.25em;
+    }
+    .honeycomb-cell_image {
+         object-fit: cover;
+         object-position: center;
+         filter: grayscale(100%);
+        
+    }
+    
+    
+    .honeycomb-cell::before,
+     .honeycomb-cell::after {
+      content: '';
+    }
+    .honeycomb-cell::before, 
+    .honeycomb-cell::after, 
+    .honeycomb-cell_image {
+      top: -50%;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      display: block;
+      position: absolute;
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      z-index: -1;
+    }
+    .honeycomb-cell::before {
+      background: rgb(4, 0, 255);
+      -webkit-transform: scale(1.055);
+              transform: scale(1.055);
+    }
+    .honeycomb-cell::after {
+      background: #111111;
+      opacity: 0.7;
+      -webkit-transition: opacity 350ms;
+      transition: opacity 350ms;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_title {
+      opacity: 0;
+    }
+    .honeycomb-cell:hover 
+    .honeycomb-cell_image
+    {
+        filter: grayscale(0%);
+    }
+    .honeycomb-cell:hover::before {
+      background: #fff;
+    }
+    .honeycomb-cell:hover::after {
+      opacity: 0;
+    }
+    .honeycomb_placeholder {
+      display: none;
+      opacity: 0;
+      width: 250px;
+      margin: 0 12.5px;
+    }
+    
+    @media (max-width: 550px) 
+    {
+      .honeycomb-cell 
+      {
+        margin: 81.25px 25px;
+      }
+    }
+    @media (min-width: 550px) and (max-width: 825px) 
+    {
+      .honeycomb-cell:nth-child(3n) 
+      {
+        margin-right: calc(50% - 125px);
+        margin-left: calc(50% - 125px);
+      }
+    
+      .honeycomb_placeholder:nth-child(3n + 5) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 825px) and (max-width: 1100px) {
+      .honeycomb-cell:nth-child(5n + 4) 
+      {
+        margin-left: calc(50% - 275px);
+      }
+    
+      .honeycomb-cell:nth-child(5n + 5) 
+      {
+        margin-right: calc(50% - 275px);
+      }
+    
+      .honeycomb_placeholder:nth-child(5n), 
+      .honeycomb_placeholder:nth-child(5n + 3) 
+      {
+        display: block;
+      }
+    }
+    @media (min-width: 1100px) 
+    {
+      .honeycomb-cell:nth-child(7n + 5) {
+        margin-left: calc(50% - 400px);
+      }
+    
+      .honeycomb-cell:nth-child(7n + 7), 
+      .honeycomb-cell:nth-child(7n + 5):nth-last-child(2) 
+      {
+        margin-right: calc(50% - 400px);
+      }
+    
+      .honeycomb_placeholder:nth-child(7n + 7), 
+      .honeycomb_placeholder:nth-child(7n + 9), 
+      .honeycomb_placeholder:nth-child(7n + 11) 
+      {
+        display: block;
+      }
+    }
+    </style>
+    
+    
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script type="text/JAVASCRIPT"></script>
+</head>
+    <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRWNB3H"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+      <div class="container">
+    <div class="panel panel-default">
+           <div class="panel-heading"> <h1 id="titulo4" style="text-align: center;">Magias</h1></div>
+        <div class="panel-body">
+          <p>Rhaokar é um mundo carregado de Mana, a fonte de toda a magia, o Mana pode ser controlado de diversas formas (que podem ser arcanas ou divinas).</p>
+<p>Os Conjuradores devem escolher o método de conjuração durante a criação do personagem</p>
+<p>Para que um conjurador possa usar suas magias, independentemente da fonte, ele deve possuir uma Lasca de Mana, uma forma de quintessencia cristalizada, todo o conjurados começa com uma, adquirir uma nova tem o custo de 1000po por nivel de conjurador, um teste de conjurador feito com a mesma CD do teste da magia de nível mais alto deve ser feito para tentar se sincronizar com uma Lasca de Mana, falha no teste causa dano igual ao nivel do conjurador, um novo teste pode ser feito 24h depois.</p>
+<p>É possível criar uma lasca de mana de duas formas:</p>
+  <p> <b>A Primeira</b>, é destilando quintessencia pura do Reator de um Cruzador caído, isso requer um teste de alquimia CD 10+nivel do conjurador para a qual a lasca está sendo destilada e tem um custo de 500po por nivel do conjurador</p>
+  <p> <b>A Segunda</b> é conseguindo a lasca de mana que dá as habilidades similares a magia para as criaturas, essa lasca terá o tamanho máximo do nivel de conjurador da criatura que a gerou e não pode ser usada para conjurar magias de nivel maior que a habilidade de nivel mais alto da criatura.</p>
+<p>Conjurar magia sem uma Lasca de Mana para canalizar o efeito é possível, mas o conjurador sofre 1d4 de dano por nivel de conjurador, esse dano não pode ser absorvido ou mitigado de qualquer forma, conjuradores mortos dessa forma são desintegrados, acredita-se que esse seja o método que dá origem aos familiares sem mestre, mas isso não foi comprovado.</p>
+<p>Psions não precisam das lascas para usar seus poderes, mas eles mesmos podem ser vitimas dessa vantagem, pois podem gerar as lascas como monstros</p>
+        </p></div>
+    </div>
+    </div>
+    <br>
+</div>
+<br>
+<br>
+<div class="honeycomb">
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal1">
+      <img class="honeycomb-cell_image" src="img/static.gif">
+      <div class="honeycomb-cell_title">Magia Estática</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal2">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Magia de Esfera</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal4">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Palavras de Poder</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal3">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Runas</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal5">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Psionismo</div>
+    </a>
+    <a class="honeycomb-cell" data-toggle="modal" data-target="#conteudoModal6">
+      <img class="honeycomb-cell_image" src="img/sh2.png">
+      <div class="honeycomb-cell_title">Magia Bélica</div>
+    </a>
+    <a class="honeycomb-cell honeycomb_placeholder">
+    </a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container 4">
+  <!--Magia Esática-->
+  <div id="conteudoModal1"
+      class="modal fade">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <!--titulo modal centralizado-->
+              <div class="modal-header">
+                  <h4 id="titulo7">Magia Estática</h4>
+                  <button 
+                  class="close" 
+                  data-dismiss="modal" 
+                  arial-label="fechar">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <!--conteudo modal centralizado-->
+              <div class="modal-body">
+                  É a Magia normal de Pathfinder, um conjurador de Magia Estática não precisa de regras adicionais além das Lascas de Mana.
+              </div>
+              <!--rodapé do modal centralizado-->
+              <div class="modal-footer">
+                  <button 
+                  class="btn btn-secondary" 
+                  data-dismiss="modal">
+                  Fechar
+              </button>
+              </div>
+          </div>
+      </div> 
+  </div>
+    <!--Magia de Esfera-->
+    <div id="conteudoModal2"
+    class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!--titulo modal centralizado-->
+            <div class="modal-header">
+                <h4 id="titulo7">Magia de Esfera</h4>
+                <button 
+                class="close" 
+                data-dismiss="modal" 
+                arial-label="fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--conteudo modal centralizado-->
+            <div class="modal-body">
+               Embora seja um tipo de magia bem especializado, ela ainda oferece um bom nível de versatilidade, <a href="https://thetrove.is/reader.html?file=https%3A%2F%2Fthetrove.is%2FBooks%2FPathfinder%2520%255Bmulti%255D%2F1st%2520Edition%2F3rd%2520Party%2FDrop%2520Dead%2520Studios%2FSpheres%2520of%2520Power.pdf" target="_blank">usa as mesmas Regras do livro Spheres of Power</a>
+            </div>
+            <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                class="btn btn-secondary" 
+                data-dismiss="modal">
+                Fechar
+            </button>
+            </div>
+        </div>
+    </div> 
+</div>
+    <!--Magia de runica-->
+    <div id="conteudoModal3"
+    class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!--titulo modal centralizado-->
+            <div class="modal-header">
+                <h4 id="titulo7">Magia Rúnica</h4>
+                <button 
+                class="close" 
+                data-dismiss="modal" 
+                arial-label="fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--conteudo modal centralizado-->
+            <div class="modal-body">
+                <p>É o estilo de magia praticado pelos povos do Norte, <a href="https://thetrove.is/reader.html?file=https%3A%2F%2Fthetrove.is%2FBooks%2FPathfinder%2520%255Bmulti%255D%2F1st%2520Edition%2F3rd%2520Party%2FKobold%2520Press%2520-%2520Open%2520Design%2FDeep%2520Magic.pdf" target="_blank">usa as regras de Runic Magic, do livro Deep Magic da Kobold press</a></p>
+                <p>Os nascidos no polo norte podem escolher o Trait Runic Blood, que permite que eles comecem conhecendo 1 runa se tiverem sabedoria igual ou maior que 12</p>
+            </div>
+            <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                class="btn btn-secondary" 
+                data-dismiss="modal">
+                Fechar
+            </button>
+            </div>
+        </div>
+    </div> 
+</div>
+    <!--Palavras de Poder-->
+    <div id="conteudoModal4"
+    class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!--titulo modal centralizado-->
+            <div class="modal-header">
+                <h4 id="titulo7">Palavras de Poder</h4>
+                <button 
+                class="close" 
+                data-dismiss="modal" 
+                arial-label="fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--conteudo modal centralizado-->
+            <div class="modal-body">
+              É um método muito versátil de aplicação mágica e é conhecido de várias formas, Canção da Magia pelos elfos (spellsong), Nomes verdadeiros pelos humanos (truenaming) ou fala verdadeira pelos dragões (truespeech), Lingua Negra (darkspeech) pelos demônios e Palavras de Criação pelos celestiais (words of creation), <a href="https://aonprd.com/Rules.aspx?Name=Words%20of%20Power&Category=Optional%20Rule%20Systems" target="_blank">usa as mesmas regras das Word Spells do Ultimate Magic</a>
+            </div>
+            <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                class="btn btn-secondary" 
+                data-dismiss="modal">
+                Fechar
+            </button>
+            </div>
+        </div>
+    </div> 
+</div>
+    <!--Psionismo-->
+    <div id="conteudoModal5"
+    class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!--titulo modal centralizado-->
+            <div class="modal-header">
+                <h4 id="titulo7">Psionismo</h4>
+                <button 
+                class="close" 
+                data-dismiss="modal" 
+                arial-label="fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--conteudo modal centralizado-->
+            <div class="modal-body">
+            A origem dessa magia é um cristal de mana que nasce com o usuário, <a href="https://thetrove.is/reader.html?file=https%3A%2F%2Fthetrove.is%2FBooks%2FPathfinder%2520%255Bmulti%255D%2F1st%2520Edition%2F3rd%2520Party%2FDreamscarred%2520Press%2FUltimate%2520Psionics.pdf" target="_blank">usa as mesmas regras do Ultimate Psionics</a>  
+            </div>
+            <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                class="btn btn-secondary" 
+                data-dismiss="modal">
+                Fechar
+            </button>
+            </div>
+        </div>
+    </div> 
+</div>
+    <!--Magia de Bélica-->
+    <div id="conteudoModal6"
+    class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!--titulo modal centralizado-->
+            <div class="modal-header">
+                <h4 id="titulo7">Magia Bélica</h4>
+                <button 
+                class="close" 
+                data-dismiss="modal" 
+                arial-label="fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--conteudo modal centralizado-->
+            <div class="modal-body">
+              <h2>Magia Bélica</h2>    
+              <p>Arquetipo para feiticeiro, mago e arcanista, muda o HD, TR, proficiencia em armas e armaduras, magias e cantrips</p>
+              <ul>
+                  <li><b>DV:</b> muda para d8</li>
+                  <li><b>BBA</b> muda para médio</li>
+                  <li><b>TR:</b> Reflexos passa a ser alto</li>
+                  <li><b>Proficiencias:</b> armaduras leves, armas simples e comuns</li>
+                  <li><b>Bonus Feat:</b> Gunsmithing</li>
+              </ul>
+  
+              <h2>Cantrips</h2>
+              <UL>
+                  <li><b>Acid Splash:</b> Orb deals 1d3 acid damage.</li>
+                  <li><b>Arcane Mark:</b> Inscribes a personal rune on an object or creature (visible or invisible). </li>
+                  <li><b>Bleed:</b> Cause a stabilized creature to resume dying.</li>
+                  <li><b>Breeze:</b> Create a light wind.</li>
+                  <li><b>Chameleon Scales:</b> Change the color of your skin to something else.</li>
+                  <li><b>Dancing Lights:</b> Creates torches or other lights.</li>
+                  <li><b>Daze:</b> Humanoid creature of 4 HD or less loses next action.</li>
+                  <li><b>Detect Fiendish Presence:</b> As detect evil, except this specifically detects outsiders with the evil subtype and their servants.</li>
+                  <li><b>Detect Magic:</b> Detects spells and magic items within 60 ft.</li>
+                  <li><b>Detect Poison:</b> Detects poison in one creature or object.</li>
+                  <li><b>Disrupt Undead:</b> Deals 1d6 damage to one undead.</li>
+                  <li><b>Drench:</b> Soak the target creature or object.</li>
+                  <li><b>Flare:</b> Dazzles one creature (–1 on attack rolls). </li>
+                  <li><b>Feather Fall:</b> Objects or creatures fall slowly. </li>
+                  <li><b>Ghost Sound:</b> Figment sounds.</li>
+                  <li><b>Grasp:</b> Retry a Climb check as an immediate action.</li>
+                  <li><b>Haunted Fey Aspect:</b> You surround yourself with disturbing illusions.</li>
+                  <li><b>Jolt:</b> Deal 1d3 electricity with a ranged touch attack.</li>
+                  <li><b>Light:</b> Object shines like a torch.</li>
+                  <li><b>Mage Hand:</b> 5-pound telekinesis.</li>
+                  <li><b>Mending:</b> Makes minor repairs on an object.</li>
+                  <li><b>Message:</b> Whisper conversation at distance. </li>
+                  <li><b>Oath of Anonymity:</b> Cloak yourself in an illusion that hides your true identity. </li>
+                  <li><b>Open/Close:</b> Opens or closes small or light things.</li>
+                  <li><b>Penumbra:</b> Keep something in the shadows.</li>
+                  <li><b>Prestidigitation:</b> Performs minor tricks.</li>
+                  <li><b> Ray of Frost:</b> Ray deals 1d3 cold damage.</li>
+                  <li><b>Read Magic:</b> Read scrolls and spellbooks.</li>
+                  <li><b> Resistance:</b> Subject gains +1 on saving throws.</li>
+                  <li><b>Root:</b> Bolster the subject’s CMD vs. trips and Acrobatics checks to remain standing.</li>
+                  <li><b>Scoop:</b> Use a small vessel of force to scoop up liquid or small objects.</li>
+                  <li><b>Scrivener's Chant:</b> Imbue a quill to rapidly transcribe words from one page to another.</li>
+                  <li><b>Sotto Voce:</b> Use your dry, rasping whisper to fill a creature with dread.</li>
+                  <li><b>Spark:</b> Ignites flammable objects.</li>
+                  <li><b>Touch of Fatigue:</b> Touch attack fatigues target.</li>
+                  <li><b>Vacuous Vessel:</b> Make a single container appear empty.</li>
+              </UL>
+          
+  
+              <p>É um método aplicado quase que exclusivamente pelos elfos de ferro, trata-se da aplicação direta da magia como forma de combate, não tem muita versatilidade, mas pode ser extremamente destrutivo, pode ser aplicado para Defesa, Ataque e Movimentação, o conjurador não aprende magias acima do nivel 0 (cantrips, orisons), mas pode usar os slots de magias para produzir os seguintes efeitos:</p>
+              <UL>
+              <li><b>Barreira (SLA):</b> O conjurador dedica sua energia mágica para reduzir o dano recebido ou melhorar teste de resistência. Para cada slot de magia gasto, pode absorver uma quantidade de dano igual o modificador de habilidade chave ou receber +1 de bônus de competência (competence) em testes de resistência. Este efeito pode ser usado como ação livre ao ser atacado.</li>
+  
+              <li><b>Ataque (SLA):</b> Canaliza magia de forma ofensiva. Pode ser usado de duas formas:</li>
+                  <ul>
+                      <li><b>Intensificação:</b> Como ação rápida (swift action), você canaliza sua magia para ataque. Para cada nível de slot de magia + 1, você pode escolher qualquer combinação das opções a seguir, em qualquer caso, o efeito dura até o final do turno:</li>
+                      <Ul>
+                          <li>Receber +1 de competência (competence) pra ataque </li>
+                          <li>Adicionar +1d6 ao dano do ataque</li>
+                          <li>Multiplicar o alcance do ataque pelo slot usado (slots adicionais aumentam o multiplicador em 1 para cada slot extra). Este efeito dura até ser usado, no máximo 1h.</li>
+                      </Ul>
+                      <li><b>Raio (SLA):</b> Como ação padrão (standard action) você canaliza sua magia para gerar um efeito de ataque de toque à distância, alcance longo (Long range). Causa 1d6 de dano de força (force) por nível do slot de magia + 1. O ataque é resolvido com nivel de conjurador + habilidade chave de conjuração. Não tem teste de resistência, mas aplica resistência mágica, usa uma ação de ataque.</li>
+                  </ul>
+                  <li><b>Movimentação (SLA):</b> Como ação livre (free action) canaliza magia para movimentação. Para nível de slot de magia gasto + 1, ganha ou aumenta um tipo de deslocamento em 1,5m (5 ft) até o final do turno, escolha entre terra, voo (bom) ou natação. Slots adicionais podem ser gastos para aumentar a duração em 1 turno por nível do slot utilizado.</li>
+              </UL>
+              <p>Talentos metamágicos podem ser aplicados como apropriado, o aumento do slot para ser usado apenas faz gastar mais slots de magia para a aplicação do efeito</p>
+              <UL>
+              Exemplos de talentos metamágicos e seus efeitos:
+              <li><b>Maximizar magia:</b> gastar 3 slots a mais e maximiza o dano causado pelo efeito, slot minimo 3</li>
+              <li><b>Potencializar Magia:</b> gasta 2 slots a mais e aumenta o efeito de dano em 50%, slot minimo 2</li>
+              </UL>
+              <p>É possivel usar cantrips pra isso, eles dão os beneficios de nivel+1 normalmente, mas como o nivel 0 e apenas um cantrip pode ser usado por vez para isso</p>
+  
+              <p>Varinhas podem ser usadas, 1 carga equivale a 1 slot de magia do nivel da magia na varinha</p>
+  
+              <p>O máximo de slots que pode ser usado para um unico efeito é de o dobro do nivel do conjurador</p>
+  
+          <p><b>NOTA Multiclasse:</b> personagens com este arquetipo podem fazer multiclasse livremente, mas apenas os slots de magia da classe que o arquetipo foi aplicado podem ser usados para as habilidades. 
+              Caso o personagem receba alguma magia conhecida adicional, como a magia conhecida extra da bloodline do sorcerer, ele poderá usar aquela magia como habilidade similar a magia 1/dia</p>
+  
+            </div>
+            <!--rodapé do modal centralizado-->
+            <div class="modal-footer">
+                <button 
+                class="btn btn-secondary" 
+                data-dismiss="modal">
+                Fechar
+            </button>
+            </div>
+        </div>
+    </div> 
+</div>
+</div> 
+<a class="btn btn-primary" href="home.html">Voltar</a>
+    <footer>
+
+    </footer>
+    </body>
+</html>
