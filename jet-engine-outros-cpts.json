@@ -1,0 +1,117 @@
+{
+  "status": "success",
+  "post_types": [
+    {
+      "slug": "reino",
+      "labels": {
+        "name": "Reinos",
+        "singular_name": "Reino",
+        "add_new": "Adicionar Novo Reino",
+        "add_new_item": "Adicionar Novo Reino",
+        "edit_item": "Editar Reino",
+        "menu_name": "Os Reinos"
+      },
+      "args": {
+        "public": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "rewrite": { "slug": "reinos" },
+        "menu_position": 7,
+        "menu_icon": "dashicons-admin-site",
+        "supports": ["title", "editor", "thumbnail"]
+      },
+      "meta_fields": [
+        { "title": "Brasão / Bandeira", "name": "brasao_imagem", "type": "media" },
+        { "title": "Capital", "name": "capital", "type": "text", "width": "50%" },
+        { "title": "População", "name": "populacao", "type": "text", "width": "50%" },
+        { "title": "Governo", "name": "governo", "type": "text", "width": "50%" },
+        { "title": "Clima", "name": "clima", "type": "text", "width": "50%" },
+        { "title": "Mapa do Reino", "name": "mapa_reino", "type": "media" },
+        { "title": "História / Descrição", "name": "descricao_reino", "type": "textarea" },
+        {
+          "title": "Cidades Importantes",
+          "name": "cidades_repeater",
+          "type": "repeater",
+          "fields": [
+            { "title": "Nome da Cidade", "name": "nome_cidade", "type": "text" },
+            { "title": "Tipo / Porte", "name": "tipo_cidade", "type": "text" },
+            { "title": "Descrição", "name": "descricao", "type": "textarea" }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "log_campanha",
+      "labels": {
+        "name": "Logs de Campanha",
+        "singular_name": "Log de Campanha",
+        "add_new": "Adicionar Novo Log",
+        "add_new_item": "Adicionar Novo Log de Sessão",
+        "edit_item": "Editar Log de Sessão",
+        "menu_name": "Diário de Campanha"
+      },
+      "args": {
+        "public": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "rewrite": { "slug": "diario-campanha" },
+        "menu_position": 8,
+        "menu_icon": "dashicons-book-alt",
+        "supports": ["title", "editor", "thumbnail"]
+      },
+      "meta_fields": [
+        { "title": "Número da Sessão", "name": "numero_sessao", "type": "text", "width": "50%" },
+        { "title": "Data da Sessão", "name": "data_sessao", "type": "date", "width": "50%" },
+        { "title": "Resumo da Sessão", "name": "resumo_sessao", "type": "textarea" },
+        { "title": "Recompensas & Tesouros", "name": "recompensas", "type": "textarea" },
+        {
+          "title": "Participantes da Sessão",
+          "name": "participantes_repeater",
+          "type": "repeater",
+          "fields": [
+            { "title": "Nome do Personagem", "name": "nome_personagem", "type": "text" },
+            { "title": "Jogador", "name": "jogador", "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "personagem",
+      "labels": {
+        "name": "Personagens",
+        "singular_name": "Personagem",
+        "add_new": "Adicionar Novo Personagem",
+        "add_new_item": "Adicionar Novo Personagem",
+        "edit_item": "Editar Personagem",
+        "menu_name": "Personagens / Heróis"
+      },
+      "args": {
+        "public": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "rewrite": { "slug": "personagens" },
+        "menu_position": 9,
+        "menu_icon": "dashicons-id",
+        "supports": ["title", "editor", "thumbnail"]
+      },
+      "meta_fields": [
+        { "title": "Jogador", "name": "nome_jogador", "type": "text", "width": "50%" },
+        { "title": "Classe & Nível", "name": "classe_nivel", "type": "text", "width": "50%" },
+        { "title": "Raça", "name": "raca_personagem", "type": "text", "width": "50%" },
+        {
+          "title": "Status do Personagem",
+          "name": "status_personagem",
+          "type": "select",
+          "width": "50%",
+          "options": [
+            { "key": "ativo", "value": "Ativo na Campanha" },
+            { "key": "aposentado", "value": "Aposentado" },
+            { "key": "morto", "value": "Morto (Salão dos Heróis)" }
+          ]
+        },
+        { "title": "Link da Ficha de Personagem", "name": "ficha_url", "type": "text" },
+        { "title": "História / Background", "name": "historia_personagem", "type": "textarea" }
+      ]
+    }
+  ]
+}
