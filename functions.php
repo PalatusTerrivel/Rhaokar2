@@ -1,6 +1,6 @@
 <?php
 /**
- * Hello Elementor Child (Rhaokar) Theme Functions
+ * Tema Standalone Oficial do Rhaokar - Functions
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -8,138 +8,60 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Ativa o suporte do Elementor para TODOS os Tipos de Conteúdo
+ * Carrega CSS e Scripts JS do Tema Rhaokar
  */
-function rhaokar_enable_elementor_support() {
-	$cpts = array( 'page', 'post', 'raca', 'deus', 'reino', 'log_campanha', 'personagem' );
-	update_option( 'elementor_cpt_support', $cpts );
+function rhaokar_enqueue_theme_assets() {
+	$ver = time();
+	$theme_uri = get_stylesheet_directory_uri();
+
+	// Bootstrap CSS
+	wp_enqueue_style( 'rhaokar-bootstrap', $theme_uri . '/css/bootstrap.min.css', array(), '4.3.1' );
+
+	// Honeycomb e Efeitos
+	wp_enqueue_style( 'rhaokar-honeycomb', $theme_uri . '/css/honeycomb_e_efeitos.css', array(), $ver );
+
+	// Estilo Principal do Tema
+	wp_enqueue_style( 'rhaokar-main-style', $theme_uri . '/style.css', array( 'rhaokar-bootstrap' ), $ver );
+
+	// jQuery e Bootstrap JS
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'rhaokar-bootstrap-js', $theme_uri . '/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.3.1', true );
 }
-add_action( 'after_setup_theme', 'rhaokar_enable_elementor_support' );
-add_action( 'admin_init', 'rhaokar_enable_elementor_support' );
+add_action( 'wp_enqueue_scripts', 'rhaokar_enqueue_theme_assets' );
 
 /**
- * Sincroniza automaticamente as artes do Rhaokar para a pasta wp-content/uploads/rhaokar/
- * para uso na Biblioteca de Mídia e Elementor
+ * Injeta Estilos Inline com URLs Absolutas para Garantir o Fundo, Nuvens e Grama
  */
-function rhaokar_sync_images_to_uploads() {
-	$upload_dir = wp_upload_dir();
-	$rhaokar_upload_path = $upload_dir['basedir'] . '/rhaokar';
-	$theme_img_path = get_stylesheet_directory() . '/img';
-
-	if ( ! file_exists( $rhaokar_upload_path ) ) {
-		wp_mkdir_p( $rhaokar_upload_path );
-	}
-
-	if ( file_exists( $theme_img_path ) ) {
-		$files = array(
-			'Sprite-NuvemSite.png',
-			'Sprite-GramaSite.png',
-			'papyrus1.svg',
-			'papyrus2.svg',
-			'Pointer.png',
-			'Tocha.gif',
-			'clouds.png',
-			'grass.png',
-			'oasis.png'
-		);
-
-		foreach ( $files as $file ) {
-			$src  = $theme_img_path . '/' . $file;
-			$dest = $rhaokar_upload_path . '/' . $file;
-			if ( file_exists( $src ) && ! file_exists( $dest ) ) {
-				@copy( $src, $dest );
-			}
-		}
-	}
-}
-add_action( 'admin_init', 'rhaokar_sync_images_to_uploads' );
-
-/**
- * Injeta Estilos Absolutos no Cabeçalho para forçar o Fundo Azul-Céu, Nuvens, Grama e Fontes RPG
- */
-function rhaokar_custom_head_styles() {
+function rhaokar_inject_inline_head_styles() {
 	$theme_url = esc_url( get_stylesheet_directory_uri() );
-	$upload_dir = wp_upload_dir();
-	$upload_url = esc_url( $upload_dir['baseurl'] . '/rhaokar' );
 	?>
-	<style id="rhaokar-inline-css">
-		/* Força fundo azul-céu oficial em 100% da tela */
-		html, body, #page, #content, .site, .site-main, main, article, .elementor, .e-con, .elementor-page {
+	<style id="rhaokar-standalone-inline-css">
+		html, body, #page, #content, .site, main, article {
 			background-color: #ACE6FF !important;
-		}
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: 'Almendra', 'Times New Roman', serif;
-		}
-		.titulo-principal {
-			font-family: 'NewRocker', 'Times New Roman', serif !important;
-			color: #000 !important;
-		}
-		.botao text {
-			font-family: 'NewRocker', 'Times New Roman', serif !important;
-		}
-		/* Animação de Nuvens */
-		.contem_nuvem {
-			display: block;
-			width: 100%;
-			overflow: hidden;
-			height: 185px;
-			background-color: #ACE6FF;
 		}
 		#clouds {
 			background: url('<?php echo $theme_url; ?>/img/Sprite-NuvemSite.png') repeat-x 0 bottom #ACE6FF !important;
-			height: 185px;
-		}
-		/* Animação de Grama */
-		.contem_grama {
-			display: block;
-			width: 100%;
-			overflow: hidden;
-			height: 185px;
-			background-color: transparent;
 		}
 		#grass {
 			background: url('<?php echo $theme_url; ?>/img/Sprite-GramaSite.png') repeat-x 0 0 transparent !important;
-			height: 190px;
 		}
-		/* Cards de Papiro */
 		.contem-deuses, .contem-racas {
 			background: url('<?php echo $theme_url; ?>/img/papyrus1.svg') repeat, #f9f2e7 !important;
-			border: 3px solid #8b5a2b !important;
-			border-radius: 8px;
-			box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 		}
 	</style>
 	<?php
 }
-add_action( 'wp_head', 'rhaokar_custom_head_styles', 999 );
+add_action( 'wp_head', 'rhaokar_inject_inline_head_styles', 999 );
 
 /**
- * Carrega CSS/JS do Tema
+ * Registra Localização dos Menus
  */
-function rhaokar_child_enqueue_assets() {
-	$ver = time();
-
-	wp_enqueue_style( 'hello-elementor-parent-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'rhaokar-bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', array(), '4.3.1' );
-	wp_enqueue_style( 'rhaokar-honeycomb', get_stylesheet_directory_uri() . '/css/honeycomb_e_efeitos.css', array(), $ver );
-	wp_enqueue_style( 'rhaokar-child-style', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-parent-style' ), $ver );
-
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'rhaokar-bootstrap-js', get_stylesheet_directory_uri() . '/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.3.1', true );
-}
-add_action( 'wp_enqueue_scripts', 'rhaokar_child_enqueue_assets', 99 );
-
-/**
- * Registra Localizações de Menus do Tema
- */
-function rhaokar_child_register_menus() {
+function rhaokar_register_theme_menus() {
 	register_nav_menus( array(
-		'rhaokar-header-menu' => __( 'Menu Superior Rhaokar', 'rhaokar-child' ),
+		'rhaokar-header-menu' => __( 'Menu Superior Rhaokar', 'rhaokar' ),
 	) );
 }
-add_action( 'init', 'rhaokar_child_register_menus' );
+add_action( 'init', 'rhaokar_register_theme_menus' );
 
 /**
  * Cria automaticamente as Páginas do Rhaokar

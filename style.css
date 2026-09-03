@@ -1,12 +1,11 @@
 /*
-Theme Name: Hello Elementor Child (Rhaokar)
+Theme Name: Rhaokar Theme
 Theme URI: https://rhaokar.com.br
-Description: Tema Filho do Hello Elementor para o Cenário de Campanha Rhaokar (Pathfinder 1e)
-Author: Rhaokar / Paulo
+Description: Tema Customizado Oficial do Cenário de Campanha Rhaokar (Pathfinder 1e / D&D 3.5)
+Author: Paulo / Rhaokar
 Author URI: https://rhaokar.com.br
-Template: hello-elementor
-Version: 1.0.2
-Text Domain: rhaokar-child
+Version: 1.0.0
+Text Domain: rhaokar
 */
 
 /* --- FONTES RPG DO RHAOKAR --- */
@@ -31,21 +30,26 @@ Text Domain: rhaokar-child
 	font-style: normal;
 }
 
-/* --- IMPORTAÇÃO DO CSS DE NUVENS, GRAMA E HONEYCOMB --- */
-@import url("css/honeycomb_e_efeitos.css");
+@font-face {
+	font-family: 'GrenzeGotisch';
+	src: url('fontes/GrenzeGotisch-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 
-/* FORÇA O FUNDO AZUL-CÉU EM TODO O SITE E WRAPPERS DO ELEMENTOR */
-html, body, #page, #content, .site, .site-main, main, article, .site-header, .site-footer {
+/* --- ESTILOS GLOBAIS DE RHAOKAR --- */
+html, body {
 	background-color: #ACE6FF !important;
 	margin: 0;
 	padding: 0;
 	font-family: 'Almendra', 'Times New Roman', serif;
+	min-height: 100vh;
 }
 
 /* Titulos e Botões SVG */
 .titulo-principal {
 	font-family: 'NewRocker', 'Times New Roman', serif !important;
-	color: #000;
+	color: #000 !important;
 	text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
 }
 
@@ -60,19 +64,15 @@ html, body, #page, #content, .site, .site-main, main, article, .site-header, .si
 	transition: all 0.2s ease-in-out;
 }
 
+/* Cards com Fundo de Papiro e Borda RPG */
 .contem-deuses, .contem-racas {
-	background: url('img/papyrus1.svg') repeat, #f9f2e7;
-	border: 3px solid #8b5a2b;
+	background: url('img/papyrus1.svg') repeat, #f9f2e7 !important;
+	border: 3px solid #8b5a2b !important;
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* Esconde o cabeçalho padrao do Hello Elementor */
-.site-header {
-	display: none !important;
-}
-
-/* Ajustes da Animação de Nuvens e Grama */
+/* Animações de Nuvens e Grama */
 .contem_nuvem {
 	display: block;
 	width: 100%;
@@ -91,8 +91,10 @@ html, body, #page, #content, .site, .site-main, main, article, .site-header, .si
 
 #clouds {
 	background: url("img/Sprite-NuvemSite.png") repeat-x 0 bottom #ACE6FF !important;
+	height: 185px;
 }
 
 #grass {
 	background: url("img/Sprite-GramaSite.png") repeat-x 0 0 transparent !important;
+	height: 190px;
 }
