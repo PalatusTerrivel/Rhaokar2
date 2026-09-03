@@ -5,7 +5,7 @@ Description: Tema Filho do Hello Elementor para o Cenário de Campanha Rhaokar (
 Author: Rhaokar / Paulo
 Author URI: https://rhaokar.com.br
 Template: hello-elementor
-Version: 1.0.0
+Version: 1.0.2
 Text Domain: rhaokar-child
 */
 
@@ -31,17 +31,11 @@ Text Domain: rhaokar-child
 	font-style: normal;
 }
 
-@font-face {
-	font-family: 'GrenzeGotisch';
-	src: url('fontes/GrenzeGotisch-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* --- ESTILOS GLOBAIS E EFEITOS DE RHAOKAR --- */
+/* --- IMPORTAÇÃO DO CSS DE NUVENS, GRAMA E HONEYCOMB --- */
 @import url("css/honeycomb_e_efeitos.css");
 
-html, body {
+/* FORÇA O FUNDO AZUL-CÉU EM TODO O SITE E WRAPPERS DO ELEMENTOR */
+html, body, #page, #content, .site, .site-main, main, article, .site-header, .site-footer {
 	background-color: #ACE6FF !important;
 	margin: 0;
 	padding: 0;
@@ -52,25 +46,53 @@ html, body {
 .titulo-principal {
 	font-family: 'NewRocker', 'Times New Roman', serif !important;
 	color: #000;
-	text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
 }
 
 .botao text {
 	font-family: 'NewRocker', 'Times New Roman', serif !important;
+	cursor: pointer;
+}
+
+.botao:hover polygon {
+	fill: #222 !important;
+	stroke: #ffd700 !important;
+	transition: all 0.2s ease-in-out;
 }
 
 .contem-deuses, .contem-racas {
 	background: url('img/papyrus1.svg') repeat, #f9f2e7;
 	border: 3px solid #8b5a2b;
 	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+	box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* Ajustes da Animação das Nuvens e Grama */
+/* Esconde o cabeçalho padrao do Hello Elementor */
+.site-header {
+	display: none !important;
+}
+
+/* Ajustes da Animação de Nuvens e Grama */
+.contem_nuvem {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	height: 185px;
+	background-color: #ACE6FF;
+}
+
+.contem_grama {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	height: 185px;
+	background-color: transparent;
+}
+
 #clouds {
-	background: url('img/Sprite-NuvemSite.png') repeat-x 0 / 100% auto !important;
+	background: url("img/Sprite-NuvemSite.png") repeat-x 0 bottom #ACE6FF !important;
 }
 
 #grass {
-	background: url('img/Sprite-GramaSite.png') repeat-x 0 0 transparent !important;
+	background: url("img/Sprite-GramaSite.png") repeat-x 0 0 transparent !important;
 }
