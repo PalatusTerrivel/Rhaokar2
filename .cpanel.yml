@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/paul1074/rhaokar.com.br/wp-content/themes/hello-elementor-child
+    - /bin/cp -R * $DEPLOYPATH
