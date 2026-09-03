@@ -9,5 +9,68 @@ Version: 1.0.0
 Text Domain: rhaokar-child
 */
 
-/* Importa os efeitos de CSS do Rhaokar */
+/* --- FONTES RPG DO RHAOKAR --- */
+@font-face {
+	font-family: 'NewRocker';
+	src: url('fontes/NewRocker-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Almendra';
+	src: url('fontes/Almendra-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MedievalSharp';
+	src: url('fontes/MedievalSharp-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GrenzeGotisch';
+	src: url('fontes/GrenzeGotisch-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* --- ESTILOS GLOBAIS E EFEITOS DE RHAOKAR --- */
 @import url("css/honeycomb_e_efeitos.css");
+
+html, body {
+	background-color: #ACE6FF !important;
+	margin: 0;
+	padding: 0;
+	font-family: 'Almendra', 'Times New Roman', serif;
+}
+
+/* Titulos e Botões SVG */
+.titulo-principal {
+	font-family: 'NewRocker', 'Times New Roman', serif !important;
+	color: #000;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.botao text {
+	font-family: 'NewRocker', 'Times New Roman', serif !important;
+}
+
+.contem-deuses, .contem-racas {
+	background: url('img/papyrus1.svg') repeat, #f9f2e7;
+	border: 3px solid #8b5a2b;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Ajustes da Animação das Nuvens e Grama */
+#clouds {
+	background: url('img/Sprite-NuvemSite.png') repeat-x 0 / 100% auto !important;
+}
+
+#grass {
+	background: url('img/Sprite-GramaSite.png') repeat-x 0 0 transparent !important;
+}

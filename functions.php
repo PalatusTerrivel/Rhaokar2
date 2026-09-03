@@ -20,8 +20,8 @@ function rhaokar_child_enqueue_assets() {
 	// Estilos Honeycomb e Animações
 	wp_enqueue_style( 'rhaokar-honeycomb', get_stylesheet_directory_uri() . '/css/honeycomb_e_efeitos.css', array(), '1.0' );
 
-	// Estilo do Tema Filho
-	wp_enqueue_style( 'rhaokar-child-style', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-parent-style' ), '1.0.0' );
+	// Estilo do Tema Filho (com Fontes RPG e Cores Globais)
+	wp_enqueue_style( 'rhaokar-child-style', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-parent-style' ), '1.0.1' );
 
 	// Scripts JS do Rhaokar
 	wp_enqueue_script( 'jquery' );
@@ -38,3 +38,34 @@ function rhaokar_child_register_menus() {
 	) );
 }
 add_action( 'init', 'rhaokar_child_register_menus' );
+
+/**
+ * Cria automaticamente as Páginas do Rhaokar no menu "Páginas > Todas as páginas"
+ */
+function rhaokar_auto_create_pages() {
+	$pages = array(
+		'racas'      => 'As Raças',
+		'deuses'     => 'Os Deuses',
+		'reinos'     => 'Os Reinos',
+		'diario'     => 'Diário da Campanha',
+		'magia'      => 'A Magia',
+		'alquimia'   => 'A Alquimia',
+		'tecnologia' => 'A Tecnologia',
+		'regras'     => 'Regras Alternativas',
+	);
+
+	foreach ( $pages as $slug => $title ) {
+		$page_check = get_page_by_path( $slug );
+		if ( ! isset( $page_check->ID ) ) {
+			wp_insert_post( array(
+				'post_type'    => 'page',
+				'post_title'   => $title,
+				'post_name'    => $slug,
+				'post_status'  => 'publish',
+				'post_content' => '<!-- Conteúdo da página ' . $title . ' -->',
+			) );
+		}
+	}
+}
+add_action( 'after_switch_theme', 'rhaokar_auto_create_pages' );
+add_action( 'admin_init', 'rhaokar_auto_create_pages' );
