@@ -100,3 +100,13 @@ function rhaokar_auto_setup_pages() {
 	flush_rewrite_rules();
 }
 add_action( 'admin_init', 'rhaokar_auto_setup_pages' );
+
+/**
+ * Fallback de segurança para funções do tema Hello Elementor
+ */
+if ( ! function_exists( 'hello_elementor_display_header_footer' ) ) {
+	function hello_elementor_display_header_footer() {
+		return false;
+	}
+}
+
