@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<div class="text-center my-4">
+<div class="text-center my-4 py-3">
 	<h1 class="titulo-principal display-3 font-weight-bold">Rhaokar</h1>
 	<h2 class="h5 text-dark">É o cenário de campanha onde se passarão os jogos</h2> 
 </div>
@@ -133,6 +133,16 @@ get_header();
 			</div>
 		</div>
 	</div> 
+</div>
+
+<!-- Renderiza Conteúdo Adicionado via Elementor ou Gutenberg -->
+<div class="container my-4">
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		the_content();
+	endwhile;
+	?>
 </div>
 
 <?php

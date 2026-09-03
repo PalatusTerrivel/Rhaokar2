@@ -23,38 +23,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="clouds"></div>
 </div>
 
-<!-- Barra de Navegação Bootstrap & WordPress Native Menu -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<!-- Barra de Navegação Bootstrap Oficial do Rhaokar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
 	<div class="container-fluid">
-		<a class="navbar-brand font-weight-bold" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
+		<a class="navbar-brand font-weight-bold" href="<?php echo esc_url( home_url( '/' ) ); ?>">Rhaokar</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rhaokarNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="rhaokarNavbar">
-			<?php
-			if ( has_nav_menu( 'rhaokar-header-menu' ) ) {
-				wp_nav_menu( array(
-					'theme_location' => 'rhaokar-header-menu',
-					'depth'          => 2,
-					'container'      => false,
-					'menu_class'     => 'navbar-nav mr-auto',
-					'fallback_cb'    => false,
-				) );
-			} else {
-				?>
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/racas/' ) ); ?>">As Raças</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/deuses/' ) ); ?>">Os Deuses</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/reinos/' ) ); ?>">Os Reinos</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/diario/' ) ); ?>">Diário das Campanhas</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/magia/' ) ); ?>">Magia</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/alquimia/' ) ); ?>">Alquimia</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/tecnologia/' ) ); ?>">Tecnologia</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/regras/' ) ); ?>">Regras Alternativas</a></li>
-				</ul>
-				<?php
-			}
-			?>
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/racas/' ) ); ?>">As Raças</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/deuses/' ) ); ?>">Os Deuses</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/reinos/' ) ); ?>">Os Reinos</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/diario/' ) ); ?>">Diário das Campanhas</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/magia/' ) ); ?>">Magia</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/alquimia/' ) ); ?>">Alquimia</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/tecnologia/' ) ); ?>">Tecnologia</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="<?php echo esc_url( home_url( '/regras/' ) ); ?>">Regras Alternativas</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>
