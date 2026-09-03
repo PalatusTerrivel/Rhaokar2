@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Ativa o suporte do Elementor para TODOS os Tipos de Conteúdo (Páginas, Posts, Raças, Deuses, Reinos, Logs, Personagens)
+ * Ativa o suporte do Elementor para TODOS os Tipos de Conteúdo
  */
 function rhaokar_enable_elementor_support() {
 	$cpts = array( 'page', 'post', 'raca', 'deus', 'reino', 'log_campanha', 'personagem' );
@@ -18,10 +18,49 @@ add_action( 'after_setup_theme', 'rhaokar_enable_elementor_support' );
 add_action( 'admin_init', 'rhaokar_enable_elementor_support' );
 
 /**
+ * Sincroniza automaticamente as artes do Rhaokar para a pasta wp-content/uploads/rhaokar/
+ * para uso na Biblioteca de Mídia e Elementor
+ */
+function rhaokar_sync_images_to_uploads() {
+	$upload_dir = wp_upload_dir();
+	$rhaokar_upload_path = $upload_dir['basedir'] . '/rhaokar';
+	$theme_img_path = get_stylesheet_directory() . '/img';
+
+	if ( ! file_exists( $rhaokar_upload_path ) ) {
+		wp_mkdir_p( $rhaokar_upload_path );
+	}
+
+	if ( file_exists( $theme_img_path ) ) {
+		$files = array(
+			'Sprite-NuvemSite.png',
+			'Sprite-GramaSite.png',
+			'papyrus1.svg',
+			'papyrus2.svg',
+			'Pointer.png',
+			'Tocha.gif',
+			'clouds.png',
+			'grass.png',
+			'oasis.png'
+		);
+
+		foreach ( $files as $file ) {
+			$src  = $theme_img_path . '/' . $file;
+			$dest = $rhaokar_upload_path . '/' . $file;
+			if ( file_exists( $src ) && ! file_exists( $dest ) ) {
+				@copy( $src, $dest );
+			}
+		}
+	}
+}
+add_action( 'admin_init', 'rhaokar_sync_images_to_uploads' );
+
+/**
  * Injeta Estilos Absolutos no Cabeçalho para forçar o Fundo Azul-Céu, Nuvens, Grama e Fontes RPG
  */
 function rhaokar_custom_head_styles() {
 	$theme_url = esc_url( get_stylesheet_directory_uri() );
+	$upload_dir = wp_upload_dir();
+	$upload_url = esc_url( $upload_dir['baseurl'] . '/rhaokar' );
 	?>
 	<style id="rhaokar-inline-css">
 		/* Força fundo azul-céu oficial em 100% da tela */
@@ -40,7 +79,7 @@ function rhaokar_custom_head_styles() {
 		.botao text {
 			font-family: 'NewRocker', 'Times New Roman', serif !important;
 		}
-		/* Animação de Nuvens com URL Absoluta */
+		/* Animação de Nuvens */
 		.contem_nuvem {
 			display: block;
 			width: 100%;
@@ -52,7 +91,7 @@ function rhaokar_custom_head_styles() {
 			background: url('<?php echo $theme_url; ?>/img/Sprite-NuvemSite.png') repeat-x 0 bottom #ACE6FF !important;
 			height: 185px;
 		}
-		/* Animação de Grama com URL Absoluta */
+		/* Animação de Grama */
 		.contem_grama {
 			display: block;
 			width: 100%;
