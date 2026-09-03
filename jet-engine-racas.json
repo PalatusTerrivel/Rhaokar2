@@ -32,26 +32,41 @@
       },
       "meta_fields": [
         {
-          "title": "=== FICHA PATHFINDER 1E ===",
-          "name": "header_pf1",
-          "type": "html"
+          "title": "Sistema RPG Ativo para Edição",
+          "name": "sistema_ativo",
+          "type": "radio",
+          "description": "Escolha qual sistema você deseja preencher/visualizar agora:",
+          "options": [
+            { "key": "pf1", "value": "Pathfinder 1e" },
+            { "key": "dnd35", "value": "D&D 3.5" }
+          ],
+          "default": "pf1"
         },
         {
           "title": "Tipo da Criatura (Pathfinder 1e)",
           "name": "pf1_tipo",
           "type": "text",
-          "width": "50%"
+          "width": "50%",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ]
         },
         {
           "title": "Tamanho (Pathfinder 1e)",
           "name": "pf1_tamanho",
           "type": "text",
-          "width": "50%"
+          "width": "50%",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ]
         },
         {
           "title": "Atributos (Pathfinder 1e)",
           "name": "pf1_atributos",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ],
           "fields": [
             { "title": "Modificador / Atributo", "name": "modificador", "type": "text" }
           ]
@@ -60,6 +75,9 @@
           "title": "Qualidades Especiais (Pathfinder 1e)",
           "name": "pf1_qualidades_especiais",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ],
           "fields": [
             { "title": "Nome da Habilidade", "name": "nome", "type": "text" },
             { "title": "Descrição da Habilidade", "name": "descricao", "type": "textarea" }
@@ -69,6 +87,9 @@
           "title": "Perícias (Pathfinder 1e)",
           "name": "pf1_pericias",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ],
           "fields": [
             { "title": "Perícia / Bônus", "name": "pericia", "type": "text" }
           ]
@@ -77,6 +98,9 @@
           "title": "Talentos / Evoluções (Pathfinder 1e)",
           "name": "pf1_talentos",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ],
           "fields": [
             { "title": "Nome do Talento", "name": "nome_talento", "type": "text" },
             { "title": "Descrição / Efeito", "name": "descricao_talento", "type": "textarea" }
@@ -86,38 +110,48 @@
           "title": "Idiomas (Pathfinder 1e)",
           "name": "pf1_idiomas",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ],
           "fields": [
             { "title": "Idioma", "name": "nome_idioma", "type": "text" }
           ]
-        },
-        {
-          "title": "=== FICHA D&D 3.5 ===",
-          "name": "header_dnd35",
-          "type": "html"
         },
         {
           "title": "Ajuste de Nível / Level Adjustment (D&D 3.5)",
           "name": "dnd35_ajuste_nivel",
           "type": "text",
           "description": "Ex: +0, +1, +2",
-          "width": "100%"
+          "width": "100%",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ]
         },
         {
           "title": "Tipo da Criatura (D&D 3.5)",
           "name": "dnd35_tipo",
           "type": "text",
-          "width": "50%"
+          "width": "50%",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ]
         },
         {
           "title": "Tamanho (D&D 3.5)",
           "name": "dnd35_tamanho",
           "type": "text",
-          "width": "50%"
+          "width": "50%",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ]
         },
         {
           "title": "Atributos (D&D 3.5)",
           "name": "dnd35_atributos",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ],
           "fields": [
             { "title": "Modificador / Atributo", "name": "modificador", "type": "text" }
           ]
@@ -126,6 +160,9 @@
           "title": "Qualidades Especiais (D&D 3.5)",
           "name": "dnd35_qualidades_especiais",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ],
           "fields": [
             { "title": "Nome da Habilidade", "name": "nome", "type": "text" },
             { "title": "Descrição da Habilidade", "name": "descricao", "type": "textarea" }
@@ -135,6 +172,9 @@
           "title": "Perícias (D&D 3.5)",
           "name": "dnd35_pericias",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ],
           "fields": [
             { "title": "Perícia / Bônus", "name": "pericia", "type": "text" }
           ]
@@ -143,6 +183,9 @@
           "title": "Talentos (D&D 3.5)",
           "name": "dnd35_talentos",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ],
           "fields": [
             { "title": "Nome do Talento", "name": "nome_talento", "type": "text" },
             { "title": "Descrição / Efeito", "name": "descricao_talento", "type": "textarea" }
@@ -152,6 +195,9 @@
           "title": "Idiomas (D&D 3.5)",
           "name": "dnd35_idiomas",
           "type": "repeater",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ],
           "fields": [
             { "title": "Idioma", "name": "nome_idioma", "type": "text" }
           ]
