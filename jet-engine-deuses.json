@@ -2,6 +2,7 @@
   "status": "success",
   "post_types": [
     {
+      "id": 2,
       "slug": "deus",
       "labels": {
         "name": "Deuses",
@@ -32,6 +33,7 @@
       },
       "meta_fields": [
         {
+          "id": 201,
           "title": "Sistema RPG Ativo para Edição",
           "name": "sistema_ativo",
           "type": "radio",
@@ -43,6 +45,7 @@
           "default": "pf1"
         },
         {
+          "id": 202,
           "title": "Tendência (Alinhamento)",
           "name": "tendencia",
           "type": "select",
@@ -60,6 +63,7 @@
           ]
         },
         {
+          "id": 203,
           "title": "Arma Favorecida",
           "name": "arma_favorecida",
           "type": "text",
@@ -67,68 +71,72 @@
           "width": "50%"
         },
         {
+          "id": 204,
           "title": "História da Ascensão",
           "name": "ascensao",
           "type": "textarea",
           "description": "Como a divindade ascendeu à divindade"
         },
         {
+          "id": 205,
           "title": "Descrição / Lore Completa",
           "name": "descricao_deus",
           "type": "textarea",
           "description": "Descrição detalhada do Deus e seus seguidores"
         },
         {
+          "id": 206,
           "title": "Obrigações e Juramentos",
           "name": "obrigacoes_juramentos",
           "type": "textarea",
-          "description": "Códigos de conduta, dogmas, obrigações e proibições para clérigos/devotos"
+          "description": "Códigos de conduta, dogmas, obrigações e proibições"
         },
         {
-          "title": "Símbolo Sagrado (Texto ou Descrição)",
+          "id": 207,
+          "title": "Símbolo Sagrado (Texto)",
           "name": "simbolo_sagrado_texto",
           "type": "text",
-          "description": "Ex: Borboleta à frente do disco solar",
           "width": "50%"
         },
         {
+          "id": 208,
           "title": "Símbolo Sagrado (Imagem)",
           "name": "simbolo_sagrado_imagem",
           "type": "media",
-          "description": "Upload do ícone/arte do Símbolo Sagrado",
           "width": "50%"
         },
         {
+          "id": 209,
           "title": "Portfólio da Divindade",
           "name": "portfolio_repeater",
           "type": "repeater",
-          "description": "Temas sob domínio da divindade (Ex: Paz, Luz, Cura, Morte, Escuridão)",
-          "fields": [
-            { "title": "Item do Portfólio", "name": "item", "type": "text" }
+          "description": "Temas sob domínio da divindade",
+          "repeater-fields": [
+            { "id": 2091, "title": "Item do Portfólio", "name": "item", "type": "text" }
           ]
         },
         {
+          "id": 210,
           "title": "Domínios (Pathfinder 1e)",
           "name": "pf1_dominios_repeater",
           "type": "repeater",
-          "description": "Domínios e Subdomínios do Pathfinder 1e (Ex: Good, Healing, Sun, Liberation)",
           "conditional_logic": [
             { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
           ],
-          "fields": [
-            { "title": "Nome do Domínio (PF1)", "name": "dominio", "type": "text" }
+          "repeater-fields": [
+            { "id": 2101, "title": "Nome do Domínio (PF1)", "name": "dominio", "type": "text" }
           ]
         },
         {
+          "id": 211,
           "title": "Domínios (D&D 3.5)",
           "name": "dnd35_dominios_repeater",
           "type": "repeater",
-          "description": "Domínios do D&D 3.5 (Ex: Good, Healing, Sun, Protection)",
           "conditional_logic": [
             { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
           ],
-          "fields": [
-            { "title": "Nome do Domínio (D&D 3.5)", "name": "dominio", "type": "text" }
+          "repeater-fields": [
+            { "id": 2111, "title": "Nome do Domínio (D&D 3.5)", "name": "dominio", "type": "text" }
           ]
         }
       ]
@@ -136,6 +144,7 @@
   ],
   "taxonomies": [
     {
+      "id": 10,
       "slug": "categoria_deus",
       "object_type": ["deus"],
       "labels": {

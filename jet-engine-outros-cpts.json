@@ -2,6 +2,7 @@
   "status": "success",
   "post_types": [
     {
+      "id": 3,
       "slug": "reino",
       "labels": {
         "name": "Reinos",
@@ -21,26 +22,28 @@
         "supports": ["title", "editor", "thumbnail"]
       },
       "meta_fields": [
-        { "title": "Brasão / Bandeira", "name": "brasao_imagem", "type": "media" },
-        { "title": "Capital", "name": "capital", "type": "text", "width": "50%" },
-        { "title": "População", "name": "populacao", "type": "text", "width": "50%" },
-        { "title": "Governo", "name": "governo", "type": "text", "width": "50%" },
-        { "title": "Clima", "name": "clima", "type": "text", "width": "50%" },
-        { "title": "Mapa do Reino", "name": "mapa_reino", "type": "media" },
-        { "title": "História / Descrição", "name": "descricao_reino", "type": "textarea" },
+        { "id": 301, "title": "Brasão / Bandeira", "name": "brasao_imagem", "type": "media" },
+        { "id": 302, "title": "Capital", "name": "capital", "type": "text", "width": "50%" },
+        { "id": 303, "title": "População", "name": "populacao", "type": "text", "width": "50%" },
+        { "id": 304, "title": "Governo", "name": "governo", "type": "text", "width": "50%" },
+        { "id": 305, "title": "Clima", "name": "clima", "type": "text", "width": "50%" },
+        { "id": 306, "title": "Mapa do Reino", "name": "mapa_reino", "type": "media" },
+        { "id": 307, "title": "História / Descrição", "name": "descricao_reino", "type": "textarea" },
         {
+          "id": 308,
           "title": "Cidades Importantes",
           "name": "cidades_repeater",
           "type": "repeater",
-          "fields": [
-            { "title": "Nome da Cidade", "name": "nome_cidade", "type": "text" },
-            { "title": "Tipo / Porte", "name": "tipo_cidade", "type": "text" },
-            { "title": "Descrição", "name": "descricao", "type": "textarea" }
+          "repeater-fields": [
+            { "id": 3081, "title": "Nome da Cidade", "name": "nome_cidade", "type": "text" },
+            { "id": 3082, "title": "Tipo / Porte", "name": "tipo_cidade", "type": "text" },
+            { "id": 3083, "title": "Descrição", "name": "descricao", "type": "textarea" }
           ]
         }
       ]
     },
     {
+      "id": 4,
       "slug": "log_campanha",
       "labels": {
         "name": "Logs de Campanha",
@@ -60,22 +63,24 @@
         "supports": ["title", "editor", "thumbnail"]
       },
       "meta_fields": [
-        { "title": "Número da Sessão", "name": "numero_sessao", "type": "text", "width": "50%" },
-        { "title": "Data da Sessão", "name": "data_sessao", "type": "date", "width": "50%" },
-        { "title": "Resumo da Sessão", "name": "resumo_sessao", "type": "textarea" },
-        { "title": "Recompensas & Tesouros", "name": "recompensas", "type": "textarea" },
+        { "id": 401, "title": "Número da Sessão", "name": "numero_sessao", "type": "text", "width": "50%" },
+        { "id": 402, "title": "Data da Sessão", "name": "data_sessao", "type": "date", "width": "50%" },
+        { "id": 403, "title": "Resumo da Sessão", "name": "resumo_sessao", "type": "textarea" },
+        { "id": 404, "title": "Recompensas & Tesouros", "name": "recompensas", "type": "textarea" },
         {
+          "id": 405,
           "title": "Participantes da Sessão",
           "name": "participantes_repeater",
           "type": "repeater",
-          "fields": [
-            { "title": "Nome do Personagem", "name": "nome_personagem", "type": "text" },
-            { "title": "Jogador", "name": "jogador", "type": "text" }
+          "repeater-fields": [
+            { "id": 4051, "title": "Nome do Personagem", "name": "nome_personagem", "type": "text" },
+            { "id": 4052, "title": "Jogador", "name": "jogador", "type": "text" }
           ]
         }
       ]
     },
     {
+      "id": 5,
       "slug": "personagem",
       "labels": {
         "name": "Personagens",
@@ -95,10 +100,11 @@
         "supports": ["title", "editor", "thumbnail"]
       },
       "meta_fields": [
-        { "title": "Jogador", "name": "nome_jogador", "type": "text", "width": "50%" },
-        { "title": "Classe & Nível", "name": "classe_nivel", "type": "text", "width": "50%" },
-        { "title": "Raça", "name": "raca_personagem", "type": "text", "width": "50%" },
+        { "id": 501, "title": "Jogador", "name": "nome_jogador", "type": "text", "width": "50%" },
+        { "id": 502, "title": "Classe & Nível", "name": "classe_nivel", "type": "text", "width": "50%" },
+        { "id": 503, "title": "Raça", "name": "raca_personagem", "type": "text", "width": "50%" },
         {
+          "id": 504,
           "title": "Status do Personagem",
           "name": "status_personagem",
           "type": "select",
@@ -109,8 +115,8 @@
             { "key": "morto", "value": "Morto (Salão dos Heróis)" }
           ]
         },
-        { "title": "Link da Ficha de Personagem", "name": "ficha_url", "type": "text" },
-        { "title": "História / Background", "name": "historia_personagem", "type": "textarea" }
+        { "id": 505, "title": "Link da Ficha de Personagem", "name": "ficha_url", "type": "text" },
+        { "id": 506, "title": "História / Background", "name": "historia_personagem", "type": "textarea" }
       ]
     }
   ]
