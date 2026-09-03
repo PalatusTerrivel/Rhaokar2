@@ -1,0 +1,155 @@
+{
+  "status": "success",
+  "post_types": [
+    {
+      "slug": "deus",
+      "labels": {
+        "name": "Deuses",
+        "singular_name": "Deus",
+        "add_new": "Adicionar Novo Deus",
+        "add_new_item": "Adicionar Novo Deus",
+        "edit_item": "Editar Deus",
+        "new_item": "Novo Deus",
+        "view_item": "Ver Deus",
+        "search_items": "Buscar Deuses",
+        "not_found": "Nenhum deus encontrado",
+        "not_found_in_trash": "Nenhum deus encontrado na lixeira",
+        "menu_name": "Deuses / Divindades"
+      },
+      "args": {
+        "public": true,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "query_var": true,
+        "rewrite": { "slug": "deuses" },
+        "capability_type": "post",
+        "has_archive": true,
+        "hierarchical": false,
+        "menu_position": 6,
+        "menu_icon": "dashicons-shield",
+        "supports": ["title", "editor", "thumbnail"]
+      },
+      "meta_fields": [
+        {
+          "title": "Sistema RPG Ativo para Edição",
+          "name": "sistema_ativo",
+          "type": "radio",
+          "description": "Escolha qual sistema deseja editar agora (afeta a lista de Domínios):",
+          "options": [
+            { "key": "pf1", "value": "Pathfinder 1e" },
+            { "key": "dnd35", "value": "D&D 3.5" }
+          ],
+          "default": "pf1"
+        },
+        {
+          "title": "Tendência (Alinhamento)",
+          "name": "tendencia",
+          "type": "select",
+          "width": "50%",
+          "options": [
+            { "key": "Leal e Bom (LG)", "value": "Leal e Bom (LG)" },
+            { "key": "Neutro e Bom (NG)", "value": "Neutro e Bom (NG)" },
+            { "key": "Caótico e Bom (CG)", "value": "Caótico e Bom (CG)" },
+            { "key": "Leal e Neutro (LN)", "value": "Leal e Neutro (LN)" },
+            { "key": "Neutro (N)", "value": "Neutro (N)" },
+            { "key": "Caótico e Neutro (CN)", "value": "Caótico e Neutro (CN)" },
+            { "key": "Leal e Mau (LE)", "value": "Leal e Mau (LE)" },
+            { "key": "Neutro e Mau (NE)", "value": "Neutro e Mau (NE)" },
+            { "key": "Caótico e Mau (CE)", "value": "Caótico e Mau (CE)" }
+          ]
+        },
+        {
+          "title": "Arma Favorecida",
+          "name": "arma_favorecida",
+          "type": "text",
+          "description": "Ex: Foice, Espada Longa, Arco Curto, Nenhuma",
+          "width": "50%"
+        },
+        {
+          "title": "História da Ascensão",
+          "name": "ascensao",
+          "type": "textarea",
+          "description": "Como a divindade ascendeu à divindade"
+        },
+        {
+          "title": "Descrição / Lore Completa",
+          "name": "descricao_deus",
+          "type": "textarea",
+          "description": "Descrição detalhada do Deus e seus seguidores"
+        },
+        {
+          "title": "Obrigações e Juramentos",
+          "name": "obrigacoes_juramentos",
+          "type": "textarea",
+          "description": "Códigos de conduta, dogmas, obrigações e proibições para clérigos/devotos"
+        },
+        {
+          "title": "Símbolo Sagrado (Texto ou Descrição)",
+          "name": "simbolo_sagrado_texto",
+          "type": "text",
+          "description": "Ex: Borboleta à frente do disco solar",
+          "width": "50%"
+        },
+        {
+          "title": "Símbolo Sagrado (Imagem)",
+          "name": "simbolo_sagrado_imagem",
+          "type": "media",
+          "description": "Upload do ícone/arte do Símbolo Sagrado",
+          "width": "50%"
+        },
+        {
+          "title": "Portfólio da Divindade",
+          "name": "portfolio_repeater",
+          "type": "repeater",
+          "description": "Temas sob domínio da divindade (Ex: Paz, Luz, Cura, Morte, Escuridão)",
+          "fields": [
+            { "title": "Item do Portfólio", "name": "item", "type": "text" }
+          ]
+        },
+        {
+          "title": "Domínios (Pathfinder 1e)",
+          "name": "pf1_dominios_repeater",
+          "type": "repeater",
+          "description": "Domínios e Subdomínios do Pathfinder 1e (Ex: Good, Healing, Sun, Liberation)",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "pf1" }
+          ],
+          "fields": [
+            { "title": "Nome do Domínio (PF1)", "name": "dominio", "type": "text" }
+          ]
+        },
+        {
+          "title": "Domínios (D&D 3.5)",
+          "name": "dnd35_dominios_repeater",
+          "type": "repeater",
+          "description": "Domínios do D&D 3.5 (Ex: Good, Healing, Sun, Protection)",
+          "conditional_logic": [
+            { "field": "sistema_ativo", "operator": "equal", "value": "dnd35" }
+          ],
+          "fields": [
+            { "title": "Nome do Domínio (D&D 3.5)", "name": "dominio", "type": "text" }
+          ]
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "slug": "categoria_deus",
+      "object_type": ["deus"],
+      "labels": {
+        "name": "Categorias de Divindades",
+        "singular_name": "Categoria de Divindade",
+        "menu_name": "Categorias de Deuses"
+      },
+      "args": {
+        "public": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "hierarchical": true,
+        "rewrite": { "slug": "categoria-deus" }
+      }
+    }
+  ]
+}
