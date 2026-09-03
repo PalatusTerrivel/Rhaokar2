@@ -1,0 +1,13 @@
+/*
+Theme Name: Hello Elementor Child (Rhaokar)
+Theme URI: https://rhaokar.com.br
+Description: Tema Filho do Hello Elementor para o Cenário de Campanha Rhaokar (Pathfinder 1e)
+Author: Rhaokar / Paulo
+Author URI: https://rhaokar.com.br
+Template: hello-elementor
+Version: 1.0.0
+Text Domain: rhaokar-child
+*/
+
+/* Importa os efeitos de CSS do Rhaokar */
+@import url("css/honeycomb_e_efeitos.css");
