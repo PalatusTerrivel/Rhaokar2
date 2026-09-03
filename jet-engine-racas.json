@@ -1,0 +1,151 @@
+{
+  "status": "success",
+  "post_types": [
+    {
+      "slug": "raca",
+      "labels": {
+        "name": "Raças",
+        "singular_name": "Raça",
+        "add_new": "Adicionar Nova Raça",
+        "add_new_item": "Adicionar Nova Raça",
+        "edit_item": "Editar Raça",
+        "new_item": "Nova Raça",
+        "view_item": "Ver Raça",
+        "search_items": "Buscar Raças",
+        "not_found": "Nenhuma raça encontrada",
+        "not_found_in_trash": "Nenhuma raça encontrada na lixeira",
+        "menu_name": "Raças"
+      },
+      "args": {
+        "public": true,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "query_var": true,
+        "rewrite": { "slug": "racas" },
+        "capability_type": "post",
+        "has_archive": true,
+        "hierarchical": false,
+        "menu_position": 5,
+        "menu_icon": "dashicons-groups",
+        "supports": ["title", "editor", "thumbnail"]
+      },
+      "meta_fields": [
+        {
+          "title": "Sistema RPG",
+          "name": "sistema_rpg",
+          "type": "select",
+          "description": "Selecione se esta raça pertence ao Pathfinder 1e ou D&D 3.5",
+          "options": [
+            { "key": "pf1", "value": "Pathfinder 1e" },
+            { "key": "dnd35", "value": "D&D 3.5" }
+          ],
+          "default": "pf1"
+        },
+        {
+          "title": "Tipo da Criatura",
+          "name": "tipo_criatura",
+          "type": "text",
+          "description": "Ex: Monstrous Humanoid, Humanoid, Dragon, Ooze",
+          "width": "50%"
+        },
+        {
+          "title": "Tamanho",
+          "name": "tamanho_criatura",
+          "type": "text",
+          "description": "Ex: Pequeno (0.8m a 1.1m), Médio, Grande",
+          "width": "50%"
+        },
+        {
+          "title": "Ajuste de Nível (Level Adjustment)",
+          "name": "ajuste_nivel",
+          "type": "text",
+          "description": "Somente para D&D 3.5 (Ex: +1, +2)",
+          "width": "100%",
+          "conditional_logic": [
+            {
+              "field": "sistema_rpg",
+              "operator": "equal",
+              "value": "dnd35"
+            }
+          ]
+        },
+        {
+          "title": "Atributos Raciais",
+          "name": "atributos_repeater",
+          "type": "repeater",
+          "description": "Modificadores de Atributo (Ex: STR -2, DEX +2, CHA +2)",
+          "fields": [
+            {
+              "title": "Modificador / Atributo",
+              "name": "modificador",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "title": "Qualidades Especiais & Traços Raciais",
+          "name": "qualidades_especiais_repeater",
+          "type": "repeater",
+          "description": "Habilidades Especiais e Traços da Raça",
+          "fields": [
+            {
+              "title": "Nome da Habilidade",
+              "name": "nome",
+              "type": "text"
+            },
+            {
+              "title": "Descrição da Habilidade",
+              "name": "descricao",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "title": "Perícias Raciais",
+          "name": "pericias_repeater",
+          "type": "repeater",
+          "description": "Perícias e Bônus Raciais",
+          "fields": [
+            {
+              "title": "Perícia / Bônus",
+              "name": "pericia",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "title": "Talentos Raciais",
+          "name": "talentos_repeater",
+          "type": "repeater",
+          "description": "Talentos e Evoluções Raciais",
+          "fields": [
+            {
+              "title": "Nome do Talento",
+              "name": "nome_talento",
+              "type": "text"
+            },
+            {
+              "title": "Descrição / Efeito",
+              "name": "descricao_talento",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "title": "Idiomas",
+          "name": "idiomas_repeater",
+          "type": "repeater",
+          "description": "Idiomas Conhecidos e Adicionais",
+          "fields": [
+            {
+              "title": "Idioma",
+              "name": "nome_idioma",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
