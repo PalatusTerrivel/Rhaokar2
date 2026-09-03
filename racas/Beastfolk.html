@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para a descrição dos povos-fera de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, Povos-Fera">
+    <title>O Povo-Fera</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="../css/grid.css" rel="stylesheet">
+<style>
+      .conteudo{
+  padding: 50px;
+}
+</style>
+</head>
+    <body>
+      <div class="contem_nuvem"><div id="clouds"></div></div>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="../index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../racas/Beastfolk.html">O Povo-Fera</a>
+                  <a class="dropdown-item" href="../racas/elfos.html">Os Elfos</a>
+                  <a class="dropdown-item" href="../racas/Forjados.html">Os Forjados</a>
+                  <a class="dropdown-item" href="../racas/dragons.html">Os Dracônicos</a>
+                  <a class="dropdown-item" href="../racas/lizards.html">Os Reptilianos</a>
+                  <a class="dropdown-item" href="../racas/anoes.html">Os Anões</a>
+                  <a class="dropdown-item" href="../racas/limos.html">Os Limos</a>
+                  <a class="dropdown-item" href="../racas/hivelings.html">O Povo-Inseto</a>
+                  <a class="dropdown-item" href="../racas/Orcs.html">Os Orcs</a>
+                  <a class="dropdown-item" href="../racas/familiar.html">Familiares Sem Mestre</a>
+                  <a class="dropdown-item" href="../racas/minotauro.html">Minotauros</a>
+                  <a class="dropdown-item" href="../racas/centauro.html">Centauros</a>
+                  <a class="dropdown-item" href="../racas/racas.html">As Outras Raças</a>
+                </div>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown">O Cenário</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="../cenario/Mapa_rhaokar.html">O Mapa</a>
+                <a class="dropdown-item" href="../cenario/reinos/reinos.html">Os Reinos</a>
+                <a class="dropdown-item" href="../cenario/cosmos/Cosmos.html">O Cosmos</a>
+                <a class="dropdown-item" href="../cenario/deuses/divindades.html">Os Deuses</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Diário das Campanhas</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../diario/log-das-campanhas.html">Log das Campanhas</a>
+                  <a class="dropdown-item" href="../diario/Personagens.html">Personagens</a>
+                  <a class="dropdown-item" href="../diario/Salao_dos_herois.html">Salão dos Heróis</a>
+                </div>
+              </li>  
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Regras Alternativas</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Revised%20Action%20Economy&Category=Pathfinder%20Unchained" target="_blank">Ações</a>
+                  <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Professions&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Profession</a>
+                  <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Crafting&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Craft</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../magia/mudancas.html">Mudanças</a>
+                  <a class="dropdown-item" href="../magia/sistemas.html">Sistemas</a>
+                  <a class="dropdown-item" href="../magia/arquetipo_magia.html">Arquétipos</a>
+                  <a class="dropdown-item" href="../magia/itens_magia.html">Itens</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Alquimia</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../alquimia/talentos_alquimia.html">Talentos</a>
+                  <a class="dropdown-item" href="../alquimia/arquetipos_alquimia.html">Arquétipos</a>
+                  <a class="dropdown-item" href="../alquimia/simbiontes.html">Simbiontes</a>
+                  <a class="dropdown-item" href="../alquimia/implantes.html">Implantes</a>
+                  <a class="dropdown-item" href="../alquimia/itens_alquimia.html">Itens</a>
+                </div>
+              </li> 
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tecnologia</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../tecnologia/talentos_tecnologia.html">Talentos</a>
+                  <a class="dropdown-item" href="../tecnologia/criar_tecnologia.html">Criação de Itens</a>
+                  <a class="dropdown-item" href="../tecnologia/arquetipos_tecnologia.html">Arquétipos</a>
+                  <a class="dropdown-item" href="../tecnologia/itens_tecnologia.html">Itens</a>
+                </div>
+              </li>       
+          </ul>
+        </div>  
+      </nav>
+      <div class="contem-deuses">    
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#elefante">Povo Elefante</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#rinoceronte">Povo Rinoceronte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#leao">Povo Leão</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#camundongo">Povo Camundongo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#lobo">Povo Lobo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#gato">Povo Gato</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#panda">Bjornin, Pandas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pardo">Bjornin, Pardos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#polar">Bjornin, Polar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#tengu">Povo Corvo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#kitsune">Kitsune</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#rato">Povo Rato</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#vanara">Vanara</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#honu">Honu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#pinguim">Pinguim</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#tanuki">Tanuki</a>
+        </li>
+      </ul>
+      
+      <!-- Tab panes -->
+<div class="tab-content">
+        <div class="tab-pane container active" id="elefante">																																					
+            <div class="contem-racas" style="padding: 20px;">
+                <img src="../img/races/Beastfolk-Elephant.gif" style="width: 150px; height: 150px;">
+                <p><b>O Povo-Elefante</b> vive em Koba, em unidades familiares nômades na floresta, elas são compostas de uma matriarca mais velha e outras fêmeas e filhotes, são unidades pequenas, com 15 a 20 indivíduos, as fêmeas são as lideres dessas unidades e os machos, ao atingirem a idade adulta, passam a viver sozinhos, em geral como xamãs.</p>				
+                <p>Ambos os sexos têm muito orgulho de suas presas, raramente as usando em combate, mesmo que sejam muito eficientes como armas.</p>						
+                <ul>				
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado				
+                </li>				
+                <li>Como um membro do povo Elefante, seu tamanho é Large, ficando entre 2,5m até 2,7m de altura para as fêmeas e entre 2,8m até 3m de altura para os machos e um peso de até 450kg para as fêmeas e até 700kg para os machos				
+                </li>				
+                <li>STR +2, DEX -2, CON +2, WIS +2, CHA -2, o povo elefante é forte e resistente por conta do tamanho e são muito sábios, mas são introspectivos e tendem a não confiar muito em estranhos.				
+                </li>				
+                <li>+2 Natural Armor, como suas contrapartes animais, o povo Elefante tem a pele grossa e resistente.				
+                </li>				
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, o povo Elefante não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.				
+                </li>				
+                <li>+2 em testes de Perception, assim como sua contraparte animal, o povo Elefante tem os sentidos bem aguçados.				
+                </li>				
+                <li><b>Move:</b> 6m,embora sejam lentos por conta do tamanho, são bem fortes e não são afetados por carga ou armaduras.				
+                </li>				
+                <li><b>Tusks:</b> Como sua contraparte animal, o povo elefante possui longas presas, que podem ser usadas facilmente como armas, essas presas são um pouco menores nas fêmeas do que nos machos. em abos os casos, são armas naturais primárias que causam 1d6 de dano.				
+                </li>				
+                <li><b>Trunk:</b> O povo elefante possui uma tromba característica de sua espécie, e eles a usam quase como um 5º membro. A tromba, embora tenha a destreza manual de um braço, não pode ser usada para empunhar armas.				
+                </li>				
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.				
+                </li>				
+                </ul>				
+              </div>
+            <div class="contem-racas" style="padding: 20px;">
+              <h4><b>Variação do Povo Elefante</b></h4>				  
+              <img src="../img/races/Beastfolk-Mammoth.gif" style="width: 150px; height: 150px;">
+                  <ul><b>O Povo Mamute</b>				
+                  <p>O comportamento do Povo-manute é muito semelhante ao do povo Elefante, mas seu habitat é diferente, podem ser encontrados nas Tundras geladas de Ymirgardr no pólo norte.</p>				
+                  <li>Todas as estatísticas são iguais, mas o povo mamute não recebe o bônus de +2 em WIS, eles recebem um total de +4 em STR</li>				
+                  <li>Adicionalmente, eles recebem os benefícios de <i>Endure Elements</i> para climas frios e uma penalidade de -2 para resistir aos efeitos do clima quente</li>				
+                  </ul>
+                </div>
+        </div>
+        <div class="tab-pane container fade" id="rinoceronte">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Rhino.gif" style="width: 150px; height: 150px;">
+              <p><b>O Povo Rinoceronte</b> Grandes, lentos e muito fortes, o povo rinoceronte é solitário, em geral vivendo sozinhos em cabanas nas florestas de Koba, são guerreiros orgulhosos e, diferentemente da maior parte dos povos-fera, ostentam seus chifres com orgulho e os usam em combate sempre que podem. 
+              </p>						
+                  <ul>
+                    <li>Seu tipo é Monstruous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                    </li>
+                    <li>Como um membro do povo Rinoceronte, seu tamanho é Large, ficando entre 2,4m até 2,6m de altura para as fêmeas e entre 2,7m até 2,9m de altura para os machos e um peso de até 350kg para as fêmeas e até 600kg para os machos
+                    </li>
+                    <li>STR +4, DEX -2, CON +2, INT -2, o povo Rinoceronte é extremamente forte e muito resistente, mas não são muito ágeis ou sofisticados.
+                    </li>
+                    <li>+3 Natural Armor, como sua contraparte animal, o povo Rinoceronte possui uma pele muito grossa e resistente.
+                    </li>
+                    <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                    </li>
+                    <li>+2 Perception checks related to smell and listen and -2 to sight related perception checks, como seus parentes animais, o povo Rinoceronte não enxerga bem, mas tem um sentido de olfato e audição aguçados.
+                    </li>
+                    <li><b>Move:</b> 6m, embora sejam lentos por conta do tamanho, são bem fortes e não são afetados por carga ou armaduras.
+                    </li>
+                    <li><b>Gore:</b>primary natural weapon, 1d8 piercing, como sua contraparte animal, o povo Rinoceronte possui um longo e afiado chifre que eles usam em combate com frequência, pode ser usado em investida como uma lança.
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+
+          <div class="contem-racas" style="padding: 20px;">
+            <h4><b>Variação do Povo Rinoceronte</b></h4>  
+            <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+                  <ul><b>O Povo Hipopótamo</b>
+                  <p>O comportamento do Povo-Hipopótamo é um pouco diferente, eles não são solitários, mas vivem em vilarejos próximos a cursos d 'água, entretanto, eles são tão agressivos ou até mais que seus parentes rinocerontes.</p>
+                  <li>O valores de habilidade são os mesmos, mas eles perdem o ataque de Gore, em seu lugar, eles recebem um deslocamento de natação de 6m e um ataque de mordida de 1d6 como arma primária.</li>
+                    </ul>
+              </div>
+      </div>
+        </div>
+        <div class="tab-pane container fade" id="leao">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Lion.gif" style="width: 150px; height: 150px;">
+              
+              <p><b>O Povo-Leão</b> Lordes das savanas de Koba, o povo leão é orgulhoso e são caçadores e guerreiros habilidosos, os macho são guerreiros poderosos e dedicados na proteção de seus clãs, mas a caça é o domínio das fêmeas. </p>				
+                    <ul>
+                      <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                      </li>
+                      <li>Como um membro do povo Leão, seu tamanho é Medium, ficando entre 1,6 até 2m de altura para as fêmeas e entre 1,8m até 2,3m de altura para os machos e um peso de até 100kg para as fêmeas e até 150kg para os machos
+                      </li>
+                      <li>STR +2, CHA +2, INT -2 para os machos e DEX +2, CON +2, para as fêmeas
+                      </li>
+                      <li>+2 em testes de Perception, assim como sua contraparte animal, o povo leão tem os sentidos bem aguçados. Além disso, os Machos recebem +2 em <i>Intimidate</i> e as Fêmeas +2 em <i>Survival</i>.
+                      </li>
+                      <li><b>Move:</b> 9m
+                      </li>
+                      <li><b>Fang & Claws:</b> O povo leão tem dois ataques de garras e um ataque de mordida, ambos causam 1d4 de dano e são armas primárias, ou secundárias se usadas em conjunto com armas normais.
+                      </li>
+                      <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                      </li>
+                    </ul>
+                    <ul><h4><b>Variação do Povo Leão</b></h4>
+                      <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+                      <li><ul><b>O Povo Tigre</b>
+                        <p>O comportamento do Povo-Tigre difere do Povo Leão, pois tendem a ser caçadores solitários, eles vivem nas florestas do Shogunato</p>
+                        <li>Tanto Machos como fêmeas recebem os seguintes bônus de habilidade e perícias: STR +2, CHA +2, Survival +2, Stealth +2, eles substituem os do Povo Leão</li>
+                        </ul></li>
+                     </ul>
+                     <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+                      <li><b>O Povo Dentes de Sabre</b></li>
+
+                        <p>O comportamento do Povo Dentes de Sabre difere do Povo Leão, pois tendem a ser caçadores solitários, eles vivem nas florestas de Ymirgardr</p></p>
+                        <li>Tanto Machos como fêmeas recebem os seguintes bônus de habilidade e perícias: STR +2, CON +2, CHA -2, Survival +2, Stealth +2, eles substituem os do Povo Leão</li>
+                        <li>Adicionalmente, sua mordida causa 1d6 de dano e suas garras 1d3</li>
+                      </ul></li>
+                    </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="camundongo">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Mouse.gif" style="width: 150px; height: 150px;">
+              <p><b>O Povo-Camundongo</b> Vivem nas florestas de Aetheomir em vilarejos aos pés das árvores, seus pequenos vilarejos se assemelham aos dos humanos, mas são reclusos em suas vilas e evitam contato com os de fora a todo o custo. </p>				
+              <ul>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Como um membro do povo Camundongo, seu tamanho é Tiny, ficando entre 50cm até 70cm de altura e pesando entre 5kg e 10kg para ambos os sexos
+                </li>
+                <li>STR -4, DEX +4, CHA +2, o povo Camundongo é ágil e amigável, mas não são fisicamente fortes por conta do seu tamanho.
+                  <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                  </li>
+                <li>+2 em testes de Perception, Acrobatics, Stealth e Survival.
+                </li>
+                <li><b>Move:</b> 6m, Escalada 6m.
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="lobo">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+              <p><b>Rougarou</b>Seus bandos de caça vivem vagando pelas florestas de Aetheomir, procuram por grandes presas, mas não caçam humanóides sem um bom motivo</p>			
+                  <ul><p>
+                    <li><a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Rougarou" target="_blank">Use o Rougarou</a>, exceto pelo tipo, que passa a ser Monstrous Humanoid e os idiomas adicionais, que são os seguintes:
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="gato">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Cat.gif" style="width: 150px; height: 150px;">
+              <p><b>O Povo-Gato</b></p>
+                <ul><li>Para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Catfolk" target="_blank">a mesma coisa do Catfolk</a>, exceto pelos idiomas
+                  </li>
+                  <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                  </li>
+                </ul>	
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="panda">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Bjornin-Panda.gif" style="width: 150px; height: 150px;">
+              <p><b>O Povo-Panda</b>, tende a viver vidas solitárias ou em pequenos grupos nas montanhas do shogunato
+              </p>				
+                  <ul>
+                    <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                    </li>
+                    <li>Tamanho: são criaturas Médias e, portanto, não recebem bônus ou penalidades devido ao tamanho.
+                    </li>
+                    <li>STR +2, WIS -2, CHA -2,  são fortes, tanto em espírito quanto em corpo, mas tendem a ser reclusos.
+                    </li>
+                    <li>+2 em testes de Perception, assim como sua contraparte animal, o povo Elefante tem os sentidos bem aguçados.
+                    </li>
+                    <li><b>Move:</b> 6m,embora sejam lentos por conta do tamanho, são bem fortes e não são afetados por carga ou armaduras.
+                    </li>
+                    <li><b>Atleta Natural:</b>  são fortes, tanto em espírito quanto em corpo, mas tendem a serem reclusos.
+                    </li>
+                    <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="pardo">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Bjornin-Grizzly.gif" style="width: 150px; height: 150px;">
+              <p><b>Os Bjornin Pardos</b> são solitários, vivendo sozinhos em cabanas na floresta, onde caçam e colhem frutas, preferem evitar o combate, mas seu grande tamanho e força faz com que eles se tornem oponentes formidáveis 
+              </p>				
+                  <ul>
+                    <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                    </li>
+                    <li>Como um Bjornin Pardo, seu tamanho é Large, ficando entre 2,5m até 2,7m de altura e um peso de até 450kg para ambos os sexos
+                    </li>
+                    <li>STR +4, DEX -2, CON +2, São grandes e corpulentos, porem lentos.
+                    </li>
+                    <li><b>Forma Sólida:</b> Recebem um bônus racial de +2 para se testes de resistências contra magia ou efeitos de polimorfismo, contra doenças e contra venenos ingeridos ou inalados (mas não contra doenças ou venenos mágicos).
+                    </li>
+                    <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                    </li>
+                    <li><b>Robusto:</b> Ganham +2 de bônus racial em DMC contra tentativas de atropelamento, derrubar ou agarrar feitas contra eles enquanto estiverem em solo.
+                    </li>
+                    <li><b>Move:</b> 9m.
+                    </li>
+                    <li><b>Ódio:</b> Recebem um bônus racial +1 nas jogadas de ataque contra aberrações e contra criaturas humanoides do subtipo gigante, devido a treinamento especial contra esses inimigos.
+                    </li>
+                    <li><b>Ataques Naturais:</b> Ganha um ataque corpo a corpo de mordida e dois ataques de garras sendo ambos são ataques naturais. O ataque de mordida causa 1d6 de dano e cada ataque de garra causa 1d6 de dano. Estes são ataques primários ou secundários se estiver segurando qualquer outra arma.
+                    </li>
+                    <li><b>Faro:</b> Ursos pardos possuem um olfato aguçado
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="polar">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Bjornin-Polar.gif" style="width: 150px; height: 150px;">
+              <p><b>Os Bjornin Polares</b> são solitários, vivendo sozinhos como nômades nos litorais frios do polo norte, onde caçam e pescam, preferem evitar o combate, mas seu grande tamanho e força faz com que eles se tornem oponentes formidáveis 
+              </p>			
+                  <ul>
+                    <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                    </li>
+                    <li>Como um Bjornin Polar, seu tamanho é Large, ficando entre 2,5m até 2,7m de altura e um peso de até 450kg para ambos os sexos.
+                    </li>
+                    <li>STR +4, DEX -2, CON +2, São grandes e corpulentos, porém lentos.
+                    </li>
+                    <li><b>Forma Sólida:</b> Recebem um bônus racial de +2 para se testes de resistências contra magia ou efeitos de polimorfismo, contra doenças e contra venenos ingeridos ou inalados (mas não contra doenças ou venenos mágicos).
+                    </li>
+                    <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                    </li>
+                    <li><b>Robusto:</b> Ganham +2 de bônus racial em DMC contra tentativas de atropelamento, derrubar ou agarrar feitas contra eles enquanto estiverem em solo.
+                    </li>
+                    <li><b> Resistência ao frio:</b> eles recebem os benefícios de <i>Endure Elements</i> para climas frios e uma penalidade de -2 para resistir aos efeitos do clima quente</li>
+                    <li><b>Move:</b> 9m, natação de 6m.
+                    </li>
+                    <li><b>Ódio:</b> Recebem um bônus racial +1 nas jogadas de ataque contra aberrações e contra criaturas humanoides do subtipo gigante, devido a treinamento especial contra esses inimigos.
+                    </li>
+                    <li><b>Ataques Naturais:</b> Ganha um ataque corpo a corpo de mordida e dois ataques de garras sendo ambos são ataques naturais. O ataque de mordida causa 1d6 de dano e cada ataque de garra causa 1d6 de dano. Estes são ataques primários ou secundários se estiver segurando qualquer outra arma.
+                    </li>
+                    <li><b>Faro:</b> Ursos polares possuem um olfato aguçado.
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="tengu">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+              <ul><p><b>Tengu</b></p>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Tengu" target="_blank">a mesma coisa do Tengu</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="kitsune">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Kitsune.gif" style="width: 150px; height: 150px;">
+              <p><b>Kitsune</b></p>             
+                <ul>
+                <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Kitsune" target="_blank">a mesma coisa do Kitsune</a>, exceto pelos idiomas
+                </li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>	
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="rato">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Rat.gif" style="width: 150px; height: 150px;">
+              <p><b>O Povo-rato</b></p>
+                <ul>
+                  <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Ratfolk" target="_blank">a mesma coisa do Ratfolk</a>, exceto pelos idiomas
+                  </li>
+                  <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                  </li>
+                </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="vanara">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Monkey.gif" style="width: 150px; height: 150px;">
+              <p><b>Vanara</b></p>
+                <ul>
+                  <li> é para todos os efeitos, <a href="https://aonprd.com/RacesDisplay.aspx?ItemName=Vanara" target="_blank">a mesma coisa do Vanara</a>, exceto pelos idiomas
+                  </li>
+                  <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                  </li>
+                </ul> 
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="honu">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Honu.gif" style="width: 150px; height: 150px;">
+              <p><b>Os Honu</b>, ou povo tartaruga, vive nos arquipélagos ao norte do shogunato, são pacíficos, vivem em pequenas aldeias costeiras e vivem de pesca, consideram águas-vivas uma iguaria
+              </p>				
+                  <ul>
+                    <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiencias dos Aboleth, feitas milhares de anos no passado
+                    </li>
+                    <li>Tamanho: são criaturas Médias e, portanto, não recebem bônus ou penalidades devido ao tamanho, medem entre 1,6m e 2,1m e podem pesar até 300kg.
+                    </li>
+                    <li>DEX -2, CON +2, WIS +2, o povo Honu é resistente.
+                    </li>
+                    <li><b>Move:</b> 6m, e não são afetados por carga ou armaduras. Natação 9m
+                    </li>
+                    <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                    </li>
+                    <li><b>Hard Shell:</b> A Carapaça de um Honu dá os seguintes benefícios: +6 de bônus de Armadura na CA, +3 de bônus máximo de Destreza na CA, -4 de penalidade de armadura (como um peitoral de aço)
+                    </li>
+                    <li><b>RM:</b> Sua Carapaça provém uma resistência à magia igual a 11+nível de personagem
+                    </li>
+                    <li><b>Runas de Casco:</b> Um personagem com o Talento Craft Magical Tattoo, pode encantar o casco de um Honu como se fosse uma armadura.
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="pinguim">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/races/Beastfolk-Penguin.gif" style="width: 150px; height: 150px;">
+              <p><b>Os Chryss</b>, ou povo pinguim, é uma espécie nativa do litoral de Huntston, vivem em pequenas aldeias e nos portos de Huntston, são mercadores e vendedores de tudo que não estiver pregado ou em que eles possam colocar suas mãos, podem ser lentos em terra, mas são exímios nadadores, eles tendem a formar laços duradouros com seus parceiros.</p>		
+                  <ul>
+                    <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                    </li>
+                    <li>Seu Tamanho é Pequeno, medindo entre 80cm e 1,3m e pesando entre 15kg e 35kg
+                    </li>
+                    <li>STR -2, CON +2, CHA +2, seu tamanho não os torna muito fortes, mas são bem resistentes e amigáveis
+                    </li>
+                    <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                    </li>
+                    <li>+2 em testes de Appraise, Sense Motive, Diplomacy e Bluff.
+                    </li>
+                    <li><b>Move:</b> 4,5m, Natação 12m
+                    </li>
+                    <li><b>Telepatia Limitada:</b> uma vez por semana, pode escolher um par, e pode se comunicar telepaticamente com este par a uma distância de até 30m
+                    </li>
+                    <li><b>Bico:</b> um ataque natural primário com o bico, causa 1d3 de dano
+                    </li>
+                    <li><b>Habilidades Similares à Magia:</b> uma vez por dia cada, pode usar <i>Detect Magic</i> e <i>Identify</i>, nível de conjurador igual o nível de personagem, é baseado em CHA.
+                    <li><b>Resistência ao frio:</b> eles recebem os benefícios de <i>Endure Elements</i> para climas frios e uma penalidade de -2 para resistir aos efeitos do clima quente
+                    </li>
+                    <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                    </li>
+                  </ul>
+          </div>
+        </div>
+        <div class="tab-pane container fade" id="tanuki">																																					
+          <div class="contem-racas" style="padding: 20px;">
+              <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+              <p><b>Os Tanuki</b>, são um povo fera nativo das ilhas do Shogunato, relaxados e brincalhões, gostam de pregar peças e estão sempre com fome, como os Kitsune, são metamorfos e possuem duas formas, uma de Tanuki, ou cão-guaxinim (usa as mesmas estatisticas do Raccoon), e uma de humanóide, que lembra um halfling gorduxo.</p>		
+              <ul>
+                <li>Seu tipo é Monstrous Humanoid, uma vez que todos os povos fera são resultados de experiências dos Aboleth, feitas milhares de anos no passado
+                </li>
+                <li>Seu Tamanho é Pequeno, medindo entre 80cm e 1,3m e pesando entre 35kg e 55kg
+                </li>
+                <li>STR -2, CON +2, CHA +2, seu tamanho não os torna muito fortes, mas são bem resistentes e amigáveis
+                </li>
+                <li>Low Light Vision, ao contrário de outros Monstrous Humanoids, não tem visão no escuro, mas enxergam duas vezes mais longe que os humanos em situações de luz fraca.
+                </li>
+                <li>+2 em testes de Bluff, Sense Motive, Diplomacy e Survival.
+                </li>
+                <li><b>Glutão:</b> Um Tanuki recebe um bous de +4 para resistir a venenos que tenha sido ingeridos com a comida. </li>
+                <li><b>Move:</b> 9m
+                </li>
+                <li><b>Mudar de Forma:</b> uma quantidade de vezes por dia igual a metade do nivel, pode trocar de uma forma para outra, funciona como Beast Form 2, para assumir a forma de um Raccoon.</li>
+                <li><b>Languages:</b> Você começa o jogo falando Comum e Fera, membros com altos valores de inteligência podem aprender: Aklo, Celestial, Elfico, Gnomo, Goblin, e Silvestre.
+                </li>
+              </ul>		
+
+          </div>
+        </div>
+</div>
+     </div>
+<a href="../racas/racas.html"><svg class="botao"
+  style="width: 270px; height: 70px;">
+      <polygon
+      points="262,40 225,64 75,64 40,40 75,20 225,20"
+      stroke="grey"
+      fill="black"
+      stroke-width="5"/>
+      <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+      Voltar
+      </text>
+  </svg></a>
+
+<div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>
+

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para a descrição das raças do cenário de campanha de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, espécies, raças">
+    <title>Plasmos</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script type="text/JAVASCRIPT"></script>
+<link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="../css/grid.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="../index.html">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../racas/Beastfolk.html">O Povo-Fera</a>
+            <a class="dropdown-item" href="../racas/elfos.html">Os Elfos</a>
+            <a class="dropdown-item" href="../racas/Forjados.html">Os Forjados</a>
+            <a class="dropdown-item" href="../racas/dragons.html">Os Dracônicos</a>
+            <a class="dropdown-item" href="../racas/lizards.html">Os Reptilianos</a>
+            <a class="dropdown-item" href="../racas/anoes.html">Os Anões</a>
+            <a class="dropdown-item" href="../racas/limos.html">Os Limos</a>
+            <a class="dropdown-item" href="../racas/hivelings.html">O Povo-Inseto</a>
+            <a class="dropdown-item" href="../racas/Orcs.html">Os Orcs</a>
+            <a class="dropdown-item" href="../racas/familiar.html">Familiares Sem Mestre</a>
+            <a class="dropdown-item" href="../racas/minotauro.html">Minotauros</a>
+            <a class="dropdown-item" href="../racas/centauro.html">Centauros</a>
+            <a class="dropdown-item" href="../racas/racas.html">As Outras Raças</a>
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">O Cenário</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="../cenario/Mapa_rhaokar.html">O Mapa</a>
+          <a class="dropdown-item" href="../cenario/reinos/reinos.html">Os Reinos</a>
+          <a class="dropdown-item" href="../cenario/cosmos/Cosmos.html">O Cosmos</a>
+          <a class="dropdown-item" href="../cenario/deuses/divindades.html">Os Deuses</a>
+        </div>
+      </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Diário das Campanhas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../diario/log-das-campanhas.html">Log das Campanhas</a>
+            <a class="dropdown-item" href="../diario/Personagens.html">Personagens</a>
+          </div>
+        </li>  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Regras Alternativas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Revised%20Action%20Economy&Category=Pathfinder%20Unchained" target="_blank">Ações</a>
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Professions&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Profession</a>
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Crafting&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Craft</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../magia/mudancas.html">Mudanças</a>
+            <a class="dropdown-item" href="../magia/sistemas.html">Sistemas</a>
+            <a class="dropdown-item" href="../magia/arquetipo_magia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../magia/itens_magia.html">Itens</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Alquimia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../alquimia/talentos_alquimia.html">Talentos</a>
+            <a class="dropdown-item" href="../alquimia/arquetipos_alquimia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../alquimia/simbiontes.html">Simbiontes</a>
+            <a class="dropdown-item" href="../alquimia/implantes.html">Implantes</a>
+            <a class="dropdown-item" href="../alquimia/itens_alquimia.html">Itens</a>
+          </div>
+        </li> 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tecnologia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../tecnologia/talentos_tecnologia.html">Talentos</a>
+            <a class="dropdown-item" href="../tecnologia/criar_tecnologia.html">Criação de Itens</a>
+            <a class="dropdown-item" href="../tecnologia/arquetipos_tecnologia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../tecnologia/itens_tecnologia.html">Itens</a>
+          </div>
+        </li>       
+    </ul>
+  </div>  
+</nav>
+<div class="contem-deuses">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#base">Povo Limo (Plasmos)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#estatisticas">Estatisticas de jogo</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#heranças">Heranças</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#talentos1">Talentos Nivel 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#talentos5">Talentos Nivel 5</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#talentos9">Talentos Nivel 9</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#talentos13">Talentos Nivel 13</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#talentos17">Talentos Nivel 17</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane container active" id="base">																																						
+      <div class="row">
+        <div class="col-md-12">
+          <H1 style="text-align: center; color: maroon;">Povo Limo (Plasmos)</H1>
+          <p style="text-align: left; color: maroon;">
+            <i>
+              Surgindo de reatores que vazam quintessência ou como resultados de experiências arcanas ou alquimicas que podem ter dado errado, os Plasmos são muito variados e estão sempre famintos.
+            </i>
+          </p>
+        </div>
+      </div>
+      <svg height="5" width="100%" class="tapered-rule">
+        <polyline points="0,0 400,2.5 0,5"></polyline>
+      </svg>
+      <div class="row">
+        <div class="col-md-12">
+          <p style="text-align: left;">
+            O Povo-Limo, ou Plasmos, surgiu como resultado de experiências alquímicas ou Arcanas, ou mesmo da quintessência destilada ou vazada dos reatores de encouraçados. Eles vivem vidas solitárias, sempre buscando uma próxima refeição, não mantém nenhum tipo de sociedade e são assexuados, gerando uma prole ao atingirem 10 níveis.          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="../img/races/plasmo1.png" style="width:300px;height:350px;">
+        </div>
+        <div class="col-md-6">
+          <H4 style="text-align: left; color: maroon;">Você pode</H4>
+          <ul>
+            <li>
+              Ser muito Flexível
+            </li>
+            <li>
+              Estar sempre com fome
+            </li>
+            <li>
+              Se mover por quase qualquer superfície
+            </li>
+          </ul>
+          <H4 style="text-align: left; color: maroon;">Outros, provavelmente...</H4>
+          <ul>
+            <li>
+              Julgam que você é apenas uma criatura selvagem
+            </li>
+            <li>
+              Que você é uma lata de lixo viva
+            </li>
+            <li>
+              Pouco inteligente
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <H4 style="text-align: left; color: maroon;">Descrição Fisica</H4>
+          <p style="text-align: left;">
+            Você é apenas uma bolha de protoplasma de 1m de diâmetro, pesando por volta de 30kg, suas cores variam conforme sua Herança          
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <H4 style="text-align: left; color: maroon;">Sociedade</H4>
+          <p style="text-align: left;">
+            Os Plasmos não mantém nenhum tipo de sociedade formal, vivendo na natureza em locais abandonados e oficinas de magos, podem ser encontrados em esgotos ou mesmo em destroços da guerra, nem todos são inteligentes, a grande maioria é formada por monstros que sentem apenas forme.          
+          </p>
+          <p style="text-align: left;">
+            Não se sabe o que os leva a desenvolver consciência, mas acredita-se que isso possa acontecer com contato com cognatogênicos, quintessência bruta ou mesmo por consumirem conjuradores ou outras criaturas inteligentes com vontades fortes ou capacidades mágicas.          
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <H4 style="text-align: left; color: maroon;">Tendencia e Religião</H4>
+          <p style="text-align: left;">
+            Os Plasmos são Neutros e não seguem nenhuma divindade em específico.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <H4 style="text-align: left; color: maroon;">Aventureiros</H4>
+          <p style="text-align: left;">
+            Plasmos Aventureiros são raros, quando o fazem, por desenvolverem consciência, tendem a pertencer a classes como Guerreiro, Patrulheiro, Feiticeiro e Alquimista.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <H4 style="text-align: left; color: maroon;">Nomes</H4>
+          <p style="text-align: left;">
+            Plasmos, por não possuírem uma cultura própria, costumam receber os nomes dados por outras criaturas, então, qualquer nome pode ser usado sem parecer estranho.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="estatisticas">
+      <H5 style="text-align: left; color: maroon;">Pontos de Vida</H5>
+      <p>8</p>
+      <H5 style="text-align: left; color: maroon;">Tamanho</H5>
+      <p>Pequeno</p>
+      <H5 style="text-align: left; color: maroon;">Deslocamento</H5>
+      <p>4,5m</p>
+      <H5 style="text-align: left; color: maroon;">Melhoria de Habilidades</H5>
+      <p>Constituição, Livre</p>
+      <H5 style="text-align: left; color: maroon;">Defeito de habilidade</H5>
+      <p>Inteligência</p>
+      <H5 style="text-align: left; color: maroon;">Idiomas</H5>
+      <p>Comum</p>
+      <p>Idiomas adicionais conforme seu modificador de Inteligência (se positivo), escolha qualquer um não restrito.</p>
+      <H5 style="text-align: left; color: maroon;">Traços</H5>
+      <p>Limo</p>
+      <H5 style="text-align: left; color: maroon;">Amorfo</H5>
+      <p>Plasmos não possuem uma forma definida e podem se mover por locais em que criaturas minúsculas ou menores poderiam passar. Não são imunes a Sucessos decisivos ou dano de precisão, por possuírem um núcleo que pode ser atingido, mas reduzem esse tipo de dano em uma quantidade igual a metade do nível.</p>
+      <p>Você é Desajeitado 1</p>
+      <H5 style="text-align: left; color: maroon;">Glutão</H5>
+      <p>Plasmos podem ingerir qualquer tipo de matéria orgânica (em em alguns casos, inorgânica), eles são muito resistentes a venenos, considerando qualquer jogada de resistência como um grau de sucesso maior.</p>
+      <H5 style="text-align: left; color: maroon;">Pseudópode</H5>
+      <p>Plasmos não tem membros, apenas um tentáculo que se estende de seus corpos e eles o usam para manipular objetos, esse pseudópode pode ser usado para atacar, como um ataque desarmado, ele causa 1d4 de dano concussivo, com os traços Acuidade, ágil e desarmado, pertence ao grupo de Pugilato.</p>
+      <H5 style="text-align: left; color: maroon;">Visão na Penumbra</H5>
+      <p>Você enxerga sob luz fraca tão bem quanto é capaz de enxergar sob luz brilhante, ignorando a condição ocultado devido a luz fraca.</p>
+    </div>
+    <div class="tab-pane container fade" id="heranças">
+      <p>
+        Como um Plasmos, você pode escolher uma das seguintes heranças (você não se classifica para pertencer a nenhuma das heranças universais)
+      </p>
+      <H5 style="text-align: left; color: maroon;">Verde</H5>
+      <p>Resistencia a Ácido igual a metade do nivel e fraqueza a Eletricidade igual a metade do nivel</p>
+      <p><b>Força Elemental:</b> Ataques com o Pseudópode causam 1d6 de dano de Ácido adicional</p>
+      <H5 style="text-align: left; color: maroon;">Vermelho</H5>
+      <p>Resistencia a Fogo igual a metade do nivel e fraqueza a Frio igual a metade do nivel</p>
+      <p><b>Força Elemental:</b> Ataques com o Pseudópode causam 1d6 de dano de Fogo adicional</p>
+      <H5 style="text-align: left; color: maroon;">Azul</H5>
+      <p>Resistencia a Frio igual a metade do nivel e fraqueza a Fogo igual a metade do nivel</p>
+      <p><b>Força Elemental:</b> Ataques com o Pseudópode causam 1d6 de dano de Frio adicional</p>
+      <H5 style="text-align: left; color: maroon;">Roxo</H5>
+      <p>Resistencia a Eletricidade igual a metade do nivel e fraqueza a Ácido igual a metade do nivel</p>
+      <p><b>Força Elemental:</b> Ataques com o Pseudópode causam 1d6 de dano de Eletricidade adicional</p>
+    </div>
+    <div class="tab-pane container fade" id="talentos1">
+      <div class="row">
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Pseudópode Adicional</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 1</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>Você pode estender um pseudópode adicional, o que possibilita o uso de armas de duas mãos.</p>
+          <p><b>Especial: </b>Você pode escolher esse talento mais de uma vez, para cada vez adicional, um novo Pseudópode poderá ser estendido. eles não permitem ataques adicionais.</p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Forma Humanóide</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 1</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você pode usar assumir uma forma vagamente humanóide, nessa forma, você adquire o traço Humanóide e pode usar equipamentos como um humanóide normal, seu tamanho é Pequeno, essa transformação dura 10 min, ela pode ser usada 2/dia. 
+          </p>
+          <p>
+            Assumir a forma humanóide consome duas ações, seu efeito pode ser dispensado a qualquer momento.
+          </p>
+          <p>
+            <b>Especial: </b>Você pode escolher esse talento mais de uma vez, para cada vez adicional, você poderá usar essa habilidade uma vez a mais por dia
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Moldar Pseudópode</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 1</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você pode transformar seu pseudópode em ferramentas simples ou armas.
+          </p>
+          <p>
+            Ao escolher este talento, escolha armas simples ou ferramentas de nível 0 e que possam ser usadas com 1 mão, igual o seu modificador de Constituição  +1.
+          </p>
+          <p>
+            Transformar o pseudópode consome duas ações, o efeito dura até ser dispensado, mas consome uma ação por turno para ser mantido.
+          </p>
+          <p>
+            <b>Especial: </b>Você pode escolher esse talento mais de uma vez, para cada vez adicional, você escolhe um novo conjunto de itens.
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Devorar</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 1</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você pode devorar uma criatura ou objeto que tenha um volume igual seu modificador de Constituição
+          </p>
+          <p>
+            Objetos devorados ficam no seu corpo e sofrem dano igual seu elemento a cada rodada até serem destruídos
+          </p>
+          <p>
+            Devorar criaturas recupera pontos de vida igual o nível da criatura, min 1.
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Engolfar</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 1</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você pode, ao agarrar uma criatura do seu tamanho ou menor, causar o dano do seu elemento a cada rodada que estiver agarrado.
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab-pane container fade" id="talentos5">
+      <div class="row">
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Talento</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 5</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Ancestralidade
+            </text>
+          </svg>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Expelir</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 5</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Devorar
+            </text>
+          </svg>
+          <p>Você pode Expelir um objeto que foi devorado</p>
+          <p>O objeto expelido causa dano igual a seu volume em d6 + seu modificador de Constituição, além do dano adicional do seu elemento.</p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Expelir Elemento</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 5</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você pode expelir um pouco do elemento que o compõe.
+          </p>
+          <p>
+            Fazer isso conta como um ataque, que consome uma ação, esse ataque causa 1d6 de dano elemental do seu tipo de resistencia +1d6 por modificador de constituição, você é considerado treinado nesse ataque
+          </p>
+          <p>
+            <b>Especial: </b>Você pode escolher esse talento mais de uma vez, para cada vez adicional, seu nível de proficiência aumenta em um.
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Força Elemental Aprimorada</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 5</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            O dano da sua Força Elemental, aumenta em 2d6
+          </p>
+          <p>
+            <b>Especial: </b>Você pode escolher esse talento mais de uma vez, para cada vez adicional, o dano aumenta em 1d6
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="talentos9">
+      <div class="row">
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Absorver Elemento</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 9</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você recupera Pontos de Vida iguais ao dano que foi resistido pela sua Resistência Elemental
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Assimilar</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 9</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Transformação
+            </text>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Devorar
+            </text>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Engolfar
+            </text>
+          </svg>
+          <p>
+            Sempre que uma criatura Engolfada for morta e Devorada, escolha uma habilidade Racial dela, você pode usar essa habilidade racial 1 vez, você recebe um Traço racial da criatura até usar essa habilidade.
+          </p>
+          <p>
+            Devorar uma criatura Engolfada, consome 3 ações.
+          </p>
+          <p>
+            A habilidade assimilada e o traço assimilado desaparecem depois de 1h por modificador de constituição.
+          </p>
+          <p>
+            Essa habilidade pode ser dispensada a qualquer momento.
+          </p>
+          <p>
+            <b>Especial: </b>Esse efeito não se acumula, se você devorar uma nova criatura, a habilidade será substituída.
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Força Elemental Maior</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 9</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="200" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="100" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Força Elemental Aprimorada
+            </text>
+          </svg>
+          <p>O dano da sua Força Elemental, adiciona seu modificador de constituição.</p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Crescer</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 9</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Seu tamanho aumenta para médio, o dano do seu pseudópode aumenta em uma categoria e o volume das criaturas e objetos devorados aumenta em 2 e o tamanho da sua forma Humanóide aumenta para Médio.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="talentos13">
+      <div class="row">
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Assimilar Aprmorado</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 13</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Sempre que uma criatura for Assimilada, você pode assumir a forma da criatura, essa transformação consome 3 ações depois que a criatura foi devorada, ela dura 10min por modificador de constituição.
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Aprimorar Pseudópode</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 13</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você pode devorar runas mágicas e aplicar seus efeitos a seu (s) pseudópodes e equipamentos usados com Moldar Pseudópode, o número de runas e os efeitos, são os mesmos para itens com o seu nível.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="talentos17">
+      <div class="row">
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Assimilar Maior</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 17</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Você Absorve Parte das memórias da criatura assimilada, pela duração do efeito, você recebe a proficiência Treinado nas mesmas perícias e armas da criatura, caso você não tenha proficiências melhores, além disso, você recupera o dobro de pontos de vida quando Devorar uma criatura.
+          </p>
+        </div>
+        <div class ="col-md-4">
+          <H5 style="text-align: left; color: maroon; float: left;">Crescer Aprimorado</H5>
+          <H5 style="text-align: right; color: maroon; float: right;">Nível 17</H5>
+          <svg height="5" width="100%" class="tapered-rule">
+            <polyline points="0,0 400,2.5 0,5"></polyline>
+          </svg>
+          <svg>
+            <rect x="10" y="10" width="100" height="30" rx="10" ry="10" stroke="orange" stroke-width="5" fill="maroon" />
+            <text x="60" y="26" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="white" font-family="'NewRocker', Times, serif">
+              Plasmos
+            </text>
+          </svg>
+          <p>
+            Seu tamanho aumenta para Grande, o dano do seu pseudópode aumenta em uma categoria e o volume das criaturas e objetos devorados aumenta em 2 e o tamanho da sua forma Humanóide aumenta para Grande.
+          </p>
+          <p>
+            Seu nível de Desajeitado aumenta para 2, você recebe um bônus de +2 para dano Corpo a Corpo
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<a href="../racas/racas.html"><svg class="botao"
+  style="width: 270px; height: 70px;">
+      <polygon
+      points="262,40 225,64 75,64 40,40 75,20 225,20"
+      stroke="grey"
+      fill="black"
+      stroke-width="5"/>
+      <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+      Voltar
+      </text>
+  </svg></a>
+ 
+<div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>
+

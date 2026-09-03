@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para a descrição da Classe Tinker usada em Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, classes, Tinker">
+
+    <title>O Tinker</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<link href="css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="css/grid.css" rel="stylesheet">
+</head>
+    <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<h1>O Tinker</h1>
+<table>
+    <tr>
+      <th>Nivel</th>
+      <th>BBA</th>
+      <th>Fort</th>
+      <th>Ref</th>
+      <th>Will</th>
+      <th>Habilidades de Classe</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>+0</td>
+      <td>+0</td>
+      <td>+2</td>
+      <td>+2</td>
+      <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal1">Talento Bônus</button>, 
+        <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal2">Nivel Tecnológico</button>, 
+        <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal3">Velocidade de Fabricação</button></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>+1</td>
+        <td>+0</td>
+        <td>+3</td>
+        <td>+3</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal4">Carregador</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal5">Catador</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>+2</td>
+        <td>+1</td>
+        <td>+3</td>
+        <td>+3</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6">Gambiarra 1/dia</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>+3</td>
+        <td>+1</td>
+        <td>+4</td>
+        <td>+4</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal7">Ricochete de Bomba</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal8">Evasão</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>+3</td>
+        <td>+1</td>
+        <td>+4</td>
+        <td>+4</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal1">Talento Bônus</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 1/dia</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6">Gambiarra: Improviso</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>+4</td>
+        <td>+2</td>
+        <td>+5</td>
+        <td>+5</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal10"> Resistência à Energia 5</button></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>+5</td>
+        <td>+2</td>
+        <td>+5</td>
+        <td>+5</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 2/dia</button></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>+6/+1</td>
+        <td>+2</td>
+        <td>+6</td>
+        <td>+6</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6"> Gambiarra 2/dia</button></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>+6/+1</td>
+        <td>+3</td>
+        <td>+6</td>
+        <td>+6</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 3/dia</button></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>+7/+2</td>
+        <td>+3</td>
+        <td>+7</td>
+        <td>+7</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal1"> Talento Bônus</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6"> Gambiarra: Reparo</button></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>+8/+3</td>
+        <td>+3</td>
+        <td>+7</td>
+        <td>+7</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 4/dia</button></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>+9/+4</td>
+        <td>+4</td>
+        <td>+8</td>
+        <td>+8</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal10"> Resistência à Energia 10</button></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>+9/+4</td>
+        <td>+4</td>
+        <td>+8</td>
+        <td>+8</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6"> Gambiarra 3/dia</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 5/dia</button></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>+10/+5</td>
+        <td>+4</td>
+        <td>+9</td>
+        <td>+9</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal8"> Evasão Aprimorada</button></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>+11/+6/+1</td>
+        <td>+5</td>
+        <td>+9</td>
+        <td>+9</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal1"> Talento Bônus</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 6/dia</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6">Grande Gambiarra</button></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>+12/+7/+2</td>
+        <td>+5</td>
+        <td>+10</td>
+        <td>+10</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal10"> Resistência à Energia 15</button></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>+12/+7/+2</td>
+        <td>+5</td>
+        <td>+11</td>
+        <td>+11</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 7/dia</button></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>+13/+8/+3</td>
+        <td>+6</td>
+        <td>+11</td>
+        <td>+11</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6"> Gambiarra 4/dia</button></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>+14/+9/+4</td>
+        <td>+6</td>
+        <td>+12</td>
+        <td>+12</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9"> Tranquilidade Sob Fogo 8/dia</button></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>+15/+10/+5</td>
+        <td>+6</td>
+        <td>+12</td>
+        <td>+12</td>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal1"> Talento Bônus</button>, 
+            <button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal10"> Resistência à Energia 20</button></td>
+      </tr>
+  </table>
+  <div class="texto">
+      <ul><h2><b> Características de Classe</b></h2>
+          <li><b>Dado de Vida:</b>D8</li>
+          <li><b>Usar Armas e Armaduras:</b> O Tinker sabe usar Armas Simples</li>
+          <li><b>Perícias de Classe, 8+INT:</b>
+            <ul><li>Appraise</li>
+                <li>Craft</li>
+                <li>Disable Device</li>
+                <li>Fly</li>
+                <li>Knowledge (all, taken individually, except Religion and Arcane)</li>
+                <li>Linguistics</li>
+                <li>Profession</li>
+                <li>Perception</li>
+                <li>Use Magic Device</li>
+                <li>Use Technological Device</li>
+            </ul>
+          </li>
+          <li><b>Dinheiro Inicial:</b>4d4x10po (média de 100po)</li>
+      </ul>
+  </div>
+<!--Talento Bônus-->
+<div id="conteudoModal1"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7"> Talentos Bônus</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>Nos Níveis 1, 5, 10, 15 e 20, o Tinker pode escolher um talento bônus, desde que ele tenha o descritor [Tecnológico] ou Foco em Perícia</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Nivel Tecnológico-->
+<div id="conteudoModal2"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7"> Nível Tecnológico</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p> É a Base para a Criação de Dispositivos Tecnológicos, Adicione o Nível de Tinker ao Nível Tecnológico para criar um dispositivo.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Velocidade de Fabricação-->
+<div id="conteudoModal3"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7"> Velocidade de Fabricação</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>O Tinker é adepto na criação de Itens e pode fazê-lo de forma mais rápida do que qualquer um.</p>
+          <p>O Tinker pode fazer o teste de <i>Craft</i> para a criação ou reparo de um Item uma vez por dia, ao invés de uma vez por semana.</p>
+          <p>Ele ainda deve passar 8 horas por dia trabalhando no item</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Carregador-->
+<div id="conteudoModal4"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Carregador</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>O Tinker é especialista em carregar tranqueiras que podem ser úteis, ao determinar sua capacidade de carga, faça isso como se a força dele fosse 5 pontos maior.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Catador-->
+<div id="conteudoModal5"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Catador</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>O Tinker é um especialista em encontrar coisas úteis que podem ter sido descartadas por pessoas desatentas</p>
+          <p>Um Tinker pode fazer um teste de <i>Perception</i> CD 15+nível tecnológico do item que ele quer criar.</p>
+          <p>Um sucesso nesse teste, permite a ele encontrar materiais para a criação do item até o valor máximo de metade do nível de Tinker multiplicado por 50po.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Gambiarra-->
+<div id="conteudoModal6"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Gambiarra</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>O Tinker é adepto a improvisar armas e equipamentos</p>
+            <p>Uma vez por dia a cada 5 níveis (3, 8, 13, 18), o tinker pode criar uma Gambiarra</p>
+            <p>Supondo que ele tenha os materiais, ele pode Criar um Dispositivo Tecnológico fazendo os testes por hora e não por Dia</p>
+            <p>O Item criado terá um Nível de Mau Funcionamento duas vezes maior que o inicial, e ele aumenta em +1 para cada vez que o Dispositivo é usado</p>
+            <p>O Item pode ser reparado, mas o Nível de Mau Funcionamento não pode ser diminuído.</p>
+            <p><b>Improviso:</b> Um Tinker de Nível 5 ou maior, pode Improvisar um Item fazendo o Teste de <i>Craft</i> para a criação uma vez por rodada ao invés de uma vez por hora se o valor do item for menor que 1000po (min. 2 rodadas).</p>
+            <p>Uma vez usado o Item é destruído e não pode ser reparado, se for de uso contínuo, ele funciona por 10 minutos</p>
+            <p>A CD para a criação do Item é aumentada em 4, o Nível de Mau Funcionamento do Item é aumentado em 5</p>
+            <p><b>Reparo:</b> Um Tinker de Nível 10 ou mais, pode fazer reparos em itens e equipamentos, fazendo o teste em horas e não dias usando essa habilidade</p>
+            <p>Isso não aumenta o Nível de Mau Funcionamento do item reparado.</p>
+            <p><b>Grande Gambiarra:</b> Um Tinker de Nível 15 ou mais, não aumenta o Nível de Mau Funcionamento de Itens criados com essa habilidade a cada vez que são usados, se eles custarem menos de 1000po</p>
+            <p>Isso não afeta itens criados com <i>Improviso</i></p>
+            <p>O Nível de Mau Funcionamento do item ainda é dobrado na criação.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Ricochete de bomba-->
+<div id="conteudoModal7"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Ricochete de Bomba</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>Dobra o incremento de distância de armas parecidas com granadas (como o Alchemist's Fire ou o Acid Flask, por exemplo)</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Evasão-->
+<div id="conteudoModal8"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Evasão e Evasão Aprimoradas</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>Funcionam exatamente como a habilidade do Ladino de Mesmo Nome</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Tranquilidade sob Fogo-->
+<div id="conteudoModal9"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7"> Tranquilidade Sob Fogo</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>A Partir do Nível 5, uma vez por dia e uma vez adicional a cada 2 níveis depois disso</p>
+          <p>O Tinker pode escolher 10 em testes para Operar, Reparar ou Construir um Item Tecnológico, mesmo em situações que não permitiriam isso.</p>
+          <p>Essa Habilidade não afeta jogadas de ataque ou operação de Armas de Cerco, Armas de Artilharia ou Armaduras Móveis.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Resistencia a Energia-->
+<div id="conteudoModal10"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7"> Resistência a energia</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <p>A Partir do nível 6, o Tinker pode escolher um tipo de Energia (Fogo, Frio, Ácido, Eletricidade, Sônico)</p>
+          <p>Ele adquire resistência 5 ao tipo de energia escolhido</p>
+          <p>Nos níveis 12, 16 e 20, ele pode aumentar a resistência escolhida em 5 ou escolher um novo tipo para ter resistência 5.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+  <a href="classes.html"><img class="botao" src="img/voltar.svg"></a>
+        <div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>
+

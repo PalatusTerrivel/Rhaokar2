@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title> Hex 21,7</title>
+    <script type="text/javascript" src="../../js/stuquery.js"></script>
+    <script type="text/javascript" src="../../js/stuquery.hexmap.js"></script>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/stuquery.hexmap.css">
+    <link href="../../css/honeycomb_e_efeitos.css" rel="stylesheet">
+    <style>
+        .hexcontent{ height:100%; width: 100%; padding:0; font-size: 24px; color: rgb(0, 0, 0);}
+        .hexcontent div{height:100%; width: 100%}
+        .batata span {padding-top: 15px; display: block}
+        .batata:hover {opacity: 0.5}
+        .capital {background-image:url(../../img/cidade/capital.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .capital_nevada {background-image:url(../../img/cidade/capital_nevada.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .hamlet {background-image:url(../../img/cidade/hamlet.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .hamlet_snow {background-image:url(../../img/cidade/hamlet_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .large_city {background-image:url(../../img/cidade/large_city.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .large_city_snow {background-image:url(../../img/cidade/large_city_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .large_town {background-image:url(../../img/cidade/large_town.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .large_town_snow {background-image:url(../../img/cidade/large_town_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .metropolis {background-image:url(../../img/cidade/metropolis.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .metropolis_snow {background-image:url(../../img/cidade/metropolis_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .military_fort {background-image:url(../../img/cidade/military_fort.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .mine {background-image:url(../../img/cidade/mine.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .oasis {background-image:url(../../img/cidade/oasis.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .ruin {background-image:url(../../img/cidade/ruin.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .ruin_large {background-image:url(../../img/cidade/ruin_large.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .small_city {background-image:url(../../img/cidade/small_city.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .small_city_snow {background-image:url(../../img/cidade/small_city_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .small_town_snow {background-image:url(../../img/cidade/small_town_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .thorp {background-image:url(../../img/cidade/thorp.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .thorp_snow {background-image:url(../../img/cidade/thorp_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .village {background-image:url(../../img/cidade/village.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .village_snow {background-image:url(../../img/cidade/village_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .small_town {background-image:url(../../img/cidade/small_town.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .agua_profunda { background-image:url(../../img/tiles_mapas/Tile-AguaSemFundo.gif); background-size: cover; background-position:center; background-color: rgb(0, 50, 187);}
+        .agua_rasa {background-image:url(../../img/tiles_mapas/Tile-AguaSemFundo.gif); background-size: cover; background-position:center; background-color: rgb(0, 127, 212);}
+        .bosque {background-image:url(../../img/tiles_mapas/Tile-Bosque.gif); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .bosque_nevado {background-image:url(../../img/tiles_mapas/Tile-BosqueNevado.gif); background-size: cover; background-position:center; background-color: rgb(111, 177, 116);}
+        .floresta {background-image:url(../../img/tiles_mapas/Tile-Floresta.gif); background-size: cover; background-position:center; background-color: rgb(46, 95, 61);}
+        .floresta_nevada {background-image:url(../../img/tiles_mapas/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: rgb(70, 122, 78);}
+        .floresta_nevada_rio {background-image:url(../../img/tiles_mapas/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: lightskyblue;}
+        .floresta_nevada_trilho {background-image:url(../../img/tiles_mapas/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: darkgrey;}
+        .montanha {background-image:url(../../img/tiles_mapas/Tile-Montanha.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+        .montanha_nevada {background-image:url(../../img/tiles_mapas/Tile-MontanhaNevada.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+        .montanha_nevada_trilho {background-image:url(../../img/tiles_mapas/Tile-MontanhaNevada.gif); background-size: cover; background-position:center; background-color: darkgrey;}
+        .planicie {background-image:url(../../img/tiles_mapas/Tile-Planicie.gif); background-size: cover; background-position:center; background-color: rgb(121, 240, 147);}
+        .planicie_nevada {background-image:url(../../img/tiles_mapas/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: rgb(169, 202, 171);}
+        .planicie_nevada_trilho {background-image:url(../../img/tiles_mapas/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: darkgrey;}
+        .planicie_nevada_rio {background-image:url(../../img/tiles_mapas/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: lightskyblue;}
+        .deserto {background-image:url(../../img/tiles_mapas/Tile-Deserto.gif); background-size: cover; background-position:center; background-color: rgb(247, 255, 212);}
+        .selva {background-image:url(../../img/tiles_mapas/Tile-Selva.gif); background-size: cover; background-position:center; background-color: rgb(6, 158, 74);}
+        .montanha_com_floresta {background-image:url(../../img/tiles_mapas/Tile-MontanhaFloresta.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+        .montanha_com_floresta_nevada {background-image:url(../../img/tiles_mapas/Tile-MontanhaFlorestaNevada.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+        .montanha_com_selva {background-image:url(../../img/tiles_mapas/Tile-MontanhaSelva.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+        .pantano {background-image:url(../../img/tiles_mapas/Tile-Pantano.gif); background-size: cover; background-position:center; background-color: rgb(76, 116, 82);}
+        .vulcao {background-image:url(../../img/tiles_mapas/Tile-Vulcao.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+        .mana_wastes {background-image:url(../../img/tiles_mapas/Tile-ErmosDeMana.gif); background-size: cover; background-position:center; background-color: rgb(67, 74, 78);}
+        .aetheomir {background-image:url(../../img/reinos/Aetheomir.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .catarna {background-image:url(../../img/reinos/Catarna.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .cordileiras_vermelhas {background-image:url(../../img/reinos/Cordilheiras_Vermelhas.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .demios {background-image:url(../../img/reinos/Demios.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .galorfindil {background-image:url(../../img/reinos/Galorfindil.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .gliorith {background-image:url(../../img/reinos/Gliorith.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .huntston {background-image:url(../../img/reinos/Huntston.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .kaareth {background-image:url(../../img/reinos/Kaareth.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .koba {background-image:url(../../img/reinos/Koba.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .mao_do_aqueronte {background-image:url(../../img/reinos/Mao_do_Aqueronte.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .montanha_de_ferro {background-image:url(../../img/reinos/Montanha_de_Ferro.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .montanha_de_mithral {background-image:url(../../img/reinos/Montanha_de_Mithral.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .orcshardhaven {background-image:url(../../img/reinos/Orcshardhaven.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .shogunato {background-image:url(../../img/reinos/Shogunato.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .skigir {background-image:url(../../img/reinos/Skigir.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .voldheimr {background-image:url(../../img/reinos/Voldheimr.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+        .modal{width: 100%;}
+        </style>
+
+  </head>
+
+  <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="../../index.html">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../racas/Beastfolk.html">O Povo-Fera</a>
+            <a class="dropdown-item" href="../../racas/elfos.html">Os Elfos</a>
+            <a class="dropdown-item" href="../../racas/Forjados.html">Os Forjados</a>
+            <a class="dropdown-item" href="../../racas/dragons.html">Os Dracônicos</a>
+            <a class="dropdown-item" href="../../racas/lizards.html">Os Reptilianos</a>
+            <a class="dropdown-item" href="../../racas/anoes.html">Os Anões</a>
+            <a class="dropdown-item" href="../../racas/limos.html">Os Limos</a>
+            <a class="dropdown-item" href="../../racas/hivelings.html">O Povo-Inseto</a>
+            <a class="dropdown-item" href="../../racas/Orcs.html">Os Orcs</a>
+            <a class="dropdown-item" href="../../racas/familiar.html">Familiares Sem Mestre</a>
+            <a class="dropdown-item" href="../../racas/minotauro.html">Minotauros</a>
+            <a class="dropdown-item" href="../../racas/centauro.html">Centauros</a>
+            <a class="dropdown-item" href="../../racas/racas.html">As Outras Raças</a>
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">O Cenário</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="../../cenario/Mapa_rhaokar.html">O Mapa</a>
+          <a class="dropdown-item" href="../../cenario/reinos/reinos.html">Os Reinos</a>
+          <a class="dropdown-item" href="../../cenario/cosmos/Cosmos.html">O Cosmos</a>
+          <a class="dropdown-item" href="../../cenario/deuses/divindades.html">Os Deuses</a>
+        </div>
+      </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Diário das Campanhas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../diario/log-das-campanhas.html">Log das Campanhas</a>
+            <a class="dropdown-item" href="../../diario/Personagens.html">Personagens</a>
+            <a class="dropdown-item" href="../../diario/Salao_dos_herois.html">Salão dos Heróis</a>
+          </div>
+        </li>  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Regras Alternativas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Revised%20Action%20Economy&Category=Pathfinder%20Unchained" target="_blank">Ações</a>
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Professions&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Profession</a>
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Crafting&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Craft</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../magia/mudancas.html">Mudanças</a>
+            <a class="dropdown-item" href="../../magia/sistemas.html">Sistemas</a>
+            <a class="dropdown-item" href="../../magia/arquetipo_magia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../../magia/itens_magia.html">Itens</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Alquimia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../alquimia/talentos_alquimia.html">Talentos</a>
+            <a class="dropdown-item" href="../../alquimia/arquetipos_alquimia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../../alquimia/simbiontes.html">Simbiontes</a>
+            <a class="dropdown-item" href="../../alquimia/implantes.html">Implantes</a>
+            <a class="dropdown-item" href="../../alquimia/itens_alquimia.html">Itens</a>
+          </div>
+        </li> 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tecnologia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../tecnologia/talentos_tecnologia.html">Talentos</a>
+            <a class="dropdown-item" href="../../tecnologia/criar_tecnologia.html">Criação de Itens</a>
+            <a class="dropdown-item" href="../../tecnologia/arquetipos_tecnologia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../../tecnologia/itens_tecnologia.html">Itens</a>
+          </div>
+        </li>       
+    </ul>
+  </div>  
+</nav>
+  <!--Hex Map-->    
+  <div id="hexmap-8">
+    <code>
+    {
+        "layout":"odd-q",
+        "hexes": {
+    
+          "A15":{"n":"A15","q":"0","r":-14,"type":"military_fort"},
+          "A16":{"n":"A16","q":"0","r":-15,"type":"montanha_nevada"},
+          "A17":{"n":"A17","q":"0","r":-16,"type":"montanha_nevada"},
+          "A18":{"n":"A18","q":"0","r":-17,"type":"montanha_nevada"},
+    
+          "B14":{"n":"B14","q":"1","r":-13,"type":"montanha_nevada"},
+          "B15":{"n":"B15","q":"1","r":-14,"type":"montanha_nevada"},
+          "B16":{"n":"B16","q":"1","r":-15,"type":"montanha_nevada"},
+          "B17":{"n":"B17","q":"1","r":-16,"type":"montanha_nevada"},
+          "B18":{"n":"B18","q":"1","r":-17,"type":"montanha_nevada"},
+    
+          "C14":{"n":"C14","q":"2","r":-13,"type":"montanha_nevada"},
+          "C15":{"n":"C15","q":"2","r":-14,"type":"montanha_nevada"},
+          "C16":{"n":"C16","q":"2","r":-15,"type":"montanha_nevada"},
+          "C17":{"n":"C17","q":"2","r":-16,"type":"military_fort"},
+          "C18":{"n":"C18","q":"2","r":-17,"type":"montanha_nevada"},
+          "C19":{"n":"C19","q":"2","r":-18,"type":"military_fort"},
+    
+          "D13":{"n":"D13","q":"3","r":-12,"type":"military_fort"},
+          "D14":{"n":"D14","q":"3","r":-13,"type":"montanha_nevada"},
+          "D15":{"n":"D15","q":"3","r":-14,"type":"montanha_nevada"},
+          "D16":{"n":"D16","q":"3","r":-15,"type":"montanha_de_mithral"},
+          "D17":{"n":"D17","q":"3","r":-16,"type":"montanha_nevada_trilho"},
+          "D18":{"n":"D18","q":"3","r":-17,"type":"montanha_nevada_trilho"},
+          "D19":{"n":"D19","q":"3","r":-18,"type":"montanha_nevada_trilho"},
+    
+          "E14":{"n":"E14","q":"4","r":-13,"type":"montanha_nevada"},
+          "E15":{"n":"E15","q":"4","r":-14,"type":"montanha_nevada"},
+          "E16":{"n":"E16","q":"4","r":-15,"type":"montanha_nevada"},
+          "E17":{"n":"E17","q":"4","r":-16,"type":"military_fort"},
+          "E18":{"n":"E18","q":"4","r":-17,"type":"montanha_nevada"},
+          "E19":{"n":"E19","q":"4","r":-18,"type":"military_fort"},
+    
+          "F14":{"n":"F14","q":"5","r":-13,"type":"montanha_nevada"},
+          "F15":{"n":"F15","q":"5","r":-14,"type":"montanha_nevada"},
+          "F16":{"n":"F16","q":"5","r":-15,"type":"montanha_nevada"},
+          "F17":{"n":"F17","q":"5","r":-16,"type":"montanha_nevada"},
+          "F18":{"n":"F18","q":"5","r":-17,"type":"montanha_nevada"},
+    
+          "G15":{"n":"G15","q":"6","r":-14,"type":"military_fort"},
+          "G16":{"n":"G16","q":"6","r":-15,"type":"montanha_nevada"},
+          "G17":{"n":"G17","q":"6","r":-16,"type":"montanha_nevada"},
+          "G18":{"n":"G18","q":"6","r":-17,"type":"montanha_nevada"}
+    
+        }
+    }
+    </code>
+    </div>
+    <!--final Hex Map-->
+<!--Forte-->
+<div id="conteudoModalA15"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Forte-->
+<div id="conteudoModalC17"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Forte-->
+<div id="conteudoModalC19"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Forte-->
+<div id="conteudoModalD13"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Forte-->
+<div id="conteudoModalE17"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Forte-->
+<div id="conteudoModalE19"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Forte-->
+<div id="conteudoModalG15"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Forte</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Forte">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Forte	</td>	<td>	-	</td>	<td>	LG	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	-5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	Estes fortes estão espalhados pelo território do Reino e tem por função prover a proteção da região	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	-2	</td>	<td>	-3	</td>	<td>	1	</td>	<td>	5	</td>	<td>	0	</td>	<td>	1	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            <tr>	<td>		</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	2000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	360	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	1500	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	30	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	60	</td>	<td>	Gnomos (Rochas)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	1100po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Comandante do Forte, Major	</td>	<td>	Anão	</td>	<td>	Fighter 12	</td>	<td>	Major responsável pelo comando do forte	</td>	</tr>							
+                                                    
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Forte	</td>	<td>	Base militar dos anões, a pesençã de não militares não é permitida dentro do forte sem autorização do Comandante	</td>	</tr>													
+            <tr>	<td>	Vilarejo	</td>	<td>	O pequeno vilarejo ao redor do forte, contém a casa dos fazendeiros e dos funcionários do pequeno entreposto comercial e estalagem (qualidade média, contém uma taverna)	</td>	</tr>													
+                                                    
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Exército Anão	</td>	<td>	São os soldados do destacamento responsável por essa região, são tanto a força militar que protege as fronteiras do reino, quanto a força policial do vilarejo ao redor do forte	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Montanha de Mithral-->
+<div id="conteudoModalD16"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Montanha de Mithral</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="Montanha_de_Mithral">																				
+            <div class="settlement">																				
+            <div class="Description">																				
+            <table>																				
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>	
+            <tr>	<td>	Montanha de Mithral	</td>	<td>	Capital das Cordilheiras	</td>	<td>	LG	</td>	<td>	O próximo Passo	</td>	<td>	Metropolis	</td>	<td>	5	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Description	</th>	</tr>																
+            <tr>	<td>	É a Capital e montanha fortaleza dos anões, também a é maior jazida de Mithral de Rhaokar, a montanha tem 12 níveis acima do Solo e outros 7 abaixo dele, com o 7º sendo a Jazida de Mithral.	</td>	</tr>																
+            </table>																				
+            </div>																				
+            <div class="Modifier">																				
+            <table>																				
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>	
+            <tr>	<td>	1	</td>	<td>	-1	</td>	<td>	8	</td>	<td>	11	</td>	<td>	5	</td>	<td>	3	</td>	</tr>	
+            </table>																				
+            <table>																				
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>													
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Strategic Location	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Industrial	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Prosperous	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Insular	</td>	<td>		</td>	</tr>													
+            <tr>	<td>	Hardened	</td>	<td>		</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Demographics">																				
+            <table>																				
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>													
+            <tr>	<td>	Military	</td>	<td>	25000	</td>	</tr>													
+            </table>																				
+            <table>																				
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>													
+            <tr>	<td>	4000	</td>	<td>	Humans	</td>	</tr>													
+            <tr>	<td>	20000	</td>	<td>	Dwarves	</td>	</tr>													
+            <tr>	<td>	200	</td>	<td>	Uldra	</td>	</tr>													
+            <tr>	<td>	250	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>													
+            <tr>	<td>	150	</td>	<td>	Meio-Uldras	</td>	</tr>													
+            <tr>	<td>	400	</td>	<td>	Outros	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Marketplace">																				
+            <table>																				
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>										
+            <tr>	<td>	25600po	</td>	<td>	170000po	</td>	<td>	8	</td>	</tr>										
+            </table>																				
+            <table>																				
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>										
+            <tr>	<td>	4d4	</td>	<td>	3d4	</td>	<td>	1d6	</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>										
+            </table>																				
+            </div>																				
+            <div class="NPCs">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>							
+            <tr>	<td>	Alto Artifice Wirclalm Chifre-de-Ferro, do Clã Brista, da Casa Silnik	</td>	<td>	Anão	</td>	<td>	Arcanist 17	</td>	<td>	Chefe da Casa Silnik	</td>	</tr>							
+            <tr>	<td>	Marechal Grelrald Martelo-Trovejante do Clã Ucras, da Casa Topór	</td>	<td>	Anão	</td>	<td>	Soulforger Magus 14	</td>	<td>	Chefe da Casa Topór	</td>	</tr>							
+            <tr>	<td>	Marechal Griocha Lançalonga, do Clã Skorna da Casa Tarcza	</td>	<td>	Anã	</td>	<td>	Gun Tank Gunslinger 15	</td>	<td>	Chefe da Casa Tarcza	</td>	</tr>							
+            <tr>	<td>	Marechal Kriltir Olho-Afiado, do Clã Urgast, da Casa Miecz	</td>	<td>	Anão	</td>	<td>	Steel Hound Investigator 14	</td>	<td>	Chefe da Casa Miecz	</td>	</tr>							
+            <tr>	<td>	Marechal Thalna Bombarda, do Clã Kergas, da Casa Kusza	</td>	<td>	Anã	</td>	<td>	Granadier Alchemist 13	</td>	<td>	Chefe da Casa Kusza	</td>	</tr>							
+            </table>																				
+                                                    
+            </div>																				
+            <div class="Locations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Entrada da Montanha	</td>	<td>	É a parada dos passageiros do Trem e dos que chegam a pé pela estrada, é a única entrada para Civis em toda a Montanha, aqui os visitantes devem se registrar informando os motivos das visitas, além de um registro de qualquer carga ou equipamento, os recém chegados podem pagar um valor de até 200 po dependendo da mercadoria que for trazida para o reino.	</td>	</tr>													
+            <tr>	<td>	Base da montanha (nível 0)	</td>	<td>	A Base da montanha é o maior dos Andares, ele é destinado ao recebimento de cargas, passageiros e visitantes, também é onde se localizam as fazendas internas que geram a alimentação de quase todos os cidadãos das montanhas, elas cultivam grãos em galpões especiais que imitam a luz do sol, assim como a criação de gado e o cultivo de diversos tipos de fungos para consumo.	</td>	</tr>													
+            <tr>	<td>	Nível 1 e 2	</td>	<td>	Os dois primeiros níveis da montanha são compostos pelos Mercados, nestes níveis você poderá encontrar Tavernas, Estalagens e lojas variadas, assim como Oficinas, tanto para a confecção de itens comuns, mágicos e tecnológicos, como Oficinas para aluguel, para que aventureiros e viajantes possam confeccionar seus próprios equipamentos.	</td>	</tr>													
+            <tr>	<td>	Nível 3	</td>	<td>	O nível 3 da Montanha é uma base do Exército anão, a entrada é proibida para qualquer um que não seja membro das forças armadas.	</td>	</tr>													
+            <tr>	<td>	Níveis, 4 até 6	</td>	<td>	São os andares residenciais, nestes andares podem ser encontradas as casas de quase todos os cidadãos da Montanha a entrada de visitantes é permitida depois de registro na Guarda.	</td>	</tr>													
+            <tr>	<td>	Nível 7 até 12	</td>	<td>	É a Base das Grandes Casas dos Anões, Cada Andar Pertence a uma casa, mas isso não é relacionado à importância de cada uma.	</td>	</tr>													
+            <tr>	<td>	Nível 13	</td>	<td>	É a base do Conselho das casas, apenas os membros têm acesso a esse nível	</td>	</tr>													
+            <tr>	<td>	Nível -1	</td>	<td>	O Grande Salão das Máquinas, é aqui que os elevadores, trilhos e todo o maquinário das montanhas é operado, é de responsabilidade da Casa Silnik, a entrada é proibida para qualquer um que não seja pessoal autorizado.	</td>	</tr>													
+            <tr>	<td>	Nível -2 e -3	</td>	<td>	Estes níveis são destinados ao tratamento alquimico de todos os dejetos da montanha	</td>	</tr>													
+            <tr>	<td>	Nível -4	</td>	<td>	Neste nível existe a base da guarda da Montanha, a entrada é proibida para não membros	</td>	</tr>													
+            <tr>	<td>	Nível -5	</td>	<td>	É a Prisão da Montanha	</td>	</tr>													
+            <tr>	<td>	Nível -6	</td>	<td>	É uma outra base da Guarda da Montanha	</td>	</tr>													
+            <tr>	<td>	Nível -7, A Mina de Mithral	</td>	<td>	A Maior Jazida de Mithral de Rhaokar, quase todo o Mithral usado vem dessa Jazida, visitantes não podem entrar nas minas e invasões são puníveis com prisão	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Organizations">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	Casa Tarcza, O Escudo	</td>	<td>	São os responsáveis pela proteção das fortalezas na montanha	</td>	</tr>													
+            <tr>	<td>	Casa Miecz, A Espada	</td>	<td>	A Força Policial dos Anões, lidam com ameaças internas	</td>	</tr>													
+            <tr>	<td>	Casa Topór, O Machado	</td>	<td>	O Exército Anão	</td>	</tr>													
+            <tr>	<td>	Casa Kusza, A Balista	</td>	<td>	Engenheiros de cerco e infantaria mecanizada	</td>	</tr>													
+            <tr>	<td>	Casa Silnik, O Motor	</td>	<td>	Força de trabalho, que mantém a montanha, mineiros e artifices	</td>	</tr>													
+            <tr>	<td>	Guilda de Mercadores	</td>	<td>	A Guilda de mercadores que mantém o comércio no polo Norte	</td>	</tr>													
+            </table>																				
+            </div>																				
+            <div class="Adventure_Rumors">																				
+            <table>																				
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>													
+            <tr>	<td>	O próximo passo	</td>	<td>	Os jogadores se dirigem a Montanha de Mithral para continuar sua investigação sobre o Assalto Ao Trem	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>													
+            </table>																				
+            </div>																				
+            </div>																				
+            </div>																				
+                                                    
+                                                    
+                                                                                                                                        
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+
+<script type="text/javascript">
+  S(document).ready(function(){
+    var hexmap = S.hexmap('hexmap-8');
+    hexmap.setLayout('odd-q');
+    hexmap.positionHexes();
+
+    // Define the content of each hex
+    hexmap.setContent(function(id,hex){
+      return '<div class="'+hex.type+' batata" data-toggle="modal" data-target="#conteudoModal'+hex.n+'"> <span>'+hex.q+','+Math.abs(hex.r)+'</span></div>';
+    });
+  });
+</script>
+        <br>
+        <br>
+        <a href="../Mapa_rhaokar.html"><svg class="botao"
+          style="width: 270px; height: 70px;">
+              <polygon
+              points="262,40 225,64 75,64 40,40 75,20 225,20"
+              stroke="grey"
+              fill="black"
+              stroke-width="5"/>
+              <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+              Voltar
+              </text>
+          </svg></a>
+        <div class="contem_grama"><div id="grass"></div></div>
+    </body>
+
+</html>

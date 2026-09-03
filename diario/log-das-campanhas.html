@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para registro de campanha de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, campanha, log da campanha, diário de campanha">
+
+    <title>As Campanhas</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="../css/ficha.css" rel="stylesheet">
+<link href="../css/grid.css" rel="stylesheet">
+</head>
+    <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="../index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../racas/Beastfolk.html">O Povo-Fera</a>
+              <a class="dropdown-item" href="../racas/elfos.html">Os Elfos</a>
+              <a class="dropdown-item" href="../racas/Forjados.html">Os Forjados</a>
+              <a class="dropdown-item" href="../racas/dragons.html">Os Dracônicos</a>
+              <a class="dropdown-item" href="../racas/lizards.html">Os Reptilianos</a>
+              <a class="dropdown-item" href="../racas/anoes.html">Os Anões</a>
+              <a class="dropdown-item" href="../racas/limos.html">Os Limos</a>
+              <a class="dropdown-item" href="../racas/hivelings.html">O Povo-Inseto</a>
+              <a class="dropdown-item" href="../racas/Orcs.html">Os Orcs</a>
+              <a class="dropdown-item" href="../racas/familiar.html">Familiares Sem Mestre</a>
+              <a class="dropdown-item" href="../racas/minotauro.html">Minotauros</a>
+              <a class="dropdown-item" href="../racas/centauro.html">Centauros</a>
+              <a class="dropdown-item" href="../racas/racas.html">As Outras Raças</a>
+            </div>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">O Cenário</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../cenario/Mapa_rhaokar.html">O Mapa</a>
+            <a class="dropdown-item" href="../cenario/reinos/reinos.html">Os Reinos</a>
+            <a class="dropdown-item" href="../cenario/cosmos/Cosmos.html">O Cosmos</a>
+            <a class="dropdown-item" href="../cenario/deuses/divindades.html">Os Deuses</a>
+          </div>
+        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">Diário das Campanhas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../diario/log-das-campanhas.html">Log das Campanhas</a>
+              <a class="dropdown-item" href="../diario/Personagens.html">Personagens</a>
+              <a class="dropdown-item" href="../diario/Salao_dos_herois.html">Salão dos Heróis</a>
+            </div>
+          </li>  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">Regras Alternativas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Revised%20Action%20Economy&Category=Pathfinder%20Unchained" target="_blank">Ações</a>
+              <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Professions&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Profession</a>
+              <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Crafting&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Craft</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../magia/mudancas.html">Mudanças</a>
+              <a class="dropdown-item" href="../magia/sistemas.html">Sistemas</a>
+              <a class="dropdown-item" href="../magia/arquetipo_magia.html">Arquétipos</a>
+              <a class="dropdown-item" href="../magia/itens_magia.html">Itens</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Alquimia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../alquimia/talentos_alquimia.html">Talentos</a>
+              <a class="dropdown-item" href="../alquimia/arquetipos_alquimia.html">Arquétipos</a>
+              <a class="dropdown-item" href="../alquimia/simbiontes.html">Simbiontes</a>
+              <a class="dropdown-item" href="../alquimia/implantes.html">Implantes</a>
+              <a class="dropdown-item" href="../alquimia/itens_alquimia.html">Itens</a>
+            </div>
+          </li> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tecnologia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../tecnologia/talentos_tecnologia.html">Talentos</a>
+              <a class="dropdown-item" href="../tecnologia/criar_tecnologia.html">Criação de Itens</a>
+              <a class="dropdown-item" href="../tecnologia/arquetipos_tecnologia.html">Arquétipos</a>
+              <a class="dropdown-item" href="../tecnologia/itens_tecnologia.html">Itens</a>
+            </div>
+          </li>       
+      </ul>
+    </div>  
+  </nav>
+  <h1 style="text-align: center;">Parte 1: A Investigação da Ferrovia</h1>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#sessao1">Sessão 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#sessao2">Sessão 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#sessaosolovraan">Sessão solo do Vraan</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao3">Sessão 3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao4">Sessão 4</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao5">Sessão 5</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao6">Sessão 6</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao7">Sessão 7</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao8">Sessão 8</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao9">Sessão 9</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao10">Sessão 10</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao11">Sessão 11</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sessao12">Sessão 12</a>
+      </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane container active" id="sessao1">																																						
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Tundra de Ymirgardr	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	5 dias	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul>
+                                <li>O hex 9.10 foi explorado, nele, foi encontrado rastros de um troll de gelo, uma cabana que não foi investigada e uma matilha de lobos que estavam caçando, os jogadores os espantaram, os jogadores não sabem o motivo de estarem onde estão, mas não se incomodaram tanto com isso, estão seguindo para o norte em busca das cordilheiras de montanhas e da Montanha de Mithral, o reino dos anões. Os jogadores passaram dois dias aqui.</li>
+                
+                                <li>Seguindo para o norte, eles foram para o hex 9.9, onde encontraram rastros de caribu, mas não exploraram o hex, apenas atravessaram, Zug-Zug, o Hiveling Ranger, caçou um coelho, uma forte ventania fez com que os jogadores cavassem uma trincheira para se abrigarem, mas ela ficou pronta depois que a ventania terminou. Os jogadores acamparam por uma noite antes de seguirem viagem, a barraca de Thorgon, Orc da Montanha Bárbaro, rasgou-se durante a noite.</li>
+                                
+                                <li>Ainda seguindo para o norte, passando pelo hex 9.8, esse hex não foi explorado, apenas atravessado.  Zug-Zug encontrou um bando de caribus, ele e Vraan Ashtok, Elfo de Ferro, Mago Bélico, mataram um deles e Arya Vulpes, Barda Kitsune, limpou e preparou a carcaça, ao ir até o rio buscar água, o cantil de Zug-Zug se quebrou, mas foi reparado por Arya, eles seguiram o rio para o nordeste, passaram apenas uma noite neste hex</li>
+                                
+                                <li>Chegaram no hex 10.7, ele não foi explorado apenas atravessado, continuaram a seguir o rio para o norte, acamparam por uma noite e a bandola de Vraan se rompeu, Arya a reparou com magia, na manhã seguinte, eles atravessaram o rio em direção ao norte.</li>
+                                
+                                <li>Chegaram a floresta do Hex 10.6, montaram acampamento e a sessão foi encerrada</li>
+                                
+                                <li><b>XP Atual da Sessão:</b> 455xp para cada personagem</li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>	NPC	</th><th>	Especie	</th><th>	Classe	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>   nenhum NPC encontrado  </td><td>     </td><td>     </td><td>     </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    Apenas áreas selvagens exploradas   </td><td>     </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>455</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>455</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>455</td></tr>
+                    <tr><td>Thorgon</td><td>455</td></tr>
+                    <tr><td>Jooj</td><td>455</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao2">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Floresta de Ymirgardr	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	2 dias	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul>
+                                <li>O Hex 10.6 não foi totalmente explorado, Thorgon viu depois de subir em uma árvore sinais de luta na floresta, o grupo seguiu até lá e lutou contra um Troll de Gelo, Thorgon foi derrotado em combate, tendo ficado inconsciente pelo resto da sessão, o grupo foi atingido por uma forte chuva enquanto procurava pelo covil do Troll, onde estão abrigados no momento</li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>	NPC	</th><th>	Especie	</th><th>	Classe	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>   nenhum NPC encontrado  </td><td>     </td><td>     </td><td>     </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    Apenas áreas selvagens exploradas   </td><td>     </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>695</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>695</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>695</td></tr>
+                    <tr><td>Thorgon</td><td>695</td></tr>
+                    <tr><td>Jooj</td><td>695</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessaosolovraan">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Passado Distante	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	algumas horas	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul>
+                                <li>Vraan teve um flashback de uma vida passada</li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>NPC</th><th>Especie</th><th>Classe</th><th>Descrição</th>
+                    </tr>																					
+                    <tr>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td></td><td</td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>1345</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>1345</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>1300</td></tr>
+                    <tr><td>Thorgon</td><td>1345</td></tr>
+                    <tr><td>Jooj</td><td>1345</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao3">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Floresta de Ymirgardr	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	6 dias	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul>
+                                <li>Hex 10.6, ao acordarem depois do combate do troll, o grupo foi cercado por Caçadores Uldra, o lider deles agradeceu pelos jogadores terem derrotado o Troll e usou uma poção de Curar Ferimentos Moderados em Thorgon</li>
+                        
+                                <li>Hex 9.6, os jogadores apenas atravessaram este Hex, foram encontrados rastros de Alces.</li>
+                                        
+                                <li>Hex 8.5, Zug-Zug, passou dois dias explorando este hex, ele encontrou uma manada de Megaloceros, um alçapão de uma aranha gigante e uma carcaça de cervo que foi atacado por um Tigre, que espreitou o acampamento pelos dois dias da exploração.</li>
+                                        
+                                <li>Hex 7.5, os jogadores encontraram outro Troll de Gelo atacando um grande Alce, mas desta vez os jogadores escaparam, foram perseguidos por lobos, mas os espantaram jogando uma parte do caribu que havia sido abatido anteriormente.</li>
+                                        
+                                <li>Hex 6.4, Zug-Zug fez uma rápida verificação da área e encontrou uma família de megaloceros, os lobos encontrados anteriormente voltaram a seguir o grupo, mas Zug-Zug os levou para uma outra presa e os lobos os deixaram em paz, a noite, uma raposa entrou no acampamento e roubou um pedaço da carne de caribu.</li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>NPC</th><th>Especie</th><th>Classe</th><th>Descrição</th>
+                    </tr>																					
+                    <tr>
+                        <td>Caçadores Uldra</td><td>Uldra</td><td>Ranger</td><td>Um grupo de caçadores Uldra que estava rastreando o Troll que o grupo matou</td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>Toca do Troll</td><td>Uma pequena caverna sob uma grande rocha na floresta, havia muito lixo e restos de comida</td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>1345</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>1345</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>695</td></tr>
+                    <tr><td>Thorgon</td><td>1345</td></tr>
+                    <tr><td>Jooj</td><td>1345</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao4">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Florestas de Ymirgardr	</td>																			
+                    </tr>
+                    <tr>																					
+                        <td>	Holmsheimr	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	9 dias	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul><li>Hex 6.4, os jogadores acordaram e Vraan recobrou a consciência, ainda que um pouco assustado, os jogadores passaram dois dias neste Hex para fazer completamente a exploração, Zug-Zug encontrou rastros de alces e cervos, e caçou um cervo usando uma armadilha, Vraan, recém desperto, matou o cervo ferido e os jogadores guardaram a pele. Além disso, eles encontraram uma cabana, habitada por uma velha senhora, que alimentou o grupo com um guisado e um chá, ambos de um sabor muito bom, mas que o grupo não pode definir.</li>
+                        
+                                <li>os Hex 5.5 e 5.4 não foram completamente explorados, mas os jogadores seguiram à margem da ferrovia para o norte</li>
+                                    
+                                <li>Hex 5.3 é a cidade de Holmsheimr e é uma das paradas da ferrovia, o Hex não foi completamente explorado, mas os jogadores passaram 7 dias na cidade. Vraan arrumou encrenca com a guarda e os jogadores puderam comprar suas passagens de trem para o porto ao sul do continente</li>
+                                    
+                                <li>
+                                    <UL><b>Total arrecadado com o trabalho dos jogadores:</b>
+                                                <li><b>Arya:</b>26po e 7pp</li>    
+                                                <li><b>Vraan:</b>50po</li>
+                                                <li><b>Thorgon:</b>80po</li>
+                                                <li><b>Jooj:</b>10po e 7pp</li>
+                                                <li><b>Zug-Zug:</b>8po e 14pp</li>
+                                    </UL> </li>            
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-6" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    A Velha da Floresta </td>   <td>    desconhecida    </td>   <td>    desconhecida    </td>   <td>    Uma velha senhora vivendo em uma cabana na floresta </td>
+                    </tr>
+                    <tr>
+                        <td>    Benjamim    </td>   <td>    Humano  </td>   <td>    Especialista  </td>   <td>    Funcionário da ferrovia </td>
+                    </tr>	
+                    <tr>	
+                        <td>	Comandante Hanvor	</td>	<td>	Bjornin (Grizzly)	</td>	<td>	Ancestral Harbinger Bloodrager	</td>	<td>	Comandante da guarda local	</td>	
+                    </tr>											
+                </table>																					
+            </div>
+            <div class="col-md-3" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    A Cabana na Floresta    </td>   <td>    A Cabana da Velha na Floresta, uma aconchegante cabana com peles de animais e troféus de caça nas paredes </td>
+                    </tr>
+                    <tr>
+                        <td>    A Lanterna de Ferro    </td>   <td>    Loja de equipamentos de caça, pertence ao comandante da guarda de Holmsheimr </td>
+                    </tr>
+                    <tr>
+                        <td>    A Estação de Holmsheimr    </td>   <td>    Parada da Ferrovia, onde os jogadores compraram suas passagens de trem </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-3" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>1845</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>1845</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>1845</td></tr>
+                    <tr><td>Thorgon</td><td>1845</td></tr>
+                    <tr><td>Jooj</td><td>1845</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao5">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Trem	</td>																			
+                    </tr>
+                    <tr>																					
+                        <td>	Ulrava	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	3 dias	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul>
+                                <li> Pegaram o Trem em Holmsheimr, onde encontraram com Taclai, o Forjado demoníaco, embora nada em suas atitudes leve a crer que ele é realmente ruim, ele possui uma aura maligna, que causa desconfiança em todos, Vraan alertou que ele pode ser um problema, Thorgon decidiu que Taclai é um inimigo e o jurou de morte, causando a destruição de uma mesa e sendo multado por um dos guardas do trem por isso</li>
+                                        
+                                <li>Na parada de Ulrava o grupo desceu e andou pela cidade, Vraan andou pela cidade com Taclai, Thorgon andou pela cidade, conversou com o povo-mamute e voltou para o trem, Arya e Zug-Zug também andaram pela cidade e voltaram para o trem. Vraan e Taclai foram a uma loja de livros e não compraram nada, mas pediram por objetos amaldiçoados, Eldrar, o dono da livraria informou que não trabalha com esse tipo de item e ele e Jooj conversaram sobre suas magias, mas nenhum tinha uma para trocar com o outro, antes de partirem, Vraan informou o capitão da guarda que Eldrar trabalha com itens amaldiçoados.</li>
+    
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Eldrar </td>   <td>    Uldra    </td>   <td>    Wizard (Necromancer)    </td>   <td>    Dono de uma loja de livros e itens mágicos </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    A Pena Arcana    </td>   <td>    Loja de Livros do Eldrar </td>
+                    </tr>
+                    <tr>
+                        <td>    O Trem    </td>   <td>    O trem de passageiros que leva pessoas e carga para o porto </td>
+                    </tr>
+                    <tr>
+                        <td>    Acampamento do povo-mamute    </td>   <td>    Um pequeno acampamento formado pelo povo-mamute, nomades das planicies geladas </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>2245</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>2245</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>2245</td></tr>
+                    <tr><td>Thorgon</td><td>2245</td></tr>
+                    <tr><td>Jooj</td><td>2245</td></tr>
+                    <tr><td>Taclai</td><td>1700</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao6">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Trem	</td>																			
+                    </tr>
+                    <tr>																					
+                        <td>	Ulrava	</td>																			
+                    </tr>																					
+                </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	3 dias	</td>																			
+                    </tr>																					
+                </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul><li>O grupo decidiu voltar para a cidade à noite para mais uma volta.
+                                <p>Eles viram dois homens entrando em uma loja, a Ferraria a Adaga Saltitante, e os seguiram.</p>
+                                <P>Na loja, eles viram que os homens estavam cobrando algum tipo de taxa do comerciante, eles não interferiram na transação e foram embora, esbarrando em Jooj.</P>
+                                <p>Vraan tentou comprar um conjunto de equipamentos de ladrão, mas não tinha dinheiro para isso e perguntou ao comerciante sobre a taxa que foi paga, o comerciante informou que era uma taxa da Guilda de Mercadores.</p>
+                                <P>Do lado de fora, Zong acompanhou o caminho dos dois homens, que entraram na Taverna "O Rato Atrasado".</p>
+                                <p>O Grupo os seguiu até a taverna e Vraan ficou batendo na porta até ser atendido, ignorando completamente os vários avisos de "vá embora!" que foram gritados de lá de dentro.</p>
+                                <p>Nover, o Homem-Rato dono da taverna, saiu pelos fundos e veio falar com os jogadores, ocorreu um mal entendido e Vraan tentou atacá-lo, Nover fugiu da cena e Vraan continuou a bater na porta.</p>
+                                <p>Poucos minutos depois, Nover retornou a Taverna acompanhado de Guldar, o Homem-Mamute chefe da guarda de Ulrava, o grupo disse que iria embora e o chefe da guarda liberou os jogadores e Nover voltou para a taverna.</p>
+                                <p>Vraan destruiu a maçaneta da porta da taverna com ácido antes de voltar ao trem.</p>
+                                <p>Ainda naquela noite, Jooj e Vraan decidiram voltar a taverna, ainda que com objetivos diferentes, Jooj queria saber o que os homens discutiam, pois havia ouvido mais cedo que eles estavam recolhendo as taxas e que medidas poderiam ser tomadas contra quem não estava pagando, mas Vraan queria colocar fogo na taverna com um frasco de Fogo-Alquímico</p>
+                                <p>O grupo que ficou no trem, presenciou uma transação comercial no vagão restaurante do trem</p>
+                                <p>Jooj conseguiu se infiltrar na taverna sem ser visto, mas Vraan foi visto por Nover, que avisou seus aliados, um deles foi buscar Guldar, e Nover ficou gritando com Vraan.</p>
+                                <p>Jooj tentou ler o livro que estava sobre a mesa, mas estava em código, ele tentou roubar uma das páginas.</p>
+                                <p>Enquanto Guldar e Nover discutiam com Vraan, que estava no telhado, eles viram Jooj tentando arrancar uma das páginas do livro, e Nover exigiu que Jooj e Vraan fossem presos.</p>
+                                <p>Guldar levou Jooj e Vraan sob custódia e Jooj acusou Nover de extorquir os comerciantes, Guldar levou o livro como prova e iria levar os três para um julgamento na manhã seguinte, enquanto ele também mandou um dos guardas avisar ao grupo no trem que os dois estavam presos e não iriam partir com o trem no dia seguinte.</p>
+                                <p>O grupo foi falar com Nover e pagaram para que ele retirasse as acusações, após receber os 20po para isso, e mais 5po pela maçaneta que Vraan havia destruído mais cedo</p>
+                                <p>Conforme o combinado, Nover retirou as acusações e explicou que o livro é apenas um Livro-Caixa da guilda de mercadores, e que eles alugam o salão da taverna uma vez por semana para fazer o registro contábil e que o livro está em código para evitar que as informações sejam roubadas, como Jooj provou ser uma possibilidade.</p>
+                                <p>Vraan insistia em continuar na cidade para os trâmites legais, pois disse que Nover não poderia provar que foi ele a destruir a maçaneta, mas eles foram convencidos por Guldar a deixar a cidade no Trem pela manhã</p>
+                            </li>
+                        
+                            <li>Na manhã seguinte, os jogadores partiram em direção a Grundarheimr
+                                <p>O primeiro dia de viagem não apresentou nenhum acontecimento específico, mas os jogadores viram a cabana da velha senhora pela janela</p>
+                            </li>
+                        
+                            <li>Na primeira noite da viagem, o Grupo todo adormeceu, inclusive Vraan, que não precisaria dormir, Vraan foi levado por Taclai para o quarto e Taclai voltou para seus aposentos
+                                <p>Durante a noite, todos tiveram o mesmo "sonho"</p>
+                                <p>Baba Grota, a Mãe dos Trolls os visitou, ela exigiu que os jogadores removam as cercas que impedem seus filhos de caçar livremente, disse a eles que devem encontrar a Garra e destruir a Mão que controla a ferrovia</p>
+                                <p>Os jogadores acordam do sonho com marcas escuras na cabeça, e se reúnem de madrugada no vagão restaurante para saber o que deverão fazer em seguida</p>
+                            </li>
+                        </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Nover </td>   <td>    Povo-Rato    </td>   <td>    Wizard (Necromancer)    </td>   <td>    Dono da taverna "O Rato Atrasado" e representante da Guilda de Mercadores </td>
+                    </tr>
+                    <tr>
+                        <td>    Guldar </td>   <td>    Povo-Mamute    </td>   <td>    Ranger    </td>   <td>    Chefe da Guarda de Ulrava </td>
+                    </tr>
+                    <tr>
+                        <td>    Capangas </td>   <td>    Humanos    </td>   <td>    Rogue    </td>   <td>    "funcionários" a serviço de Nover </td>
+                    </tr>
+                    <tr>
+                        <td>    Baba Grota </td>   <td>    Frost Hag    </td>   <td>    Minor Entity    </td>   <td>    A Mãe dos Trolls </td>
+                    </tr>
+    
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Rato Atrasado   </td>   <td>    Taverna, base da Guilda dos Mercadores </td>
+                    </tr>
+                    <tr>
+                        <td>    O Trem    </td>   <td>    O trem de passageiros que leva pessoas e carga para o porto </td>
+                    </tr>
+                    <tr>
+                        <td>    Casa da Guarda    </td>   <td>    Base da guarda e prisão </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>2645</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>2645</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>2645</td></tr>
+                    <tr><td>Thorgon</td><td>2645</td></tr>
+                    <tr><td>Jooj</td><td>2645</td></tr>
+                    <tr><td>Taclai</td><td>2100</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao7">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Onde?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	Trem	</td>																			
+                        </tr>
+                        <tr>																					
+                            <td>	Grundarheimr	</td>																			
+                        </tr>
+                        <tr>																					
+                            <td>	Tundra	</td>																			
+                        </tr>																					
+                    </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Por quanto tempo?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	4 dias	</td>																			
+                        </tr>																					
+                    </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	
+                            <ul>
+                                <li>Após uma noite perturbadora com a visita de Baba Grota, que amaldiçoou o grupo, Jooj viu uma barcaça de carga acompanhando o Trem e foram notificar os guardas.
+                                <p>Ao fazerem isso, o grupo se separou, Arya e Taclai foram avisar o guarda no restaurante, Thorgon foi para o Vagão da guarda, Zug-Zug e Jooj ficaram no aposento.</p>
+                                <p>Ao ouvirem os sons dos de pessoas caindo no teto do vagão e correrem, Jooj e Zug-Zug subiram no teto e viram pessoas correndo para a locomotiva, os dois subiram as cordas da barcaça e encontraram um dos invasores.</p>
+                                <p>Thorgon assumiu sua Forma Híbrida para lutar contra os invasores e tentou atingir um deles pelo vão entre os vagões</p>
+                                <p>Zug-Zug e Jooj entraram em combate com o piloto da barcaça e Jooj foi atingido por um tiro, ficando muito ferido, Zug-Zug acertou o piloto, que, ferido, saltou do barco.</p>
+                                <p>Taclai e Arya subiram no teto do Vagão e Taclai usou magia para tentar desarmar os bandidos, não funcionou e ele se aproximou, Arya acertou com magia um deles, que ficou rindo sob o efeito mágico.</p>
+                                <p>Como estavam enfrentando conjuradores, os bandidos focaram o fogo no mais próximo, Taclai foi derrubado, com seu corpo desativado, destruído pelos tiros sucessivos.</p>
+                                <p>Thorgon quase matou um deles pelo vão antes de saltar sobre o vagão.</p>
+                                <p>Zug-zug saltou da barcaça e Jooj tomou o controle dela, indo até a locomotiva</p>
+                                <p>Quando o Licantropo saltou com seu machado no teto do trem, os bandidos saltaram do trem ao serem atingidos por flechas lançadas por Zug-zug e virotes disparados por Arya, mas o principal fator que os fez fugir, foi o fato de terem atingido o licantropo com vários tiros e ele não foi ferido.</p>
+                                <p>Jooj conseguiu fazer o piloto de outra barcaça deixar a locomotiva e quando o grupo chegou, a maior parte dos guardas estava morto ou muito ferido, apenas um dos invasores foi capturado com vida</p>
+                                <p>Nos outros Vagões, encontraram um comerciante morto e um dos minotauros, a carga do trem foi roubada e o ataque a locomotiva foi uma distração</p>
+                                <p>O Grupo conversou com o chefe da guarda do Trem e levaram o bandido capturado para Grundarheimr, onde esperavam reparar o corpo de Taclai, para que ele possa voltar a funcionar.</p>
+                            </li>
+                            <li>Na manhã seguinte, chegaram a Grundarheimr
+                                <p>O Grupo explicou aos guardas a situação e eles avisaram a Ferrovia</p>
+                                <p>Levaram o corpo de Taclai ao Androide Brilhante, uma oficina para Forjados, onde pagaram para que Taclai fosse apenas colocado para funcionar novamente, o que levou a noite toda. (ele voltou a funcionar, mas com apenas 1hp)</p>
+                                <p>Pela manhã, após o reparo, conversaram com o bandido capturado, que falou sobre um acampamento onde ele e os capangas deveriam se encontrar depois do ataque.</p>
+                                <p>Pouco antes de partirem, o Trem chegou à cidade e os Capitão da guarda do trem usou a barcaça capturada pelo grupo como pagamento, para que eles encontrem os responsáveis.</p>
+                                <p>O grupo partiu em busca do local indicado pelo bandido</p>
+                            </li>
+                            <li>
+                                <p>Durante a busca, encontraram animais na Tundra e o acampamento, mas perderam os bandidos por apenas algumas horas, havia sinais de luta e sangue pelo chão, indicando que eles ficaram algumas horas no local.</p>
+                                <p>Ao confrontarem o bandido capturado novamente, ele indicou o local do primeiro acampamento, onde o ataque foi planejado e o grupo partiu, vendo um Troll de Gelo carregando um Auroque abatido, mas desta vez o grupo não o confrontou</p>
+                                <p>No dia seguinte pela manhã, eles encontraram o local do primeiro acampamento, mas não havia nada no lugar</p>
+                                <p>Por mais um dia eles procuraram pela tundra gelada, mas não encontraram nada além de vida selvagem e uma cabana em ruínas (a cabana não foi investigada), os Jogadores decidiram seguir em direção às montanhas para buscar pelas minas e descobrir a origem das Barcaças.</p>
+                                <p>Ao acamparem perto de Holmsheimr, eles libertaram o bandido capturado sem mais perguntas, seguindo para o Norte pela manhã.</p>
+                            </li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    IA-3270 </td>   <td>    Forjado    </td>   <td>    Tinker    </td>   <td>    Dono do Androide Brilhante </td>
+                    </tr>
+                    <tr>
+                        <td>    Capitão da guarda do trem </td>   <td>    Anão    </td>   <td>    Fighter    </td>   <td>    Chefe da Guarda do trem </td>
+                    </tr>
+                    <tr>
+                        <td>    Bandidos </td>   <td>    Humanos    </td>   <td>    Rogue    </td>   <td>    participaram da tentativa de roubo do trem </td>
+                    </tr>
+    
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Android Brilhate  </td>   <td>    Oficina e loja de peças para Forjados </td>
+                    </tr>
+                    <tr>
+                        <td>    O Trem    </td>   <td>    O trem de passageiros que leva pessoas e carga para o porto </td>
+                    </tr>
+                    <tr>
+                        <td>    Casa da Guarda    </td>   <td>    Base da guarda e prisão </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>3725</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>3725</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>3300</td></tr>
+                    <tr><td>Thorgon</td><td>3725</td></tr>
+                    <tr><td>Jooj</td><td>3725</td></tr>
+                    <tr><td>Taclai</td><td>3300</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao8">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Onde?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	Forte	</td>																			
+                        </tr>
+                        <tr>																					
+                            <td>	Kehrn Molduhr	</td>																			
+                        </tr>
+                        <tr>																					
+                            <td>	Montanhas	</td>																			
+                        </tr>																					
+                    </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Por quanto tempo?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	5 dias	</td>																			
+                        </tr>																					
+                    </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>
+                        <td>																					
+                        <ul>
+                            <li>O Grupo Chegou no Território das Montanhas dos Anões (HEX 20,8) e se dirigiram a um dos Fortes de fronteira (HEX 3,18) em busca de pistas
+                                <p>Lá conversando com um dos guardas, descobriram que, no setor sudoeste das cordilheiras, em uma das minas, dois desses Transportes leves foram roubados nos últimos dois meses</p>
+                                <p>Ao conversar com o Taverneiro, eles descobriram que o contrato com a Ferrovia inclui diversos custos operacionais, além da recompensa</p>
+                                <p>Taclai foi completamente reparado por Jooj, depois que ele adquiriu um pergaminho de <i>Make whole</i> e escreveu a magia em seu grimório, sendo capaz de curar o colega.</p>
+                            </li>
+                            <li>Após os dois dias necessários para o reparo completo de Taclai, o grupo partiu para a mina mais próxima, para seguir as pistas dos cargueiros roubados
+                                <p>No Caminho, foram atacados por um Wyvern das Montanhas, que pensou que o grupo era uma presa fácil</p>
+                                <p>Jooj conseguiu, habilmente, desviar o Transporte de várias das investidas do Wyvern</p>
+                                <p>Vraan, com a ajuda de Arya, usaram o canhão do Transporte para tentar afastar o Wyvern, mas Vraan foi capturado pelo dragão, que tentou levar Vraan</p>
+                                <p>Taclai assumiu o Canhão e, em um golpe de sorte, atingiu em cheio o Wyvern, matando a fera, Vraan conseguiu usar sua magia para não cair no fundo do desfiladeiro.</p>
+                                <p>A noite eles chegaram a Kehrn Molduhr</p>
+                            </li>
+                        </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Taverneiro </td>   <td>    Humano    </td>   <td>    Fighter   </td>   <td>    Dono da taverna e estalagem do forte </td>
+                    </tr>
+                    <tr>
+                        <td>    Capitão da guarda </td>   <td>    Anão    </td>   <td>    Fighter    </td>   <td>    Oficial da guarda do Forte </td>
+                    </tr>
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Forte   </td>   <td>  Forte de Fronteira dos anões    </td>
+                    </tr>
+                    <tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>4325</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>4325</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>3900</td></tr>
+                    <tr><td>Thorgon</td><td>4325</td></tr>
+                    <tr><td>Jooj</td><td>4325</td></tr>
+                    <tr><td>Taclai</td><td>3900</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao9">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Onde?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	Kehrn Molduhr	</td>																			
+                        </tr>
+                        <tr>																					
+                            <td>	Floresta	</td>																			
+                        </tr>																					
+                    </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Por quanto tempo?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	1 dias	</td>																			
+                        </tr>																					
+                    </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>
+                        <td>																					
+                            <ul>
+                                <li>O grupo chegou em Kehrn Molduhr (HEX 1,15) e se apresentou aos guardas, explicando o motivo da visita e foram levados para o forte local, Thorgon se manteve em sua forma de Urso durante toda a visita.
+                                    <p>Taclai, Zug-Zug, Arya e Thorgon foram até o forte e Jooj e Vraan ficaram no Transportador.</p>
+                                    <p>Enquanto esperavam para serem atendidos pelo Coronel Gorhan Rio de Bronze, eles perceberam que estavam sendo vigiados por uma criança que, ao ser vista, correu.</p>
+                                    <p>Arya tomou sua forma de Raposa e seguiu a criança furtivamente pela rua, até que a criança entrou na Taverna do Vianjante Derretido, Arya se esgueirou para dentro da taverna, onde a criança contava para alguns homens da chegada dos aventureiros na cidade</p>
+                                    <p>Os homens discutiam o que fazer, quando um deles Viu a pequena Raposa se escondendo e tentou afugentá-la, eles perceberam que não se tratava de um animal normal por conta das duas caudas e a perseguiram pela rua quando ela tentou fugir</p>
+                                    <p>Arya fugiu para o forte, mas os homens pararam a perseguição ao verem os outros aventureiros</p>
+                                    <p>O Grupo entrou no fortem, Thorgon ficou para fora, pois todos acham que ele é apenas o companheiro animal de Zug-Zug.</p>
+                                    <p>Durante sua audiencia com o Coronel, eles explicaram o que faziam ali e sobre o grupo na taverna, e o Coronel ordenou a formação de um batalhão para que fossem até a taverna e explicou sobre os acontecidos.</p>
+                                    <p>O roubo que o grupo investiga aconteceu 2 meses antes, o guarda que estava de serviço foi desacordado e os dois transportes foram roubados.</p>
+                                    <p>A guarda local estava ciente de um pequeno grupo de ladrões na cidade que haviam se organizado em uma "Guilda", mas não os considerava um problema real, pois esse grupo roubava apenas suprimentos e não eram considerados perigosos.</p>
+                                    <p>Ao conlcuirem a reunião, os jogadores voltaram ao transporte, no caminho, as sirenes do forte tocaram e um aviso para que os moradores ficassem em suas casas soou pela cidade.</p>
+                                    <p>O batalhão dos guardas revistaram todas as residencias próximas do Viajante Derretido, mas nenhum criminoso foi encontrado.</p>
+                                    <p>Os jogadores decidiram ir até a taverna do Amendoim Furioso, para conversar com o representante local da guilda dos Mercadores, para conseguir mais informações sobre a carga que foi roubada</p>
+                                    <p>Os jogadores foram até a taverna e conversaram com a Halfling Stanika, a representantelocal da guilda, mas ela não tinha muitas informações, apenas que eles poderiam saber mais sobre a carga na Capital.</p>
+                                    <p>Os jogadores devcidiram tentar encontrar os criminosos e começaram a vasculhar os arredores, Zug-Zug encontrou os rastros dos fugitivos e os seguiu pela cloresta no vale abaixo da montanha.</p>
+                                    <p>Eles seguiram pelo vale por duas horas, quando Zug-Zug perdeu o rastro dos fugitivos.</p>
+                                    <p>Os jogadores estavam se preparando para voltar, quando perceberam a emboscada dos fugitivos.</p>
+                                    <p>Sessão encerrada.</p>
+                                </li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Coronel Gorhan Rio-de-Bronze </td>   <td>    Anão    </td>   <td>    Fighter   </td>   <td> Comandante da guarda dos anões  </td>
+                    </tr>
+                    <tr>
+                        <td>    Stanika </td>   <td>    Halfling    </td>   <td>    Rogue    </td>   <td>   Representante da Guilda de Mercadores  </td>
+                    </tr>
+                    <tr>
+                        <td>    Ladrões </td>   <td>    Humano    </td>   <td>    Rogue   </td>   <td>  Membros da Guilda local </td>
+                    </tr>
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Forte   </td>   <td>  Forte que protege as minas de prata    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Vajante Derretido   </td>   <td>  Taverna de fachada dos ladrões    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Amendoim Furioso   </td>   <td>  Taverna e Estalagem que serve como base para a Guilda dos Mercadores    </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>4625</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>4625</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>4200</td></tr>
+                    <tr><td>Thorgon</td><td>4625</td></tr>
+                    <tr><td>Jooj</td><td>4625</td></tr>
+                    <tr><td>Taclai</td><td>4200</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao10">
+        <div class="row" id="onde-tempo">																																										
+            <div class="col-md-6" id="onde">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Onde?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	Kehrn Molduhr	</td>																			
+                        </tr>
+                        <tr>																					
+                            <td>	Montanha	</td>																			
+                        </tr>																					
+                    </table>																					
+            </div>																																										
+            <div class="col-md-6" id="tempo">																					
+                    <table>																					
+                        <tr>																					
+                            <th>	Por quanto tempo?	</th>																			
+                        </tr>																					
+                        <tr>																					
+                            <td>	algumas horas	</td>																			
+                        </tr>																					
+                    </table>
+            </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>
+                        <td>																					
+                            <ul>
+                                <li>Nos arredores em Kehrn Molduhr (HEX 1,15) O crupo entrou na floresta aos pés da montanha para procurar pelos fugitivos
+                                    <p>O grupo acabou emboscado depois de algumas horas de busca e lutaram contra os quatro fugitivos.</p>
+                                    <p>O combate foi rápido, com Jooj, Arya e Taclai usando suas magias e Zug-Zug atirando com seu arco e Thorgon atacando com as garras.</p>
+                                    <p>Jooj prendeu a maior parte dos inimigos com uma conjuração de <i>Web</i> e os atacou com Águias invocadas por <i>Summon Monster 1 e 2</i>, Taclai desarmou outro com <i>Burning Disarm</i> e <i>Doom</i> e Arya ajudou o grupo conjurando <i>Grease</i> e melhorando o desempenho do grupo com <i>Inspire Courage</i></p>
+                                    <p>Três dos inimigos tomaram veneno e se mataram antes de serem capturados, pois não tinham como escapar</p>
+                                    <p>O quarto inimigo que estava tentando fugir foi localizado por Zug-zug e capturado por Thorgon, que usou sua imensa força no inderrogatório para quebrar o braço do fugitivo capturado</p>
+                                    <p>Os jogadores tentaram interrogar o prisioneiro, que, ao ser interrogado por Vraan, que não conseguiu acertar os tiros durante a tortura, não descobriram muito, apenas que eles haviam sido abortados por dois humanos de um grupo chamado Garra que pediram as informações sobre a guarda e suas rotinas, logo depois eles pagaram o pequeno grupo de ladrões com armaduras e armas, eles também receberam instruções para vigiar a cidade e em caso de pessoas procurando informações, eles deveriam deixar a cidade e rumar para a floresta, sem nunca terem recebido informações sobre para qual floresta deveriam ir.</p>
+                                    <p>Vraan havia prometido que soltaria o prisioneiro e violou a promessa ao tentar levá-lo até a cidade para vasculhar o esconderijo do grupo, o prisioneiro tentou atacar Vraan e deu um golpe bem profundo, Vraan devolveu o golpe e matou o prosioneiro.</p>
+                                    <p>O grupo conseguiu 4 Studded Leather Armor +1, 4 masterwork Rapier, 8 daggers, 3 potions of cure light wounds e 40po</p>
+                                </li>
+                                <li><b>XP Atual da Sessão:</b> 5025 XP para cada personagem, Taclai e Vraan estão com 4600 XP</li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Coronel Gorhan Rio-de-Bronze </td>   <td>    Anão    </td>   <td>    Fighter   </td>   <td> Comandante da guarda dos anões  </td>
+                    </tr>
+                    <tr>
+                        <td>    Stanika </td>   <td>    Halfling    </td>   <td>    Rogue    </td>   <td>   Representante da Guilda de Mercadores  </td>
+                    </tr>
+                    <tr>
+                        <td>    Ladrões </td>   <td>    Humano    </td>   <td>    Rogue   </td>   <td>  Membros da Guilda local </td>
+                    </tr>
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Forte   </td>   <td>  Forte que protege as minas de prata    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Vajante Derretido   </td>   <td>  Taverna de fachada dos ladrões    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Amendoim Furioso   </td>   <td>  Taverna e Estalagem que serve como base para a Guilda dos Mercadores    </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>5025</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>5025</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>4600</td></tr>
+                    <tr><td>Thorgon</td><td>5025</td></tr>
+                    <tr><td>Jooj</td><td>5025</td></tr>
+                    <tr><td>Taclai</td><td>4600</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao11">
+        <div class="row" id="onde-tempo">																																										
+        <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Kehrn Molduhr	</td>																			
+                    </tr>
+                    <tr>																					
+                        <td>	Montanha	</td>																			
+                    </tr>																					
+                </table>																					
+        </div>																																										
+        <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	6 dias	</td>																			
+                    </tr>																					
+                </table>
+        </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>
+                        <td>																					
+                            <ul>
+                                <li><p>Os jogadores voltaram para Kehrn Molduhr com as posses dos fugitivos, eles conversaram novamente com o Coronel, Thorgon se revelou como Licantropo e foi obrigado a usar uma coleira de prata para impedir sua transformação, que deu mais explicações sobra a Garra e sobre a tentativa de infiltração no Forte.</p>
+                                    <p>Depois de falar com o Coronel, os jogadores foram para o Amendoim Furioso para conversar com Stanika, Zug-Zug jogou uma das roupas cheias de sangue sobre a mesa e a Halfling se sentiu ofendida.</p>
+                                    <p>Após uma tentativa de suborno infrutifera, Arya conseguiu acalmar os animos e Stanika informou que a Garra é uma organização que age nas montanhas e está envolvida em diversos crimes</p>
+                                    <p>Os Jogadores decidiram seguir para a Capital e deixaram Kehrn Molduhr, passando os próximos dias viajando.</p>
+                                    <p>Quando estavam perto de chegar em outro dos fortes, os jogadores foram atacados por um Wyvern das Montanhas e Thorgon o Agarrou e matou, Arya e Zug-Zug prepararam a carne, a pele, os ossos, a cauda e os orgãos para serem vendidos</p>
+                                </li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Coronel Gorhan Rio-de-Bronze </td>   <td>    Anão    </td>   <td>    Fighter   </td>   <td> Comandante da guarda dos anões  </td>
+                    </tr>
+                    <tr>
+                        <td>    Stanika </td>   <td>    Halfling    </td>   <td>    Rogue    </td>   <td>   Representante da Guilda de Mercadores  </td>
+                    </tr>
+                    <tr>
+                        <td>    Ladrões </td>   <td>    Humano    </td>   <td>    Rogue   </td>   <td>  Membros da Guilda local </td>
+                    </tr>
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Forte   </td>   <td>  Forte que protege as minas de prata    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Vajante Derretido   </td>   <td>  Taverna de fachada dos ladrões    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Amendoim Furioso   </td>   <td>  Taverna e Estalagem que serve como base para a Guilda dos Mercadores    </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>6425</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>6225</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>4600</td></tr>
+                    <tr><td>Thorgon</td><td>6425</td></tr>
+                    <tr><td>Jooj</td><td>6425</td></tr>
+                    <tr><td>Taclai</td><td>4800</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container fade" id="sessao12">
+        <div class="row" id="onde-tempo">																																										
+        <div class="col-md-6" id="onde">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Onde?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	Kehrn Molduhr	</td>																			
+                    </tr>
+                    <tr>																					
+                        <td>	Montanha	</td>																			
+                    </tr>																					
+                </table>																					
+        </div>																																										
+        <div class="col-md-6" id="tempo">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Por quanto tempo?	</th>																			
+                    </tr>																					
+                    <tr>																					
+                        <td>	6 dias	</td>																			
+                    </tr>																					
+                </table>
+        </div>
+        </div>
+        <div class="row" id="aconteceu">																																											
+            <div class="col-md-12" id="oque">        
+                <table>																					
+                    <tr>																					
+                        <th>	O que aconteceu?	</th>																			
+                    </tr>																					
+                    <tr>
+                        <td>																					
+                            <ul>
+                                <li><p>Os jogadores voltaram para Kehrn Molduhr com as posses dos fugitivos, eles conversaram novamente com o Coronel, Thorgon se revelou como Licantropo e foi obrigado a usar uma coleira de prata para impedir sua transformação, que deu mais explicações sobra a Garra e sobre a tentativa de infiltração no Forte.</p>
+                                    <p>Depois de falar com o Coronel, os jogadores foram para o Amendoim Furioso para conversar com Stanika, Zug-Zug jogou uma das roupas cheias de sangue sobre a mesa e a Halfling se sentiu ofendida.</p>
+                                    <p>Após uma tentativa de suborno infrutifera, Arya conseguiu acalmar os animos e Stanika informou que a Garra é uma organização que age nas montanhas e está envolvida em diversos crimes</p>
+                                    <p>Os Jogadores decidiram seguir para a Capital e deixaram Kehrn Molduhr, passando os próximos dias viajando.</p>
+                                    <p>Quando estavam perto de chegar em outro dos fortes, os jogadores foram atacados por um Wyvern das Montanhas e Thorgon o Agarrou e matou, Arya e Zug-Zug prepararam a carne, a pele, os ossos, a cauda e os orgãos para serem vendidos</p>
+                                </li>
+                            </ul>
+                        </td>																			
+                    </tr>																					
+                </table>
+            </div>																																				
+        </div>																					
+        <div class="row" id="npcs-local-xp">																					
+            <div class="col-md-4" id="npcs">																					
+                <table>																					
+                    <tr>																					
+                        <th>    NPC </th>   <th>    Especie </th>   <th>    Classe  </th>   <th>    Descrição   </th>
+                    </tr>																					
+                    <tr>
+                        <td>    Coronel Gorhan Rio-de-Bronze </td>   <td>    Anão    </td>   <td>    Fighter   </td>   <td> Comandante da guarda dos anões  </td>
+                    </tr>
+                    <tr>
+                        <td>    Stanika </td>   <td>    Halfling    </td>   <td>    Rogue    </td>   <td>   Representante da Guilda de Mercadores  </td>
+                    </tr>
+                    <tr>
+                        <td>    Ladrões </td>   <td>    Humano    </td>   <td>    Rogue   </td>   <td>  Membros da Guilda local </td>
+                    </tr>
+                </table>																					
+            </div>
+            <div class="col-md-4" id="local">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Local	</th><th>	Descrição	</th>
+                    </tr>																					
+                    <tr>
+                        <td>    O Forte   </td>   <td>  Forte que protege as minas de prata    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Vajante Derretido   </td>   <td>  Taverna de fachada dos ladrões    </td>
+                    </tr>
+                    <tr>
+                        <td>    O Amendoim Furioso   </td>   <td>  Taverna e Estalagem que serve como base para a Guilda dos Mercadores    </td>
+                    </tr>									
+                </table>																					
+            </div>
+            <div class="col-md-4" id="xp">																					
+                <table>																					
+                    <tr>																					
+                        <th>	Personagem	</th><th>	XP	</th>
+                    </tr>																					
+                    <tr><td>Zug-Zug</td><td>6425</td></tr>									
+                    <tr><td>Arya Vulpes</td><td>6225</td></tr>
+                    <tr><td>Vraan Ashtok</td><td>4600</td></tr>
+                    <tr><td>Thorgon</td><td>6425</td></tr>
+                    <tr><td>Jooj</td><td>6425</td></tr>
+                    <tr><td>Taclai</td><td>4800</td></tr>
+                </table>																					
+            </div>
+        </div>
+    </div>
+  </div>
+<a href="../diario/diario.html"><svg class="botao"
+    style="width: 270px; height: 70px;">
+        <polygon
+        points="262,40 225,64 75,64 40,40 75,20 225,20"
+        stroke="grey"
+        fill="black"
+        stroke-width="5"/>
+        <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+        Voltar
+        </text>
+    </svg></a>
+<div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>

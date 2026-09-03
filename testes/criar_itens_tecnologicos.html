@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para a descrição das classes extras de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, classes">
+
+    <title>Criar Itens Tecnológicos</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="../css/grid.css" rel="stylesheet">
+</head>
+    <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="../index.html">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../especies/Beastfolk.html">O Povo-Fera</a>
+            <a class="dropdown-item" href="../especies/elfos.html">Os Elfos</a>
+            <a class="dropdown-item" href="../especies/Forjados.html">Os Forjados</a>
+            <a class="dropdown-item" href="../especies/dragons.html">Os Dracônicos</a>
+            <a class="dropdown-item" href="../especies/lizards.html">Os Reptilianos</a>
+            <a class="dropdown-item" href="../especies/anoes.html">Os Anões</a>
+            <a class="dropdown-item" href="../especies/limos.html">Os Limos</a>
+            <a class="dropdown-item" href="../especies/hivelings.html">O Povo-Inseto</a>
+            <a class="dropdown-item" href="../especies/Orcs.html">Os Orcs</a>
+            <a class="dropdown-item" href="../especies/familiar.html">Familiares Sem Mestre</a>
+            <a class="dropdown-item" href="../especies/minotauro.html">Minotauros</a>
+            <a class="dropdown-item" href="../especies/centauro.html">Centauros</a>
+            <a class="dropdown-item" href="../racas/racas.html">As Outras Raças</a>
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">O Mundo</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="../mundo/Mapa_rhaokar.html">O Mapa</a>
+          <a class="dropdown-item" href="../mundo/reinoswiki/reinos.html">Os Reinos</a>
+          <a class="dropdown-item" href="../mundo/planos/Cosmos.html">Os Planos</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Os Deuses</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../divindades/oldgods.html">Os Deuses antigos</a>
+            <a class="dropdown-item" href="../divindades/newgods.html">Os Deuses Heróicos</a>
+            <a class="dropdown-item" href="../divindades/entity.html">As Entidades Maiores</a>
+            <a class="dropdown-item" href="../divindades/faecourt.html">As Cortes das Faéricas</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Log das Campanhas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../log/log-das-campanhas.html">Log das Campanhas</a>
+            <a class="dropdown-item" href="../log/personagens/Personagens.html">Personagens</a>
+          </div>
+        </li>  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Regras da Casa</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Ações</a>
+            <a class="dropdown-item" href="#">Magias</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia, Alquimia e Tecnologia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Magia</a>
+            <a class="dropdown-item" href="#">Alquimia</a>
+            <a class="dropdown-item" href="#">Tecnologia</a>
+          </div>
+        </li>      
+    </ul>
+  </div>  
+</nav>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#NT">Nivel Tecnológico</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo1">Passo 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo2">Passo 2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo3">Passo 3</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo4">Passo 4</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo5">Passo 5</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo6">Passo 6</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo7">Passo 7</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#passo8">Passo 8</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#addon">Add-ons</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#upgrades">Upgrades</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#masterwork">Dispositovos Masterwork</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#colaboration">Construção colaborativa</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#malfuncrepair">Mau Funcionamento e Reparos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#malfuneffect">Efeitos de Mau funcionamento</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#vehicle">Veiculos e Manobrabilidade</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane container active" id="NT">																																						
+      <div class="contem-racas" style="padding: 20px;">
+        <h1>Nivel Tecnológico</h1>
+        <table>
+            <tr>
+              <th>Efeito</th>
+              <th>Nivel Tecnlógico (NT)</th>
+            </tr>
+            <tr>
+              <td>Bônus de Habilidade*</td>
+              <td>NT x Bônus de habilidade</td>
+            </tr>
+            <tr>
+                <td>Valor de Habilidade (STR)</td>
+                <td>NT</td>
+              </tr>
+              <tr>
+                <td>Valor de Habilidade (DEX)</td>
+                <td>3 x NT</td>
+              </tr>
+              <tr>
+                <td>Dureza Adicional**</td>
+                <td>2 por ponto de Dureza</td>
+              </tr>
+              <tr>
+                <td>Pontos de Vida Adicionais**</td>
+                <td>1 para cada 5pv</td>
+              </tr>
+              <tr>
+                <td>Bônus de Armadura</td>
+                <td>1 x Bônus de Armadura</td>
+              </tr>
+              <tr>
+                <td>Bônus de Ataque</td>
+                <td>2 x Bônus de Ataque</td>
+              </tr>
+              <tr>
+                <td>Função Mecânica Básica***</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Raio da Explosão</td>
+                <td>2 para cada 1,5m de raio</td>
+              </tr>
+              <tr>
+                <td>Capacidade de Carga</td>
+                <td>1 para cada 100kg</td>
+              </tr>
+              <tr>
+                <td>Velocidade de Escalada</td>
+                <td>1 para cada 7,5km/hora</td>
+              </tr>
+              <tr>
+                <td>Causar Dano</td>
+                <td>2 para cada 1d6 de dano</td>
+              </tr>
+              <tr>
+                <td>Redução de Dano</td>
+                <td>3 x Redução de Dano</td>
+              </tr>
+              <tr>
+                <td>Velocidade de Voo</td>
+                <td>1 para cada 7,5km/hora</td>
+              </tr>
+              <tr>
+                <td>Velocidade em Terra</td>
+                <td>1 para cada 35km/hora</td>
+              </tr>
+              <tr>
+                <td>Manobrabilidade****</td>
+                <td>2 x Nivel de Manobrabilidade</td>
+              </tr>
+              <tr>
+                <td>Arma de Projétil*****</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Incremento de Distância******</td>
+                <td>1 para cada 15m</td>
+              </tr>
+              <tr>
+                <td>Bônus de perícia</td>
+                <td>1 para cada +2 de bônus</td>
+              </tr>
+              <tr>
+                <td>Velocidade na água</td>
+                <td>1 para cada 15km/hora</td>
+              </tr>
+              <tr>
+                <td>Capacidade Submarina</td>
+                <td>10</td>
+              </tr>
+          </table>
+        <p>*: Não pode ser usado para dar bônus para as habilidades mentais</p>
+        <p>**: Todos os itens tecnológicos tem Dureza e pontos de Vida Determinados pelo seu Tamanho, Veja o Passo 7</p>
+        <p>***: Só se usa se ele tiver apenas uma função simples, como um brinquedo</p>
+        <p>****: Todo o dispositivo que se move, tem um Nivel de Manobrabilidade</p>
+        <p>*****: Qualquer arma que dispara algo, é uma arma de projétil.</p>
+        <p>******: Geralmente para armas de Projétil, armas de arremesso tem um incremento de 3m</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo1">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 1: Determinar a Função Básica</h3>
+        <p>O primeiro passo para a criação de um dispositivo tecnológico é determinar a sua função primária.</p>
+        <p>Embora aventureiros desesperados ou especialmente inventivos, possam encontrar diversos usos não previstos para um item, um Tinker sempre desenvolve seu Dispositivo com um objetivo em mente.</p>
+        <p>Pense nessa função como o verbo que determina o motivo da existencia do item, o que dá um propósito a ele, alguns exemplos incluem:</p>
+        <ul>
+            <li><i>Aumentar:</i> para ver objetos distantes</li>
+            <li><i>Escavar:</i> através da fechadura em uma porta</li>
+            <li><i>Carregar:</i> cargas ou passageiros pelas nuvens</li>
+            <li><i>Testar:</i> pisos para encontrar armadilhas</li>
+            <li><i>Montar:</i> as paredes de um prédio</li>
+            <li><i>Comunicar:</i> enviar mensagens as cidades distantes</li>
+            <li><i>Traduzir:</i> um idioma para outro</li>
+            <li><i>Forjar:</i> Espadas e Machados</li>
+        </ul>
+        <p>Uma vez que você tenha determinado a função primária, o Mestre deve determinar a Dificuldade dessa Função, usando a tabela a seguir:</p>
+        <h4>Dificuldade de Função do Dispositivo (DF)</h4>
+        <table>
+            <tr>
+              <th>DF</th>
+              <th>Função</th>
+              <th>Exemplos</th>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Uma tarefa simples e repetitiva</td>
+              <td>Munição, serra a vapor, sistema de irrigação</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Uma tarefa complexa e repetitiva</td>
+                <td>Uma Calculadora, uma bomaba relógio</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>Uma Tarefa Simples e Responsiva</td>
+                <td>Uma Arma de fogo, alarmes, veiculos terrestres lentos</td>
+              </tr>
+              <tr>
+                <td>30</td>
+                <td>uma tarefa responsiva complexa</td>
+                <td>Dispositivos de gravação</td>
+              </tr>
+              <tr>
+                <td>50</td>
+                <td>Uma Tarefa Simples Criativa</td>
+                <td>Fabricas de armas simples, que fazem ferramentas, copiam livros, constroem paredes</td>
+              </tr>
+              <tr>
+                <td>75</td>
+                <td>Tarefas criativas complexas</td>
+                <td>Fabricas de Pólvora ou dispositivos não tecnológicos complexos, como armas de cerco ou que preveem informações simples</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>Feito Incrivel de Tecnologia</td>
+                <td>Dispositivos que constroem dispositivos tecnológicos simples ou que tem inteligência ou rastreiam humanóides</td>
+              </tr>
+          </table>
+          <p>Essa tabela não representa uma Classe de Dificuldade para a criação do Item, mas é uma dorma de feterminar o quão complexa é a criação dele.</p>
+          <p>Essa Tabela serve apenas de exemplo e o Mestre pode determinar esses valores livremente.</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo2">
+    <div class="contem-racas" style="padding: 20px;">
+      <h3>Passo 2: Determine o NT e as Caracteristicas</h3>
+      <p>Mesmo dispositivos que cumprem a mesma função podem ter formas diferentes.</p>
+      <p>A complexidade e o poder de um Dispositivo, determinam seu Nivel Tecnológico</p>
+      <p>Itens com NT mais baixos são mais fáceis e mais baratos de se construir, mas os com NT mais altos são bem mais poderosos.</p>
+      <p>Um Personagem é limitado apenas por sua criatividade e experiencia, o que serve para determinar seu Limite Tecnológico, que é o Nivel Tecnológico máximo que se pode atingir</p>
+      <p>O Calculo é o Seguinte:</p>
+      <p><b>Limite Tecnológico = 1 + 1/2 Graduações em Craft (tech device) + Modificadores de Talento</b></p>
+      <p>Esse Limite, determina o efeito máximo que pode ser feito com um item, por exemplo:</p>
+      <p>Um personagem de Nivel 6, tem um Limite de 4 (1+1/2 Graduações em Craft (tech device)=Nivel Tecnológico) e pode criar um dispositivo que dê  até 2d6 de dano (1d6 de dano a cada 2 NT).</p>
+
+    </div>
+  </div>
+  <div class="tab-pane container fade" id="passo3">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 3: Determine o Fator de Complexidade (FC)</h3>
+        <p>Quanto mais complexo for um dispositivo, mais dificil é para ele ser construído.</p>
+        <p>O Fator de Complexidade de um item, é igual a metade do DF, somado ao valor combinado do Nivel Tecnológico de todas as suas funções.
+            <p><b>Fator de Complexidade=(DF/2)+NT1+NT2+NT3 e assim por diante</b></p>
+        </p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo4">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 4: Determine o Fator de Tempo (FT)</h3>
+        <p>A Função primária do item leva tempo para funcionar.</p>
+        <p>Para muitos dispositivos, esse tempo é o intervalo entre iniciar uma tarefa e poder completá-la</p>
+        <p>Para Outros, a função é continua ou instantanea ou é to tempo que se leva para preparar o dispositivo para sua função, como carregar uma arma ou dar partida em um motor.</p>
+        <p>Uma vez que você decida a função primária de um item, o Mestre determina a unidade de tempio em que ele opera, como ações de movimento, padrão, rodadas, minutos, horas, dias, semanas ou meses.</p>
+        <p>Quando isso for determinado, o Personagem Escolhe um numero entre 1 e 10, esse é o FT do Item ou quantas unidade de tempo o item leva para cumprir sua função.</p>
+        <p>Quanto mais rápido é um Dispositivo, mais caro ele é.</p>
+        <p>Dispositivos que funcionam uma unica vez e são destruídos, como bombas, por exemplo, tem o FT de 10.</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo5">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 5: Determine o Nivel de Mau Funcionamento (NMF)</h3>
+        <p>Esses Dispositivos não são sempre confiáveis, durante a criação de um dispositivo, um Tinker deve escolher um numero entre 1 e 5.</p>
+        <p>Sempre que algupem usando o item com <i>Use Tech. Device</i> ou fazendo uma jogada de ataque, tirar um numero menor que seu NMF, algo ruim pode acontecer, Veja a Tabela de Mau Funcionamento mais adiante.</p>
+
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo6">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 6: Determine o Valor de Mercado</h3>
+        <p>Para calcular o valor de mercado do Item, faça o seguinte:</p>
+        <p><b>Valor de Mercado = (DF x NT x FC)/(FT + NMF)</b></p>
+        <p><b>DF:</b> Dificuldade da Função, no passo 1</p>
+        <p><b>NT:</b>Nivel Tecnológico, no passo 2</p>
+        <p><b>FC:</b>Fator de Complexidade, no passo 3</p>
+        <p><b>FT:</b>Fator de Tempo, no passo 4</p>
+        <p><b>NMF:</b>Nivel de Mau Funcionamento, no passo 5</p>
+        <p>Arredonde o valor para o multiplo de 5 mais próximo</p>
+        <p>Esses valores não são fixos e o Mestre pode determinar que eles sejam mais caros ou mais baratos dependendo da circunstância</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo7">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 7: Determine os Detalhes</h3>
+        <p>Agora você já completou os esquemas, a lista de compras e o preço para criar seu dispositivo.</p>
+        <p>Antes de começar, você e o Mestre devem decidir os detalhes e descrever os processos que não foram determinados no processo acima.</p>
+        <p>O Tamanho base depende muito da função do dispositivo e dos materiais usados na construção.</p>
+        <p>Uma ferramenta pode ser Tiny e ser operada com apenas uma mão, uma Serra a Vapor, pode ser Small e operada con duas mãos, mas um Lenhador a Vapor pode ser Huge e pesar várias toneladas.</p>
+        <p>Lembre-se que quase todos os Dispositivos que operam por muito tempo, necessitam de algum tipo de combustível.</p>
+        <table>
+            <tr>
+              <th>Tamanho</th>
+              <th>PV</th>
+              <th>Dureza</th>
+            </tr>
+            <tr>
+              <td>Fine</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+                <td>Diminutive</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Tiny</td>
+                <td>5</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Small</td>
+                <td>10</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Medium</td>
+                <td>20</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Large</td>
+                <td>40</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Huge</td>
+                <td>80</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Gargantuan</td>
+                <td>160</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Colossal</td>
+                <td>320</td>
+                <td>5</td>
+              </tr>
+          </table>
+          <p>Além disso, muitos dispositivos exigem testes para serem operados.</p>
+          <p>Uma boa base para determinar a CD da operação, é a seguinte:</p>
+          <p><b><i>Use Tech. Device</i> CD = 10 + NT do Dispositivo.</b></p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="passo8">
+      <div class="contem-racas" style="padding: 20px;">
+        <h3>Passo 8: Construa o Dispositivo</h3>
+        <p>Para construir um dispositivo, você deve fazer o seguinte:</p>
+        <p>Deve ter os materiais necessários para iniciar o processo, eles custam 1/3 do Valor de Mercado do Item</p>
+        <p>Uma vez por semana, faça um teste de <i>Craft (Tech. Device)</i> <b>CD (DF+NT mais alto entre as funções).</b></p>
+        <p>Os testes são Semanais, como é normal para Craft, e a soma dos testes deve atingir o valor de mercado do Dispositivo em PP.</p>  
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="addon">
+      <div class="contem-racas" style="padding: 20px;">
+        <h2>Add-ons</h2>
+        <p>Add-ons são Dispositivos que dão funções extras não relacionadas as fucções primárias de um Dispositivo</p>
+        <p>Eles são desenvolvidos seguindo as mesmas regras dos passos 1 até o 8</p>
+        <p>Mas eles não tem pontos de vida, para isso, uma função dando pontos de vida deve ser adicionada durante a criação</p>
+        <p>Add-ons com os próprios pontos de vida continuam a funcionar depois que o dispositivo principal foi destruído</p>
+        <p>O Valor de Mercado é 75% do valor de um Item do Mesmo NT</p>
+        <p>Uma vez que a criação do Add-on tenha sido completada, a CD do teste de <i>Craft (tech. Device)</i> para incorporá-lo a um dispositivo é a seguinte:</p>
+        <p><b>CD original do dispositivo+o NT do Add-on</b>, leva um dia para o add-on ser instalado</p>
+        <p>Add-ons são, normalmnete pequenos e menores que o dispositivo em que são instalados e, se precisarem, usam a fonte de energia original do dispositivo</p>
+        <p>O Mestre pode decidir que algo não é adequado com o add-on, como um canhão para um relóio de pulso, por exemplo.</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="upgrades">
+      <div class="contem-racas" style="padding: 20px;">
+        <h2>Upgrades</h2>
+        <p>Para fazer um upgrade, faça como criando um item novo com as mesmas funções do antigo e as novas funções.</p>
+        <p>No Passo 6, para determinar o valor de mercado, subtraia o valor do item original do novo item.</p>
+        <p>A CD do teste de <i>Craft (Tech. Device)</i> é a seguinte:</p>
+        <p><b>DF do item aprimorado + TS do Item Aprimorado - 10</b></p>
+        <p>O Item não pode ser usado enquando está sendo aprimorado</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="masterwork">
+      <div class="contem-racas" style="padding: 20px;">
+        <h2>Dispositivos Obra-prima (Masterwork)</h2>
+        <p>Em seus momentos mais desesperados, um Tinker pode construir dispositicos feitos com pregos enferrujados, barbantes, dentes de monstros e outras tranqueiras encontradas em Masmorras.</p>
+        <p>Estes dispositivos rusticos servem seu propósito, mas ninguém ousaria chamá-los de Obras-Primas</p>
+        <p>Um dispositivo Msterwork oferece um bônus de Aprimoramento de +3 em testes para operá-lo ou +1 de bônus de Aprimoramento em jogadas de ataque, conforme apropriado</p>
+        <p>Para criar um Dispositivo Obra-Prima, siga os passos de 1 até 8, mas cada componente deverá ser Obra-prima, isso tem um custo de 25% do valor do item para cada componente, quem terá um teste de <i>Craft (Tech. Device)</i> separado a CD será 20 ou NT+5, o que for maior.</p>
+        <p>Quando cada componente obra-prima que estiver pronto, o item estará completo.</p>
+        <p>Um upgrade em um item Ora prima não é, necessariamente obra-prima, ele deev ser criado assim.</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="colaboration">
+    <div class="contem-racas" style="padding: 20px;">
+      <h2>Construção colaborativa</h2>
+      <p>Para criar dispositivos em grupo, siga os passos normalmente, mas o Limite Tecnológico é calculado assim:</p>
+      <p><b>Limite Tecnológico = Numero de Personagens + Nivel médio dos Personagens envolvidos</b></p>
+      <p>Talentos não são levados em conta nesse calculo.</p>
+      <p>A Equipe segue as mesmas regras de Aid-Another em relação aos bônus.</p>
+    </div>
+  </div>
+  <div class="tab-pane container fade" id="malfuncrepair">
+      <div class="contem-racas" style="padding: 20px;">
+        <h1>Mau Funcionamento e Reparos</h1>
+        <p>As histórias maravilhosas sobre os Personagem e seus incríveis inventos, só são igualadas pelos contos de deus desastres.</p>
+        <p>Na melhor das hipoteses, veiculos não se movem e armas não disparam</p>
+        <p>Na pior delas, caldeiras de gás explodem e todos envolta viram uma pilha fumegante de cinzas e destroços.</p>
+        <p>Todo o Dispositivo Tecnológico tem um Nivel de Mau Funcionamento (NMF) entre 0 e 5</p>
+        <p>Esse Numero representa a chance que o Dispositivo tem de sofrer um mau funcionamento quando é operado.</p>
+        <p>Quando ataca ou opera um item e você rola um numero igual ou menor que o NMF, no dado, sem modificadores, o dispositivo sofre uma falha.</p>
+        <p>A maior parte dos dispositivos, quando falha, apenas não faz a tarefa esperada, armas não disparam, veiculos não se movem, e eles precisam ser reparados</p>
+        <p>Para reparar um Dipositivo (e qualquer outro item) basta fazer o teste de <i>Craft</i> apropriado, na mesma CD de criação do Item</p>
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="malfuneffect">
+      <div class="contem-racas" style="padding: 20px;">
+        <h2>Efeitos do Mau Funcionamento</h2>
+        <p>Na máxima do Personagem: "Dois dispositivos podem ser feitos com o mesmo projeto, mas vão falhar de formas completamente diferentes".</p>
+        <p>Durante a criação de um Dispositivo, o seu criador escolhe o NMF e define qual será o mau funcionamento aplicado a ele, mas se quiser escolher aleatoriamente, o NMF será redusido em 1 (min. 1).</p>
+        <p>Muitos destes efeitos são permanentes, mas podem ser corrigidos da mesma forma e pelo mesmo custo que se faz um upgrade no item, como descrito acima</p>
+        <p>Para casos em que isso não faz sentido, basta fazer um segundo reparo no Dispositivo (o primeiro para ele voltar a funcionar e o segundo para eliminar o efeito).</p>
+        <table>
+            <tr>
+              <th>d20</th>
+              <th>Mau Funcinamento</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Função Travada</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Destroçado</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Vazando</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Falha Total</td>
+            </tr>
+              <tr>
+                <td>5</td>
+                <td>Inibição de Função</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Degradação</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Empacado</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Peça pra todo o lado</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Operação estranha</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Tiro pela culatra</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Capenga</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Coice</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>Pesado</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>Componente Importante</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>Auto-Destrutivo</td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>Barulhento</td>
+              </tr>
+              <tr>
+                <td>17</td>
+                <td>Função Fundida</td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td>Frágil</td>
+              </tr>
+              <tr>
+                <td>19</td>
+                <td>Maquina da Dor</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>Explosão da Caldeira</td>
+              </tr>
+          </table>
+          <p><b>Função Travada:</b> O Dispositivo repete sua função por 2d6 rodadas depois que acontece o mau funcionamento, armas continuam a disparar e sua direção não pode ser alterada, veiculos continuam a se mover em uma única direção, ao final do efeito, toda a munição é usada e combustível consumido.</p>
+          <p><b>Destroçado:</b> O Dispositivo pode ser reparado, mas nunca mais parecerá o mesmo. Para todos os efeitos relacionados a avaliação ou venda do dispositivo, o seu valor de mercado é cortado pela metade. Se o dispositivo sofrer este mau funcionamento uma segunda vez, ele fica completamente destruído e deve ser substituído</p>
+          <p><b>Vazando:</b> O Dispositivo passa a precisar de óleo ou lubrificante constantemente, para continuar funcionando. Se você ficar se fazer isso, ele para de funcionar.</p>
+          <p><b>Falha Total:</b> O Dispositivo e todos os seus Add-ons param de funcionar e devem ser reparados individualmente.</p>
+          <p><b>Inibição de Função:</b> Uma vez que o dispositivo for reparado, seu Fator de Tempo (FT) é dobrado</p>
+          <p><b>Degradação:</b> Depois de reparado, uma das funções do item (escolhida aleatóriamente pelo Mestre), passa a ter seus efeitos reduzidos em 1 NT (minimo 0).</p>
+          <p><b>Empacado:</b> A Manobrabilidade do Dispositivo diminui em 1</p>
+          <p><b>Peça pra todo o lado:</b> Ele desmonta e as peças caem no chão, o teste de <i>Craft</i> para reparar o dispositivo é feito com +4 de dificuldade</p>
+          <p><b>Operação estranha:</b> Todos os testes para operar ou usar o dispositivo são feitos com -2 de penalidade de circunstancia</p>
+          <p><b>Tiro pela culatra:</b> Todas as armas do dispositivo disparam contra o operador</p>
+          <p><b>Capenga:</b> O indice de mau funcionamento do item aumenta em 1</p>
+          <p><b>Coice:</b> O dispositivo sacode loucamente, causando 3d6 de dano ao operador</p>
+          <p><b>Pesado:</b> Ao ser reparado, a categoria de tamanho do item aumenta em 1, seu preço de mercado aumenta em 25% para o reparo, seu peso dobra e seu movimento diminui em 35km/h</p>
+          <p><b>Componente Importante:</b> O Dispositivo perde um componente importante e o reparo custa 10% do preço de mercado do Dispositivo</p>
+          <p><b>Auto-Destrutivo:</b> Cada vez que você usa o Dispositivo, ele sofre 1 ponto de dano, esse dano ignora a Dureza do Item</p>
+          <p><b>Barulhento:</b> Cada vez que você opera o item, ela faz barulho o bastante para ser ouvido, sem testes, por todas as criaturas em um raio de 18m, mesmo depois de reparado, ele ainda faz barulho por um tempo igual ao FT (minimo de 1 minuto)</p>
+          <p><b>Função Fundida:</b> O utem não receber upgrades e o este para o reparo aumenta em +3 a dificuldade</p>
+          <p><b>Frágil:</b> O dispositivo fica com metade dos pontos de vida depois de reparado</p>
+          <p><b>Maquina da Dor:</b> O operador sofre 1d6 de dano cada vez que usar o Dispositivo</p>
+          <p><b>Explosão da Caldeira:</b> A Caldeira do dispositivo explode, causando dano igual ao NT em d6 (corte e fogo) em todos em um raio de 4,5m, o teste para reparar o item (se ele sobreviver) tem a dificuldade aumentada em +6</p>
+
+      </div>
+  </div>
+  <div class="tab-pane container fade" id="vehicle">
+      <div class="contem-racas" style="padding: 20px;">
+        <h1>Veiculos e Manobrabilidade</h1>
+        <p>Veiculos construídos por Personagens podem ser mais rápidos que a melhor das montarias, mas podem ser bem dificeis de controlar.</p>
+        <p>Pilotar um veículo, requer testes regulares para manter o controle.</p>
+        <p>Testes de Manobrabilidade são baseados no <b>Nivel de Manobrabilidade</b> do veículo.</p>
+        <p>Um veículo pode viajar até a velocidade máxima determinada por seu <b>Nivel de Manobrabilidade</b>, para cada incremento além do inicial, o piloto sofre uma penalidade de -2</p>
+        <p>Para manter o veiculo viajando em uma linha reta, o piloto deve fazer testes de <i>Use Tech. Device</i>.</p>
+        <p>Em condições normais, o piloto deve fazer o teste com CD 10 a cada 1 hora de operação</p>
+        <p>Durante o combate, o veículo se move na iniciativa do piloto, que deve fazer o teste com CD20 antes de agir.</p>
+        <p>Caso o piloto tenha sucesso no teste, ele está no controle do veículo e pode fazer uma ação padrão;</p>
+        <p>Controlar o Veículo (e Movê-lo, se aplicável) será a sua Ação de Movimento na rodada.</p>
+        <p>Caso falhe no teste, ele se torna uma Ação de Rodada Completa e o piloto não pode fazer mais nada naquela rodada.</p>
+        <table>
+          <tr>
+            <th>Nivel</th>
+            <th>Incremento de Velocidade</th>
+          </tr>
+          <tr>
+            <td>1 (Clumsy)</td>
+            <td>7,5km/h (13,5m/rodada)</td>
+          </tr>
+          <tr>
+              <td>2 (Poor)</td>
+              <td>15km/h (27m/rodada)</td>
+          </tr>
+          <tr>
+              <td>3 (Average)</td>
+              <td>22,5km/h (40,5m/rodada)</td>
+          </tr>
+          <tr>
+              <td>4 (Bom)</td>
+              <td>30km/h (49,5m/rodada)</td>
+          </tr>
+            <tr>
+              <td>5 (Excellent)</td>
+              <td>37,5km/h (66m/rodada)</td>
+            </tr>
+        </table>
+        <p>No Turno do Piloto, o Veículo se move, ele pode se mover a qualquer distancia entre o <b>Nivel de Manobrabilidade</b> atual e o anterior.</p>
+        <p>Por Exemplo: um veiculo com manobrabilidade 1, entra no combate se movendo a 15km/h, sem seu turno, o piloto move o veiculo entre 13,5m e 27m, se ele desacelerar um passo, ele pode se mover entre 0m e 13,5m, se o piloto decidir acelerar um passo, poderá se mover entre 27m, e 31,5m</p>
+        <p>Tentar mais do que manter o controle do veículo também exige testes de Manobrabilidade.</p>
+        <p><b>Mudar Velocidade:</b> Acelerar ou desacelerar um incremento é fácil, para cada incremento adicional que o pilito acelerar ou desacelerar, aplique -4 de penalidade no teste.</p>
+        <p><b>Drifting:</b> Você pode fazer drift com um veiculo virando ele letalmente enquando se move para frente. O piloto pode mover o veiculo por uma distancia igual a sua largura uma vez sem penalidades, para cada largura adicional, o piloto sofre uma penalidade cumulativa de -4 no teste de manobrabilidade naquela rodada.</p>
+        <p><b>Mover-se Rápidamente:</b> Para cada incremento completo além do primeiro, o piloto sofre uma penalidade cumulativa de -2 no teste de manpbrabilidade.</p>
+        <p><b>Virar:</b>Fazer uma curva de 45° (ou 90°, se sua Manobrabilidade for 4 ou maior) é fácil, fazer uma curva maior que isso, causa uma penalidade de -4 o teste para cada 45° (ou 90, se a manobrabilidade for 4 ou maior)</p>
+
+      </div>
+  </div>
+</div>
+
+
+    <a href="../magalqtec/tecnologia.html"><img class="botao" src="../img/voltar.svg"></a>
+        <div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>
+

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para a descrição das classes extras de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, classes">
+    <title>ficha teste</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/ficha.js"></script>
+<link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<style>
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+    }
+    @media (max-width: 430px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+    </style>
+</head>
+    <body>
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<div>
+    <div class="flex-container" id="description">
+        <div id="Name">
+            <table>
+                <tr>
+                <th>Name</th><td>name</td>
+                </tr>
+                <tr>
+                <th>Player</th><td>player</td>
+                </tr>
+                <tr>
+                <th>Chronicle</th><td>chronicle</td>
+                </tr>
+            </table>
+        </div>
+        <div id="Court">
+            <table>
+                <tr>
+                <th>Court</th><td>court</td>
+                </tr>
+                <tr>
+                <th>Legacies</th><td>legacies</td>
+                </tr>
+                <tr>
+                <th>House</th><td>house</td>
+                </tr>
+            </table>
+        </div>
+        <div id=Seeming>
+            <table>
+                <tr>
+                <th>Seeming</th><td>seeming</td>
+                </tr>
+                <tr>
+                <th>Kith</th><td>Kith</td>
+                </tr>
+                <tr>
+                <th>Motley</th><td>motley</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    <div class="flex-container" id="attributes">
+        <div id="physical">
+            <h2>Physical</h2>
+            <table>
+                <tr>
+                <th>Strength</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Dexterity</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Stamina</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="social">
+            <h2>Social</h2>
+            <table>
+                <tr>
+                <th>Charisma</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Manipulation</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Appearence</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id=Mental>
+            <h2>Mental</h2>
+            <table>
+                <tr>
+                <th>Perception</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Intelligence</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Wits</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+      </div>
+      <div class="flex-container" id="abilities">
+        <div id="talents">
+            <h2>Talents</h2>
+            <table>
+                <tr>
+                <th>Alertness</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Athletics</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Brawl</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Empathy</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Expression</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Intimidation</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Kenning</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Leadership</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Streetwise</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Subterfuge</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+
+            </table>
+        </div>
+        <div id="skills">
+            <h2>Skills</h2>
+            <table>
+                <tr>
+                <th>Animal Ken</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Crafts</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Drive</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Etiquette</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Firearms</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Larceny</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Melee</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Performance</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Stealth</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Survival</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+
+            </table>
+        </div>
+        <div id="knowledges">
+            <h2>Knowledges</h2>
+            <table>
+                <tr>
+                <th>Academics</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Computer</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Enigmas</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Gremayre</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Investigation</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Law</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Medicine</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Politics</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Science</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Technology</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+
+            </table>
+        </div>
+      </div>
+      <div class="flex-container" id="advantages1">
+        <div id="backgrounds">
+            <h2>Backgrounds</h2>
+            <table>
+                <tr>
+                <th>BG1</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>BG2</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>BG3</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="arts">
+            <h2>Arts</h2>
+            <table>
+                <tr>
+                <th>Art1</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Art2</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Art3</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="realms">
+            <h2>Realms</h2>
+            <table>
+                <tr>
+                <th>Actor</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Fae</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Nature</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Prop</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Scene</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Time</th><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+      </div>
+      <div class="flex-container" id="advantages2">
+        <div id="glamour">
+            <h2>Glamour</h2>
+            <table>
+                <tr>
+                <td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="banality">
+            <h2>Banality</h2>
+            <table>
+                <tr>
+                <td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="nightmare">
+            <h2>Nightmare</h2>
+            <table>
+                <tr>
+                <td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+      </div>
+      <div class="flex-container" id="advantages3">
+        <div id="willpower">
+            <h2>Willpower</h2>
+            <table>
+                <tr>
+                <td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td><td><input type="radio" checked="checked"></td>
+                </tr>
+                <tr>
+                <td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="health">
+            <h2>Health</h2>
+            <table>
+                <tr><th>Health level</th><th>Mortal</th><th>Agr</th><th>Chimeric</th><th>Agr</th></tr>
+                <tr>
+                <th>Bruised</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Hurt -1</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Injured -1</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Wounded -2</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Mauled -2</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Cripled -5</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+                <tr>
+                <th>Incapacitated</th><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td><td><input type="checkbox" checked="checked"></td>
+                </tr>
+            </table>
+        </div>
+      </div>																																																			
+                                                                                                                                                              
+</div>
+
+<a href="../index.html"><svg class="botao"
+    style="width: 270px; height: 70px;">
+        <polygon
+        points="262,40 225,64 75,64 40,40 75,20 225,20"
+        stroke="grey"
+        fill="black"
+        stroke-width="5"/>
+        <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+        Voltar
+        </text>
+    </svg></a>
+        <div class="contem_grama"><div id="grass"></div></div>
+    </body>
+<script>
+
+</script>
+</html>

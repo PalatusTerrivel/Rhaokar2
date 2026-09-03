@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+  <link href="../css/grid.css" rel="stylesheet">
+  <style>
+    .raca {
+      margin-left: 5px;
+    }
+    .contem-racas{
+      margin: 30px;
+      background-color: lightgray;
+
+    }
+    </style>
+</head>
+<body>
+  <div class="contem_nuvem"><div id="clouds"></div></div>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">As Raças</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">O Povo-Fera</a>
+              <a class="dropdown-item" href="#">Os Elfos</a>
+              <a class="dropdown-item" href="#">Os Forjados</a>
+              <a class="dropdown-item" href="#">Os Dracônicos</a>
+              <a class="dropdown-item" href="#">Os Reptilianos</a>
+              <a class="dropdown-item" href="#">Os Orcs</a>
+              <a class="dropdown-item" href="#">As Outras Raças</a>
+            </div>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">O Mundo</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">O Mapa</a>
+            <a class="dropdown-item" href="#">Os Reinos</a>
+            <a class="dropdown-item" href="#">Os Planos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Os Deuses</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Os Deuses antigos</a>
+              <a class="dropdown-item" href="#">Os Deuses Heróicos</a>
+              <a class="dropdown-item" href="#">As Entidades Maiores</a>
+              <a class="dropdown-item" href="#">As Cortes das Faéricas</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Log das Campanhas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Log das Campanhas</a>
+              <a class="dropdown-item" href="#">Personagens</a>
+            </div>
+          </li>  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Regras da Casa</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Ações</a>
+              <a class="dropdown-item" href="#">Magias</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia, Alquimia e Tecnologia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Magia</a>
+              <a class="dropdown-item" href="#">Alquimia</a>
+              <a class="dropdown-item" href="#">Tecnologia</a>
+            </div>
+          </li>      
+      </ul>
+    </div>  
+  </nav>
+  
+  
+  <div class="contem-racas" style="margin-top:30px">
+    <div class="row" id="povo-fera">
+      <div class="col-sm-2">
+        <img src="../img/sh2.png" style="width: 100px; height: 100px;">
+      </div>
+      <div class="col-sm-10">
+        <h2>Povo Fera</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" id="povo-inseto">
+        <div class="col-sm-3">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-9">
+          <h2>Povo-Inseto</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="elfos">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Elfos</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="anoes">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Anões</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="Orcs">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Orcs</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="gnomos">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Gnomos</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="goblinoides">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Goblinoídes</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="halflings">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Halflings</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="humanos">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Humanos</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="povo-lagarto">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Povos-Lagarto</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    v
+    <div class="row" id="minotauros">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Minotauros</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="centauros">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Centauros</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="familiar-sem-mestre">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Familiares Sem Mestre</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="Draconicos">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Draconicos</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="Planares">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Planares</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="Limos">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Limos</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" id="os=outros">
+        <div class="col-sm-2">
+          <img src="../img/sh2.png" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-sm-10">
+          <h2>Os Outros</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+</div>
+  
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <p>Footer</p>
+  </div>
+<div class="contem_grama"><div id="grass"></div></div>
+</body>
+</html>

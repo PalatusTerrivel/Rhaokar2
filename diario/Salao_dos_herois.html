@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para registro de campanha de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, campanha, log da campanha, diário de campanha">
+
+    <title>Salão dos Heróis</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/bootstrap.bundle.min.js"></script>
+<link href="../../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="../../css/ficha.css" rel="stylesheet">
+<link href="../../css/grid.css" rel="stylesheet">
+</head>
+    <body>
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="../index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../racas/Beastfolk.html">O Povo-Fera</a>
+              <a class="dropdown-item" href="../racas/elfos.html">Os Elfos</a>
+              <a class="dropdown-item" href="../racas/Forjados.html">Os Forjados</a>
+              <a class="dropdown-item" href="../racas/dragons.html">Os Dracônicos</a>
+              <a class="dropdown-item" href="../racas/lizards.html">Os Reptilianos</a>
+              <a class="dropdown-item" href="../racas/anoes.html">Os Anões</a>
+              <a class="dropdown-item" href="../racas/limos.html">Os Limos</a>
+              <a class="dropdown-item" href="../racas/hivelings.html">O Povo-Inseto</a>
+              <a class="dropdown-item" href="../racas/Orcs.html">Os Orcs</a>
+              <a class="dropdown-item" href="../racas/familiar.html">Familiares Sem Mestre</a>
+              <a class="dropdown-item" href="../racas/minotauro.html">Minotauros</a>
+              <a class="dropdown-item" href="../racas/centauro.html">Centauros</a>
+              <a class="dropdown-item" href="../racas/racas.html">As Outras Raças</a>
+            </div>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">O Cenário</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../cenario/Mapa_rhaokar.html">O Mapa</a>
+            <a class="dropdown-item" href="../cenario/reinos/reinos.html">Os Reinos</a>
+            <a class="dropdown-item" href="../cenario/cosmos/Cosmos.html">O Cosmos</a>
+            <a class="dropdown-item" href="../cenario/deuses/divindades.html">Os Deuses</a>
+          </div>
+        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">Diário das Campanhas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../diario/log-das-campanhas.html">Log das Campanhas</a>
+              <a class="dropdown-item" href="../diario/Personagens.html">Personagens</a>
+              <a class="dropdown-item" href="../diario/Salao_dos_herois.html">Salão dos Heróis</a>
+            </div>
+          </li>  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">Regras Alternativas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Revised%20Action%20Economy&Category=Pathfinder%20Unchained" target="_blank">Ações</a>
+              <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Professions&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Profession</a>
+              <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Crafting&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Craft</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../magia/mudancas.html">Mudanças</a>
+              <a class="dropdown-item" href="../magia/sistemas.html">Sistemas</a>
+              <a class="dropdown-item" href="../magia/arquetipo_magia.html">Arquétipos</a>
+              <a class="dropdown-item" href="../magia/itens_magia.html">Itens</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Alquimia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../alquimia/talentos_alquimia.html">Talentos</a>
+              <a class="dropdown-item" href="../alquimia/arquetipos_alquimia.html">Arquétipos</a>
+              <a class="dropdown-item" href="../alquimia/simbiontes.html">Simbiontes</a>
+              <a class="dropdown-item" href="../alquimia/implantes.html">Implantes</a>
+              <a class="dropdown-item" href="../alquimia/itens_alquimia.html">Itens</a>
+            </div>
+          </li> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tecnologia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../tecnologia/talentos_tecnologia.html">Talentos</a>
+              <a class="dropdown-item" href="../tecnologia/criar_tecnologia.html">Criação de Itens</a>
+              <a class="dropdown-item" href="../tecnologia/arquetipos_tecnologia.html">Arquétipos</a>
+              <a class="dropdown-item" href="../tecnologia/itens_tecnologia.html">Itens</a>
+            </div>
+          </li>       
+      </ul>
+    </div>  
+  </nav>
+  <h1 style="text-align: center;">Salão dos Heróis</h1>
+  <p class="contem-deuses" style="text-align: center;">Aqui serão exibidas as fichas de personagens de campanhas passadas e que eram de jogadores que jogaram mais de uma sessão ou terminaram a ficha, alguns se tornaram NPCs importantes e suas fichas mudaram bastante, aqui elas estão como foram nos jogos.</p>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class ="contem-deuses">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#a1">Aishair Anreluz</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#a2">Alan Macoi</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#a3">3</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a4">4</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a5">5</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a6">6</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a7">7</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a8">8</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a9">9</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a10">10</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a11">11</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#a12">12</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a13">13</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a14">14</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a15">15</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a16">16</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a17">17</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a18">18</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#a19">19</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#a20">20</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#a21">21</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#a22">22</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a23">23</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a24">24</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a25">25</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a26">26</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a27">27</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a28">28</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#a29">29</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#a30">30</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#a31">31</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#a32">32</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a33">33</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a34">34</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a35">35</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a36">36</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a37">37</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a38">38</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#a39">39</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#a40">40</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#a41">41</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#a42">42</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a43">43</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a44">44</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a45">45</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a46">46</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a47">47</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a48">48</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#a49">49</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#a50">50</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#a51">51</a>
+                      </li>
+  </ul>
+    <div class="tab-content">
+        <div class="tab-pane container active" id="a1">																																						
+            <div class="conteudo">																																													
+                <h1>	Aishair Anreluz	</h1>																																											
+                <div class="row" id="descricao">																																													
+                <br>																																													
+                <div class="col-md-2">																																													
+                <table>																																													
+                <tr><th>	Race	</th></tr><td>	Half-Celestial Lesser Aasimar	</td></tr>																																													
+                </table>																																													
+                </div>																																													
+                <br>																																													
+                <div class="col-md-2">																																													
+                <table>																																													
+                <tr><th>	Size	</th></tr><tr><td>	Medium	</td></tr>																																													
+                </table>
+                </div>																																													
+                <br>																																													
+                <div class="col-md-3">        <table>																																													
+                <tr>																																													
+                <th>	Classes	</th></tr><tr>																																													
+                <td>	Cloistered Cleric	2</td></tr><tr>																																													
+                <td>	Church Inquisitor	3</td></tr><tr>																																													
+                <td>	Sacred Exorcist	1</td></tr><tr>																																													
+                <td>	Ordained Champion	3</td></tr><tr>																																													
+                <td>	Fist Of Raziel	4</td></tr>																																													
+                </table>
+                </div>																																													
+                <br>																																													
+                <div class="col-md-1">        <table>																																													
+                <tr>																																													
+                <th>	Level	</th></tr><tr><td>	14	</td>																																											
+                </tr>																																													
+                </table>
+                </div>																																													
+                <br>																																													
+                <div class="col-md-2">        <table>																																													
+                <tr>																																													
+                <th>	Aligment	</th></tr><tr><td>	Leal/Bom	</td>																																					
+                </tr>																																							
+                </table>
+                </div>																																							
+                <br>																																																																																										
+                <br>																																													
+                </div>
+                <div class="row" id="descricao2">																																													
+                    <br>																																													
+                    <div class="col-md-1">																																													
+                    <table>																																													
+                    <tr>																																													
+                    <th>	Age	</th> </tr><tr><td>	18	</td></tr>																																													
+                    </table>																																													
+                    </div>																																													
+                    <br>																																													
+                    <div class="col-md-2">																																													
+                    <table>																																													
+                    <tr>																																													
+                    <th>	Gender	</th></tr><tr><td>	Male	</td>																																											
+                    </tr>																																													
+                    </table>
+                    </div>																																													
+                    <br>																																													
+                    <div class="col-md-3">        <table>																																													
+                    <tr>																																													
+                    <th>	Height	</th><th>	Weight	</th></tr>																																													
+                    <tr>																																													
+                    <td>	1,8m	</td><td>	120kg	</td>																																																																																				
+                    </tr>																																													
+                    </table>
+                    </div>																																													
+                    <br>																																													
+                    <div class="col-md-2">        <table>																																													
+                    <tr>																																													
+                    <th>	Eyes	</th></tr> <tr>																																							
+                    <td>	Green	</td></tr>																																							
+                    </table>
+                    </div>																																							
+                    <br>																																													
+                    <div class="col-md-2">        <table>																																													
+                    <tr>																																							
+                    <th>	Hair	</th>																																								
+                    </tr>																																													
+                    <tr>																																													
+                    <td>	Silver	</td>																																								
+                    </tr>																																													
+                    </table>
+                    </div>
+                    <div class="col-md-2">        <table>																																													
+                    <tr>																																							
+                    <th>	Deity	</th>																																								
+                    </tr>																																													
+                    <tr>																																													
+                    <td>	Heironeous	</td>																																								
+                    </tr>																																													
+                    </table>
+                    </div>																																													
+                    <br>																																													
+                    </div>																																													
+                <div class="row" id="atributos-HP-move-senses">																																													
+                <div class="col-md-6" id="atributos">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Atributos	</th><th>	Valor	</th><th>	Mod	</th>																																							
+                </tr>																																													
+                <tr><th>	<b>	Strength (STR)	</b>	</th><td>	<b>	22	</b>	</td><td>	<b>	+6	</b>	</td></tr>																																	
+                <tr><th>	<b>	Dexterity (DEX)	</b>	</th><td>	<b>	10	</b>	</td><td>	<b>	+0	</b>	</td></tr>																																	
+                <tr><th>	<b>	Constitution (CON)	</b>	</th><td>	<b>	22	</b>	</td><td>	<b>	+6	</b>	</td></tr>																																	
+                <tr><th>	<b>	Intelligence (INT)	</b>	</th><td>	<b>	14	</b>	</td><td>	<b>	+2	</b>	</td></tr>																																	
+                <tr><th>	<b>	Wisdom (WIS)	</b>	</th><td>	<b>	27	</b>	</td><td>	<b>	+8	</b>	</td></tr>																																	
+                <tr><th>	<b>	Charisma (CHA)	</b>	</th><td>	<b>	24	</b>	</td><td>	<b>	+7	</b>	</td></tr>																																	
+                </table>																																													
+                </div>																																													
+                <div class="col-md-6" id="HP-move-senses">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Total HP	</th><th>	HD	</th><th>	Mod	</th><th>	Other	</th></tr><tr>																																													
+                <td>	190	</td>   <td>	10d8+4d10	</td><td>	84	</td><td>	0	</td>																																					
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Movement	</th><th>	Fly	</th><th>	Swim	</th><th>	Climb	</th><th>	Dig	</th>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	9m 	</td><td>	18m (Good)	</td><td>	0	</td><td>	0	</td><td>	0	</td>																																			
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Senses	</th></tr><tr>																																													
+                <td>	Darkvision 18m	</td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                </div>																																													
+                <div class="row" id="ini-ca-tr-bba-ataque-skill">																																													
+                <div class="col-md-6" id="ini-ca-tr-bba-ataque">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Initiative	</th><th>	DEX	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th></tr><tr>																																													
+                <td>	+4	</td>       <td>	0	</td><td>	+4	</td>   <td>	0	</td>       <td>	0	</td>   <td>	0	</td>																																	
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Armor Class	</th><th>	Base	</th><th>	DEX	</th><th>	Armor	</th><th>	Natural	</th><th>	Size	</th><th>	Other	</th><th>	Shield	</th></tr><tr>																																													
+                    <td>	26	</td>   <td>	<b>10</b>	</td><td>	0	</td><td>	9	</td><td>	0	</td>   <td>	0	</td>   <td>	4	</td>   <td>	3	</td>																															
+                </tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Touch	</th><th>	Flat-Footed	</th></tr><tr>																																													
+                <td>	17	</td>   <td>	16	</td>																																									
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Fortitude	</th><th>	Mod	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th> </tr><tr>																																													
+                <td>	17	</td>       <td>	6	</td><td>	0	</td>       <td>	0	</td>   <td>	11	</td><td>	0	</td></tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Reflex	</th>   <th>	Mod	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th></tr><tr>																																													
+                <td>	3	</td>       <td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	3	</td>   <td>	0	</td>																																	
+                </tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Will	</th>   <th>	Mod	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th></tr><tr>																																													
+                <td>	19	</td>       <td>	8	</td><td>	0	</td>   <td>	0	</td>   <td>	11	</td>   <td>	0	</td>																																	
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	BAB	</th>    </tr><tr>																																													
+                <td>	10	</td>																																											
+                </tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Melee	</th><th>	BAB	</th><th>	STR	</th><th>	Size 	</th><th>	Other	</th></tr><tr>																																													
+                <td>	16	</td>   <td>	10	</td><td>	6	</td><td>	0	</td>   <td>	0	</td>																																			
+                </tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Ranged	</th><th>	BAB	</th><th>	DEX	</th><th>	Size 	</th><th>	Other	</th></tr><tr>																																													
+                <td>	10	</td>   <td>	10	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>																																			
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Grapple	</th><th>	BAB	</th><th>	STR	</th><th>	Race	</th><th>	Class	</th><th>	Size	</th><th>	Other	</th></tr><tr>																																													
+                <td>	16	</td>   <td>	10	</td><td>	6	</td><td>	0	</td>      <td>	0	</td>   <td>	0	</td>       <td>	0	</td>																															
+                </tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Spell Resistance	</th></tr><tr>																																													
+                <td>	24	</td>
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Attack	</th><th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+                <td>		</td><td>		</td><td>		</td><td>		</td>																																					
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+                <td>	Melee	</td><td>	none	</td>																																									
+                </tr>																																													
+                </table>																																													
+                <br>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Attack	</th><th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+                <td>		</td><td>		</td><td>		</td><td>		</td>																																					
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+                <td>		</td><td>		</td>																																									
+                </tr>																																													
+                </table>
+                <table>																																													
+                    <tr>																																													
+                    <th>	Attack	</th>   <th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+                    <td>	Touch (melee)	</td><td>	+16	</td><td>	spell	</td><td>	x2	</td>																																					
+                    </tr>																																													
+                    </table>																																													
+                    <table>																																													
+                    <tr>																																													
+                    <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+                    <td>	spell	</td><td>	spell	</td>																																									
+                    </tr>																																													
+                    </table>
+                    <table>																																													
+                        <tr>																																													
+                        <th>	Attack	</th>   <th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+                        <td>	Touch (ranged)	</td><td>	+10	</td><td>	spell	</td><td>	x2	</td>																																					
+                        </tr>																																													
+                        </table>																																													
+                        <table>																																													
+                        <tr>																																													
+                        <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+                        <td>	spell	</td><td>	spell	</td>																																									
+                        </tr>																																													
+                        </table>																																													
+                <br>																																																																																										
+                <table>																																													
+                <tr>																																													
+                <th>	AC Item	</th>	<th>	Type	</th>	<th>	Ac Bonus	</th>	<th>	Skill penalty	</th>	<th>	Spell Failure	</th>	<th>	Weight	</th>	        <th>	Properties	</th></tr><tr>																																													
+                <td>	Mithral Sectioned armor (full)+1(+4)	</td><td>	Medium	</td>	<td>	+9	</td>	        <td>	?	</td>	                <td>	?	</td>	        <td>	15kg (30lbs) 	</td>	<td>	SoulFire(immune to all death spells,magical death effects,energy drain,any negative energy effects)	</td>																									
+                </tr>																																													
+                </table>
+                <table>																																													
+                  <tr>																																													
+                  <th>	AC Item	</th>	<th>	Type	</th>	<th>	Ac Bonus	</th>	<th>	Skill penalty	</th>	<th>	Spell Failure	</th>	<th>	Weight	</th>	        <th>	Properties	</th></tr><tr>																																													
+                  <td>	Obdurium Heavy Shield +1	</td><td>	Shield	</td>	<td>	+3	</td>	        <td>	?	</td>	                <td>	?	</td>	        <td>	? 	</td>	<td>	Obdurium	</td>																									
+                  </tr>																																													
+                  </table>
+                  <table>																																													
+                    <tr>																																													
+                    <th>	AC Item	</th>	<th>	Type	</th>	<th>	Ac Bonus	</th>	<th>	Skill penalty	</th>	<th>	Spell Failure	</th>	<th>	Weight	</th>	        <th>	Properties	</th></tr><tr>																																													
+                    <td>	Ring of Protection +2	</td><td>	Ring	</td>	<td>	+2	</td>	        <td>	0	</td>	                <td>	0	</td>	        <td>	- 	</td>	<td>	+2 Deflection bonus do AC	</td>																									
+                    </tr>																																													
+                    </table>																																													
+                </div>																																													
+                <div class="col-md-6" id="skill">																																													
+                <table>																																													
+                <tr>																																													
+                    <th>	Skill	</th>                       <th>	Total	</th><th>	Rank	</th><th>	Mod	</th><th>	Race	</th><th>	Other	</th><th>	Size	</th></tr><tr>																																													
+                    <th>	Acrobatics(DEX)	</th>               <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Appraise (INT)	</th>               <td>	+2	</td>       <td>	0	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Balance (DEX)	</th>               <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Bluff (CHA)	</th>                   <td>	+12	</td>       <td>	5	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Climb (STR)	</th>                   <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Concentration (CON)</th>           <td>	+6	</td>       <td>	0	</td><td>	+6	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Craft (not determined) (INT)</th>   <td>	+2	</td>       <td>	4	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Craft (not determined) (INT)</th>   <td>	+2	</td>       <td>	0	</td><td>	+2</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Craft (not determined) (INT)</th>   <td>	+2	</td>       <td>	0	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Decipher Script (INT)	</th>       <td>	-1	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Diplomacy (CHA)	</th>               <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Disable Device (INT)	</th>       <td>	+2	</td>       <td>	0	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Disguise (CHA)	</th>               <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Escape Artist (DEX)	</th>           <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Forgery (INT)	</th>               <td>	+2	</td>       <td>	0	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Gather Information (CHA)	</th>   <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Handle Animal (CHA)	</th>           <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Heal (WIS)	</th>                   <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Hide (DEX)	</th>                   <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Intimidate (CHA)	</th>           <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Jump (STR)	</th>                   <td>	+6	</td>       <td>	0	</td><td>	+6	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Arcana) (INT)	</th>   <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Dungeoneering) (INT)</th><td>	+2	</td>       <td>		</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Engineering) (INT)</th>  <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Geography) (INT)</th>    <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (History) (INT)</th>      <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Local) (INT)</th>        <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Nature) (INT)</th>       <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Nobility) (INT)</th>     <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Knowledge (Planes) (INT)</th>       <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>
+                    <th>	Knowledge (Psionics)(INT)	</th>      <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr></tr>																																													
+                    <th>	Knowledge (Religion) (INT) </th>    <td>	+2	</td>       <td>	2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Linguistics (INT)	</th>           <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Listen (WIS)	</th>               <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Move Silently (DEX)	</th>           <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Open Lock (DEX)	</th>               <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Perform (not determined) (CHA)</th> <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Perform (not determined)(CHA)	</th> <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Perform (not determined)(CHA)	</th> <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Profession (not determined) (WIS)	</th> <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Profession (not determined) (WIS)	</th> <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Profession (not determined) (WIS)	</th> <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Ride (DEX)	</th>                   <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Sense Motive (WIS)	</th>           <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Search (INT)	</th>               <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Sleight of Hand (DEX)	</th>       <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Spellcraft (INT)	</th>           <td>	+2	</td>       <td>	+2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Spot (WIS)	</th>                   <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Survival (WIS)	</th>               <td>	+8	</td>       <td>	0	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Swim (STR)	</th>                   <td>	+6	</td>       <td>	0	</td><td>	+6	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Use Magic Device (CHA)	</th>       <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                    <th>	Use Technological Device (INT)</th> <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr>																																													
+                </table>																																													
+                </div>																																													
+                </div>																																													
+                <div class="row" id="languages-condicionais">																																													
+                <div class="col-md-6" id="languages">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Languages	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td><p>Common, Celestial, Draconic, Elvish and Infernal.</p></td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                <div class="col-md-6" id="condicionais">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Conditional Bonuses	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td>
+                <ul>	
+                    <li>+4 Against Poison</li>
+                </ul>
+                </td>																																											
+                                                                                                                                                                                                    
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                </div>																																													
+                <div class="row" id="feats-class-race">																																													
+                <div class="col-md-4" id="feats">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Feats	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td>
+                <ul>	
+                    <li>1: Persist Spell</li>
+                    <li>3: Divine Metamagic</li>
+                    <li>6: Servant of Heaven</li>
+                    <li>9: Holy Warrior</li>
+                    <li>12: Extra Turning</li>
+                    <li>(War Domain) Weapon Focus (Long Sword)</li>
+                    <li>(Planing Domain) Extend Spell</li>
+                    <li>(Knowledge Domain) Knowledge Devotion</li>
+                    <li>bonus: Power Attack</li>
+                    <li>bonus: Improved Initiative</li>
+                    <li>bonus: Law Devotion</li>
+                    <li>bonus: Diehard</li>
+                </ul>
+                </td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                <div class="col-md-4" id="class">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Class Abilities	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td>
+                <ul>
+                    <li>Cleric: Turn Dragon</li>
+                    <li>Cleric: Domains</li>
+                    <li>Church Inquisitor: Detect Evil</li>
+                    <li>Church Inquisitor: Imunity to Charm</li>
+                    <li>Church Inquisitor: Pierce Illusion</li>
+                    <li>Church Inquisitor: Domain: Inquisition</li>
+                    <li>Sacred Exorcist: Domain (exorsism)</li>
+                    <li>Sacred Exorcist: Turn Undead</li>
+                    <li>Ordained Champion: Smite</li>
+                    <li>Ordained Champion: Channel Spell</li>
+                    <li>Ordained Champion: Divine Bulwark</li>
+                    <li>Fist Of Raziel: Magic Circle</li>
+                    <li>Fist Of Raziel: Smite Evil 2/day</li>
+                </ul>
+                </td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                <div class="col-md-4" id="race">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Race	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td>
+                  <ul>	
+                    <li>Half-Celestial Lesser Aasimar: Imunity to Desease</li>
+                    <li>Half-Celestial Lesser Aasimar: Acid, Cold and Electric Resistance 10</li>
+                    <li>Half-Celestial Lesser Aasimar: DR 10/Evil</li>
+                    <li>Half-Celestial Lesser Aasimar: SR 24 (10+HD)</li>
+                    <li>Half-Celestial Lesser Aasimar: Dark Vision 18m</li>
+                    <li>Half-Celestial Lesser Aasimar: +4 resistance to poison</li>
+                    <li>Half-Celestial Lesser Aasimar: Smite Evil 1/day</li>
+                    <li>Half-Celestial Lesser Aasimar: SPA At-Will: Daylight</li>
+                    <li>Half-Celestial Lesser Aasimar: SPA 3/day: Protection from Evil, Holy Aura</li>
+                    <li>Half-Celestial Lesser Aasimar: SPA 1/day: Bless, Aid, Detect Evil, Cure Serious Wounds, Neutralize Poison, Holy Smite, Remove Disease, Dispel Evil, Holy Word, Hallow</li>
+                  </ul>
+                </td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                </div>																																													
+                <div class="row" id="spells-schools-grimoire">																																													
+                <div class="col-md-4" id="spells">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Level	</th><th>	Class	</th><th>	Bonus	</th><th>	Total	</th><th>	CD	</th>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	0	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	1	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	2	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	3	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	4	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	5	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	6	</td><td>	?	</td><td>	?	</td><td>	?	</td><td>	?	</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	7	</td><td>		</td><td>		</td><td>		</td><td>		</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	8	</td><td>		</td><td>		</td><td>		</td><td>		</td>																																			
+                </tr>																																													
+                <tr>																																													
+                <td>	9	</td><td>		</td><td>		</td><td>		</td><td>		</td>																																			
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                <div class="col-md-4" id="schools">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Domain/School/Bloodline	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td>
+                  <ul>
+                    <li>Domain: War</li>
+                    <li>Domain: Planning</li>
+                    <li>Domain: Knowledge</li>
+                    <li>Domain: Exorcism</li>
+                    <li>Domain: Inquisition</li>
+                  </ul>
+                </td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                <div class="col-md-4" id="grimoire">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Level	</th>	<th>	Spell Name	</th>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	Cantrip/Orison	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	1	</td>	<td></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	2	</td>	<td></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	3	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	4	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	5	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	6	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	7	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	8	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	9	</td>	<td><pre>		</pre></td>																																								
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                </div>																																													
+                <div class="row" id="equipamentos-notas">																																													
+                <div class="col-md-6" id="equipamentos">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Equipamentos	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td><ul>Worn	
+                    <li>[Ring] Ring of sustenance</li> 
+                    <li>[Ring] Ring of Protection +2</li> 
+                    <li>[Face] Third Eye Clarity Freedom [Third Eye Clarity][Third Eye Freedom]</li>
+                    <li>[Throat] Enduring Reliquary Holy Symbol of Protection from Evil[Reliquary Holy Symbol][Enduring Amulet][Continuous "Protection from Evil"]</li>
+                    <li>[Shoulder] Banner of the Storm's </li>
+                    <li>[Feet] Boots of Big Stepping Translocation [Boots of Big Stepping][Anklet of Translocation]</li>
+                    <li>[Body] Mithral Soulfire Sectioned armor (full)+1(+4)</li>
+                    <li>
+                      <ul>Backpack: 
+                        <li>Psionic Healm</li>
+                        <li>Longsword Acid and Sonic +1</li>
+                        <li>Adamantine Longsword +1</li>
+                        <li>Chrono Amulet, 2 (Horizon, Archmage)</li>
+                        <li>2 Psionic Swords</li>
+                        <li>Handy Haversack</li>
+                      </ul></li>
+                    <li><ul>Wallet: 
+                        <li>? PP</li> <li>? GP</li> <li>? SP</li> <li>? CP</li></ul></li>	</ul></td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                <div class="col-md-6" id="notas">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Notas	</th>																																											
+                </tr>																																													
+                <tr>																																													
+                <td><pre>		</pre></td>																																											
+                </tr>																																													
+                </table>																																													
+                </div>																																													
+                </div>																																													
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a2">
+          <div class="conteudo">																																													
+            <h1>	Alan Macoi Delacroix (vulgo Dancan, o Gentil)	</h1>																																											
+            <div class="row" id="descricao">																																													
+            <br>																																													
+            <div class="col-md-2">																																													
+            <table>																																													
+            <tr><th>	Race	</th></tr><td>	Human (Licanthrope, natural born werebear)	</td></tr>																																													
+            </table>																																													
+            </div>																																													
+            <br>																																													
+            <div class="col-md-2">																																													
+            <table>																																													
+            <tr><th>	Size	</th></tr><tr><td>	Medium	</td></tr>																																													
+            </table>
+            </div>																																													
+            <br>																																													
+            <div class="col-md-3">        <table>																																													
+            <tr>																																													
+            <th>	Classes	</th></tr><tr>																																													
+            <td>	Rogue	6</td></tr><tr>																																													
+            <td>	Bear 6</td></tr><tr>																																													
+            <td>	LA 3</td></tr><tr>																																																																																										
+            </table>
+            </div>																																													
+            <br>																																													
+            <div class="col-md-1">        <table>																																													
+            <tr>																																													
+            <th>	Level	</th></tr><tr><td>	15	</td>																																											
+            </tr>																																													
+            </table>
+            </div>																																													
+            <br>																																													
+            <div class="col-md-2">        <table>																																													
+            <tr>																																													
+            <th>	Aligment	</th></tr><tr><td>	Leal/Bom	</td>																																					
+            </tr>																																							
+            </table>
+            </div>																																							
+            <br>																																																																																										
+            <br>																																													
+            </div>
+            <div class="row" id="descricao2">																																													
+                <br>																																													
+                <div class="col-md-1">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Age	</th> </tr><tr><td>	22	</td></tr>																																													
+                </table>																																													
+                </div>																																													
+                <br>																																													
+                <div class="col-md-2">																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Gender	</th></tr><tr><td>	Male	</td>																																											
+                </tr>																																													
+                </table>
+                </div>																																													
+                <br>																																													
+                <div class="col-md-3">        <table>																																													
+                <tr>																																													
+                <th>	Height	</th><th>	Weight	</th></tr>																																													
+                <tr>																																													
+                <td>	1,82m	</td><td>	151kg	</td>																																																																																				
+                </tr>																																													
+                </table>
+                </div>																																													
+                <br>																																													
+                <div class="col-md-2">        <table>																																													
+                <tr>																																													
+                <th>	Eyes	</th></tr> <tr>																																							
+                <td>	Light Blue	</td></tr>																																							
+                </table>
+                </div>																																							
+                <br>																																													
+                <div class="col-md-2">        <table>																																													
+                <tr>																																							
+                <th>	Hair	</th>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	Grey	</td>																																								
+                </tr>																																													
+                </table>
+                </div>
+                <div class="col-md-2">        <table>																																													
+                <tr>																																							
+                <th>	Deity	</th>																																								
+                </tr>																																													
+                <tr>																																													
+                <td>	Bahamut	</td>																																								
+                </tr>																																													
+                </table>
+                </div>																																													
+                <br>																																													
+                </div>																																													
+            <div class="row" id="atributos-HP-move-senses">																																													
+            <div class="col-md-6" id="atributos">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Atributos	</th><th>	Valor	</th><th>	Mod	</th>																																							
+            </tr>																																													
+            <tr><th>	<b>	Strength (STR)	</b>	</th><td>	<b>	14	</b>	</td><td>	<b>	+2	</b>	</td></tr>																																	
+            <tr><th>	<b>	Dexterity (DEX)	</b>	</th><td>	<b>	20	</b>	</td><td>	<b>	+5	</b>	</td></tr>																																	
+            <tr><th>	<b>	Constitution (CON)	</b>	</th><td>	<b>	20	</b>	</td><td>	<b>	+5	</b>	</td></tr>																																	
+            <tr><th>	<b>	Intelligence (INT)	</b>	</th><td>	<b>	16	</b>	</td><td>	<b>	+3	</b>	</td></tr>																																	
+            <tr><th>	<b>	Wisdom (WIS)	</b>	</th><td>	<b>	10	</b>	</td><td>	<b>	+0	</b>	</td></tr>																																	
+            <tr><th>	<b>	Charisma (CHA)	</b>	</th><td>	<b>	8	</b>	</td><td>	<b>	-1	</b>	</td></tr>																																	
+            </table>																																													
+            </div>																																													
+            <div class="col-md-6" id="HP-move-senses">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Total HP	</th><th>	HD	</th><th>	Mod	</th><th>	Other	</th></tr><tr>																																													
+            <td>	153	</td>   <td>	12d8	</td><td>	60	</td><td>	0	</td>																																					
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Movement	</th><th>	Fly	</th><th>	Swim	</th><th>	Climb	</th><th>	Dig	</th>																																			
+            </tr>																																													
+            <tr>																																													
+            <td>	9m 	</td><td> 0	</td><td>	0	</td><td>	0	</td><td>	0	</td>																																			
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Senses	</th></tr><tr>																																													
+            <td>	Low-Light Vision, Scent	</td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            </div>																																													
+            <div class="row" id="ini-ca-tr-bba-ataque-skill">																																													
+            <div class="col-md-6" id="ini-ca-tr-bba-ataque">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Initiative	</th><th>	DEX	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th></tr><tr>																																													
+            <td> +3	</td>       <td>	+3	</td><td>	0	</td>   <td>	0	</td>       <td>	0	</td>   <td>	0	</td>																																	
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Armor Class	</th><th>	Base	</th><th>	DEX	</th><th>	Armor	</th><th>	Natural	</th><th>	Size	</th><th>	Other	</th><th>	Shield	</th></tr><tr>																																													
+                <td>	26	</td>   <td>	<b>10</b>	</td><td>	5	</td><td>	9	</td><td>	2	</td>   <td>	0	</td>   <td>	0	</td>   <td>	0	</td>																															
+            </tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Touch	</th><th>	Flat-Footed	</th></tr><tr>																																													
+            <td>	15	</td>   <td>	21	</td>																																									
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Fortitude	</th><th>	Mod	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th> </tr><tr>																																													
+            <td>	+12	</td>       <td>	+5	</td><td>	0	</td>       <td>	0	</td>   <td>	+7	</td><td>	0	</td></tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Reflex	</th>   <th>	Mod	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th></tr><tr>																																													
+            <td>	+15	</td>       <td>	5	</td><td>	0	</td>   <td>	0	</td>   <td>	+10	</td>   <td>	0	</td>																																	
+            </tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Will	</th>   <th>	Mod	</th><th>	Feat	</th><th>	Race	</th><th>	Class	</th><th>	Other	</th></tr><tr>																																													
+            <td>	+7	</td>       <td>	0	</td><td>	+3	</td>   <td>	0	</td>   <td>	+4	</td>   <td>	0	</td>																																	
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	BAB	</th>    </tr><tr>																																													
+            <td>	+8	</td>																																											
+            </tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Melee	</th><th>	BAB	</th><th>	STR	</th><th>	Size 	</th><th>	Other	</th></tr><tr>																																													
+            <td>	+10	</td>   <td>	+8	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>																																			
+            </tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Ranged	</th><th>	BAB	</th><th>	DEX	</th><th>	Size 	</th><th>	Other	</th></tr><tr>																																													
+            <td>	+13	</td>   <td>	+8	</td><td>	+5 </td><td>	0	</td>   <td>	0	</td>																																			
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Grapple	</th><th>	BAB	</th><th>	STR	</th><th>	Race	</th><th>	Class	</th><th>	Size	</th><th>	Other	</th></tr><tr>																																													
+            <td>	+10	</td>   <td>	+8	</td><td>	+2	</td><td>	0	</td>      <td>	0	</td>   <td>	0	</td>       <td>	0	</td>																															
+            </tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Spell Resistance	</th></tr><tr>																																													
+            <td>	13	</td>
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Attack	</th><th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+            <td>	Frost Rapier +1 (Icy Burst)	</td><td>	+11/+6	</td><td>	1d6+3	</td><td>	18-20/x2	</td>																																					
+            </tr>																																													
+            </table>																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+            <td>	Melee	</td><td>	+1d6 frost damage on hit, +1d10 com a critical hit	</td>																																									
+            </tr>																																													
+            </table>																																													
+            <br>																																													
+            <table>																																													
+              <tr>																																													
+              <th>	Attack	</th><th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+              <td>	Fire Rapier +1 (Fiery Burst)	</td><td>	+11/+6	</td><td>	1d6+3	</td><td>	18-20/x2	</td>																																					
+              </tr>																																													
+              </table>																																													
+              <table>																																													
+              <tr>																																													
+              <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+              <td>	Melee	</td><td>	+1d6 fire damage on hit, +1d10 com a critical hit	</td>																																									
+              </tr>																																													
+              </table>
+            <table>																																													
+                <tr>																																													
+                <th>	Attack	</th>   <th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+                <td>	Composite Shortbow of Shockburst (+2 STR)	</td><td>	+14/+9	</td><td>	1d6+2	</td><td>	x3	</td>																																					
+                </tr>																																													
+                </table>																																													
+                <table>																																													
+                <tr>																																													
+                <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+                <td>	30m	</td><td>	+1d6 Electrical damage on hit, +2d10 on a critial hit	</td>																																									
+                </tr>																																													
+                </table>
+                <table>																																													
+                    <tr>																																													
+                    <th>	Attack	</th>   <th>	To Hit	</th><th>	Damage	</th><th>	Dec	</th></tr><tr>																																													
+                    <td>	Dagger	</td><td>	+11/+6 (+13/+8 at range)	</td><td>	1d4+2	</td><td>	x2	</td>																																					
+                    </tr>																																													
+                    </table>																																													
+                    <table>																																													
+                    <tr>																																													
+                    <th>	Range	</th><th>	Notes	</th></tr><tr>																																													
+                    <td>	6m	</td><td>	none	</td>																																									
+                    </tr>																																													
+                    </table>																																													
+            <br>																																																																																										
+            <table>																																													
+            <tr>																																													
+            <th>	AC Item	</th>	<th>	Type	</th>	<th>	Ac Bonus	</th>	<th>	Skill penalty	</th>	<th>	Spell Failure	</th>	<th>	Weight	</th>	        <th>	Properties	</th></tr><tr>																																													
+            <td>	Chain Shirt +5	</td><td>	light	</td>	<td>	+9	</td>	        <td>	-1	</td>	                <td>	0	</td>	        <td>	9kg (18lbs) 	</td>	<td>	Wild, SR 13	</td>																									
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            <div class="col-md-6" id="skill">																																													
+            <table>																																													
+            <tr>																																													
+                <th>	Skill	</th>                       <th>	Total	</th><th>	Rank	</th><th>	Mod	</th><th>	Race	</th><th>	Other	</th><th>	Size	</th></tr><tr>																																													
+                <th>	Acrobatics(DEX)	</th>               <td>	+5	</td>       <td>	0	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Appraise (INT)	</th>               <td>	+3	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Balance (DEX)	</th>                  <td>	+13	</td>       <td>	+8	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Bluff (CHA)	</th>                    <td>	-1	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Climb (STR)	</th>                    <td>	+7	</td>       <td>	+5	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Concentration (CON)</th>            <td>	+6	</td>       <td>	0	</td><td>	+6	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Craft (not determined) (INT)</th>   <td>	+3	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Craft (not determined) (INT)</th>   <td>	+3	</td>       <td>	0	</td><td>	+3  </td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Craft (not determined) (INT)</th>   <td>	+3	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Decipher Script (INT)	</th>         <td>	+7	</td>       <td>	+4	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Diplomacy (CHA)	</th>               <td>	+5	</td>       <td>	+5	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Disable Device (INT)	</th>         <td>	+13	</td>       <td>	+3	</td><td>	+10	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Disguise (CHA)	</th>               <td>	+7	</td>       <td>	0	</td><td>	+7	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Escape Artist (DEX)	</th>           <td>	+10	</td>       <td>	+5	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Forgery (INT)	</th>                <td>	+3	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Gather Information (CHA)	</th>    <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Handle Animal (CHA)	</th>           <td>	-1	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Heal (WIS)	</th>                   <td>	+2	</td>       <td>	0	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Hide (DEX)	</th>                   <td>	+5	</td>       <td>	0	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Intimidate (CHA)	</th>             <td>	-1	</td>       <td>	0	</td><td>	-1</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Jump (STR)	</th>                   <td>	+2	</td>       <td>	0	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Arcana) (INT)	</th>     <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Dungeoneering) (INT)</th><td>	0	</td>       <td>  0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Engineering) (INT)</th>  <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Geography) (INT)</th>    <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (History) (INT)</th>      <td>	+12	</td>       <td>	+9	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Local) (INT)</th>        <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Nature) (INT)</th>       <td>	+15	</td>       <td>	+12	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Nobility) (INT)</th>     <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Knowledge (Planes) (INT)</th>       <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>
+                <th>	Knowledge (Psionics)(INT)	</th>      <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr></tr>																																													
+                <th>	Knowledge (Religion) (INT) </th>    <td>	0 </td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Linguistics (INT)	</th>             <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Listen (WIS)	</th>                 <td>	+15	</td>       <td>	+15	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Move Silently (DEX)	</th>           <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Open Lock (DEX)	</th>               <td>	+15	</td>       <td>	+10	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Perform (not determined) (CHA)</th> <td>	+7	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Perform (not determined)(CHA)	</th> <td>	+7	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Perform (not determined)(CHA)	</th> <td>	+7	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Profession (not determined) (WIS)	</th> <td>	+8	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Profession (not determined) (WIS)	</th> <td>	+8	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Profession (not determined) (WIS)	</th> <td>	+8	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Ride (DEX)	</th>                   <td>	+8	</td>       <td>	+3	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Sense Motive (WIS)	</th>           <td>	0	</td>       <td>	0	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Search (INT)	</th>                 <td>	+14	</td>       <td>	+11	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Sleight of Hand (DEX)	</th>         <td>	+5	</td>       <td>	0	</td><td>	+5	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Spellcraft (INT)	</th>             <td>	+2	</td>       <td>	+2	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Spot (WIS)	</th>                   <td>	+15	</td>       <td>	+15	</td><td>	+8	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Survival (WIS)	</th>               <td>	+8	</td>       <td>	+8	</td><td>	0	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Swim (STR)	</th>                   <td>	+14	</td>       <td>	+12	</td><td>	+2	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Use Magic Device (CHA)	</th>       <td>	-1	</td>       <td>	0	</td><td>	-1	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr><tr>																																													
+                <th>	Use Technological Device (INT)</th> <td>	0	</td>       <td>	0	</td><td>	+3	</td><td>	0	</td>   <td>	0	</td>   <td>	0	</td></tr>																																													
+            </table>																																													
+            </div>																																													
+            </div>																																													
+            <div class="row" id="languages-condicionais">																																													
+            <div class="col-md-6" id="languages">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Languages	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td><p>Common, Sylvan, Draconic, Elvish</p></td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            <div class="col-md-6" id="condicionais">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Conditional Bonuses	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td>
+            <ul>	
+                <li></li>
+            </ul>
+            </td>																																											
+                                                                                                                                                                                                
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            </div>																																													
+            <div class="row" id="feats-class-race">																																													
+            <div class="col-md-4" id="feats">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Feats	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td>
+            <ul>	
+                <li>1: Toughness</li>
+                <li>3: Diehard</li>
+                <li>6: Endurance</li>
+                <li>9: Run</li>
+                <li>12: Track</li>
+                <li>bonus: Iron Will</li>
+                <li>bonus: Improved Toughness</li>
+                <li>bonus: Two Weapon Fighting</li>
+            </ul>
+            </td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            <div class="col-md-4" id="class">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Class Abilities	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td>
+            <ul>
+                <li>Rogue: Evasion</li>
+                <li>Rogue: Find Trap</li>
+                <li>Rogue: Sense Trap +2</li>
+                <li>Rogue: Uncanny Dodge</li>
+            </ul>
+            </td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            <div class="col-md-4" id="race">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Race	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td>
+              <ul>	
+                <li>Lycanthrope: Alternate Form (brown bear and hybrid, Str +16, Dex +2, Con +8)</li>
+                <li>Lycanthrope: RD 10/Silver</li>
+                <li>Lycanthrope: Lycanthropic Empathy: +4 handle animal with bears</li>
+                <li>Lycanthrope: Low-Light Vision</li>
+                <li>Lycanthrope: Scent</li>
+
+              </ul>
+            </td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            </div>																																																																																										
+            <div class="row" id="equipamentos-notas">																																													
+            <div class="col-md-6" id="equipamentos">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	Equipamentos	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td><ul>Worn	
+                <li>[Ring] Ring of Underwater Action (wildclasp)</li> 
+                <li>[Ring] Ring of Mind Shield (wildclasp)</li> 
+                <li>[Face] Third Eye Clarity Freedom [Third Eye Clarity][Third Eye Freedom]</li>
+                <li>[Throat] Periapt of helth (wild clasp)</li>
+                <li>[Shoulder] Cloak of Slowfall (wildclasp) </li>
+                <li>[Feet] Boots of Striding (wildclasp)</li>
+                <li>[Body] Chain shirt +5 (wildclasp)</li>
+                <li>[Waist] Belt of Giant Strength +4 (wildclasp)</li>
+                <li>[Hands] Gloves of Dexterity +4 (wildclasp)</li>
+                <li>
+                  <ul>Backpack: 
+                    <li>4 kits de primeiro socorros obra prima</li>
+                      <li>4 kits de instrumentos de ladino obra prima</li>
+                        <li>mochila buraco portatil</li>
+                          <li>corda (60m)</li>
+                            <li>kit escalada obra prima</li>
+                              <li>barraca</li>
+                                <li>kit cozinha( panela, frigideira, utensilios [facas, concha, colheres...], pederneira, isqueiro, oleo (4l)</li>
+                                  <li>Lanterna furta fogo.</li>
+                                    <li>Saco de dormir</li>
+                                      <li>40 frascos</li>
+                                        <li>40 vidros</li>
+                                          <li>20 antidodos</li>
+                                            <li>20 bastões de fumaça</li>
+                                              <li>10 tochas</li>
+                                                <li>luneta</li>
+                                                  <li>tinta, caneta e livro em branco (50pg)</li>
+                                                    <li>Cavalo de guerra (treinado)</li>
+                                                      <li>cantil</li>
+                                                        <li>pícareta</li>
+                                                          <li>martelo</li>
+                                                            <li>marreta</li>
+                                                              <li>10 Curar ferimentos leves (poção)</li>
+                                                                <li>10 Curar ferimentos críticos (poção)</li>
+                                                                  <li>1 semna de reção p/ viagem</li>
+                                                                    <li>Distitivo dos caçadores</li>
+                                                                      <li>Cachimbo e Fumo (1kg)</li>
+                                                                        <li>2 frascos de agua benta</li>
+                  </ul></li>
+                <li><ul>Wallet: 
+                    <li>0 PP</li> <li>5575 GP</li> <li>50 SP</li> <li>0 CP</li></ul></li>	</ul></td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            <div class="col-md-6" id="notas">																																													
+            <table>																																													
+            <tr>																																													
+            <th>	BG	</th>																																											
+            </tr>																																													
+            <tr>																																													
+            <td><p>
+              Nascido de Urgamir Delacroix um guerreiro de renome cujo uma invasão de licantropos elouquecidos foi mordido e amaldiçoado. Mas antes da transformação começar teve uma criança Alan Macoi Delacroix, filho de Eliena Macoi aos dois meses seu pai sofreu a transformação mas acabou ficando na forma de urso e acidentalmente matou sua esposa, só poupou o filho pois o cheiro da criança era familiar e detectavel pelo instinto, e ao quarto mês a criança aprendeu a trandfomar-se em urso e ao decorrer do tempo e os anos passando encontrou com Victanys um driade que o ajudou a dominar sua forma animal, hibrida e humana, foi criado junto a ela e seu pai, que quando Alan completou 9 anos seu pai foi morto por caçadores ao tentar defender seu território e seu filho mas ao verem a criança já era tarde Urmair ao ser morto volta a forma normal e assim com o sentimento de culpa Alan foi posto para morar junto a pescadores e mercadores onde aprendeu muito sobre o mundo, sobre a história de muitas civilizações e a se tornar um combatente hábil, mas sempre próximo a floresta onde Victanys morava, aprendeu muito junto a ela e ela a conviver com a suciedade comum sem causar muitos danos. Alan através do tempo dominou a arte de lidar com artefatos mecanicos e armadilhas, sendo treinado em um combate mais detalhado e aproveitando sua natureza para tirar proveito.</p>
+
+<p>Anos mais tarde resolveu conhecer melhor o mundo adquirir mais experiÊncia e reencontrar Victanys e tentar realizar seu sonho de criar uma matilha de lobos e ursos para defender as florestas do reino e punir quem a destroi por ganancia ou por motivos hediondos.</p>
+
+<p>No inicio de sua jornada também teve contato com o meio dragão Hour cuja amizade o pérmitiu aprender elfico e Draconico e junto a Victanis a aprendeu o idioma silvestre.</p>
+
+<p>Seus equipamentos, armas e dinheiro foram adquiridos com trabalhos dos mais diversos tipos, desde ajudar na construção de casas a salvar crianças perdidas na mata.</p>
+
+<p>Atualmente acompanhado de seus novos amigos hades e outono, busca realizar seu sonho.</p>
+
+<p>Huor e Alan são amigos muito próximos, sabem dos mais difersos segredos e manias, habilidades e "problemas familiares e sociais", anos de convivencia os tornaram muito próximos mesmo, até o ponto de interferirem até mesmo em suas próprias decisões.</p>
+
+<p>Alan e Huor seguem um codigo de conduta pessoal criado por eles, devido a o que presenciaram em sua infancia, tanto com seu pai, quanto o fato de seu amigo ser tratado como um filho bastardo e sua mãe ser cativa como um bichinho de estimação de um dragão mal, que Hour repudia a tendencia e as atitudes do pai.</p>
+
+<p>Alan carrega um ódio pelo que fizeram a seu pai no passado, e pelo fato de nunca investigarem apenas julgarem sem conhecer, e se algo terrível acontecer na sua frente e um amigo seja ferido, acusado ou traído, ou qualquer tipo de injustiça aconteça, o mal obscuro, assassino frio e cruel que abita sua alma pelo trauma vivido, pode tornalo mal e caótico, o tornando um assassino frio, calculista e impetuoso.</p>
+
+<p>O que impede o mal de sair é o carinho pelos amigos e os exemplos de Victanys e Huor. que criam um fragil elo de controle, que está sujeito ao paradoxo da realidade, cujo o mundo torna-se a valvula de escape para o mal.</p>
+            </p>
+          <br>
+        <p>
+          Possuo um filhote de lobo
+        </p>
+        </td>																																											
+            </tr>																																													
+            </table>																																													
+            </div>																																													
+            </div>																																													
+        </div>
+        </div>
+        <div class="tab-pane container fade" id="a3">
+            <div class="container">            <p>teste 3</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a4">
+            <div class="container">            <p>teste 4</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a5">
+            <div class="container">            <p>teste 5</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a6">
+            <div class="container">            <p>teste 6</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a7">
+            <div class="container">            <p>teste 7</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a8">
+            <div class="container">            <p>teste 8</p>
+            </div>
+        </div> 
+        <div class="tab-pane container fade" id="a9">
+            <div class="container">            <p>teste 9</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a10">
+            <div class="container">            <p>teste 10</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a11">	
+            <div class="container">            <p>teste 11</p>
+            </div>																																					
+        </div>
+        <div class="tab-pane container fade" id="a12">
+            <div class="container">            <p>teste 12</p>                                                            
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a13">
+            <div class="container">            <p>teste 13</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a14">
+            <div class="container">            <p>teste 14</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a15">
+            <div class="container">            <p>teste 15</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a16">
+            <div class="container">            <p>teste 16</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a17">
+            <div class="container">            <p>teste 17</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a18">
+            <div class="container">            <p>teste 18</p>
+            </div>
+        </div> 
+        <div class="tab-pane container fade" id="a19">
+            <div class="container">            <p>teste 19</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a20">
+            <div class="container">            <p>teste 20</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a21">	
+            <div class="container">            <p>teste 21</p>
+            </div>																																					
+        </div>
+        <div class="tab-pane container fade" id="a22">
+            <div class="container">            <p>teste 22</p>                                                             
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a23">
+            <div class="container">            <p>teste 23</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a24">
+            <div class="container">            <p>teste 24</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a25">
+            <div class="container">            <p>teste 25</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a26">
+            <div class="container">            <p>teste 26</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a27">
+            <div class="container">            <p>teste 27</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a28">
+            <div class="container">            <p>teste 28</p>
+            </div>
+        </div> 
+        <div class="tab-pane container fade" id="a29">
+            <div class="container">            <p>teste 29</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a30">
+            <div class="container">            <p>teste 30</p>
+            </div>
+        </div> 
+        <div class="tab-pane container fade" id="a31">	
+            <div class="container">            <p>teste 31</p>
+            </div>																																					
+        </div>
+        <div class="tab-pane container fade" id="a32">
+            <div class="container">            <p>teste 32</p>                                                           
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a33">
+            <div class="container">            <p>teste 33</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a34">
+            <div class="container">            <p>teste 34</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a35">
+            <div class="container">            <p>teste 35</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a36">
+            <div class="container">            <p>teste 36</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a37">
+            <div class="container">            <p>teste 37</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a38">
+            <div class="container">            <p>teste 38</p>
+            </div>
+        </div> 
+        <div class="tab-pane container fade" id="a39">
+            <div class="container">            <p>teste 39</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a40">
+            <div class="container">            <p>teste 40</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a41">	
+            <div class="container">            <p>teste 41</p>
+            </div>																																					
+        </div>
+        <div class="tab-pane container fade" id="a42">
+            <div class="container">            <p>teste 42</p>                                                             
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a43">
+            <div class="container">            <p>teste 43</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a44">
+            <div class="container">            <p>teste 44</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a45">
+            <div class="container">            <p>teste 45</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a46">
+            <div class="container">            <p>teste 46</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a47">
+            <div class="container">            <p>teste 47</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a48">
+            <div class="container">            <p>teste 48</p>
+            </div>
+        </div> 
+        <div class="tab-pane container fade" id="a49">
+            <div class="container">            <p>teste 49</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a50">
+            <div class="container">            <p>teste 50</p>
+            </div>
+        </div>
+        <div class="tab-pane container fade" id="a51">
+            <div class="container"><p>teste 51</p></div>
+            
+        </div>    
+    </div>
+</div>
+
+<a href="../diario/diario.html"><svg class="botao"
+    style="width: 270px; height: 70px;">
+        <polygon
+        points="262,40 225,64 75,64 40,40 75,20 225,20"
+        stroke="grey"
+        fill="black"
+        stroke-width="5"/>
+        <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+        Voltar
+        </text>
+    </svg></a>
+<div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>

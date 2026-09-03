@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title> Hex 22,11</title>
+    <script type="text/javascript" src="../../js/stuquery.js"></script>
+    <script type="text/javascript" src="../../js/stuquery.hexmap.js"></script>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/stuquery.hexmap.css">
+    <link href="../../css/honeycomb_e_efeitos.css" rel="stylesheet">
+    <style>
+      .hexcontent{ height:100%; width: 100%; padding:0; font-size: 24px; color: rgb(0, 0, 0);}
+      .hexcontent div{height:100%; width: 100%}
+      .batata span {padding-top: 15px; display: block}
+      .batata:hover {opacity: 0.5}
+      .capital {background-image:url(../../img/cidade/capital.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .capital_nevada {background-image:url(../../img/cidade/capital_nevada.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .hamlet {background-image:url(../../img/cidade/hamlet.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .hamlet_snow {background-image:url(../../img/cidade/hamlet_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .large_city {background-image:url(../../img/cidade/large_city.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .large_city_snow {background-image:url(../../img/cidade/large_city_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .large_town {background-image:url(../../img/cidade/large_town.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .large_town_snow {background-image:url(../../img/cidade/large_town_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .metropolis {background-image:url(../../img/cidade/metropolis.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .metropolis_snow {background-image:url(../../img/cidade/metropolis_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .military_fort {background-image:url(../../img/cidade/military_fort.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .mine {background-image:url(../../img/cidade/mine.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .oasis {background-image:url(../../img/cidade/oasis.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .ruin {background-image:url(../../img/cidade/ruin.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .ruin_large {background-image:url(../../img/cidade/ruin_large.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .small_city {background-image:url(../../img/cidade/small_city.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .small_city_snow {background-image:url(../../img/cidade/small_city_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .small_town_snow {background-image:url(../../img/cidade/small_town_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .thorp {background-image:url(../../img/cidade/thorp.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .thorp_snow {background-image:url(../../img/cidade/thorp_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .village {background-image:url(../../img/cidade/village.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .village_snow {background-image:url(../../img/cidade/village_snow.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .small_town {background-image:url(../../img/cidade/small_town.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .agua_profunda { background-image:url(../../img/tiles_mapas/Tile-AguaSemFundo.gif); background-size: cover; background-position:center; background-color: rgb(0, 50, 187);}
+      .agua_rasa {background-image:url(../../img/tiles_mapas/Tile-AguaSemFundo.gif); background-size: cover; background-position:center; background-color: rgb(0, 127, 212);}
+      .bosque {background-image:url(../../img/tiles_mapas/Tile-Bosque.gif); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .bosque_nevado {background-image:url(../../img/tiles_mapas/Tile-BosqueNevado.gif); background-size: cover; background-position:center; background-color: rgb(111, 177, 116);}
+      .floresta {background-image:url(../../img/tiles_mapas/Tile-Floresta.gif); background-size: cover; background-position:center; background-color: rgb(46, 95, 61);}
+      .floresta_nevada {background-image:url(../../img/tiles_mapas/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: rgb(70, 122, 78);}
+      .floresta_nevada_rio {background-image:url(../../img/tiles_mapas/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: lightskyblue;}
+      .floresta_nevada_trilho {background-image:url(../../img/tiles_mapas/Tile-FlorestaNevada.gif); background-size: cover; background-position:center; background-color: darkgrey;}
+      .montanha {background-image:url(../../img/tiles_mapas/Tile-Montanha.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+      .montanha_nevada {background-image:url(../../img/tiles_mapas/Tile-MontanhaNevada.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+      .montanha_nevada_trilho {background-image:url(../../img/tiles_mapas/Tile-MontanhaNevada.gif); background-size: cover; background-position:center; background-color: darkgrey;}
+      .planicie {background-image:url(../../img/tiles_mapas/Tile-Planicie.gif); background-size: cover; background-position:center; background-color: rgb(121, 240, 147);}
+      .planicie_nevada {background-image:url(../../img/tiles_mapas/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: rgb(169, 202, 171);}
+      .planicie_nevada_trilho {background-image:url(../../img/tiles_mapas/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: darkgrey;}
+      .planicie_nevada_rio {background-image:url(../../img/tiles_mapas/Tile-PlanicieNevada.gif); background-size: cover; background-position:center; background-color: lightskyblue;}
+      .deserto {background-image:url(../../img/tiles_mapas/Tile-Deserto.gif); background-size: cover; background-position:center; background-color: rgb(247, 255, 212);}
+      .selva {background-image:url(../../img/tiles_mapas/Tile-Selva.gif); background-size: cover; background-position:center; background-color: rgb(6, 158, 74);}
+      .montanha_com_floresta {background-image:url(../../img/tiles_mapas/Tile-MontanhaFloresta.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+      .montanha_com_floresta_nevada {background-image:url(../../img/tiles_mapas/Tile-MontanhaFlorestaNevada.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+      .montanha_com_selva {background-image:url(../../img/tiles_mapas/Tile-MontanhaSelva.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+      .pantano {background-image:url(../../img/tiles_mapas/Tile-Pantano.gif); background-size: cover; background-position:center; background-color: rgb(76, 116, 82);}
+      .vulcao {background-image:url(../../img/tiles_mapas/Tile-Vulcao.gif); background-size: cover; background-position:center; background-color: rgb(137, 199, 240);}
+      .mana_wastes {background-image:url(../../img/tiles_mapas/Tile-ErmosDeMana.gif); background-size: cover; background-position:center; background-color: rgb(67, 74, 78);}
+      .aetheomir {background-image:url(../../img/reinos/Aetheomir.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .catarna {background-image:url(../../img/reinos/Catarna.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .cordileiras_vermelhas {background-image:url(../../img/reinos/Cordilheiras_Vermelhas.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .demios {background-image:url(../../img/reinos/Demios.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .galorfindil {background-image:url(../../img/reinos/Galorfindil.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .gliorith {background-image:url(../../img/reinos/Gliorith.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .huntston {background-image:url(../../img/reinos/Huntston.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .kaareth {background-image:url(../../img/reinos/Kaareth.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .koba {background-image:url(../../img/reinos/Koba.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .mao_do_aqueronte {background-image:url(../../img/reinos/Mao_do_Aqueronte.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .montanha_de_ferro {background-image:url(../../img/reinos/Montanha_de_Ferro.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .montanha_de_mithral {background-image:url(../../img/reinos/Montanha_de_Mithral.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .orcshardhaven {background-image:url(../../img/reinos/Orcshardhaven.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .shogunato {background-image:url(../../img/reinos/Shogunato.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .skigir {background-image:url(../../img/reinos/Skigir.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .voldheimr {background-image:url(../../img/reinos/Voldheimr.png); background-size: cover; background-position:center; background-color: rgb(86, 207, 112);}
+      .modal{width: 100%;}
+      </style>
+
+  </head>
+
+  <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="../../index.html">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../racas/Beastfolk.html">O Povo-Fera</a>
+            <a class="dropdown-item" href="../../racas/elfos.html">Os Elfos</a>
+            <a class="dropdown-item" href="../../racas/Forjados.html">Os Forjados</a>
+            <a class="dropdown-item" href="../../racas/dragons.html">Os Dracônicos</a>
+            <a class="dropdown-item" href="../../racas/lizards.html">Os Reptilianos</a>
+            <a class="dropdown-item" href="../../racas/anoes.html">Os Anões</a>
+            <a class="dropdown-item" href="../../racas/limos.html">Os Limos</a>
+            <a class="dropdown-item" href="../../racas/hivelings.html">O Povo-Inseto</a>
+            <a class="dropdown-item" href="../../racas/Orcs.html">Os Orcs</a>
+            <a class="dropdown-item" href="../../racas/familiar.html">Familiares Sem Mestre</a>
+            <a class="dropdown-item" href="../../racas/minotauro.html">Minotauros</a>
+            <a class="dropdown-item" href="../../racas/centauro.html">Centauros</a>
+            <a class="dropdown-item" href="../../racas/racas.html">As Outras Raças</a>
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">O Cenário</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="../../cenario/Mapa_rhaokar.html">O Mapa</a>
+          <a class="dropdown-item" href="../../cenario/reinos/reinos.html">Os Reinos</a>
+          <a class="dropdown-item" href="../../cenario/cosmos/Cosmos.html">O Cosmos</a>
+          <a class="dropdown-item" href="../../cenario/deuses/divindades.html">Os Deuses</a>
+        </div>
+      </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Diário das Campanhas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../diario/log-das-campanhas.html">Log das Campanhas</a>
+            <a class="dropdown-item" href="../../diario/Personagens.html">Personagens</a>
+            <a class="dropdown-item" href="../../diario/Salao_dos_herois.html">Salão dos Heróis</a>
+          </div>
+        </li>  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Regras Alternativas</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Revised%20Action%20Economy&Category=Pathfinder%20Unchained" target="_blank">Ações</a>
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Professions&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Profession</a>
+            <a class="dropdown-item" href="https://aonprd.com/Rules.aspx?Name=Crafting&Category=Alternate%20Crafting%20and%20Profession%20Rules" target="_blank">Craft</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../magia/mudancas.html">Mudanças</a>
+            <a class="dropdown-item" href="../../magia/sistemas.html">Sistemas</a>
+            <a class="dropdown-item" href="../../magia/arquetipo_magia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../../magia/itens_magia.html">Itens</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Alquimia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../alquimia/talentos_alquimia.html">Talentos</a>
+            <a class="dropdown-item" href="../../alquimia/arquetipos_alquimia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../../alquimia/simbiontes.html">Simbiontes</a>
+            <a class="dropdown-item" href="../../alquimia/implantes.html">Implantes</a>
+            <a class="dropdown-item" href="../../alquimia/itens_alquimia.html">Itens</a>
+          </div>
+        </li> 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tecnologia</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../tecnologia/talentos_tecnologia.html">Talentos</a>
+            <a class="dropdown-item" href="../../tecnologia/criar_tecnologia.html">Criação de Itens</a>
+            <a class="dropdown-item" href="../../tecnologia/arquetipos_tecnologia.html">Arquétipos</a>
+            <a class="dropdown-item" href="../../tecnologia/itens_tecnologia.html">Itens</a>
+          </div>
+        </li>       
+    </ul>
+  </div>  
+</nav>
+  <!--Hex Map-->    
+  <div id="hexmap-8">
+    <code>
+    {
+        "layout":"odd-q",
+        "hexes": {
+    
+          "A15":{"n":"A15","q":"0","r":-14,"type":"planicie_nevada"},
+          "A16":{"n":"A16","q":"0","r":-15,"type":"planicie_nevada"},
+          "A17":{"n":"A17","q":"0","r":-16,"type":"planicie_nevada"},
+          "A18":{"n":"A18","q":"0","r":-17,"type":"planicie_nevada"},
+    
+          "B14":{"n":"B14","q":"1","r":-13,"type":"planicie_nevada"},
+          "B15":{"n":"B15","q":"1","r":-14,"type":"planicie_nevada"},
+          "B16":{"n":"B16","q":"1","r":-15,"type":"planicie_nevada"},
+          "B17":{"n":"B17","q":"1","r":-16,"type":"planicie_nevada"},
+          "B18":{"n":"B18","q":"1","r":-17,"type":"planicie_nevada"},
+    
+          "C14":{"n":"C14","q":"2","r":-13,"type":"planicie_nevada"},
+          "C15":{"n":"C15","q":"2","r":-14,"type":"planicie_nevada_rio"},
+          "C16":{"n":"C16","q":"2","r":-15,"type":"planicie_nevada_rio"},
+          "C17":{"n":"C17","q":"2","r":-16,"type":"planicie_nevada_rio"},
+          "C18":{"n":"C18","q":"2","r":-17,"type":"planicie_nevada_rio"},
+          "C19":{"n":"C19","q":"2","r":-18,"type":"planicie_nevada_rio"},
+    
+          "D13":{"n":"D13","q":"3","r":-12,"type":"planicie_nevada"},
+          "D14":{"n":"D14","q":"3","r":-13,"type":"planicie_nevada_rio"},
+          "D15":{"n":"D15","q":"3","r":-14,"type":"planicie_nevada"},
+          "D16":{"n":"D16","q":"3","r":-15,"type":"planicie_nevada"},
+          "D17":{"n":"D17","q":"3","r":-16,"type":"planicie_nevada_rio"},
+          "D18":{"n":"D18","q":"3","r":-17,"type":"planicie_nevada"},
+          "D19":{"n":"D19","q":"3","r":-18,"type":"planicie_nevada"},
+    
+          "E14":{"n":"E14","q":"4","r":-13,"type":"planicie_nevada_rio"},
+          "E15":{"n":"E15","q":"4","r":-14,"type":"planicie_nevada_rio"},
+          "E16":{"n":"E16","q":"4","r":-15,"type":"planicie_nevada"},
+          "E17":{"n":"E17","q":"4","r":-16,"type":"planicie_nevada"},
+          "E18":{"n":"E18","q":"4","r":-17,"type":"planicie_nevada"},
+          "E19":{"n":"E19","q":"4","r":-18,"type":"planicie_nevada"},
+    
+          "F14":{"n":"F14","q":"5","r":-13,"type":"planicie_nevada"},
+          "F15":{"n":"F15","q":"5","r":-14,"type":"planicie_nevada_rio"},
+          "F16":{"n":"F16","q":"5","r":-15,"type":"planicie_nevada"},
+          "F17":{"n":"F17","q":"5","r":-16,"type":"planicie_nevada"},
+          "F18":{"n":"F18","q":"5","r":-17,"type":"planicie_nevada"},
+    
+          "G15":{"n":"G15","q":"6","r":-14,"type":"ruin_large"},
+          "G16":{"n":"G16","q":"6","r":-15,"type":"planicie_nevada_rio"},
+          "G17":{"n":"G17","q":"6","r":-16,"type":"planicie_nevada"},
+          "G18":{"n":"G18","q":"6","r":-17,"type":"planicie_nevada"}
+    
+        }
+    }
+    </code>
+    </div>
+    <!--final Hex Map-->
+<!--Holmsheimr-->
+<div id="conteudoModalG15"
+class="modal fade">
+   <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Holmsheimr</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+          <div id="holmsheimrC14">																			
+            <div class="settlement">
+                                              
+            <div class="Description">																			
+            <table>																			
+            <tr>	<th>	Settlement Name	</th>	<th>	AKA	</th>	<th>	Aligment	</th>	<th>	Campaign Role	</th>	<th>	Type	</th>	<th>	Danger	</th>	</tr>
+            <tr>	<td>	Holmsheimr	</td>	<td>	-	</td>	<td>	N	</td>	<td>	-	</td>	<td>	Small Town	</td>	<td>	0	</td>	</tr>
+            </table>																			
+            <table>																			
+            <tr>	<th>	Description	</th>	</tr>															
+            <tr>	<td>	Holmsheimr é a última parada na ferrovia antes de chegar a Montanha de Mithral, ou a primeira em direção ao porto. Aqui, os passageiros do trem podem sair durante a parada para andarem pela cidade ou mesmo podem ficar na cidade ou pegar o trem.	</td>	</tr>															
+            </table>																			
+            </div>																			
+            <div class="Modifier">																			
+            <table>																			
+            <tr>	<th>	Corruption	</th>	<th>	Crime	</th>	<th>	Economy	</th>	<th>	Law	</th>	<th>	Lore	</th>	<th>	Society	</th>	</tr>
+            <tr>	<td>	0	</td>	<td>	0	</td>	<td>	2	</td>	<td>	1	</td>	<td>	2	</td>	<td>	0	</td>	</tr>
+            </table>																			
+            <table>																			
+            <tr>	<th>	Qualities	</th>	<th>	Disadvantages	</th>	</tr>												
+            <tr>	<td>	Military Presence	</td>	<td>		</td>	</tr>												
+            <tr>	<td>	Strategic Location	</td>	<td>		</td>	</tr>												
+            <tr>	<td>		</td>	<td>		</td>	</tr>												
+            <tr>	<td>		</td>	<td>		</td>	</tr>												
+            <tr>	<td>		</td>	<td>		</td>	</tr>												
+            <tr>	<td>		</td>	<td>		</td>	</tr>												
+            </table>																			
+            </div>																			
+            <div class="Demographics">																			
+            <table>																			
+            <tr>	<th>	Governo	</th>	<th>	Population	</th>	</tr>												
+            <tr>	<td>	Autocracy	</td>	<td>	1460	</td>	</tr>												
+            </table>																			
+            <table>																			
+            <tr>	<th>	Amount	</th>	<th>	Species	</th>	</tr>												
+            <tr>	<td>	1000	</td>	<td>	Humans	</td>	</tr>												
+            <tr>	<td>	400	</td>	<td>	Dwarves	</td>	</tr>												
+            <tr>	<td>	50	</td>	<td>	Uldra	</td>	</tr>												
+            <tr>	<td>	10	</td>	<td>	Bjornin (Grizzly)	</td>	</tr>												
+            </table>																			
+            </div>																			
+            <div class="Marketplace">																			
+            <table>																			
+            <tr>	<th>	Base Price	</th>	<th>	Purchase Limit	</th>	<th>	Spellcasting	</th>	</tr>									
+            <tr>	<td>	1200po	</td>	<td>	5000po	</td>	<td>	4	</td>	</tr>									
+            </table>																			
+            <table>																			
+            <tr>	<th>	Minor Itens	</th>	<th>	Medium Itens	</th>	<th>	Major Itens	</th>	</tr>									
+            <tr>	<td>	3d4	</td>	<td>	1d6	</td>	<td>	none	</td>	</tr>									
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>									
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>									
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>									
+            </table>																			
+            </div>																			
+            <div class="NPCs">																			
+            <table>																			
+            <tr>	<th>	Name	</th>	<th>	Race	</th>	<th>	Class	</th>	<th>	Description	</th>	</tr>						
+            <tr>	<td>	Comandante Hanvor	</td>	<td>	Bjornin (Grizzly)	</td>	<td>	Ancestral Harbinger Bloodrager 6	</td>	<td>	Comandante da guarda local	</td>	</tr>						
+            <tr>	<td>	Mestra de Runas Helga Escudo-de-Pedra	</td>	<td>	Dwarf	</td>	<td>	Cleric (rune and comunity domains) 7	</td>	<td>	Conjuradora local, dona da livraria	</td>	</tr>						
+            <tr>	<td>	Prefeito Egil Thordson	</td>	<td>	Human	</td>	<td>	Fighter 8	</td>	<td>	prefeito da cidade, ex-aventureiro	</td>	</tr>						
+            <tr>	<td>		</td>	<td>		</td>	<td>		</td>	<td>		</td>	</tr>						
+            </table>																			
+                                                  
+            </div>																			
+            <div class="Locations">																			
+            <table>																			
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>												
+            <tr>	<td>	A Lanterna de Ferro	</td>	<td>	Loja de Equipamentos de caça e de viagem, fica na praça central da cidade, pertence ao Comandante da guarda	</td>	</tr>												
+            <tr>	<td>	A Velha Coruja	</td>	<td>	Loja de livros e biblioteca, fica na praça central da cidade, pertence a Helga	</td>	</tr>												
+            <tr>	<td>	Martelo e Elmo	</td>	<td>	Loja de Armas e Armaduras, pertence a Bergelmir (Anão, Gunslinger 8)	</td>	</tr>												
+            <tr>	<td>	O Coração Sortudo	</td>	<td>	Uma taverna de alta qualidade que fica perto da ferrovia, na praça central da cidade, é um ótimo lugar para os Viajantes pararem, o dono do lugar é Jan Alstad (Humano, Bard 4)	</td>	</tr>												
+            <tr>	<td>	O Graveto Feioso	</td>	<td>	Estalagem de alto padrão, fica próxima da ferrovia, na praça central da cidade, pertence a Hilda Alstad (Humana, Expert 3)	</td>	</tr>												
+            </table>																			
+            </div>																			
+            <div class="Organizations">																			
+            <table>																			
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            </table>																			
+            </div>																			
+            <div class="Adventure_Rumors">																			
+            <table>																			
+            <tr>	<th>	Name	</th>	<th>	Description	</th>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            <tr>	<td>	-	</td>	<td>	-	</td>	</tr>												
+            </table>																			
+            </div>																			
+            </div>																			
+            </div>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+
+<script type="text/javascript">
+  S(document).ready(function(){
+    var hexmap = S.hexmap('hexmap-8');
+    hexmap.setLayout('odd-q');
+    hexmap.positionHexes();
+
+    // Define the content of each hex
+    hexmap.setContent(function(id,hex){
+      return '<div class="'+hex.type+' batata" data-toggle="modal" data-target="#conteudoModal'+hex.n+'"> <span>'+hex.q+','+Math.abs(hex.r)+'</span></div>';
+    });
+  });
+</script>
+        <br>
+        <br>
+        <a href="../Mapa_rhaokar.html"><svg class="botao"
+          style="width: 270px; height: 70px;">
+              <polygon
+              points="262,40 225,64 75,64 40,40 75,20 225,20"
+              stroke="grey"
+              fill="black"
+              stroke-width="5"/>
+              <text x="150" y="45" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="white" font-family="'NewRocker', Times, serif">
+              Voltar
+              </text>
+          </svg></a>
+        <div class="contem_grama"><div id="grass"></div></div>
+    </body>
+
+</html>

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página criada para a descrição das classes extras de Rhaokar para Pathfinder 1e">
+        <meta name="keywords" content="RPG, Cenário de Campanha, Rhaokar, classes">
+
+    <title>Novos Talentos</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<link href="../css/honeycomb_e_efeitos.css" rel="stylesheet">
+<link href="../css/grid.css" rel="stylesheet">
+</head>
+    <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="../index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">As Raças</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../especies/Beastfolk.html">O Povo-Fera</a>
+              <a class="dropdown-item" href="../especies/elfos.html">Os Elfos</a>
+              <a class="dropdown-item" href="../especies/Forjados.html">Os Forjados</a>
+              <a class="dropdown-item" href="../especies/dragons.html">Os Dracônicos</a>
+              <a class="dropdown-item" href="../especies/lizards.html">Os Reptilianos</a>
+              <a class="dropdown-item" href="../especies/anoes.html">Os Anões</a>
+              <a class="dropdown-item" href="../especies/limos.html">Os Limos</a>
+              <a class="dropdown-item" href="../especies/hivelings.html">O Povo-Inseto</a>
+              <a class="dropdown-item" href="../especies/Orcs.html">Os Orcs</a>
+              <a class="dropdown-item" href="../especies/familiar.html">Familiares Sem Mestre</a>
+              <a class="dropdown-item" href="../especies/minotauro.html">Minotauros</a>
+              <a class="dropdown-item" href="../especies/centauro.html">Centauros</a>
+              <a class="dropdown-item" href="../racas/racas.html">As Outras Raças</a>
+            </div>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">O Mundo</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../mundo/Mapa_rhaokar.html">O Mapa</a>
+            <a class="dropdown-item" href="../mundo/reinoswiki/reinos.html">Os Reinos</a>
+            <a class="dropdown-item" href="../mundo/planos/Cosmos.html">Os Planos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Os Deuses</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../divindades/oldgods.html">Os Deuses antigos</a>
+              <a class="dropdown-item" href="../divindades/newgods.html">Os Deuses Heróicos</a>
+              <a class="dropdown-item" href="../divindades/entity.html">As Entidades Maiores</a>
+              <a class="dropdown-item" href="../divindades/faecourt.html">As Cortes das Faéricas</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Log das Campanhas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../log/log-das-campanhas.html">Log das Campanhas</a>
+              <a class="dropdown-item" href="../log/personagens/Personagens.html">Personagens</a>
+            </div>
+          </li>  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Regras da Casa</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Ações</a>
+              <a class="dropdown-item" href="#">Magias</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Magia, Alquimia e Tecnologia</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Magia</a>
+              <a class="dropdown-item" href="#">Alquimia</a>
+              <a class="dropdown-item" href="#">Tecnologia</a>
+            </div>
+          </li>      
+      </ul>
+    </div>  
+  </nav>
+<h1>Talentos Tecnológicos</h1>
+<table>
+    <tr>
+      <th>Talento</th>
+      <th>Requisito</th>
+      <th>Resumo</th>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal14">Avoid Technical Mishap</button></td>
+        <td>Skill Focus (Use Tech. Device), Abilidade de Usar Gambiarra e Remendo.</td>
+        <td>Suas Gambiarras Remendadas tem um Nivel de Mau Funcionamento menor.</td>
+    </tr>
+    <tr>
+      <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal1">Crafty Leader</button></td>
+      <td>Craft (Any) 6 ranks</td>
+      <td>Seu bônus por receber ajuda é +4 e não +2</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal10">Craft Tech-Mod</button></td>
+        <td>Craft (Technological Device) 1 ranks</td>
+        <td>Você sabe criar Tech-Mods</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal2">Delay Malfunction</button></td>
+        <td>-</td>
+        <td>Você sabe fazer reparos rápidos para evitar o pior (ou quase)</td>
+      </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal3">Emergency Repair</button></td>
+        <td>WIS 13, Delay Malfunction</td>
+        <td>Você é ainda melhor em fazer Reparos emergenciais antes que algo pior aconteça (ou quase)</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal15">Extra Cobble</button></td>
+        <td>Abilidade de Usar Gambiarra</td>
+        <td>Ganha um uso diário de Gambiarra</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal4">Firearm Knack</button></td>
+        <td>-</td>
+        <td>Você tem Talento para a criação de Armas de Fogo</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal18">Improved Industrious Haste</button></td>
+        <td>Abilidade de Velocidade de Fabricação, Craft 10 Ranks</td>
+        <td>Você pode criar itens mais rápidamente</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal16">Malfunction Blow</button></td>
+        <td>Craft (Tech Device) 1 Ranks, Improved Sunder</td>
+        <td>Acerta um Dispositivo Tecnológico e o Força ao Mau Funcionamento</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal19">Maximum Overdrive</button></td>
+        <td>Emergency Repair</td>
+        <td>Aumenta a potencia de dispositivos temporariamente.</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal11">Sabotage Magical Item</button></td>
+        <td>Disable Device 3 Ranks, Knowledge (Arcana) 2 Ranks, Use Magical Device 3 Ranks</td>
+        <td>Pode usar <i>Disable Device</i> em itens mágicos</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal17">Salvage Material</button></td>
+        <td>Scavenge Materials</td>
+        <td>Recebe uma porcentagem dos materiais de um dispositivo Quebrado.</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal5">Scavenge Materials</button></td>
+        <td>Craft (Any) 5 ranks</td>
+        <td>Você sabe criar coisas com o que tiver a mão.</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal6">Siege Weapon Knack</button></td>
+        <td>-</td>
+        <td>Você tem Talento para a criação de Armas de Cerco</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal7">Small Device Knack</button></td>
+        <td>DEX 13</td>
+        <td>Você tem Talento para a criação de Dispositivos pequenos</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal12">Steam Armor Knack</button></td>
+        <td>-</td>
+        <td>Você tem Talento para a criação de Armaduras a Vapor</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal8">Vehicle Knack</button></td>
+        <td>-</td>
+        <td>Você tem Talento para a criação de Veiculos</td>
+    </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal9">Vehicle Proficiency</button></td>
+        <td>-</td>
+        <td>Você sabe operar veículos</td>
+      </tr>
+    <tr>
+        <td><button class="btn-outline-secondary" data-toggle="modal" data-target="#conteudoModal13">Weaponry Knack</button></td>
+        <td>-</td>
+        <td>Você tem Talento para a criação de armamentos</td>
+    </tr>
+  </table>
+<!--Crafty Leader-->
+<div id="conteudoModal1"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Crafty Leader</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você trabalha bem com os outros e sabe usar trabalho em equipe para acelerar a construção dos seus dispositivos.</p>
+            <p><b>Requisito:</b> Craft (any) 3 Ranks</p>
+            <p><b>Benefício:</b> Se você receber ajuda de, pelo menos, 3 outras pessoas com 1 Rank no mesmo <i>Craft</i> que você está rolando, você recebe um bônus de +4 ao invés do +2 que seria normal.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Crafty Leader como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Delay Malfunction-->
+<div id="conteudoModal2"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Delay Malfunction</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você sabe como fazer reparos de emergencia em equipamento com mau funcionamento</p>
+            <p><b>Requisito:</b> nenhum</p>
+            <p><b>Benefício:</b> Quando um Dispositivo sofre de Mau funcionamento, você pode fazer um teste de <i>Craft (tech. device</i> CD (15+nível de mau funcionamento).</p>
+            <p>Se você for bem sucedido no teste, o dispositivo opera normalmente por 1d3 rodadas, dando a você a oportunidade de terminar o que estava fazendo, fazer um Reparo de Emergência ou sair correndo antes que exploda.</p>
+            <p>Se você Rolar um 20 narual, o mau funcionamento é revertido completamente</p>
+            <p>Você pode usar este talento apenas uma vez para cada mau funcionamento</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Delay Malfunction como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Emergency Repair-->
+<div id="conteudoModal3"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Emergency Repair</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você é adepto a encontrar problemas mecânico e fazer reparos rápidos</p>
+            <p><b>Requisito:</b> WIS 13, Delay Malfunction</p>
+            <p><b>Benefício:</b> Como uma Ação de Rodada Completa (Full Round Action), você faz um teste de <i>Craft (tech. device)</i> para reparar um equipamento que esteja com mau fucionamento ou quebrado.</p>
+            <p>Este Teste é com a CD 20+(2x o nivel de mau funcionamento).</p>
+            <p>Se você for bem sucedido no teste, o dispositivo não se destrói ou ameaça o usuário por conta do mau funcionamento.</p>
+            <p>Ao invés disso, ele funciona normalmente por 1 hora e então ele para de funcionar até passar por reparos normais.</p>
+            <p>Se você tirar um 20 Natural, você repara o item completa e permanentemente.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Emergency Repair como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Firearm Knack-->
+<div id="conteudoModal4"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Firearm Knack</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você tem talento para Construir e usar Armas de Fogo</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Você recebe um bônus de +2 em <i>Craft (tech. device)</i> para criar armas de fogo.</p>
+            <p>Seu Nivel Tecnológico para a criação de Armas de Fogo aumenta em 2</p>
+            <p>Você recebe um bônus de competência de +1 em jogadas de ataque com Armas de Fogo que você tenha construído.</p>
+            <p></p>
+            <p></p>
+            <p><b>Especial:</b> Um Tinker pode escolher Firearm Knack como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Scavenge Materials-->
+<div id="conteudoModal5"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Scavenge Materials</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você sabe criar coisas com o que tiver a mão</p>
+            <p><b>Requisito:</b> Craft 5 ranks</p>
+            <p><b>Benefício:</b> Você consegue criar itens com apenas 1/10 do valor do item em material.</p>
+            <p>Aumente a CD do teste de <i>Craft</i> em +10.</p>
+            <p>Você recebe um bônus de competência de +1 em jogadas de ataque com Armas de Fogo que você tenha construído.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Scavenge Materials como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Siege Weapon Knack-->
+<div id="conteudoModal6"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Siege Weapon Knack</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você tem talento para Construir e usar Armas de Cerco</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Você recebe um bônus de +2 em <i>Craft (tech. device)</i> para criar armas de cerco.</p>
+            <p>Seu Nivel Tecnológico para a criação de Armas de cerco aumenta em 2</p>
+            <p>Você recebe um bônus de competência de +2 em jogadas de <i>Disable Device</i> para sabotar esse tipo de equipamento.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Siege Weapons Knack como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Small Device Knack-->
+<div id="conteudoModal7"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Small Device Knack</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você tem talento para Construir e usar Dispositivos bem pequenos</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Você recebe um bônus de +2 em <i>Craft (tech. device)</i> para criar dispositivos de tamanho Tiny, Diminutive ou Fine.</p>
+            <p>Seu Nivel Tecnológico para a criação destes dispositovos aumenta em 2</p>
+            <p>Você pode construir dispositivos que podem ser facilmente escondidos ou disfarçados como outros objetos.</p>
+            <p>Caso você decida esconder ou disfarçar um objeto, quem estiver tentando encontrar deve fazer um teste de <i>Perception</i></p>
+            <p>Um personagem tentando descobrir a funcção deste item deve fazer um teste de <i>Use Tech. Device.</i></p>
+            <p>A CD dos dois testes é 10+seus Ranks em <i>Craft (tech. device).</i></p>
+            <p><b>Especial:</b> Um Tinker pode escolher Firearm Knack como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Vehicle Knack-->
+<div id="conteudoModal8"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Vehicle Knack</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você tem talento para Construir e usar Veículos</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Você recebe um bônus de +2 em <i>Craft (tech. device)</i> para criar Veículos e <i>Use Tech. Device</i> para operar Veículos.</p>
+            <p>Seu Nivel Tecnológico para a criação de Veículos aumenta em 2</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Vehicle Knack como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Vehicle Proficiency-->
+<div id="conteudoModal9"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Vehicle Proficiency</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você sabe operar Veículos</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Escolha um tipo de veículo (Terrestre, Voador, Aquático ou Armadura a Vapor).</p>
+            <p>Você pode operar o tipo de veículo escolhido sem penalidades com testes de <i>Use Tech. Device.</i></p>
+            <p><b>Normal:</b> Sem este talento, você recebe -4 de penalidade no Teste de <i>Use Tech. Device</i> para operar o veículo</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Vehicle Proficiency como um dos seus talentos adicionais.</p>
+            <p>Você pode escolher este talento mais de uma vez, aplicando ele a um tipo de veículo diferente cada vez que o escolhe.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Craft Tech Mod-->
+<div id="conteudoModal10"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Craft Tech-Mod</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você sabe criar Tech-Mods, que são aprimoramentos tecnológicos para dispositivos normais.</p>
+            <p><b>Requisito:</b> Craft (tech. Device) 1 rank</p>
+            <p><b>Benefício:</b> Você pode criar Tech-Mods, veja na página de criação de itens tecnológicos as instruções [link]</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Sabotage Magical Item-->
+<div id="conteudoModal11"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Sabotage Magical Item</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você pode sabotar itens mágicos da mesma forma que sabotaria um dispositivo tecnológico</p>
+            <p><b>Requisito:</b> Disable Device 3 Ranks, Knowledge (Arcane) 2 Ranks, Use Magic Device 3 Ranks</p>
+            <p><b>Benefício:</b> Você pode usar a Skill <i>Disable Device</i> para desabilitar ou sabotar itens mágicos como se eles fossem dispositivos tecnológicos</p>
+            <p>O tempo e dificuldade para fazer isso varia conforme a aura do Item:</p>
+            <p><b>Fraca:</b> Leva 1 rodada, CD 10</p>
+            <p><b>Moderada:</b> Leva 1d4 rodadas, CD 15</p>
+            <p><b>Forte:</b> Leva 2d4 Rodadas, CD 20</p>
+            <p><b>Esmagadora:</b> Não pode ser sabotado</p>
+            <p>Se você não quiser deixar vestigios da sua tentativa, a CD aumenta em 5</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Steam Armor Knack-->
+<div id="conteudoModal12"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Steam Armor Knack</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você tem talento para Construir e usar Armaduras a Vapor</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Você recebe um bônus de +2 em <i>Craft (tech. device)</i> para criar Armaduras a Vapor.</p>
+            <p>Seu Nivel Tecnológico para a criação de Armaduras a vapor aumenta em 2</p>
+            <p>Você recebe um bônus de +2 no seu valor de força quando estiver pilotando uma armadura a vapor, esse bônus acumula com o bonus da Armadura.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Steam Armor Knack como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Weaponry Knack-->
+<div id="conteudoModal13"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Weaponry Knack</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você tem talento para Construir e usar Armas de Cerco</p>
+            <p><b>Requisito:</b> Nenhum</p>
+            <p><b>Benefício:</b> Você recebe um bônus de +2 em <i>Craft (tech. device)</i> para criar armas que não sejam armas de fogo.</p>
+            <p>Seu Nivel Tecnológico para a criação de Armas que não sejam de fogo aumenta em 2</p>
+            <p>Você recebe um bônus de competência de +2 em jogadas de ataque com armas que não sejam de fogo que você tenha construído</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Weaponry Knack como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Avoid Tech Mishap-->
+<div id="conteudoModal14"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Avoid Technical Mishap</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você é o melhor em manter equipamento improvisado funcionando</p>
+            <p><b>Requisito:</b> Skill Focus (Use Tech. Device), Abilidade de usar Gambiarra e Remendo</p>
+            <p><b>Benefício:</b> Quando usar um dispositivo criado por Gambiarra ou que tenha sido alvo de Remendo, o Nível de Mau Funcionamento é 1 ponto menor.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Avoid Technical Mishap como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Extra Cobble-->
+<div id="conteudoModal15"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Extra Cobble</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você pode usar Gambiarras com mais frequência</p>
+            <p><b>Requisito:</b> ter a Abilidade Gambiarra</p>
+            <p><b>Benefício:</b> Você recebe um uso adicional de Gambiarrapor dia</p>
+            <p>Este Talento pode ser escolhido mais de uma vez, seus efeitos se acumulam.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Extra Cobble como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Malfunction Blow-->
+<div id="conteudoModal16"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Malfunction Blow</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Com um único e certeiro golpe, você pode fazer dispositivos tecnológicos sofrerem Mau Funcionamento</p>
+            <p><b>Requisito:</b> Craft (Tech. Device) 1 Rank, Improved Sunder</p>
+            <p><b>Benefício:</b> Sempre que você usar a Manobra Sunder em um dispositivo Tecnológico, você pode escolher não causar Dano ao Dispositivo</p>
+            <p>Se Você o fizer isso, aumente o Nivel de Mau Funcionamento do Dispositivo em 1 para cada 5 pontos de dano que ele iria sofrer</p>
+            <p>O portador do Dispositivo afetado, pode usar uma ação de rodada completa (full round action) que provoca ataques de oportunidade, e fazer um teste de <i>Craft (Tech. Device)</i> CD 20 para voltar o Nivel de Mau Funcionamento ao seu valor original.</p>
+            <p><b>Especial:</b> O Tinker e o Fighter podem escolher Malfunction Blow como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Salvage Material-->
+<div id="conteudoModal17"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Salvage Material</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você pode resgatar peças de Dispositivos Quebrados (Broken condition) ou que ainda estejam funcionando e conseguir materiais para criar novos dispositivos</p>
+            <p><b>Requisito:</b> Scavenge Materials</p>
+            <p><b>Benefício:</b> Você pode destruir um Dispositivo tecnológico que você tenha para conseguir peçar para construir novos itens.</p>
+            <p>Você fica uma hora desmontando um Dispositivo para pegar qualquer coisa que você possa usar.</p>
+            <p>Ao Final desse tempo, faça um teste de <i>Craft (Tech. Device).</i></p>
+            <p>Multiplique o resultado pelo Nível Tecnológico do Dispositivo, você recebe essa quantidede de materiais em PO para construir um novo Item.</p>
+            <p>Essa Quantidade de Materiais não pode ser maior do que 1/3 do valor original do Dispositivo desmontado</p>
+            <p>Ao Fazer isso, o dispositivo é completa e irreversivelmente destruído.</p>
+            <p>Esse talento só pode ser usado uma vez por item</p>
+            <p>Se o dispositivo desmontado for uma tranca ou armadilha, você deve desativar o objeto com <i>Disable Device</i> antes de resgatar as peças.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Salvage Material como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Improved Industrious Haste-->
+<div id="conteudoModal18"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Improved Industrious Haste</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Você consegue criar itens muito mais rápido do que o normal</p>
+            <p><b>Requisito:</b> Abilidade de Velocidade de Fabricação, Craft 10 Ranks</p>
+            <p><b>Benefício:</b> Ao calcular o progresso na fabricação de um Item, você usa PO e não PP</p>
+            <p><b>Especial:</b> O Tinker pode escolher Improved Industrious Haste como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<!--Maximum Overdrive-->
+<div id="conteudoModal19"
+class="modal fade">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <!--titulo modal centralizado-->
+        <div class="modal-header">
+            <h4 id="titulo7">Maximum Overdrive</h4>
+            <button 
+            class="close" 
+            data-dismiss="modal" 
+            arial-label="fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!--conteudo modal centralizado-->
+        <div class="modal-body">
+            <p>Sabendo os truque adequados, você pode aumentar o poder de um Dispositivo, contudo, fazer um dispositivo ir além dos seus limites, pode causar um Mau Funcionamento.</p>
+            <p><b>Requisito:</b> Emergency Repair</p>
+            <p><b>Benefício:</b> Como uma Ação de Rodada Completa (full round action), você pode fazer com que um Dispositivo que você tenha construído vá além de seus limites normais.</p>
+            <p>Todas as caracteristicas do Dispositivos são aprimoradas como se o Nível Tecnológico dele fosse 2 pontos maior, isso dura um numero de minutos igual o novo Nivel Tecnológico do Dispositivo</p>
+            <p>Depois desse tempo, ele sofrerá um Mau Funcionamento e precisará ser reparado normalmente.</p>
+            <p>Nenhum item, talento ou abilidade de classe pode prevenir esse Mau Funcionamento.</p>
+            <p>Depois de reparado, ele volta a seu Nível Tecnológico normal.</p>
+            <p>Este Talento não funciona em Dispositivoc de uso único ou com numero limitado de usos.</p>
+            <p><b>Especial:</b> Um Tinker pode escolher Maximum Overdrive como um dos seus talentos adicionais.</p>
+       </div>
+        <!--rodapé do modal centralizado-->
+        <div class="modal-footer">
+            <button 
+            class="btn btn-secondary" 
+            data-dismiss="modal">
+            Fechar
+        </button>
+        </div>
+    </div>
+   </div> 
+</div>
+<a href="../magalqtec/tecnologia.html"><img class="botao" src="../img/voltar.svg"></a>
+        <div class="contem_grama"><div id="grass"></div></div>
+    </body>
+</html>

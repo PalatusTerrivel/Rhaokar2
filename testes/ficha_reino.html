@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title> Ficha de Reino</title>
+    <script type="text/javascript" src="js/stuquery.js"></script>
+    <script type="text/javascript" src="js/stuquery.hexmap.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stuquery.hexmap.css">
+    <link href="css/honeycomb_e_efeitos.css" rel="stylesheet">
+    <style>
+        body{
+            font-size: xx-small;
+        }
+        .conteudo{
+      padding: 50px;
+    }
+    </style>
+  </head>
+
+  <body>
+
+<div class="contem_nuvem"><div id="clouds"></div></div>
+<div class="conteudo">																					
+    <h1>	Nome	</h1>																			
+    <div class="row" id="descricao">																																										
+    <div class="col-md-2">																					
+    <table>																					
+    <tr>																					
+    <th>	Race	</th>																			
+    </tr>																					
+    <tr>																					
+    <td>		</td>																			
+    </tr>																					
+    </table>																					
+    </div>																																										
+    </div>																																										
+    </div>	
+<div class="content">
+<div class="container_reinos">
+    <div class="Descriptionreinos">
+        <table>
+            <tr>
+                <th> Kingdom Name</th><th>Campaign</th><th>Government</th><th>Aligment</th><th>Population</th><th>Size</th><th>Control DC</th>
+            </tr>
+            <tr>
+                <td>Kingdom Name</td><td>Campaign</td><td>Government</td><td>Aligment</td><td>Population</td><td>Size</td><td>Control DC</td>
+            </tr>
+        </table>
+    </div>
+    <div class="bonusreinos">
+        <Table>
+        <tr>
+            <th> Bonus</th><th>Total</th><th>Buildings</th><th>Edicts</th><th>Events</th><th>Leadership</th><th>Resources</th><th>Aligment</th><th>Skill</th><th>Government</th><th>Edicts</th><th>Unrest</th><th>Vacancies</th><th>Other</th>
+        </tr>
+        <tr>
+            <th> Economy</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Loyalty</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Stability</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Corruption</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Crime</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Law</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Lore</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Productivity</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>
+        </tr>
+        <tr>
+            <th> Society</th><td>Total</td><td>Buildings</td><td>Edicts</td><td>Events</td><td>Leadership</td><td>Resources</td><td>Aligment</td><td>Skill</td><td>Government</td><td>Edicts</td><td>Unrest</td><td>Vacancies</td><td>Other</td>  
+        </tr>
+        </Table>
+    </div>
+    <div class="famainfama">
+        <table>
+            <tr>
+                <th> Bonus</th><th>Total</th><th>Base</th><th>Lore/10</th><th>Society/10</th><th>Size Bonus</th><th>Buildings</th><th>Events</th><th>Other</th>
+            </tr>
+            <tr>
+                <th> Fame</th><td>Total</td><td>Base</td><td>Lore/10</td><td>Society/10</td><td>Size Bonus</td><td>Buildings</td><td>Events</td><td>Other</td>
+            </tr>
+            <tr>
+                <th> Bonus</th><th>Total</th><th>Base</th><th>Corruption/10</th><th>Crime/10</th><th>Size Bonus</th><th>Buildings</th><th>Events</th><th>Other</th>
+            </tr>
+            <tr>
+                <th> Infamy</th><td>Total</td><td>Base</td><td>Corruption/10</td><td>Crime/10</td><td>Size Bonus</td><td>Buildings</td><td>Events</td><td>Other</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ongoingevents">
+        <table>
+            <tr>
+                <th>Ongoing Events</th>
+            </tr>
+            <tr>
+                <td> Notes</td>
+            </tr>
+        </table>
+    </div>
+    <div class="leadershipreino">
+        <table>
+            <tr>
+                <th>Leadership Role</th><th>Name</th><th>Bonus</th><th>Attribute</th>
+            </tr>
+            <tr>
+                <th>Ruler</th><td>Name</td><td>Bonus</td><td>Economy, Loyalty, Stability</td>
+            </tr>
+            <tr>
+                <th>Ruler</th><td>Name</td><td>Bonus</td><td>Economy, Loyalty, Stability</td>
+            </tr>
+            <tr>
+                <th>Consort</th><td>Name</td><td>Bonus</td><td>Loyalty</td>
+            </tr>
+            <tr>
+                <th>Councilor</th><td>Name</td><td>Bonus</td><td>Loyalty</td>
+            </tr>
+            <tr>
+                <th>General</th><td>Name</td><td>Bonus</td><td>Stability</td>
+            </tr>
+            <tr>
+                <th>Grand Diplomat</th><td>Name</td><td>Bonus</td><td>Stability</td>
+            </tr>
+            <tr>
+                <th>Heir</th><td>Name</td><td>Bonus</td><td>Loyalty</td>
+            </tr>
+            <tr>
+                <th>High Priest</th><td>Name</td><td>Bonus</td><td>Stability</td>
+            </tr>
+            <tr>
+                <th>Magister</th><td>Name</td><td>Bonus</td><td>Economy</td>
+            </tr>
+            <tr>
+                <th>Marshal</th><td>Name</td><td>Bonus</td><td>Economy</td>
+            </tr>
+            <tr>
+                <th>Royal Enforcer</th><td>Name</td><td>Bonus</td><td>Loyalty, -1 Unrest/Upkeep</td>
+            </tr>
+            <tr>
+                <th>Spymaster</th><td>Name</td><td>Bonus</td><td></td>
+            </tr>
+            <tr>
+                <th>Treasurer</th><td>Name</td><td>Bonus</td><td>Economy</td>
+            </tr>
+            <tr>
+                <th>Viceroy</th><td>Name</td><td>Bonus</td><td>Economy</td>
+            </tr>
+            <tr>
+                <th>Warden</th><td>Name</td><td>Bonus</td><td>Loyalty</td>
+            </tr>
+        </table>
+    </div>
+    <div class="unrestconsumptiontreasury">
+        <table>
+            <tr>
+                <th>Edict</th><th>Level</th><th>Bonus</th><th>Attribute</th>
+            </tr>
+            <tr>
+                <th>Promotion</th><td>Level</td><td>Bonus Stability</td><td>BP Consumption</td>
+            </tr>
+            <tr>
+                <th>Taxation</th><td>Level</td><td>Bonus Economy</td><td>Penalty to Loyalty</td>
+            </tr>
+            <tr>
+                <th>Festivals per year</th><td>Amount</td><td>Bonus Loyalty</td><td>BP Comsumption</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Unrest</th><td>penalty on all checks</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Consumption</th><td>BP</td>
+            </tr>
+            <br>
+            <tr>
+                <th>Size</th><th>Cities</th><th>Edicts</th><th>Farms</th><th>Other</th>
+            </tr>
+            <tr>
+                <td>Size</td><td>Cities</td><td>Edicts</td><td>Farms</td><td>Other</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Treasury</th><td>BP</td>
+            </tr>
+        </table>
+    </div>
+    <div class="traderoutes">
+        <table>
+            <tr>
+                <th>Destination</th><th>Length</th><th>Rout Modifier</th><th>Length Modifier</th><th>Type</th><th>DC</th><th>Control DC</th><th>Corruption</th><th>Route Modifier</th><th>Length Modifier</th><th>Productivity Penalty</th>
+            </tr>
+            <tr>
+                <td>Destination</td><td>Length</td><td>Rout Modifier</td><td>Length Modifier</td><td>Type</td><th>DC</th><td>Control DC</td><td>Corruption</td><td>Route Modifier</td><td>Length Modifier</td><td>Productivity Penalty</td>
+            </tr>
+            <tr>
+                <td>Destination</td><td>Length</td><td>Rout Modifier</td><td>Length Modifier</td><td>Type</td><th>DC</th><td>Control DC</td><td>Corruption</td><td>Route Modifier</td><td>Length Modifier</td><td>Productivity Penalty</td>
+            </tr>
+            <tr>
+                <td>Destination</td><td>Length</td><td>Rout Modifier</td><td>Length Modifier</td><td>Type</td><th>DC</th><td>Control DC</td><td>Corruption</td><td>Route Modifier</td><td>Length Modifier</td><td>Productivity Penalty</td>
+            </tr>
+            <tr>
+                <td>Destination</td><td>Length</td><td>Rout Modifier</td><td>Length Modifier</td><td>Type</td><th>DC</th><td>Control DC</td><td>Corruption</td><td>Route Modifier</td><td>Length Modifier</td><td>Productivity Penalty</td>
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>
+<a href="reinos.html"><img class="botao" src="img/voltar.svg"></a>
+<div class="contem_grama"><div id="grass"></div></div>
+</body>
+
+</html>
