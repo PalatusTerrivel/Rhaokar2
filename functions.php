@@ -40,10 +40,16 @@ function rhaokar_inject_inline_head_styles() {
 			background-color: #ACE6FF !important;
 		}
 		#clouds {
-			background: url('<?php echo $theme_url; ?>/img/Sprite-NuvemSite.png') repeat-x 0 bottom #ACE6FF !important;
+			background-image: url('<?php echo $theme_url; ?>/img/Sprite-NuvemSite.png') !important;
+			background-repeat: repeat-x !important;
+			background-size: auto 185px !important;
+			background-color: #ACE6FF !important;
+			animation: rhaokar-move-clouds 25s linear infinite !important;
 		}
 		#grass {
-			background: url('<?php echo $theme_url; ?>/img/Sprite-GramaSite.png') repeat-x 0 0 transparent !important;
+			background-image: url('<?php echo $theme_url; ?>/img/Sprite-GramaSite.png') !important;
+			background-repeat: repeat-x !important;
+			animation: rhaokar-skew-grass 3s infinite alternate ease-in-out !important;
 		}
 		.contem-deuses, .contem-racas {
 			background: url('<?php echo $theme_url; ?>/img/papyrus1.svg') repeat, #f9f2e7 !important;

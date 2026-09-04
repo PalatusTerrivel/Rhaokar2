@@ -90,11 +90,34 @@ html, body {
 }
 
 #clouds {
-	background: url("img/Sprite-NuvemSite.png") repeat-x 0 bottom #ACE6FF !important;
+	background: url("img/Sprite-NuvemSite.png") repeat-x 0 bottom #ACE6FF;
 	height: 185px;
+	animation: rhaokar-move-clouds 25s linear infinite;
+}
+
+@keyframes rhaokar-move-clouds {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 2368px 0;
+	}
 }
 
 #grass {
-	background: url("img/Sprite-GramaSite.png") repeat-x 0 0 transparent !important;
+	background: url("img/Sprite-GramaSite.png") repeat-x 0 0 transparent;
 	height: 190px;
+	animation: rhaokar-skew-grass 3s infinite alternate ease-in-out;
+	width: 120%;
+	margin-left: -10%;
+	transform-origin: bottom center;
+}
+
+@keyframes rhaokar-skew-grass {
+	0% {
+		transform: skewX(10deg) translate(-5px);
+	}
+	100% {
+		transform: skewX(-10deg) translate(5px);
+	}
 }
