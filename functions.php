@@ -192,3 +192,176 @@ if ( ! function_exists( 'hello_elementor_display_header_footer' ) ) {
 	}
 }
 
+/**
+ * Injeta o Gerenciador de Raças Animadas Caminhando no Gramado do Rhaokar
+ */
+function rhaokar_inject_rpg_spawner_script() {
+	$theme_url = esc_url( get_stylesheet_directory_uri() );
+	?>
+	<style id="rhaokar-rpg-spawner-css">
+		.rhaokar-walking-sprite {
+			position: absolute;
+			bottom: 5px;
+			z-index: 1 !important; /* Fica atrás da grama */
+			pointer-events: none;
+			will-change: transform, left;
+		}
+
+		/* Fonte de luz noturna aquecida para raças noturnas */
+		.rhaokar-walking-sprite.night-light {
+			filter: drop-shadow(0 0 14px rgba(255, 215, 100, 0.9)) drop-shadow(0 0 5px rgba(255, 140, 0, 0.95)) !important;
+		}
+
+		/* Garantir que a grama fique na frente */
+		#grass, .rhaokar-grama-img {
+			position: relative;
+			z-index: 2 !important;
+		}
+
+		.contem_grama, .rhaokar-grama-container, .rhaokar-grama-box {
+			position: relative;
+			overflow: hidden;
+		}
+	</style>
+
+	<script id="rhaokar-rpg-spawner-js">
+	(function() {
+		var themeImgDir = '<?php echo $theme_url; ?>/img/gifs/';
+
+		var RACES_DATA = [
+			// Bearfolk (2.5m)
+			{ name: 'bearfolk', height: 180, time: 'any', file: 'bearfolk.webp' },
+			// Orc (2.0m)
+			{ name: 'orc', height: 144, time: 'any', file: 'orc.webp' },
+			// Warforged, Lionfolk, Human (1.7m - 1.9m)
+			{ name: 'warforged', height: 136, time: 'any', file: 'warforged.webp' },
+			{ name: 'lionfolk', height: 130, time: 'any', file: 'lionfolk.webp' },
+			{ name: 'human day', height: 122, time: 'day', file: 'human day.webp' },
+			{ name: 'human night', height: 122, time: 'night', file: 'human night.webp', light: true },
+			// Elf (1.6m)
+			{ name: 'elf day', height: 115, time: 'day', file: 'elf day.webp' },
+			{ name: 'elf night', height: 115, time: 'night', file: 'elf night.webp', light: true },
+			// Dwarf & Bugfolk (1.3m - 1.4m)
+			{ name: 'dwarf 1', height: 100, time: 'any', file: 'dwarf 1.webp' },
+			{ name: 'dwarf 2', height: 100, time: 'any', file: 'dwarf 2.webp' },
+			{ name: 'bugfolk day', height: 94, time: 'day', file: 'bugfolk day.webp' },
+			{ name: 'bugfolk day 3', height: 94, time: 'day', file: 'bugfolk day 3.webp' },
+			{ name: 'bugfolk night', height: 94, time: 'night', file: 'bugfolk night.webp', light: true, weight: 3 },
+			{ name: 'bugfolk night 2', height: 94, time: 'night', file: 'bugfolk night 2.webp', light: true, weight: 3 },
+			// Gnome & Goblin (1.2m)
+			{ name: 'gnome day', height: 86, time: 'day', file: 'gnome day.webp' },
+			{ name: 'gnome day 2', height: 86, time: 'day', file: 'gnome day 2.webp' },
+			{ name: 'goblin 1', height: 86, time: 'any', file: 'goblin 1.webp', weight: 3, isGoblin: true },
+			{ name: 'goblin 2', height: 86, time: 'any', file: 'goblin 2.webp', weight: 3, isGoblin: true },
+			// Halfling & Kobold (1.0m)
+			{ name: 'halfling day', height: 72, time: 'day', file: 'halfling day.webp', isHalfling: true },
+			{ name: 'halfling day 2', height: 72, time: 'day', file: 'halfling day 2.webp', isHalfling: true },
+			{ name: 'halfling day 3', height: 72, time: 'day', file: 'halfling day 3.webp', isHalfling: true },
+			{ name: 'halfling day 4', height: 72, time: 'day', file: 'halfling day 4.webp', isHalfling: true },
+			{ name: 'halfling night', height: 72, time: 'night', file: 'halfling night.webp', light: true, isHalfling: true, weight: 2 },
+			{ name: 'halfling night 2', height: 72, time: 'night', file: 'halfling night 2.webp', light: true, isHalfling: true, weight: 2 },
+			{ name: 'halfling night 3', height: 72, time: 'night', file: 'halfling night 3.webp', light: true, isHalfling: true, weight: 2 },
+			{ name: 'blue kobold', height: 72, time: 'any', file: 'blue kobold.webp' },
+			{ name: 'green kobold', height: 72, time: 'any', file: 'green kobold.webp' },
+			{ name: 'red kobold', height: 72, time: 'any', file: 'red kobold.webp' },
+			{ name: 'red kobold 2', height: 72, time: 'any', file: 'red kobold 2.webp' }
+		];
+
+		function isNightTime() {
+			var isNightClass = document.body.classList.contains('sky-night') || document.documentElement.classList.contains('sky-night');
+			if (isNightClass) return true;
+			var hour = new Date().getHours();
+			return (hour >= 19 || hour < 5);
+		}
+
+		function getEligiblePool() {
+			var isNight = isNightTime();
+			var pool = [];
+
+			for (var i = 0; i < RACES_DATA.length; i++) {
+				var r = RACES_DATA[i];
+				var allowed = false;
+
+				if (r.time === 'any') allowed = true;
+				else if (r.time === 'night' && isNight) allowed = true;
+				else if (r.time === 'day' && !isNight) allowed = true;
+
+				if (allowed) {
+					var w = r.weight || 1;
+					for (var k = 0; k < w; k++) {
+						pool.push(r);
+					}
+				}
+			}
+			return pool;
+		}
+
+		function spawnWalkers() {
+			var containers = document.querySelectorAll('.contem_grama, .rhaokar-grama-container, .rhaokar-grama-box');
+			if (!containers.length) return;
+
+			var pool = getEligiblePool();
+			if (!pool.length) return;
+
+			var chosen = pool[Math.floor(Math.random() * pool.length)];
+			var isLeftToRight = Math.random() > 0.5;
+
+			var groupCount = 1;
+			if (chosen.isGoblin && Math.random() < 0.25) {
+				groupCount = Math.floor(Math.random() * 3) + 3; // Bando de 3 a 5 goblins
+			} else if (chosen.isHalfling && Math.random() < 0.30) {
+				groupCount = 2; // Dupla de halflings
+			}
+
+			containers.forEach(function(container) {
+				for (var g = 0; g < groupCount; g++) {
+					(function(index) {
+						var img = document.createElement('img');
+						img.src = themeImgDir + chosen.file;
+						img.className = 'rhaokar-walking-sprite' + (chosen.light ? ' night-light' : '');
+						img.style.height = chosen.height + 'px';
+
+						var startPos = isLeftToRight ? -150 - (index * 45) : container.offsetWidth + 50 + (index * 45);
+						var endPos = isLeftToRight ? container.offsetWidth + 150 : -150;
+						var transformFlip = isLeftToRight ? 'scaleX(1)' : 'scaleX(-1)';
+
+						img.style.transform = transformFlip;
+						img.style.left = startPos + 'px';
+
+						container.appendChild(img);
+
+						var duration = 16000 + Math.random() * 4000;
+						var startTime = null;
+
+						function animate(timestamp) {
+							if (!startTime) startTime = timestamp;
+							var progress = (timestamp - startTime) / duration;
+
+							if (progress < 1) {
+								var currentPos = startPos + (endPos - startPos) * progress;
+								img.style.left = currentPos + 'px';
+								requestAnimationFrame(animate);
+							} else {
+								if (img.parentNode) img.parentNode.removeChild(img);
+							}
+						}
+
+						setTimeout(function() {
+							requestAnimationFrame(animate);
+						}, index * 350);
+					})(g);
+				}
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', function() {
+			spawnWalkers();
+			setInterval(spawnWalkers, 14000);
+		});
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'rhaokar_inject_rpg_spawner_script', 999 );
+
+
