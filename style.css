@@ -73,41 +73,49 @@ html, body {
 }
 
 /* Animações de Nuvens e Grama */
-.contem_nuvem {
+.contem_nuvem, .rhaokar-nuvem-container {
 	display: block;
 	width: 100%;
 	overflow: hidden;
 	height: 185px;
 	background-color: #ACE6FF;
+	position: relative;
 }
 
-.contem_grama {
+.contem_grama, .rhaokar-grama-container {
 	display: block;
 	width: 100%;
 	overflow: hidden;
 	height: 185px;
 	background-color: transparent;
+	position: relative;
 }
 
-#clouds {
-	background: url("img/Sprite-NuvemSite.png") repeat-x 0 bottom #ACE6FF;
+#clouds, .rhaokar-nuvem-animada {
+	background-image: url('img/Sprite-NuvemSite.png');
+	background-repeat: repeat-x;
+	background-position: 0 bottom;
+	background-size: auto 185px;
 	height: 185px;
-	animation: rhaokar-move-clouds 25s linear infinite;
+	width: 100%;
+	animation: rhaokar-move-clouds 25s linear infinite !important;
 }
 
 @keyframes rhaokar-move-clouds {
 	0% {
-		background-position: 0 0;
+		background-position: 0 bottom;
 	}
 	100% {
-		background-position: 2368px 0;
+		background-position: 2368px bottom;
 	}
 }
 
-#grass {
-	background: url("img/Sprite-GramaSite.png") repeat-x 0 0 transparent;
+#grass, .rhaokar-grama-animada {
+	background-image: url('img/Sprite-GramaSite.png');
+	background-repeat: repeat-x;
+	background-position: 0 0;
 	height: 190px;
-	animation: rhaokar-skew-grass 3s infinite alternate ease-in-out;
+	animation: rhaokar-skew-grass 3s infinite alternate ease-in-out !important;
 	width: 120%;
 	margin-left: -10%;
 	transform-origin: bottom center;
