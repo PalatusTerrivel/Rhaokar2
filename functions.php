@@ -257,41 +257,41 @@ function rhaokar_inject_rpg_spawner_script() {
 
 		var RACES_DATA = [
 			// Bearfolk (2.5m)
-			{ name: 'bearfolk', height: 180, time: 'any', file: 'bearfolk.gif' },
+			{ name: 'bearfolk', height: 180, time: 'any', file: 'bearfolk.gif', facing: 'right' },
 			// Orc (2.0m)
-			{ name: 'orc', height: 144, time: 'any', file: 'orc.gif' },
+			{ name: 'orc', height: 144, time: 'any', file: 'orc.gif', facing: 'left' },
 			// Warforged, Lionfolk, Human (1.7m - 1.9m)
-			{ name: 'warforged', height: 136, time: 'any', file: 'warforged.gif' },
-			{ name: 'lionfolk', height: 130, time: 'any', file: 'lionfolk.gif' },
-			{ name: 'human day', height: 122, time: 'day', file: 'human-day.gif' },
-			{ name: 'human night', height: 122, time: 'night', file: 'human-night.gif', light: true },
+			{ name: 'warforged', height: 136, time: 'any', file: 'warforged.gif', facing: 'right' },
+			{ name: 'lionfolk', height: 130, time: 'any', file: 'lionfolk.gif', facing: 'right' },
+			{ name: 'human day', height: 122, time: 'day', file: 'human-day.gif', facing: 'right' },
+			{ name: 'human night', height: 122, time: 'night', file: 'human-night.gif', light: true, facing: 'right' },
 			// Elf (1.6m)
-			{ name: 'elf day', height: 115, time: 'day', file: 'elf-day.gif' },
-			{ name: 'elf night', height: 115, time: 'night', file: 'elf-night.gif', light: true },
+			{ name: 'elf day', height: 115, time: 'day', file: 'elf-day.gif', facing: 'right' },
+			{ name: 'elf night', height: 115, time: 'night', file: 'elf-night.gif', light: true, facing: 'right' },
 			// Dwarf & Bugfolk (1.3m - 1.4m)
-			{ name: 'dwarf 1', height: 100, time: 'any', file: 'dwarf-1.gif' },
-			{ name: 'dwarf 2', height: 100, time: 'any', file: 'dwarf-2.gif' },
-			{ name: 'bugfolk day', height: 94, time: 'day', file: 'bugfolk-day.gif' },
-			{ name: 'bugfolk day 3', height: 94, time: 'day', file: 'bugfolk-day-3.gif' },
-			{ name: 'bugfolk night', height: 94, time: 'night', file: 'bugfolk-night.gif', light: true, weight: 3 },
-			{ name: 'bugfolk night 2', height: 94, time: 'night', file: 'bugfolk-night-2.gif', light: true, weight: 3 },
+			{ name: 'dwarf 1', height: 100, time: 'any', file: 'dwarf-1.gif', facing: 'right' },
+			{ name: 'dwarf 2', height: 100, time: 'any', file: 'dwarf-2.gif', facing: 'right' },
+			{ name: 'bugfolk day', height: 94, time: 'day', file: 'bugfolk-day.gif', facing: 'right' },
+			{ name: 'bugfolk day 3', height: 94, time: 'day', file: 'bugfolk-day-3.gif', facing: 'right' },
+			{ name: 'bugfolk night', height: 94, time: 'night', file: 'bugfolk-night.gif', light: true, weight: 3, facing: 'right' },
+			{ name: 'bugfolk night 2', height: 94, time: 'night', file: 'bugfolk-night-2.gif', light: true, weight: 3, facing: 'right' },
 			// Gnome & Goblin (1.2m)
-			{ name: 'gnome day', height: 86, time: 'day', file: 'gnome-day.gif' },
-			{ name: 'gnome day 2', height: 86, time: 'day', file: 'gnome-day-2.gif' },
-			{ name: 'goblin 1', height: 86, time: 'any', file: 'goblin-1.gif', weight: 3, isGoblin: true },
-			{ name: 'goblin 2', height: 86, time: 'any', file: 'goblin-2.gif', weight: 3, isGoblin: true },
+			{ name: 'gnome day', height: 86, time: 'day', file: 'gnome-day.gif', facing: 'left' },
+			{ name: 'gnome day 2', height: 86, time: 'day', file: 'gnome-day-2.gif', facing: 'right' },
+			{ name: 'goblin 1', height: 86, time: 'any', file: 'goblin-1.gif', weight: 3, isGoblin: true, facing: 'left' },
+			{ name: 'goblin 2', height: 86, time: 'any', file: 'goblin-2.gif', weight: 3, isGoblin: true, facing: 'right' },
 			// Halfling & Kobold (1.0m)
-			{ name: 'halfling day', height: 72, time: 'day', file: 'halfling-day.gif', isHalfling: true },
-			{ name: 'halfling day 2', height: 72, time: 'day', file: 'halfling-day-2.gif', isHalfling: true },
-			{ name: 'halfling day 3', height: 72, time: 'day', file: 'halfling-day-3.gif', isHalfling: true },
-			{ name: 'halfling day 4', height: 72, time: 'day', file: 'halfling-day-4.gif', isHalfling: true },
-			{ name: 'halfling night', height: 72, time: 'night', file: 'halfling-night.gif', light: true, isHalfling: true, weight: 2 },
-			{ name: 'halfling night 2', height: 72, time: 'night', file: 'halfling-night-2.gif', light: true, isHalfling: true, weight: 2 },
-			{ name: 'halfling night 3', height: 72, time: 'night', file: 'halfling-night-3.gif', light: true, isHalfling: true, weight: 2 },
-			{ name: 'blue kobold', height: 72, time: 'any', file: 'blue-kobold.gif' },
-			{ name: 'green kobold', height: 72, time: 'any', file: 'green-kobold.gif' },
-			{ name: 'red kobold', height: 72, time: 'any', file: 'red-kobold.gif' },
-			{ name: 'red kobold 2', height: 72, time: 'any', file: 'red-kobold-2.gif' }
+			{ name: 'halfling day', height: 72, time: 'day', file: 'halfling-day.gif', isHalfling: true, facing: 'right' },
+			{ name: 'halfling day 2', height: 72, time: 'day', file: 'halfling-day-2.gif', isHalfling: true, facing: 'right' },
+			{ name: 'halfling day 3', height: 72, time: 'day', file: 'halfling-day-3.gif', isHalfling: true, facing: 'right' },
+			{ name: 'halfling day 4', height: 72, time: 'day', file: 'halfling-day-4.gif', isHalfling: true, facing: 'right' },
+			{ name: 'halfling night', height: 72, time: 'night', file: 'halfling-night.gif', light: true, isHalfling: true, weight: 2, facing: 'right' },
+			{ name: 'halfling night 2', height: 72, time: 'night', file: 'halfling-night-2.gif', light: true, isHalfling: true, weight: 2, facing: 'right' },
+			{ name: 'halfling night 3', height: 72, time: 'night', file: 'halfling-night-3.gif', light: true, isHalfling: true, weight: 2, facing: 'left' },
+			{ name: 'blue kobold', height: 72, time: 'any', file: 'blue-kobold.gif', facing: 'right' },
+			{ name: 'green kobold', height: 72, time: 'any', file: 'green-kobold.gif', facing: 'left' },
+			{ name: 'red kobold', height: 72, time: 'any', file: 'red-kobold.gif', facing: 'right' },
+			{ name: 'red kobold 2', height: 72, time: 'any', file: 'red-kobold-2.gif', facing: 'right' }
 		];
 
 		function isNightTime() {
@@ -360,10 +360,9 @@ function rhaokar_inject_rpg_spawner_script() {
 						var startPos = isLeftToRight ? -150 - (index * 45) : container.offsetWidth + 50 + (index * 45);
 						var endPos = isLeftToRight ? container.offsetWidth + 150 : -150;
 
-						// Como as imagens originais estão viradas para a ESQUERDA:
-						// Se for para a direita (isLeftToRight=true), espelha (scaleX(-1)).
-						// Se for para a esquerda (isLeftToRight=false), mantém normal (scaleX(1)).
-						var transformFlip = isLeftToRight ? 'scaleX(-1)' : 'scaleX(1)';
+						// Inversão baseada na orientação original individual de cada raça:
+						var baseScale = (chosen.facing === 'left') ? -1 : 1;
+						var transformFlip = isLeftToRight ? ('scaleX(' + baseScale + ')') : ('scaleX(' + (-baseScale) + ')');
 
 						img.style.transform = transformFlip;
 						img.style.left = startPos + 'px';
