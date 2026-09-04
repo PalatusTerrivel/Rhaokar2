@@ -224,7 +224,7 @@ function rhaokar_inject_rpg_spawner_script() {
 	<style id="rhaokar-rpg-spawner-css">
 		.rhaokar-walking-sprite {
 			position: absolute;
-			bottom: 5px;
+			bottom: 30px !important; /* Levanta os personagens para ficarem bem visíveis */
 			z-index: 1 !important; /* Fica atrás da grama */
 			pointer-events: none;
 			will-change: transform, left;
@@ -235,15 +235,18 @@ function rhaokar_inject_rpg_spawner_script() {
 			filter: drop-shadow(0 0 14px rgba(255, 215, 100, 0.9)) drop-shadow(0 0 5px rgba(255, 140, 0, 0.95)) !important;
 		}
 
-		/* Garantir que a grama fique na frente */
+		/* Rebaixamento da grama para não cobrir totalmente os personagens */
 		#grass, .rhaokar-grama-img {
 			position: relative;
 			z-index: 2 !important;
+			height: 120px !important;
+			margin-top: 50px !important;
 		}
 
 		.contem_grama, .rhaokar-grama-container, .rhaokar-grama-box {
 			position: relative;
 			overflow: hidden;
+			height: 170px !important;
 		}
 	</style>
 
@@ -356,7 +359,11 @@ function rhaokar_inject_rpg_spawner_script() {
 
 						var startPos = isLeftToRight ? -150 - (index * 45) : container.offsetWidth + 50 + (index * 45);
 						var endPos = isLeftToRight ? container.offsetWidth + 150 : -150;
-						var transformFlip = isLeftToRight ? 'scaleX(1)' : 'scaleX(-1)';
+
+						// Como as imagens originais estão viradas para a ESQUERDA:
+						// Se for para a direita (isLeftToRight=true), espelha (scaleX(-1)).
+						// Se for para a esquerda (isLeftToRight=false), mantém normal (scaleX(1)).
+						var transformFlip = isLeftToRight ? 'scaleX(-1)' : 'scaleX(1)';
 
 						img.style.transform = transformFlip;
 						img.style.left = startPos + 'px';
