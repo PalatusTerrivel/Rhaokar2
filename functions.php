@@ -294,24 +294,40 @@ function rhaokar_inject_rpg_spawner_script() {
 			{ name: 'red kobold 2', height: 65, time: 'any', file: 'red-kobold-2.gif', facing: 'right' }
 		];
 
-		function isNightTime() {
-			var isNightClass = document.body.classList.contains('sky-night') || document.documentElement.classList.contains('sky-night');
-			if (isNightClass) return true;
+		function getActiveSkyTheme() {
+			var urlParams = new URLSearchParams(window.location.search);
+			var forceSky = urlParams.get('sky');
+			if (forceSky) {
+				return forceSky;
+			}
+			if (document.body.classList.contains('sky-sunrise') || document.documentElement.classList.contains('sky-sunrise')) return 'sunrise';
+			if (document.body.classList.contains('sky-day') || document.documentElement.classList.contains('sky-day')) return 'day';
+			if (document.body.classList.contains('sky-sunset') || document.documentElement.classList.contains('sky-sunset')) return 'sunset';
+			if (document.body.classList.contains('sky-night') || document.documentElement.classList.contains('sky-night')) return 'night';
+
 			var hour = new Date().getHours();
-			return (hour >= 19 || hour < 5);
+			if (hour >= 5 && hour < 8) return 'sunrise';
+			if (hour >= 8 && hour < 17) return 'day';
+			if (hour >= 17 && hour < 19) return 'sunset';
+			return 'night';
 		}
 
 		function getEligiblePool() {
-			var isNight = isNightTime();
+			var activeSky = getActiveSkyTheme();
+			var isNight = (activeSky === 'night');
 			var pool = [];
 
 			for (var i = 0; i < RACES_DATA.length; i++) {
 				var r = RACES_DATA[i];
 				var allowed = false;
 
-				if (r.time === 'any') allowed = true;
-				else if (r.time === 'night' && isNight) allowed = true;
-				else if (r.time === 'day' && !isNight) allowed = true;
+				if (r.time === 'any') {
+					allowed = true; // Raças neutras podem aparecer a qualquer momento
+				} else if (r.time === 'night') {
+					allowed = isNight; // Raças noturnas APENAS no modo night (?sky=night ou entre 19h e 5h)
+				} else if (r.time === 'day') {
+					allowed = !isNight; // Raças diurnas aparecem em sunrise, day e sunset
+				}
 
 				if (allowed) {
 					var w = r.weight || 1;
