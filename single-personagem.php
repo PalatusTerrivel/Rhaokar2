@@ -601,7 +601,7 @@ while ( have_posts() ) :
 	border-color: #2e353e;
 }
 .btn-attr-detail {
-	background: rgba(184, 134, 11, 0.2);
+	background: rgba(184, 134, 11, 0.25);
 	border: 1px solid #b8860b;
 	color: #ffd700;
 	font-size: 0.7rem;
@@ -609,6 +609,7 @@ while ( have_posts() ) :
 	border-radius: 4px;
 	transition: all 0.2s ease;
 	cursor: pointer;
+	display: inline-block;
 }
 .btn-attr-detail:hover {
 	background: #b8860b;
@@ -912,12 +913,12 @@ document.addEventListener('click', function(e) {
 		</div>
 	<?php endif; ?>
 
-	<!-- PERÍCIAS COM BOTÃO DE DETALHAMENTO -->
+	<!-- PERÍCIAS COM BOTÃO DE DETALHAMENTO EM TODAS AS LINHAS -->
 	<?php if ( is_array( $pericias ) && ! empty( $pericias ) ) : ?>
 		<div class="ficha-box mt-3">
 			<div class="ficha-box-title d-flex justify-content-between align-items-center">
 				<span>Perícias</span>
-				<small class="text-muted" style="font-size: 0.65rem;">Clique em "Ver Bônus" nos variados</small>
+				<small class="text-muted" style="font-size: 0.65rem;">Clique em "Ver Bônus" para auditar qualquer perícia</small>
 			</div>
 			<div class="table-responsive">
 				<table class="table table-dark table-striped table-dnd mb-0">
@@ -930,6 +931,7 @@ document.addEventListener('click', function(e) {
 							<th>Graduação</th>
 							<th>Outros Bônus</th>
 							<th>TOTAL</th>
+							<th>Auditoria</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -950,16 +952,14 @@ document.addEventListener('click', function(e) {
 								<td><?php echo esc_html( strtoupper( $p_attr_key ) ); ?></td>
 								<td><?php echo ( $p_attr_mod >= 0 ? '+' : '' ) . $p_attr_mod; ?></td>
 								<td><?php echo esc_html( $p_grad ); ?></td>
-								<td>
-									+<?php echo esc_html( $p_var ); ?>
-									<?php if ( ! empty( $p_breakdown ) ) : ?>
-										<button type="button" class="btn-attr-detail ml-1" onclick="rhaokarOpenModal('modal-pericia-<?php echo $p_idx; ?>')">
-											🔍 Ver Bônus
-										</button>
-									<?php endif; ?>
-								</td>
+								<td>+<?php echo esc_html( $p_var ); ?></td>
 								<td class="text-warning font-weight-bold" style="font-size: 1.1rem;">
 									<?php echo ( $p_total >= 0 ? '+' : '' ) . esc_html( $p_total ); ?>
+								</td>
+								<td>
+									<button type="button" class="btn-attr-detail" onclick="rhaokarOpenModal('modal-pericia-<?php echo $p_idx; ?>')">
+										🔍 Ver Bônus
+									</button>
 								</td>
 							</tr>
 						<?php endforeach; ?>
@@ -1240,7 +1240,7 @@ document.addEventListener('click', function(e) {
 			<div class="rhaokar-modal-dialog">
 				<div class="rhaokar-modal-header">
 					<h5 class="m-0 font-weight-bold text-warning">
-						<i class="dashicons dashicons-calculator"></i> Detalhamento de Bônus: Perícia <?php echo esc_html( $p_nome ); ?>
+						<i class="dashicons dashicons-calculator"></i> Detalhamento da Perícia: <?php echo esc_html( $p_nome ); ?>
 					</h5>
 					<button type="button" class="rhaokar-modal-close" onclick="rhaokarCloseModal('modal-pericia-<?php echo $p_idx; ?>')">&times;</button>
 				</div>
@@ -1297,7 +1297,7 @@ document.addEventListener('click', function(e) {
 							</table>
 						</div>
 					<?php else : ?>
-						<em class="text-muted d-block my-2">Nenhum bônus variado cadastrado para esta perícia.</em>
+						<em class="text-muted d-block my-2">Nenhum bônus variado adicional cadastrado para esta perícia.</em>
 					<?php endif; ?>
 				</div>
 				<div class="text-right mt-3">
