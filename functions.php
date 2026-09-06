@@ -444,5 +444,34 @@ function rhaokar_shortcode_hall_dos_herois() {
 add_shortcode( 'hall_dos_herois', 'rhaokar_shortcode_hall_dos_herois' );
 add_shortcode( 'hall_personagens', 'rhaokar_shortcode_hall_dos_herois' );
 
+/**
+ * Funções Auxiliares Globais para D&D 3.5 (XP e Limpeza de Números)
+ */
+if ( ! function_exists( 'rhaokar_dnd35_clean_num' ) ) {
+	function rhaokar_dnd35_clean_num( $val, $default = 0 ) {
+		if ( $val === null || $val === '' || $val === false ) {
+			return $default;
+		}
+		if ( is_numeric( $val ) ) {
+			return intval( $val );
+		}
+		if ( is_string( $val ) ) {
+			$cleaned = preg_replace( '/[^\d\-]/', '', $val );
+			return ( $cleaned !== '' ) ? intval( $cleaned ) : $default;
+		}
+		return intval( $val );
+	}
+}
+
+if ( ! function_exists( 'rhaokar_dnd35_xp_for_level' ) ) {
+	function rhaokar_dnd35_xp_for_level( $level ) {
+		if ( $level <= 1 ) {
+			return 0;
+		}
+		return (int) ( ( $level * ( $level - 1 ) / 2 ) * 1000 );
+	}
+}
+
+
 
 

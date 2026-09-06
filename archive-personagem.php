@@ -6,6 +6,32 @@
 
 get_header();
 
+// Garantia de funções auxiliares de cálculo de XP
+if ( ! function_exists( 'rhaokar_dnd35_clean_num' ) ) {
+	function rhaokar_dnd35_clean_num( $val, $default = 0 ) {
+		if ( $val === null || $val === '' || $val === false ) {
+			return $default;
+		}
+		if ( is_numeric( $val ) ) {
+			return intval( $val );
+		}
+		if ( is_string( $val ) ) {
+			$cleaned = preg_replace( '/[^\d\-]/', '', $val );
+			return ( $cleaned !== '' ) ? intval( $cleaned ) : $default;
+		}
+		return intval( $val );
+	}
+}
+
+if ( ! function_exists( 'rhaokar_dnd35_xp_for_level' ) ) {
+	function rhaokar_dnd35_xp_for_level( $level ) {
+		if ( $level <= 1 ) {
+			return 0;
+		}
+		return (int) ( ( $level * ( $level - 1 ) / 2 ) * 1000 );
+	}
+}
+
 // Query de todos os personagens se for usado como Template de Página
 $is_page = is_page();
 if ( $is_page ) {
