@@ -79,21 +79,18 @@
           "title": "Cidades Importantes",
           "name": "cidades_repeater",
           "type": "repeater",
-          "repeater-fields": [
+          "fields": [
             {
-              "id": 1009,
               "title": "Nome da Cidade",
               "name": "nome_cidade",
               "type": "text"
             },
             {
-              "id": 1010,
               "title": "Tipo / Porte",
               "name": "tipo_cidade",
               "type": "text"
             },
             {
-              "id": 1011,
               "title": "Descrição",
               "name": "descricao",
               "type": "textarea"
@@ -160,15 +157,13 @@
           "title": "Participantes da Sessão",
           "name": "participantes_repeater",
           "type": "repeater",
-          "repeater-fields": [
+          "fields": [
             {
-              "id": 1017,
               "title": "Nome do Personagem",
               "name": "nome_personagem",
               "type": "text"
             },
             {
-              "id": 1018,
               "title": "Jogador",
               "name": "jogador",
               "type": "text"
@@ -340,21 +335,19 @@
           "title": "Classes & Níveis",
           "name": "dnd35_classes",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1026,
+          "fields": [
             {
-              "id": 1027,
               "title": "Nome da Classe",
               "name": "nome_classe",
               "type": "text"
             },
             {
-              "id": 1028,
               "title": "Nível da Classe",
               "name": "nivel_classe",
               "type": "number"
             }
-          ],
-          "id": 1026
+          ]
         },
         {
           "title": "XP Atual (Experiência)",
@@ -416,15 +409,14 @@
           "title": "Força - Outros Modificadores",
           "name": "dnd35_for_outros",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1035,
+          "fields": [
             {
-              "id": 1036,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1037,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -460,13 +452,11 @@
               ]
             },
             {
-              "id": 1038,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1035
+          ]
         },
         {
           "title": "Destreza - Valor Base",
@@ -486,15 +476,14 @@
           "title": "Destreza - Outros Modificadores",
           "name": "dnd35_des_outros",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1041,
+          "fields": [
             {
-              "id": 1042,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1043,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -530,13 +519,11 @@
               ]
             },
             {
-              "id": 1044,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1041
+          ]
         },
         {
           "title": "Constituição - Valor Base",
@@ -556,15 +543,14 @@
           "title": "Constituição - Outros Modificadores",
           "name": "dnd35_con_outros",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1047,
+          "fields": [
             {
-              "id": 1048,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1049,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -600,13 +586,11 @@
               ]
             },
             {
-              "id": 1050,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1047
+          ]
         },
         {
           "title": "Inteligência - Valor Base",
@@ -626,15 +610,14 @@
           "title": "Inteligência - Outros Modificadores",
           "name": "dnd35_int_outros",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1053,
+          "fields": [
             {
-              "id": 1054,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1055,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -670,13 +653,11 @@
               ]
             },
             {
-              "id": 1056,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1053
+          ]
         },
         {
           "title": "Sabedoria - Valor Base",
@@ -696,15 +677,14 @@
           "title": "Sabedoria - Outros Modificadores",
           "name": "dnd35_sab_outros",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1059,
+          "fields": [
             {
-              "id": 1060,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1061,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -740,13 +720,11 @@
               ]
             },
             {
-              "id": 1062,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1059
+          ]
         },
         {
           "title": "Carisma - Valor Base",
@@ -766,15 +744,14 @@
           "title": "Carisma - Outros Modificadores",
           "name": "dnd35_car_outros",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1065,
+          "fields": [
             {
-              "id": 1066,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1067,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -810,13 +787,11 @@
               ]
             },
             {
-              "id": 1068,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1065
+          ]
         },
         {
           "title": "Pontos de Vida (PV)",
@@ -864,15 +839,14 @@
           "title": "Modificadores Variados de CA",
           "name": "dnd35_ca_variados",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1075,
+          "fields": [
             {
-              "id": 1076,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1077,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -908,53 +882,47 @@
               ]
             },
             {
-              "id": 1078,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1075
+          ]
         },
         {
           "title": "Bônus Base de Ataque (BBA)",
           "name": "dnd35_bba_repeater",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1079,
+          "fields": [
             {
-              "id": 1080,
               "title": "Bônus de BBA",
               "name": "bonus",
               "type": "number"
             },
             {
-              "id": 1081,
               "title": "Classe Origem",
               "name": "classe_origem",
               "type": "text"
             }
-          ],
-          "id": 1079
+          ]
         },
         {
           "title": "Fortitude - Base por Classe",
           "name": "dnd35_fort_base",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1082,
+          "fields": [
             {
-              "id": 1083,
               "title": "Bônus Base",
               "name": "bonus",
               "type": "number"
             },
             {
-              "id": 1084,
               "title": "Classe Origem",
               "name": "classe_origem",
               "type": "text"
             }
-          ],
-          "id": 1082
+          ]
         },
         {
           "title": "Fortitude - Atributo Chave",
@@ -994,15 +962,14 @@
           "title": "Fortitude - Modificadores Variados",
           "name": "dnd35_fort_variados",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1086,
+          "fields": [
             {
-              "id": 1087,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1088,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -1054,33 +1021,29 @@
               ]
             },
             {
-              "id": 1089,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1086
+          ]
         },
         {
           "title": "Reflexos - Base por Classe",
           "name": "dnd35_ref_base",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1090,
+          "fields": [
             {
-              "id": 1091,
               "title": "Bônus Base",
               "name": "bonus",
               "type": "number"
             },
             {
-              "id": 1092,
               "title": "Classe Origem",
               "name": "classe_origem",
               "type": "text"
             }
-          ],
-          "id": 1090
+          ]
         },
         {
           "title": "Reflexos - Atributo Chave",
@@ -1120,15 +1083,14 @@
           "title": "Reflexos - Modificadores Variados",
           "name": "dnd35_ref_variados",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1094,
+          "fields": [
             {
-              "id": 1095,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1096,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -1180,33 +1142,29 @@
               ]
             },
             {
-              "id": 1097,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1094
+          ]
         },
         {
           "title": "Vontade - Base por Classe",
           "name": "dnd35_von_base",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1098,
+          "fields": [
             {
-              "id": 1099,
               "title": "Bônus Base",
               "name": "bonus",
               "type": "number"
             },
             {
-              "id": 1100,
               "title": "Classe Origem",
               "name": "classe_origem",
               "type": "text"
             }
-          ],
-          "id": 1098
+          ]
         },
         {
           "title": "Vontade - Atributo Chave",
@@ -1246,15 +1204,14 @@
           "title": "Vontade - Modificadores Variados",
           "name": "dnd35_von_variados",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1102,
+          "fields": [
             {
-              "id": 1103,
               "title": "Valor do Bônus",
               "name": "valor",
               "type": "number"
             },
             {
-              "id": 1104,
               "title": "Tipo de Bônus",
               "name": "tipo",
               "type": "select",
@@ -1306,209 +1263,180 @@
               ]
             },
             {
-              "id": 1105,
               "title": "Origem do Bônus",
               "name": "origem",
               "type": "text"
             }
-          ],
-          "id": 1102
+          ]
         },
         {
           "title": "Armas",
           "name": "dnd35_armas",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1106,
+          "fields": [
             {
-              "id": 1107,
               "title": "Nome da Arma",
               "name": "nome_arma",
               "type": "text"
             },
             {
-              "id": 1108,
               "title": "Bônus de Ataque",
               "name": "bonus_ataque",
               "type": "text"
             },
             {
-              "id": 1109,
               "title": "Dano",
               "name": "dano",
               "type": "text"
             },
             {
-              "id": 1110,
               "title": "Decisivo (Crítico)",
               "name": "decisivo",
               "type": "text"
             },
             {
-              "id": 1111,
               "title": "Alcance",
               "name": "alcance",
               "type": "text"
             },
             {
-              "id": 1112,
               "title": "Peso",
               "name": "peso",
               "type": "text"
             },
             {
-              "id": 1113,
               "title": "Tipo de Dano",
               "name": "tipo_dano",
               "type": "text"
             },
             {
-              "id": 1114,
               "title": "Tamanho da Arma",
               "name": "tamanho",
               "type": "text"
             },
             {
-              "id": 1115,
               "title": "Propriedades Especiais",
               "name": "propriedades_especiais",
               "type": "text"
             },
             {
-              "id": 1116,
               "title": "Munição",
               "name": "municao",
               "type": "text"
             }
-          ],
-          "id": 1106
+          ]
         },
         {
           "title": "Armaduras",
           "name": "dnd35_armaduras",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1117,
+          "fields": [
             {
-              "id": 1118,
               "title": "Em Uso?",
               "name": "em_uso",
               "type": "switcher",
               "description": "Marque para equipar esta armadura"
             },
             {
-              "id": 1119,
               "title": "Tipo de Armadura",
               "name": "tipo_armadura",
               "type": "text"
             },
             {
-              "id": 1120,
               "title": "Bônus na CA",
               "name": "bonus_ca",
               "type": "number"
             },
             {
-              "id": 1121,
               "title": "Bônus Máx. de Destreza",
               "name": "bonus_max_des",
               "type": "number"
             },
             {
-              "id": 1122,
               "title": "Penalidade de Armadura",
               "name": "penalidade_armadura",
               "type": "number"
             },
             {
-              "id": 1123,
               "title": "Falha Arcana (%)",
               "name": "falha_arcana",
               "type": "number"
             },
             {
-              "id": 1124,
               "title": "Deslocamento",
               "name": "deslocamento",
               "type": "text"
             },
             {
-              "id": 1125,
               "title": "Peso",
               "name": "peso",
               "type": "text"
             },
             {
-              "id": 1126,
               "title": "Propriedades Especiais",
               "name": "propriedades_especiais",
               "type": "text"
             }
-          ],
-          "id": 1117
+          ]
         },
         {
           "title": "Escudos",
           "name": "dnd35_escudos",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1127,
+          "fields": [
             {
-              "id": 1128,
               "title": "Em Uso?",
               "name": "em_uso",
               "type": "switcher",
               "description": "Marque para equipar este escudo"
             },
             {
-              "id": 1129,
               "title": "Bônus na CA",
               "name": "bonus_ca",
               "type": "number"
             },
             {
-              "id": 1130,
               "title": "Penalidade de Armadura",
               "name": "penalidade_armadura",
               "type": "number"
             },
             {
-              "id": 1131,
               "title": "Falha Arcana (%)",
               "name": "falha_arcana",
               "type": "number"
             },
             {
-              "id": 1132,
               "title": "Peso",
               "name": "peso",
               "type": "text"
             },
             {
-              "id": 1133,
               "title": "Propriedades Especiais",
               "name": "propriedades_especiais",
               "type": "text"
             }
-          ],
-          "id": 1127
+          ]
         },
         {
           "title": "Perícias",
           "name": "dnd35_pericias",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1134,
+          "fields": [
             {
-              "id": 1135,
               "title": "Nome da Perícia",
               "name": "nome_pericia",
               "type": "text"
             },
             {
-              "id": 1136,
               "title": "Classe / Outra",
               "name": "classe_pericia",
               "type": "text"
             },
             {
-              "id": 1137,
               "title": "Atributo Chave",
               "name": "atributo_chave",
               "type": "select",
@@ -1544,25 +1472,21 @@
               ]
             },
             {
-              "id": 1138,
               "title": "Graduação (Nº ou Fração ex: 2.5)",
               "name": "graduacao",
               "type": "text"
             },
             {
-              "id": 1139,
               "title": "Modificadores Variados",
               "name": "variados",
               "type": "repeater",
-              "repeater-fields": [
+              "fields": [
                 {
-                  "id": 1140,
                   "title": "Valor do Bônus",
                   "name": "valor",
                   "type": "number"
                 },
                 {
-                  "id": 1141,
                   "title": "Tipo de Bônus",
                   "name": "tipo",
                   "type": "select",
@@ -1610,171 +1534,155 @@
                   ]
                 },
                 {
-                  "id": 1142,
                   "title": "Origem do Bônus",
                   "name": "origem",
                   "type": "text"
                 }
               ]
             }
-          ],
-          "id": 1134
+          ]
         },
         {
           "title": "Talentos",
           "name": "dnd35_talentos",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1143,
+          "fields": [
             {
-              "id": 1144,
               "title": "Nível Adquirido",
               "name": "nivel",
               "type": "number"
             },
             {
-              "id": 1145,
               "title": "Origem (Bônus/Classe/Racial)",
               "name": "origem",
               "type": "text"
             },
             {
-              "id": 1146,
               "title": "Descrição do Talento",
               "name": "descricao",
               "type": "textarea"
             },
             {
-              "id": 1147,
               "title": "Livro de Origem",
               "name": "livro",
               "type": "text"
             }
-          ],
-          "id": 1143
+          ]
         },
         {
           "title": "Traços Raciais",
           "name": "dnd35_tracos_raciais",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1148,
+          "fields": [
             {
-              "id": 1149,
               "title": "Habilidade / Traço Racial",
               "name": "descricao",
               "type": "textarea"
             }
-          ],
-          "id": 1148
+          ]
         },
         {
           "title": "Características de Classe",
           "name": "dnd35_caracteristicas_classe",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1150,
+          "fields": [
             {
-              "id": 1151,
               "title": "Classe",
               "name": "classe",
               "type": "text"
             },
             {
-              "id": 1152,
               "title": "Descrição da Habilidade",
               "name": "descricao",
               "type": "textarea"
             }
-          ],
-          "id": 1150
+          ]
         },
         {
           "title": "Equipamento",
           "name": "dnd35_equipamento",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1153,
+          "fields": [
             {
-              "id": 1154,
               "title": "Nome do Item",
               "name": "nome_item",
               "type": "text"
             },
             {
-              "id": 1155,
               "title": "Onde está guardado",
               "name": "local_guardado",
               "type": "text"
             }
-          ],
-          "id": 1153
+          ]
         },
         {
           "title": "Montaria",
           "name": "dnd35_montaria",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1156,
+          "fields": [
             {
-              "id": 1157,
               "title": "Informações da Montaria",
               "name": "dados_montaria",
               "type": "textarea"
             }
-          ],
-          "id": 1156
+          ]
         },
         {
           "title": "Familiar",
           "name": "dnd35_familiar",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1158,
+          "fields": [
             {
-              "id": 1159,
               "title": "Dados do Familiar",
               "name": "dados_familiar",
               "type": "textarea"
             }
-          ],
-          "id": 1158
+          ]
         },
         {
           "title": "Companheiro Animal",
           "name": "dnd35_companheiro_animal",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1160,
+          "fields": [
             {
-              "id": 1161,
               "title": "Dados do Companheiro Animal",
               "name": "dados_companheiro",
               "type": "textarea"
             }
-          ],
-          "id": 1160
+          ]
         },
         {
           "title": "Seguidor (Liderança)",
           "name": "dnd35_seguidor",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1162,
+          "fields": [
             {
-              "id": 1163,
               "title": "Dados do Seguidor",
               "name": "dados_seguidor",
               "type": "textarea"
             }
-          ],
-          "id": 1162
+          ]
         },
         {
           "title": "Bases & Fortalezas",
           "name": "dnd35_bases",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1164,
+          "fields": [
             {
-              "id": 1165,
               "title": "Dados da Base / Construção",
               "name": "dados_base",
               "type": "textarea"
             }
-          ],
-          "id": 1164
+          ]
         },
         {
           "title": "Recursos (Ouro, Joias, etc)",
@@ -1786,47 +1694,42 @@
           "title": "Grimório / Magias Conhecidas",
           "name": "dnd35_grimorio",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1167,
+          "fields": [
             {
-              "id": 1168,
               "title": "Dados da Magia Conhecida",
               "name": "dados_magia",
               "type": "textarea"
             }
-          ],
-          "id": 1167
+          ]
         },
         {
           "title": "Espaços de Magia",
           "name": "dnd35_espacos_magia",
           "type": "repeater",
-          "repeater-fields": [
+          "id": 1169,
+          "fields": [
             {
-              "id": 1170,
               "title": "Nível da Magia",
               "name": "nivel_magia",
               "type": "number"
             },
             {
-              "id": 1171,
               "title": "Classe de Dificuldade (CD)",
               "name": "cd",
               "type": "number"
             },
             {
-              "id": 1172,
               "title": "Origem da Magia",
               "name": "origem",
               "type": "text"
             },
             {
-              "id": 1173,
               "title": "Usos Diários",
               "name": "usos_diarios",
               "type": "number"
             }
-          ],
-          "id": 1169
+          ]
         },
         {
           "title": "Magias Decoradas",
