@@ -135,19 +135,27 @@ if ( $is_page ) {
 .character-img-box {
 	position: relative;
 	width: 100%;
-	height: 210px;
-	background: #0f1114;
+	height: 200px;
+	background: #0d0f12;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	border-bottom: 1px solid #2e353e;
 	overflow: hidden;
 }
 .character-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: top center;
-	transition: transform 0.4s ease;
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	border-radius: 6px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+	transition: transform 0.3s ease;
 }
 .character-card-wrap:hover .character-img {
-	transform: scale(1.05);
+	transform: scale(1.06);
 }
 .character-no-img {
 	display: flex;
@@ -323,7 +331,7 @@ if ( $is_page ) {
 				$xp_progress = ( $xp_range > 0 ) ? min( 100, max( 0, round( ( ( $xp_atual - $min_xp_for_lvl ) / $xp_range ) * 100 ) ) ) : 100;
 				?>
 
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 hall-card-item" 
+				<div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 hall-card-item" 
 					 data-status="<?php echo esc_attr( strtolower( $status ) ); ?>" 
 					 data-sistema="<?php echo esc_attr( strtolower( $sistema ) ); ?>"
 					 data-search="<?php echo esc_attr( strtolower( $nome . ' ' . $classes_str . ' ' . $raca ) ); ?>">
