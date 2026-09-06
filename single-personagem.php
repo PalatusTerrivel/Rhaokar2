@@ -156,7 +156,6 @@ if ( ! function_exists( 'rhaokar_dnd35_attribute_breakdown' ) ) {
 		$inerente_accumulated = 0;
 
 		if ( is_array( $outros ) && ! empty( $outros ) ) {
-			// Passo 1: Descobre o maior valor de cada tipo não-acumulativo
 			foreach ( $outros as $mod ) {
 				$val = intval( $mod['valor'] ?? 0 );
 				$type = strtolower( trim( $mod['tipo'] ?? 'sem_tipo' ) );
@@ -167,7 +166,6 @@ if ( ! function_exists( 'rhaokar_dnd35_attribute_breakdown' ) ) {
 				}
 			}
 
-			// Passo 2: Avalia cada item para definir status (Somado, Ignorado, Parcial)
 			$applied_max_types = array();
 
 			foreach ( $outros as $mod ) {
@@ -237,6 +235,70 @@ if ( ! function_exists( 'rhaokar_dnd35_attribute_breakdown' ) ) {
 							'valor'    => $val,
 							'status'   => 'ignored',
 							'motivo'   => "Ignorado: não acumula (já existe um bônus de {$type_name} igual ou maior na ficha).",
+							'efetivo'  => 0,
+						);
+					}
+				}
+			}
+		}
+
+		return $analysis;
+	}
+}
+
+/**
+ * Análise Detalhada dos Bônus da Perícia (Verifica quais são somados e quais são ignorados)
+ */
+if ( ! function_exists( 'rhaokar_dnd35_pericia_breakdown' ) ) {
+	function rhaokar_dnd35_pericia_breakdown( $variados ) {
+		$analysis = array();
+		$max_by_type = array();
+
+		if ( is_array( $variados ) && ! empty( $variados ) ) {
+			foreach ( $variados as $mod ) {
+				$val = floatval( $mod['valor'] ?? 0 );
+				$type = strtolower( trim( $mod['tipo'] ?? 'sem_tipo' ) );
+				if ( ! in_array( $type, array( 'circunstancia', 'sinergia', 'sem_tipo' ), true ) ) {
+					if ( ! isset( $max_by_type[ $type ] ) || $val > $max_by_type[ $type ] ) {
+						$max_by_type[ $type ] = $val;
+					}
+				}
+			}
+
+			$applied_max_types = array();
+			foreach ( $variados as $mod ) {
+				$val = floatval( $mod['valor'] ?? 0 );
+				$type = strtolower( trim( $mod['tipo'] ?? 'sem_tipo' ) );
+				$origem = ! empty( $mod['origem'] ) ? esc_html( $mod['origem'] ) : 'Não informada';
+				$type_name = ucfirst( $type );
+
+				if ( in_array( $type, array( 'circunstancia', 'sinergia', 'sem_tipo' ), true ) ) {
+					$analysis[] = array(
+						'origem'   => $origem,
+						'tipo'     => $type_name,
+						'valor'    => $val,
+						'status'   => 'applied',
+						'motivo'   => 'Acumula livremente com todos os bônus nesta perícia.',
+						'efetivo'  => $val,
+					);
+				} else {
+					if ( isset( $max_by_type[ $type ] ) && $val == $max_by_type[ $type ] && ! isset( $applied_max_types[ $type ] ) ) {
+						$applied_max_types[ $type ] = true;
+						$analysis[] = array(
+							'origem'   => $origem,
+							'tipo'     => $type_name,
+							'valor'    => $val,
+							'status'   => 'applied',
+							'motivo'   => 'Maior valor deste tipo de bônus.',
+							'efetivo'  => $val,
+						);
+					} else {
+						$analysis[] = array(
+							'origem'   => $origem,
+							'tipo'     => $type_name,
+							'valor'    => $val,
+							'status'   => 'ignored',
+							'motivo'   => "Ignorado: não acumula (já existe bônus {$type_name} igual ou maior nesta perícia).",
 							'efetivo'  => 0,
 						);
 					}
@@ -388,7 +450,6 @@ while ( have_posts() ) :
 
 	$saves_data = array();
 	foreach ( $saves_config as $s_key => $s_conf ) {
-		// Tenta puxar dnd35_fort_base ou fallback dnd35_fortitude_base
 		$base_raw = get_post_meta( $post_id, "dnd35_{$s_key}_base", true );
 		if ( empty( $base_raw ) ) {
 			$base_raw = get_post_meta( $post_id, "dnd35_{$s_conf['alt_key']}_base", true );
@@ -409,7 +470,6 @@ while ( have_posts() ) :
 			}
 		}
 
-		// Atributo Chave
 		$attr_key = get_post_meta( $post_id, "dnd35_{$s_key}_atributo", true );
 		if ( empty( $attr_key ) ) {
 			$attr_key = get_post_meta( $post_id, "dnd35_{$s_conf['alt_key']}_atributo", true );
@@ -419,7 +479,6 @@ while ( have_posts() ) :
 		}
 		$attr_mod = $attr_data[ $attr_key ]['mod'] ?? 0;
 
-		// Variados
 		$var_raw = get_post_meta( $post_id, "dnd35_{$s_key}_variados", true );
 		if ( empty( $var_raw ) ) {
 			$var_raw = get_post_meta( $post_id, "dnd35_{$s_conf['alt_key']}_variados", true );
@@ -459,7 +518,7 @@ while ( have_posts() ) :
 	?>
 
 <style>
-/* Estilos da Ficha de D&D 3.5 em Rhaokar */
+/* Estilos Failsafe da Ficha de D&D 3.5 em Rhaokar */
 .ficha-dnd35-container {
 	background: #141619;
 	color: #e0e6ed;
@@ -542,31 +601,95 @@ while ( have_posts() ) :
 	border-color: #2e353e;
 }
 .btn-attr-detail {
-	background: rgba(184, 134, 11, 0.15);
+	background: rgba(184, 134, 11, 0.2);
 	border: 1px solid #b8860b;
 	color: #ffd700;
-	font-size: 0.65rem;
-	padding: 2px 6px;
+	font-size: 0.7rem;
+	padding: 2px 7px;
 	border-radius: 4px;
 	transition: all 0.2s ease;
+	cursor: pointer;
 }
 .btn-attr-detail:hover {
 	background: #b8860b;
 	color: #111;
 	text-decoration: none;
 }
-.modal-dnd .modal-content {
-	background: #1a1e24;
-	color: #e0e6ed;
-	border: 2px solid #b8860b;
+
+/* MODAL SOBREPOSIÇÃO MODERNA E TOTALMENTE OCULTA POR PADRÃO */
+.rhaokar-modal-backdrop {
+	display: none !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	background: rgba(0, 0, 0, 0.85) !important;
+	z-index: 999999 !important;
+	align-items: center !important;
+	justify-content: center !important;
+	padding: 20px !important;
+	box-sizing: border-box !important;
 }
-.modal-dnd .modal-header {
-	border-bottom: 1px solid #3a424d;
+.rhaokar-modal-backdrop.rhaokar-open {
+	display: flex !important;
 }
-.modal-dnd .modal-footer {
-	border-top: 1px solid #3a424d;
+.rhaokar-modal-dialog {
+	background: #1e2228 !important;
+	color: #e0e6ed !important;
+	border: 2px solid #b8860b !important;
+	border-radius: 8px !important;
+	max-width: 780px !important;
+	width: 100% !important;
+	max-height: 85vh !important;
+	overflow-y: auto !important;
+	padding: 20px !important;
+	box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
+	position: relative !important;
+}
+.rhaokar-modal-header {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	border-bottom: 1px solid #3a424d !important;
+	padding-bottom: 10px !important;
+	margin-bottom: 15px !important;
+}
+.rhaokar-modal-close {
+	background: none !important;
+	border: none !important;
+	color: #ffd700 !important;
+	font-size: 1.6rem !important;
+	cursor: pointer !important;
+	line-height: 1 !important;
+}
+.rhaokar-modal-close:hover {
+	color: #ff4d4f !important;
 }
 </style>
+
+<script id="rhaokar-modal-toggle-script">
+function rhaokarOpenModal(id) {
+	var el = document.getElementById(id);
+	if (el) {
+		el.classList.add('rhaokar-open');
+		document.body.style.overflow = 'hidden';
+	}
+}
+function rhaokarCloseModal(id) {
+	var el = document.getElementById(id);
+	if (el) {
+		el.classList.remove('rhaokar-open');
+		document.body.style.overflow = '';
+	}
+}
+document.addEventListener('click', function(e) {
+	if (e.target && e.target.classList.contains('rhaokar-modal-backdrop')) {
+		e.target.classList.remove('rhaokar-open');
+		document.body.style.overflow = '';
+	}
+});
+</script>
 
 <div class="container ficha-dnd35-container">
 
@@ -637,7 +760,7 @@ while ( have_posts() ) :
 							<div class="d-flex align-items-center">
 								<span class="stat-val mr-2"><?php echo esc_html( $at['total'] ); ?></span>
 								<span class="stat-mod mr-2"><?php echo ( $at['mod'] >= 0 ? '+' : '' ) . esc_html( $at['mod'] ); ?></span>
-								<button type="button" class="btn-attr-detail" data-toggle="modal" data-target="#modal-attr-<?php echo esc_attr( $key ); ?>">
+								<button type="button" class="btn-attr-detail" onclick="rhaokarOpenModal('modal-attr-<?php echo esc_attr( $key ); ?>')">
 									🔍 Ver Bônus
 								</button>
 							</div>
@@ -645,83 +768,6 @@ while ( have_posts() ) :
 						<small class="text-muted d-block text-left" style="font-size: 0.7rem;">
 							Base: <?php echo $at['base']; ?> | Racial: <?php echo ( $at['racial'] >= 0 ? '+' : '' ) . $at['racial']; ?> | Outros Efetivos: <?php echo ( $at['total'] - $at['base'] - $at['racial'] >= 0 ? '+' : '' ) . ( $at['total'] - $at['base'] - $at['racial'] ); ?>
 						</small>
-					</div>
-
-					<!-- MODAL DE DETALHAMENTO DO ATRIBUTO -->
-					<div class="modal fade modal-dnd" id="modal-attr-<?php echo esc_attr( $key ); ?>" tabindex="-1" role="dialog" aria-hidden="true">
-						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title font-weight-bold text-warning">
-										<i class="dashicons dashicons-calculator"></i> Detalhamento de Bônus: <?php echo esc_html( $at['name'] ); ?>
-									</h5>
-									<button type="button" class="close text-light" data-dismiss="modal" aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="row text-center mb-3">
-										<div class="col-3">
-											<small class="text-muted d-block">BASE</small>
-											<strong class="h4 text-light"><?php echo esc_html( $at['base'] ); ?></strong>
-										</div>
-										<div class="col-3">
-											<small class="text-muted d-block">MOD. RACIAL</small>
-											<strong class="h4 text-info"><?php echo ( $at['racial'] >= 0 ? '+' : '' ) . esc_html( $at['racial'] ); ?></strong>
-										</div>
-										<div class="col-3">
-											<small class="text-muted d-block">TOTAL FINAL</small>
-											<strong class="h4 text-warning"><?php echo esc_html( $at['total'] ); ?></strong>
-										</div>
-										<div class="col-3">
-											<small class="text-muted d-block">MODIFICADOR</small>
-											<strong class="h4 text-success"><?php echo ( $at['mod'] >= 0 ? '+' : '' ) . esc_html( $at['mod'] ); ?></strong>
-										</div>
-									</div>
-
-									<h6 class="text-warning border-bottom border-secondary pb-1">Auditoria de Modificadores (Outros Bônus):</h6>
-									<?php if ( ! empty( $at['breakdown'] ) ) : ?>
-										<div class="table-responsive">
-											<table class="table table-dark table-striped table-sm mb-0 small">
-												<thead>
-													<tr>
-														<th>Origem</th>
-														<th>Tipo de Bônus</th>
-														<th>Valor</th>
-														<th>Status na Soma</th>
-														<th>Explicação da Regra</th>
-													</tr>
-												</thead>
-												<tbody>
-													<?php foreach ( $at['breakdown'] as $b_item ) : ?>
-														<tr>
-															<td><strong><?php echo esc_html( $b_item['origem'] ); ?></strong></td>
-															<td><?php echo esc_html( $b_item['tipo'] ); ?></td>
-															<td>+<?php echo esc_html( $b_item['valor'] ); ?></td>
-															<td>
-																<?php if ( $b_item['status'] === 'applied' ) : ?>
-																	<span class="badge badge-success">✅ SOMADO (+<?php echo $b_item['efetivo']; ?>)</span>
-																<?php elseif ( $b_item['status'] === 'partial' ) : ?>
-																	<span class="badge badge-warning">⚠️ PARCIAL (+<?php echo $b_item['efetivo']; ?> de +<?php echo $b_item['valor']; ?>)</span>
-																<?php else : ?>
-																	<span class="badge badge-danger">❌ IGNORADO (+0)</span>
-																<?php endif; ?>
-															</td>
-															<td class="text-muted"><?php echo esc_html( $b_item['motivo'] ); ?></td>
-														</tr>
-													<?php endforeach; ?>
-												</tbody>
-											</table>
-										</div>
-									<?php else : ?>
-										<em class="text-muted d-block my-2">Nenhum bônus adicional cadastrado para este atributo.</em>
-									<?php endif; ?>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-								</div>
-							</div>
-						</div>
 					</div>
 				<?php endforeach; ?>
 			</div>
@@ -866,17 +912,20 @@ while ( have_posts() ) :
 		</div>
 	<?php endif; ?>
 
-	<!-- PERÍCIAS -->
+	<!-- PERÍCIAS COM BOTÃO DE DETALHAMENTO -->
 	<?php if ( is_array( $pericias ) && ! empty( $pericias ) ) : ?>
 		<div class="ficha-box mt-3">
-			<div class="ficha-box-title">Perícias</div>
+			<div class="ficha-box-title d-flex justify-content-between align-items-center">
+				<span>Perícias</span>
+				<small class="text-muted" style="font-size: 0.65rem;">Clique em "Ver Bônus" nos variados</small>
+			</div>
 			<div class="table-responsive">
 				<table class="table table-dark table-striped table-dnd mb-0">
 					<thead>
 						<tr>
 							<th>Perícia</th>
 							<th>Classe</th>
-							<th>Atributo</th>
+							<th>Atributo Chave</th>
 							<th>Mod. Atrib.</th>
 							<th>Graduação</th>
 							<th>Outros Bônus</th>
@@ -884,7 +933,7 @@ while ( have_posts() ) :
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ( $pericias as $p ) : ?>
+						<?php foreach ( $pericias as $p_idx => $p ) : ?>
 							<?php
 							$p_nome = $p['nome_pericia'] ?? 'Perícia';
 							$p_classe = $p['classe_pericia'] ?? '-';
@@ -893,6 +942,7 @@ while ( have_posts() ) :
 							$p_grad = floatval( $p['graduacao'] ?? 0 );
 							$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array() );
 							$p_total = $p_attr_mod + $p_grad + $p_var;
+							$p_breakdown = rhaokar_dnd35_pericia_breakdown( $p['variados'] ?? array() );
 							?>
 							<tr>
 								<td><strong><?php echo esc_html( $p_nome ); ?></strong></td>
@@ -900,7 +950,14 @@ while ( have_posts() ) :
 								<td><?php echo esc_html( strtoupper( $p_attr_key ) ); ?></td>
 								<td><?php echo ( $p_attr_mod >= 0 ? '+' : '' ) . $p_attr_mod; ?></td>
 								<td><?php echo esc_html( $p_grad ); ?></td>
-								<td>+<?php echo esc_html( $p_var ); ?></td>
+								<td>
+									+<?php echo esc_html( $p_var ); ?>
+									<?php if ( ! empty( $p_breakdown ) ) : ?>
+										<button type="button" class="btn-attr-detail ml-1" onclick="rhaokarOpenModal('modal-pericia-<?php echo $p_idx; ?>')">
+											🔍 Ver Bônus
+										</button>
+									<?php endif; ?>
+								</td>
 								<td class="text-warning font-weight-bold" style="font-size: 1.1rem;">
 									<?php echo ( $p_total >= 0 ? '+' : '' ) . esc_html( $p_total ); ?>
 								</td>
@@ -1090,6 +1147,166 @@ while ( have_posts() ) :
 	</div>
 
 </div>
+
+<!-- MODAIS SOBREPOSTOS DE ATRIBUTOS (FORA DO FLUXO PRINCIPAL) -->
+<?php foreach ( $attr_data as $key => $at ) : ?>
+	<div class="rhaokar-modal-backdrop" id="modal-attr-<?php echo esc_attr( $key ); ?>">
+		<div class="rhaokar-modal-dialog">
+			<div class="rhaokar-modal-header">
+				<h5 class="m-0 font-weight-bold text-warning">
+					<i class="dashicons dashicons-calculator"></i> Detalhamento de Bônus: <?php echo esc_html( $at['name'] ); ?>
+				</h5>
+				<button type="button" class="rhaokar-modal-close" onclick="rhaokarCloseModal('modal-attr-<?php echo esc_attr( $key ); ?>')">&times;</button>
+			</div>
+			<div class="rhaokar-modal-body">
+				<div class="row text-center mb-3">
+					<div class="col-3">
+						<small class="text-muted d-block">BASE</small>
+						<strong class="h4 text-light"><?php echo esc_html( $at['base'] ); ?></strong>
+					</div>
+					<div class="col-3">
+						<small class="text-muted d-block">MOD. RACIAL</small>
+						<strong class="h4 text-info"><?php echo ( $at['racial'] >= 0 ? '+' : '' ) . esc_html( $at['racial'] ); ?></strong>
+					</div>
+					<div class="col-3">
+						<small class="text-muted d-block">TOTAL FINAL</small>
+						<strong class="h4 text-warning"><?php echo esc_html( $at['total'] ); ?></strong>
+					</div>
+					<div class="col-3">
+						<small class="text-muted d-block">MODIFICADOR</small>
+						<strong class="h4 text-success"><?php echo ( $at['mod'] >= 0 ? '+' : '' ) . esc_html( $at['mod'] ); ?></strong>
+					</div>
+				</div>
+
+				<h6 class="text-warning border-bottom border-secondary pb-1">Auditoria de Modificadores (Outros Bônus):</h6>
+				<?php if ( ! empty( $at['breakdown'] ) ) : ?>
+					<div class="table-responsive">
+						<table class="table table-dark table-striped table-sm mb-0 small">
+							<thead>
+								<tr>
+									<th>Origem</th>
+									<th>Tipo de Bônus</th>
+									<th>Valor Informado</th>
+									<th>Status na Soma</th>
+									<th>Explicação da Regra</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach ( $at['breakdown'] as $b_item ) : ?>
+									<tr>
+										<td><strong><?php echo esc_html( $b_item['origem'] ); ?></strong></td>
+										<td><?php echo esc_html( $b_item['tipo'] ); ?></td>
+										<td>+<?php echo esc_html( $b_item['valor'] ); ?></td>
+										<td>
+											<?php if ( $b_item['status'] === 'applied' ) : ?>
+												<span class="badge badge-success">✅ SOMADO (+<?php echo $b_item['efetivo']; ?>)</span>
+											<?php elseif ( $b_item['status'] === 'partial' ) : ?>
+												<span class="badge badge-warning">⚠️ PARCIAL (+<?php echo $b_item['efetivo']; ?> de +<?php echo $b_item['valor']; ?>)</span>
+											<?php else : ?>
+												<span class="badge badge-danger">❌ IGNORADO (+0)</span>
+											<?php endif; ?>
+										</td>
+										<td class="text-muted"><?php echo esc_html( $b_item['motivo'] ); ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
+				<?php else : ?>
+					<em class="text-muted d-block my-2">Nenhum bônus adicional cadastrado para este atributo.</em>
+				<?php endif; ?>
+			</div>
+			<div class="text-right mt-3">
+				<button type="button" class="btn btn-secondary btn-sm" onclick="rhaokarCloseModal('modal-attr-<?php echo esc_attr( $key ); ?>')">Fechar</button>
+			</div>
+		</div>
+	</div>
+<?php endforeach; ?>
+
+<!-- MODAIS SOBREPOSTOS DE PERÍCIAS (FORA DO FLUXO PRINCIPAL) -->
+<?php if ( is_array( $pericias ) && ! empty( $pericias ) ) : ?>
+	<?php foreach ( $pericias as $p_idx => $p ) : ?>
+		<?php
+		$p_nome = $p['nome_pericia'] ?? 'Perícia';
+		$p_classe = $p['classe_pericia'] ?? '-';
+		$p_attr_key = strtolower( trim( $p['atributo_chave'] ?? 'nenhum' ) );
+		$p_attr_mod = ( $p_attr_key !== 'nenhum' && isset( $attr_data[ $p_attr_key ] ) ) ? $attr_data[ $p_attr_key ]['mod'] : 0;
+		$p_grad = floatval( $p['graduacao'] ?? 0 );
+		$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array() );
+		$p_total = $p_attr_mod + $p_grad + $p_var;
+		$p_breakdown = rhaokar_dnd35_pericia_breakdown( $p['variados'] ?? array() );
+		?>
+		<div class="rhaokar-modal-backdrop" id="modal-pericia-<?php echo $p_idx; ?>">
+			<div class="rhaokar-modal-dialog">
+				<div class="rhaokar-modal-header">
+					<h5 class="m-0 font-weight-bold text-warning">
+						<i class="dashicons dashicons-calculator"></i> Detalhamento de Bônus: Perícia <?php echo esc_html( $p_nome ); ?>
+					</h5>
+					<button type="button" class="rhaokar-modal-close" onclick="rhaokarCloseModal('modal-pericia-<?php echo $p_idx; ?>')">&times;</button>
+				</div>
+				<div class="rhaokar-modal-body">
+					<div class="row text-center mb-3">
+						<div class="col-3">
+							<small class="text-muted d-block">GRADUAÇÃO</small>
+							<strong class="h4 text-light"><?php echo esc_html( $p_grad ); ?></strong>
+						</div>
+						<div class="col-3">
+							<small class="text-muted d-block">MOD. ATRIBUTO (<?php echo esc_html( strtoupper( $p_attr_key ) ); ?>)</small>
+							<strong class="h4 text-info"><?php echo ( $p_attr_mod >= 0 ? '+' : '' ) . esc_html( $p_attr_mod ); ?></strong>
+						</div>
+						<div class="col-3">
+							<small class="text-muted d-block">OUTROS BÔNUS</small>
+							<strong class="h4 text-warning">+<?php echo esc_html( $p_var ); ?></strong>
+						</div>
+						<div class="col-3">
+							<small class="text-muted d-block">TOTAL FINAL</small>
+							<strong class="h4 text-success"><?php echo ( $p_total >= 0 ? '+' : '' ) . esc_html( $p_total ); ?></strong>
+						</div>
+					</div>
+
+					<h6 class="text-warning border-bottom border-secondary pb-1">Auditoria de Bônus Variados nesta Perícia:</h6>
+					<?php if ( ! empty( $p_breakdown ) ) : ?>
+						<div class="table-responsive">
+							<table class="table table-dark table-striped table-sm mb-0 small">
+								<thead>
+									<tr>
+										<th>Origem</th>
+										<th>Tipo de Bônus</th>
+										<th>Valor Informado</th>
+										<th>Status na Soma</th>
+										<th>Explicação da Regra</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ( $p_breakdown as $b_item ) : ?>
+										<tr>
+											<td><strong><?php echo esc_html( $b_item['origem'] ); ?></strong></td>
+											<td><?php echo esc_html( $b_item['tipo'] ); ?></td>
+											<td>+<?php echo esc_html( $b_item['valor'] ); ?></td>
+											<td>
+												<?php if ( $b_item['status'] === 'applied' ) : ?>
+													<span class="badge badge-success">✅ SOMADO (+<?php echo $b_item['efetivo']; ?>)</span>
+												<?php else : ?>
+													<span class="badge badge-danger">❌ IGNORADO (+0)</span>
+												<?php endif; ?>
+											</td>
+											<td class="text-muted"><?php echo esc_html( $b_item['motivo'] ); ?></td>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+					<?php else : ?>
+						<em class="text-muted d-block my-2">Nenhum bônus variado cadastrado para esta perícia.</em>
+					<?php endif; ?>
+				</div>
+				<div class="text-right mt-3">
+					<button type="button" class="btn btn-secondary btn-sm" onclick="rhaokarCloseModal('modal-pericia-<?php echo $p_idx; ?>')">Fechar</button>
+				</div>
+			</div>
+		</div>
+	<?php endforeach; ?>
+<?php endif; ?>
 
 <?php
 endwhile;
