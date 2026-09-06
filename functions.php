@@ -257,8 +257,8 @@ function rhaokar_inject_rpg_spawner_script() {
 
 		var RACES_DATA = [
 			// Heroes / Special Characters
-			{ name: 'wrench', height: 110, time: 'any', file: 'wrench.gif', facing: 'right' },
-			{ name: 'svokalor', height: 110, time: 'any', file: 'svokalor.gif', facing: 'right' },
+			{ name: 'wrench', height: 78, time: 'any', file: 'wrench.gif', facing: 'right' },
+			{ name: 'svokalor', height: 78, time: 'any', file: 'svokalor.gif', facing: 'right' },
 			// Bearfolk (2.5m)
 			{ name: 'bearfolk', height: 160, time: 'any', file: 'bearfolk.gif', facing: 'right', offsetY: -5 },
 			// Orc (2.0m)
