@@ -340,12 +340,42 @@
             {
               "title": "Nome da Classe",
               "name": "nome_classe",
-              "type": "text"
+              "type": "text",
+              "id": "5001"
             },
             {
               "title": "Nível da Classe",
               "name": "nivel_classe",
-              "type": "number"
+              "type": "number",
+              "id": "5002"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome da Classe",
+              "name": "nome_classe",
+              "type": "text",
+              "id": "5001"
+            },
+            {
+              "title": "Nível da Classe",
+              "name": "nivel_classe",
+              "type": "number",
+              "id": "5002"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome da Classe",
+              "name": "nome_classe",
+              "type": "text",
+              "id": "5001"
+            },
+            {
+              "title": "Nível da Classe",
+              "name": "nivel_classe",
+              "type": "number",
+              "id": "5002"
             }
           ]
         },
@@ -414,7 +444,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5003"
             },
             {
               "title": "Tipo de Bônus",
@@ -449,12 +480,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5004"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5005"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5003"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5004"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5005"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5003"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5004"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5005"
             }
           ]
         },
@@ -481,7 +614,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5006"
             },
             {
               "title": "Tipo de Bônus",
@@ -516,12 +650,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5007"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5008"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5006"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5007"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5008"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5006"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5007"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5008"
             }
           ]
         },
@@ -548,7 +784,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5009"
             },
             {
               "title": "Tipo de Bônus",
@@ -583,12 +820,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5010"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5011"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5009"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5010"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5011"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5009"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5010"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5011"
             }
           ]
         },
@@ -615,7 +954,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5012"
             },
             {
               "title": "Tipo de Bônus",
@@ -650,12 +990,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5013"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5014"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5012"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5013"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5014"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5012"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5013"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5014"
             }
           ]
         },
@@ -682,7 +1124,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5015"
             },
             {
               "title": "Tipo de Bônus",
@@ -717,12 +1160,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5016"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5017"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5015"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5016"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5017"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5015"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5016"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5017"
             }
           ]
         },
@@ -749,7 +1294,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5018"
             },
             {
               "title": "Tipo de Bônus",
@@ -784,12 +1330,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5019"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5020"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5018"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5019"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5020"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5018"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "aprimoramento",
+                  "value": "Aprimoramento (maior valor)"
+                },
+                {
+                  "key": "inerente",
+                  "value": "Inerente (acumula até +5)"
+                },
+                {
+                  "key": "tamanho",
+                  "value": "Tamanho (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5019"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5020"
             }
           ]
         },
@@ -844,7 +1492,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5021"
             },
             {
               "title": "Tipo de Bônus",
@@ -879,12 +1528,114 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5022"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5023"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5021"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "esquiva",
+                  "value": "Esquiva (acumula tudo)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "cobertura",
+                  "value": "Cobertura (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5022"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5023"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5021"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "esquiva",
+                  "value": "Esquiva (acumula tudo)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "cobertura",
+                  "value": "Cobertura (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5022"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5023"
             }
           ]
         },
@@ -897,12 +1648,42 @@
             {
               "title": "Bônus de BBA",
               "name": "bonus",
-              "type": "number"
+              "type": "number",
+              "id": "5024"
             },
             {
               "title": "Classe Origem",
               "name": "classe_origem",
-              "type": "text"
+              "type": "text",
+              "id": "5025"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Bônus de BBA",
+              "name": "bonus",
+              "type": "number",
+              "id": "5024"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5025"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Bônus de BBA",
+              "name": "bonus",
+              "type": "number",
+              "id": "5024"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5025"
             }
           ]
         },
@@ -915,12 +1696,42 @@
             {
               "title": "Bônus Base",
               "name": "bonus",
-              "type": "number"
+              "type": "number",
+              "id": "5026"
             },
             {
               "title": "Classe Origem",
               "name": "classe_origem",
-              "type": "text"
+              "type": "text",
+              "id": "5027"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Bônus Base",
+              "name": "bonus",
+              "type": "number",
+              "id": "5026"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5027"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Bônus Base",
+              "name": "bonus",
+              "type": "number",
+              "id": "5026"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5027"
             }
           ]
         },
@@ -967,7 +1778,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5028"
             },
             {
               "title": "Tipo de Bônus",
@@ -1018,12 +1830,146 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5029"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5030"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5028"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "resistencia",
+                  "value": "Resistência (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "alquimico",
+                  "value": "Alquímico (maior valor)"
+                },
+                {
+                  "key": "competencia",
+                  "value": "Competência (maior valor)"
+                },
+                {
+                  "key": "circunstancia",
+                  "value": "Circunstância (maior valor)"
+                },
+                {
+                  "key": "racial",
+                  "value": "Racial (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5029"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5030"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5028"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "resistencia",
+                  "value": "Resistência (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "alquimico",
+                  "value": "Alquímico (maior valor)"
+                },
+                {
+                  "key": "competencia",
+                  "value": "Competência (maior valor)"
+                },
+                {
+                  "key": "circunstancia",
+                  "value": "Circunstância (maior valor)"
+                },
+                {
+                  "key": "racial",
+                  "value": "Racial (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5029"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5030"
             }
           ]
         },
@@ -1036,12 +1982,42 @@
             {
               "title": "Bônus Base",
               "name": "bonus",
-              "type": "number"
+              "type": "number",
+              "id": "5031"
             },
             {
               "title": "Classe Origem",
               "name": "classe_origem",
-              "type": "text"
+              "type": "text",
+              "id": "5032"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Bônus Base",
+              "name": "bonus",
+              "type": "number",
+              "id": "5031"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5032"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Bônus Base",
+              "name": "bonus",
+              "type": "number",
+              "id": "5031"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5032"
             }
           ]
         },
@@ -1088,7 +2064,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5033"
             },
             {
               "title": "Tipo de Bônus",
@@ -1139,12 +2116,146 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5034"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5035"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5033"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "resistencia",
+                  "value": "Resistência (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "alquimico",
+                  "value": "Alquímico (maior valor)"
+                },
+                {
+                  "key": "competencia",
+                  "value": "Competência (maior valor)"
+                },
+                {
+                  "key": "circunstancia",
+                  "value": "Circunstância (maior valor)"
+                },
+                {
+                  "key": "racial",
+                  "value": "Racial (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5034"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5035"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5033"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "resistencia",
+                  "value": "Resistência (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "alquimico",
+                  "value": "Alquímico (maior valor)"
+                },
+                {
+                  "key": "competencia",
+                  "value": "Competência (maior valor)"
+                },
+                {
+                  "key": "circunstancia",
+                  "value": "Circunstância (maior valor)"
+                },
+                {
+                  "key": "racial",
+                  "value": "Racial (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5034"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5035"
             }
           ]
         },
@@ -1157,12 +2268,42 @@
             {
               "title": "Bônus Base",
               "name": "bonus",
-              "type": "number"
+              "type": "number",
+              "id": "5036"
             },
             {
               "title": "Classe Origem",
               "name": "classe_origem",
-              "type": "text"
+              "type": "text",
+              "id": "5037"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Bônus Base",
+              "name": "bonus",
+              "type": "number",
+              "id": "5036"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5037"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Bônus Base",
+              "name": "bonus",
+              "type": "number",
+              "id": "5036"
+            },
+            {
+              "title": "Classe Origem",
+              "name": "classe_origem",
+              "type": "text",
+              "id": "5037"
             }
           ]
         },
@@ -1209,7 +2350,8 @@
             {
               "title": "Valor do Bônus",
               "name": "valor",
-              "type": "number"
+              "type": "number",
+              "id": "5038"
             },
             {
               "title": "Tipo de Bônus",
@@ -1260,12 +2402,146 @@
                   "key": "sem_tipo",
                   "value": "Sem Tipo (acumula tudo)"
                 }
-              ]
+              ],
+              "id": "5039"
             },
             {
               "title": "Origem do Bônus",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5040"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5038"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "resistencia",
+                  "value": "Resistência (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "alquimico",
+                  "value": "Alquímico (maior valor)"
+                },
+                {
+                  "key": "competencia",
+                  "value": "Competência (maior valor)"
+                },
+                {
+                  "key": "circunstancia",
+                  "value": "Circunstância (maior valor)"
+                },
+                {
+                  "key": "racial",
+                  "value": "Racial (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5039"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5040"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Valor do Bônus",
+              "name": "valor",
+              "type": "number",
+              "id": "5038"
+            },
+            {
+              "title": "Tipo de Bônus",
+              "name": "tipo",
+              "type": "select",
+              "options": [
+                {
+                  "key": "resistencia",
+                  "value": "Resistência (maior valor)"
+                },
+                {
+                  "key": "moral",
+                  "value": "Moral (maior valor)"
+                },
+                {
+                  "key": "sagrado",
+                  "value": "Sagrado (maior valor)"
+                },
+                {
+                  "key": "profano",
+                  "value": "Profano (maior valor)"
+                },
+                {
+                  "key": "sorte",
+                  "value": "Sorte (maior valor)"
+                },
+                {
+                  "key": "intuicao",
+                  "value": "Intuição (maior valor)"
+                },
+                {
+                  "key": "alquimico",
+                  "value": "Alquímico (maior valor)"
+                },
+                {
+                  "key": "competencia",
+                  "value": "Competência (maior valor)"
+                },
+                {
+                  "key": "circunstancia",
+                  "value": "Circunstância (maior valor)"
+                },
+                {
+                  "key": "racial",
+                  "value": "Racial (maior valor)"
+                },
+                {
+                  "key": "sem_tipo",
+                  "value": "Sem Tipo (acumula tudo)"
+                }
+              ],
+              "id": "5039"
+            },
+            {
+              "title": "Origem do Bônus",
+              "name": "origem",
+              "type": "text",
+              "id": "5040"
             }
           ]
         },
@@ -1278,52 +2554,132 @@
             {
               "title": "Nome da Arma",
               "name": "nome_arma",
-              "type": "text"
+              "type": "text",
+              "id": "5041"
             },
             {
               "title": "Bônus de Ataque",
               "name": "bonus_ataque",
-              "type": "text"
+              "type": "text",
+              "id": "5042"
             },
             {
               "title": "Dano",
               "name": "dano",
-              "type": "text"
+              "type": "text",
+              "id": "5043"
             },
             {
-              "title": "Decisivo (Crítico)",
+              "title": "Decisivo (Margem/Multiplicador)",
               "name": "decisivo",
-              "type": "text"
+              "type": "text",
+              "id": "5044"
             },
             {
               "title": "Alcance",
               "name": "alcance",
-              "type": "text"
-            },
-            {
-              "title": "Peso",
-              "name": "peso",
-              "type": "text"
+              "type": "text",
+              "id": "5045"
             },
             {
               "title": "Tipo de Dano",
               "name": "tipo_dano",
-              "type": "text"
+              "type": "text",
+              "id": "5046"
             },
             {
-              "title": "Tamanho da Arma",
-              "name": "tamanho",
-              "type": "text"
+              "title": "Notas / Propriedades",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5047"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome da Arma",
+              "name": "nome_arma",
+              "type": "text",
+              "id": "5041"
             },
             {
-              "title": "Propriedades Especiais",
-              "name": "propriedades_especiais",
-              "type": "text"
+              "title": "Bônus de Ataque",
+              "name": "bonus_ataque",
+              "type": "text",
+              "id": "5042"
             },
             {
-              "title": "Munição",
-              "name": "municao",
-              "type": "text"
+              "title": "Dano",
+              "name": "dano",
+              "type": "text",
+              "id": "5043"
+            },
+            {
+              "title": "Decisivo (Margem/Multiplicador)",
+              "name": "decisivo",
+              "type": "text",
+              "id": "5044"
+            },
+            {
+              "title": "Alcance",
+              "name": "alcance",
+              "type": "text",
+              "id": "5045"
+            },
+            {
+              "title": "Tipo de Dano",
+              "name": "tipo_dano",
+              "type": "text",
+              "id": "5046"
+            },
+            {
+              "title": "Notas / Propriedades",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5047"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome da Arma",
+              "name": "nome_arma",
+              "type": "text",
+              "id": "5041"
+            },
+            {
+              "title": "Bônus de Ataque",
+              "name": "bonus_ataque",
+              "type": "text",
+              "id": "5042"
+            },
+            {
+              "title": "Dano",
+              "name": "dano",
+              "type": "text",
+              "id": "5043"
+            },
+            {
+              "title": "Decisivo (Margem/Multiplicador)",
+              "name": "decisivo",
+              "type": "text",
+              "id": "5044"
+            },
+            {
+              "title": "Alcance",
+              "name": "alcance",
+              "type": "text",
+              "id": "5045"
+            },
+            {
+              "title": "Tipo de Dano",
+              "name": "tipo_dano",
+              "type": "text",
+              "id": "5046"
+            },
+            {
+              "title": "Notas / Propriedades",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5047"
             }
           ]
         },
@@ -1334,50 +2690,170 @@
           "id": 1117,
           "fields": [
             {
-              "title": "Em Uso?",
-              "name": "em_uso",
-              "type": "switcher",
-              "description": "Marque para equipar esta armadura"
+              "title": "Nome da Armadura",
+              "name": "nome_armadura",
+              "type": "text",
+              "id": "5048"
             },
             {
-              "title": "Tipo de Armadura",
-              "name": "tipo_armadura",
-              "type": "text"
-            },
-            {
-              "title": "Bônus na CA",
+              "title": "Bônus de CA",
               "name": "bonus_ca",
-              "type": "number"
+              "type": "number",
+              "id": "5049"
             },
             {
-              "title": "Bônus Máx. de Destreza",
+              "title": "Bônus Máximo de Destreza",
               "name": "bonus_max_des",
-              "type": "number"
+              "type": "number",
+              "id": "5050"
             },
             {
-              "title": "Penalidade de Armadura",
+              "title": "Penalidade em Perícia",
               "name": "penalidade_armadura",
-              "type": "number"
+              "type": "number",
+              "id": "5051"
             },
             {
-              "title": "Falha Arcana (%)",
-              "name": "falha_arcana",
-              "type": "number"
+              "title": "Falha de Magia Arcana (%)",
+              "name": "falha_magica",
+              "type": "text",
+              "id": "5052"
             },
             {
               "title": "Deslocamento",
               "name": "deslocamento",
-              "type": "text"
+              "type": "text",
+              "id": "5053"
             },
             {
-              "title": "Peso",
-              "name": "peso",
-              "type": "text"
+              "title": "Em Uso / Equipada?",
+              "name": "em_uso",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "1",
+                  "value": "Sim, esta armadura está equipada"
+                }
+              ],
+              "id": "5054"
             },
             {
-              "title": "Propriedades Especiais",
-              "name": "propriedades_especiais",
-              "type": "text"
+              "title": "Notas",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5055"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome da Armadura",
+              "name": "nome_armadura",
+              "type": "text",
+              "id": "5048"
+            },
+            {
+              "title": "Bônus de CA",
+              "name": "bonus_ca",
+              "type": "number",
+              "id": "5049"
+            },
+            {
+              "title": "Bônus Máximo de Destreza",
+              "name": "bonus_max_des",
+              "type": "number",
+              "id": "5050"
+            },
+            {
+              "title": "Penalidade em Perícia",
+              "name": "penalidade_armadura",
+              "type": "number",
+              "id": "5051"
+            },
+            {
+              "title": "Falha de Magia Arcana (%)",
+              "name": "falha_magica",
+              "type": "text",
+              "id": "5052"
+            },
+            {
+              "title": "Deslocamento",
+              "name": "deslocamento",
+              "type": "text",
+              "id": "5053"
+            },
+            {
+              "title": "Em Uso / Equipada?",
+              "name": "em_uso",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "1",
+                  "value": "Sim, esta armadura está equipada"
+                }
+              ],
+              "id": "5054"
+            },
+            {
+              "title": "Notas",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5055"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome da Armadura",
+              "name": "nome_armadura",
+              "type": "text",
+              "id": "5048"
+            },
+            {
+              "title": "Bônus de CA",
+              "name": "bonus_ca",
+              "type": "number",
+              "id": "5049"
+            },
+            {
+              "title": "Bônus Máximo de Destreza",
+              "name": "bonus_max_des",
+              "type": "number",
+              "id": "5050"
+            },
+            {
+              "title": "Penalidade em Perícia",
+              "name": "penalidade_armadura",
+              "type": "number",
+              "id": "5051"
+            },
+            {
+              "title": "Falha de Magia Arcana (%)",
+              "name": "falha_magica",
+              "type": "text",
+              "id": "5052"
+            },
+            {
+              "title": "Deslocamento",
+              "name": "deslocamento",
+              "type": "text",
+              "id": "5053"
+            },
+            {
+              "title": "Em Uso / Equipada?",
+              "name": "em_uso",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "1",
+                  "value": "Sim, esta armadura está equipada"
+                }
+              ],
+              "id": "5054"
+            },
+            {
+              "title": "Notas",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5055"
             }
           ]
         },
@@ -1388,35 +2864,134 @@
           "id": 1127,
           "fields": [
             {
-              "title": "Em Uso?",
-              "name": "em_uso",
-              "type": "switcher",
-              "description": "Marque para equipar este escudo"
+              "title": "Nome do Escudo",
+              "name": "nome_escudo",
+              "type": "text",
+              "id": "5056"
             },
             {
-              "title": "Bônus na CA",
+              "title": "Bônus de CA",
               "name": "bonus_ca",
-              "type": "number"
+              "type": "number",
+              "id": "5057"
             },
             {
-              "title": "Penalidade de Armadura",
+              "title": "Penalidade em Perícia",
               "name": "penalidade_armadura",
-              "type": "number"
+              "type": "number",
+              "id": "5058"
             },
             {
-              "title": "Falha Arcana (%)",
-              "name": "falha_arcana",
-              "type": "number"
+              "title": "Falha de Magia Arcana (%)",
+              "name": "falha_magica",
+              "type": "text",
+              "id": "5059"
             },
             {
-              "title": "Peso",
-              "name": "peso",
-              "type": "text"
+              "title": "Em Uso / Equipado?",
+              "name": "em_uso",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "1",
+                  "value": "Sim, este escudo está equipado"
+                }
+              ],
+              "id": "5060"
             },
             {
-              "title": "Propriedades Especiais",
-              "name": "propriedades_especiais",
-              "type": "text"
+              "title": "Notas",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5061"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome do Escudo",
+              "name": "nome_escudo",
+              "type": "text",
+              "id": "5056"
+            },
+            {
+              "title": "Bônus de CA",
+              "name": "bonus_ca",
+              "type": "number",
+              "id": "5057"
+            },
+            {
+              "title": "Penalidade em Perícia",
+              "name": "penalidade_armadura",
+              "type": "number",
+              "id": "5058"
+            },
+            {
+              "title": "Falha de Magia Arcana (%)",
+              "name": "falha_magica",
+              "type": "text",
+              "id": "5059"
+            },
+            {
+              "title": "Em Uso / Equipado?",
+              "name": "em_uso",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "1",
+                  "value": "Sim, este escudo está equipado"
+                }
+              ],
+              "id": "5060"
+            },
+            {
+              "title": "Notas",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5061"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome do Escudo",
+              "name": "nome_escudo",
+              "type": "text",
+              "id": "5056"
+            },
+            {
+              "title": "Bônus de CA",
+              "name": "bonus_ca",
+              "type": "number",
+              "id": "5057"
+            },
+            {
+              "title": "Penalidade em Perícia",
+              "name": "penalidade_armadura",
+              "type": "number",
+              "id": "5058"
+            },
+            {
+              "title": "Falha de Magia Arcana (%)",
+              "name": "falha_magica",
+              "type": "text",
+              "id": "5059"
+            },
+            {
+              "title": "Em Uso / Equipado?",
+              "name": "em_uso",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "1",
+                  "value": "Sim, este escudo está equipado"
+                }
+              ],
+              "id": "5060"
+            },
+            {
+              "title": "Notas",
+              "name": "notas",
+              "type": "textarea",
+              "id": "5061"
             }
           ]
         },
@@ -1429,12 +3004,14 @@
             {
               "title": "Nome da Perícia",
               "name": "nome_pericia",
-              "type": "text"
+              "type": "text",
+              "id": "5062"
             },
             {
               "title": "Classe / Outra",
               "name": "classe_pericia",
-              "type": "text"
+              "type": "text",
+              "id": "5063"
             },
             {
               "title": "Atributo Chave",
@@ -1470,22 +3047,164 @@
                   "value": "Carisma"
                 }
               ],
-              "default": "nenhum"
+              "default": "nenhum",
+              "id": "5064"
             },
             {
               "title": "Graduação (Nº ou Fração ex: 2.5)",
               "name": "graduacao",
-              "type": "text"
+              "type": "text",
+              "id": "5065"
             },
             {
               "title": "Outros Bônus (Valor)",
               "name": "outros_bonus",
-              "type": "number"
+              "type": "number",
+              "id": "5066"
             },
             {
               "title": "Origem do Bônus / Descrição",
               "name": "origem_bonus",
-              "type": "text"
+              "type": "text",
+              "id": "5067"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome da Perícia",
+              "name": "nome_pericia",
+              "type": "text",
+              "id": "5062"
+            },
+            {
+              "title": "Classe / Outra",
+              "name": "classe_pericia",
+              "type": "text",
+              "id": "5063"
+            },
+            {
+              "title": "Atributo Chave",
+              "name": "atributo_chave",
+              "type": "select",
+              "options": [
+                {
+                  "key": "nenhum",
+                  "value": "Nenhum"
+                },
+                {
+                  "key": "for",
+                  "value": "Força"
+                },
+                {
+                  "key": "des",
+                  "value": "Destreza"
+                },
+                {
+                  "key": "con",
+                  "value": "Constituição"
+                },
+                {
+                  "key": "int",
+                  "value": "Inteligência"
+                },
+                {
+                  "key": "sab",
+                  "value": "Sabedoria"
+                },
+                {
+                  "key": "car",
+                  "value": "Carisma"
+                }
+              ],
+              "default": "nenhum",
+              "id": "5064"
+            },
+            {
+              "title": "Graduação (Nº ou Fração ex: 2.5)",
+              "name": "graduacao",
+              "type": "text",
+              "id": "5065"
+            },
+            {
+              "title": "Outros Bônus (Valor)",
+              "name": "outros_bonus",
+              "type": "number",
+              "id": "5066"
+            },
+            {
+              "title": "Origem do Bônus / Descrição",
+              "name": "origem_bonus",
+              "type": "text",
+              "id": "5067"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome da Perícia",
+              "name": "nome_pericia",
+              "type": "text",
+              "id": "5062"
+            },
+            {
+              "title": "Classe / Outra",
+              "name": "classe_pericia",
+              "type": "text",
+              "id": "5063"
+            },
+            {
+              "title": "Atributo Chave",
+              "name": "atributo_chave",
+              "type": "select",
+              "options": [
+                {
+                  "key": "nenhum",
+                  "value": "Nenhum"
+                },
+                {
+                  "key": "for",
+                  "value": "Força"
+                },
+                {
+                  "key": "des",
+                  "value": "Destreza"
+                },
+                {
+                  "key": "con",
+                  "value": "Constituição"
+                },
+                {
+                  "key": "int",
+                  "value": "Inteligência"
+                },
+                {
+                  "key": "sab",
+                  "value": "Sabedoria"
+                },
+                {
+                  "key": "car",
+                  "value": "Carisma"
+                }
+              ],
+              "default": "nenhum",
+              "id": "5064"
+            },
+            {
+              "title": "Graduação (Nº ou Fração ex: 2.5)",
+              "name": "graduacao",
+              "type": "text",
+              "id": "5065"
+            },
+            {
+              "title": "Outros Bônus (Valor)",
+              "name": "outros_bonus",
+              "type": "number",
+              "id": "5066"
+            },
+            {
+              "title": "Origem do Bônus / Descrição",
+              "name": "origem_bonus",
+              "type": "text",
+              "id": "5067"
             }
           ]
         },
@@ -1496,24 +3215,80 @@
           "id": 1143,
           "fields": [
             {
-              "title": "Nível Adquirido",
-              "name": "nivel",
-              "type": "number"
+              "title": "Nome do Talento",
+              "name": "nome_talento",
+              "type": "text",
+              "id": "5068"
             },
             {
-              "title": "Origem (Bônus/Classe/Racial)",
+              "title": "Origem / Tipo",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5069"
             },
             {
-              "title": "Descrição do Talento",
+              "title": "Nível Obtido",
+              "name": "nivel",
+              "type": "text",
+              "id": "5070"
+            },
+            {
+              "title": "Descrição / Efeito",
               "name": "descricao",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5071"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome do Talento",
+              "name": "nome_talento",
+              "type": "text",
+              "id": "5068"
             },
             {
-              "title": "Livro de Origem",
-              "name": "livro",
-              "type": "text"
+              "title": "Origem / Tipo",
+              "name": "origem",
+              "type": "text",
+              "id": "5069"
+            },
+            {
+              "title": "Nível Obtido",
+              "name": "nivel",
+              "type": "text",
+              "id": "5070"
+            },
+            {
+              "title": "Descrição / Efeito",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5071"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome do Talento",
+              "name": "nome_talento",
+              "type": "text",
+              "id": "5068"
+            },
+            {
+              "title": "Origem / Tipo",
+              "name": "origem",
+              "type": "text",
+              "id": "5069"
+            },
+            {
+              "title": "Nível Obtido",
+              "name": "nivel",
+              "type": "text",
+              "id": "5070"
+            },
+            {
+              "title": "Descrição / Efeito",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5071"
             }
           ]
         },
@@ -1524,9 +3299,26 @@
           "id": 1148,
           "fields": [
             {
-              "title": "Habilidade / Traço Racial",
+              "title": "Descrição do Traço Racial",
               "name": "descricao",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5072"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Descrição do Traço Racial",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5072"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Descrição do Traço Racial",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5072"
             }
           ]
         },
@@ -1537,14 +3329,44 @@
           "id": 1150,
           "fields": [
             {
-              "title": "Classe",
+              "title": "Classe Origem",
               "name": "classe",
-              "type": "text"
+              "type": "text",
+              "id": "5073"
             },
             {
-              "title": "Descrição da Habilidade",
+              "title": "Descrição da Característica",
               "name": "descricao",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5074"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Classe Origem",
+              "name": "classe",
+              "type": "text",
+              "id": "5073"
+            },
+            {
+              "title": "Descrição da Característica",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5074"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Classe Origem",
+              "name": "classe",
+              "type": "text",
+              "id": "5073"
+            },
+            {
+              "title": "Descrição da Característica",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5074"
             }
           ]
         },
@@ -1557,12 +3379,78 @@
             {
               "title": "Nome do Item",
               "name": "nome_item",
-              "type": "text"
+              "type": "text",
+              "id": "5075"
             },
             {
-              "title": "Onde está guardado",
-              "name": "local_guardado",
-              "type": "text"
+              "title": "Quantidade",
+              "name": "quantidade",
+              "type": "number",
+              "id": "5076"
+            },
+            {
+              "title": "Peso (Kg/Lbs)",
+              "name": "peso",
+              "type": "text",
+              "id": "5077"
+            },
+            {
+              "title": "Descrição / Propriedades",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5078"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nome do Item",
+              "name": "nome_item",
+              "type": "text",
+              "id": "5075"
+            },
+            {
+              "title": "Quantidade",
+              "name": "quantidade",
+              "type": "number",
+              "id": "5076"
+            },
+            {
+              "title": "Peso (Kg/Lbs)",
+              "name": "peso",
+              "type": "text",
+              "id": "5077"
+            },
+            {
+              "title": "Descrição / Propriedades",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5078"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nome do Item",
+              "name": "nome_item",
+              "type": "text",
+              "id": "5075"
+            },
+            {
+              "title": "Quantidade",
+              "name": "quantidade",
+              "type": "number",
+              "id": "5076"
+            },
+            {
+              "title": "Peso (Kg/Lbs)",
+              "name": "peso",
+              "type": "text",
+              "id": "5077"
+            },
+            {
+              "title": "Descrição / Propriedades",
+              "name": "descricao",
+              "type": "textarea",
+              "id": "5078"
             }
           ]
         },
@@ -1573,9 +3461,26 @@
           "id": 1156,
           "fields": [
             {
-              "title": "Informações da Montaria",
+              "title": "Dados da Montaria",
               "name": "dados_montaria",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5079"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Dados da Montaria",
+              "name": "dados_montaria",
+              "type": "textarea",
+              "id": "5079"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Dados da Montaria",
+              "name": "dados_montaria",
+              "type": "textarea",
+              "id": "5079"
             }
           ]
         },
@@ -1588,7 +3493,24 @@
             {
               "title": "Dados do Familiar",
               "name": "dados_familiar",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5080"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Dados do Familiar",
+              "name": "dados_familiar",
+              "type": "textarea",
+              "id": "5080"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Dados do Familiar",
+              "name": "dados_familiar",
+              "type": "textarea",
+              "id": "5080"
             }
           ]
         },
@@ -1601,7 +3523,24 @@
             {
               "title": "Dados do Companheiro Animal",
               "name": "dados_companheiro",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5081"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Dados do Companheiro Animal",
+              "name": "dados_companheiro",
+              "type": "textarea",
+              "id": "5081"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Dados do Companheiro Animal",
+              "name": "dados_companheiro",
+              "type": "textarea",
+              "id": "5081"
             }
           ]
         },
@@ -1614,7 +3553,24 @@
             {
               "title": "Dados do Seguidor",
               "name": "dados_seguidor",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5082"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Dados do Seguidor",
+              "name": "dados_seguidor",
+              "type": "textarea",
+              "id": "5082"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Dados do Seguidor",
+              "name": "dados_seguidor",
+              "type": "textarea",
+              "id": "5082"
             }
           ]
         },
@@ -1627,7 +3583,24 @@
             {
               "title": "Dados da Base / Construção",
               "name": "dados_base",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5083"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Dados da Base / Construção",
+              "name": "dados_base",
+              "type": "textarea",
+              "id": "5083"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Dados da Base / Construção",
+              "name": "dados_base",
+              "type": "textarea",
+              "id": "5083"
             }
           ]
         },
@@ -1646,7 +3619,24 @@
             {
               "title": "Dados da Magia Conhecida",
               "name": "dados_magia",
-              "type": "textarea"
+              "type": "textarea",
+              "id": "5084"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Dados da Magia Conhecida",
+              "name": "dados_magia",
+              "type": "textarea",
+              "id": "5084"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Dados da Magia Conhecida",
+              "name": "dados_magia",
+              "type": "textarea",
+              "id": "5084"
             }
           ]
         },
@@ -1659,22 +3649,78 @@
             {
               "title": "Nível da Magia",
               "name": "nivel_magia",
-              "type": "number"
+              "type": "number",
+              "id": "5085"
             },
             {
               "title": "Classe de Dificuldade (CD)",
               "name": "cd",
-              "type": "number"
+              "type": "number",
+              "id": "5086"
             },
             {
               "title": "Origem da Magia",
               "name": "origem",
-              "type": "text"
+              "type": "text",
+              "id": "5087"
             },
             {
               "title": "Usos Diários",
               "name": "usos_diarios",
-              "type": "number"
+              "type": "number",
+              "id": "5088"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Nível da Magia",
+              "name": "nivel_magia",
+              "type": "number",
+              "id": "5085"
+            },
+            {
+              "title": "Classe de Dificuldade (CD)",
+              "name": "cd",
+              "type": "number",
+              "id": "5086"
+            },
+            {
+              "title": "Origem da Magia",
+              "name": "origem",
+              "type": "text",
+              "id": "5087"
+            },
+            {
+              "title": "Usos Diários",
+              "name": "usos_diarios",
+              "type": "number",
+              "id": "5088"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Nível da Magia",
+              "name": "nivel_magia",
+              "type": "number",
+              "id": "5085"
+            },
+            {
+              "title": "Classe de Dificuldade (CD)",
+              "name": "cd",
+              "type": "number",
+              "id": "5086"
+            },
+            {
+              "title": "Origem da Magia",
+              "name": "origem",
+              "type": "text",
+              "id": "5087"
+            },
+            {
+              "title": "Usos Diários",
+              "name": "usos_diarios",
+              "type": "number",
+              "id": "5088"
             }
           ]
         },
