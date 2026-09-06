@@ -433,4 +433,16 @@ function rhaokar_inject_rpg_spawner_script() {
 }
 add_action( 'wp_footer', 'rhaokar_inject_rpg_spawner_script', 999 );
 
+/**
+ * Shortcode [hall_dos_herois] para renderizar a galeria em qualquer página
+ */
+function rhaokar_shortcode_hall_dos_herois() {
+	ob_start();
+	include get_stylesheet_directory() . '/archive-personagem.php';
+	return ob_get_clean();
+}
+add_shortcode( 'hall_dos_herois', 'rhaokar_shortcode_hall_dos_herois' );
+add_shortcode( 'hall_personagens', 'rhaokar_shortcode_hall_dos_herois' );
+
+
 

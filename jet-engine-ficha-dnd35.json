@@ -73,6 +73,18 @@
           "width": "50%",
           "description": "Pontos de experiência atuais. (Não pode ser menor que o mínimo necessário para o nível acumulado do personagem)"
         },
+        {
+          "title": "Status do Personagem",
+          "name": "dnd35_status",
+          "type": "select",
+          "width": "50%",
+          "options": [
+            { "key": "ativo", "value": "Ativo" },
+            { "key": "aposentado", "value": "Aposentado" },
+            { "key": "morto", "value": "Morto" }
+          ],
+          "default": "ativo"
+        },
         { "title": "Descrição Física / Aparência", "name": "dnd35_descricao", "type": "textarea" },
         { "title": "Histórico / Background", "name": "dnd35_historico", "type": "textarea" },
 

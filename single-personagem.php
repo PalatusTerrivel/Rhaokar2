@@ -361,6 +361,7 @@ while ( have_posts() ) :
 	$classes_raw = get_post_meta( $post_id, 'dnd35_classes', true );
 	$descricao = get_post_meta( $post_id, 'dnd35_descricao', true );
 	$historico = get_post_meta( $post_id, 'dnd35_historico', true );
+	$status = get_post_meta( $post_id, 'dnd35_status', true ) ?: 'ativo';
 
 	// Nível Total e Lista de Classes
 	$nivel_total = 0;
@@ -758,6 +759,13 @@ document.addEventListener('click', function(e) {
 
 <div class="container ficha-dnd35-container">
 
+	<!-- BOTÃO DE VOLTAR AO HALL DOS HERÓIS E VILÕES -->
+	<div class="mb-3 text-left">
+		<a href="https://rhaokar.com.br/o-hall-dos-herois-e-viloes/" class="btn btn-outline-warning btn-sm shadow-sm" style="border-color: #b8860b; color: #ffd700; background: rgba(0,0,0,0.45); border-radius: 6px; padding: 6px 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+			<i class="dashicons dashicons-arrow-left-alt" style="font-size: 1.1rem; line-height: 1;"></i> Voltar ao Hall dos Heróis e Vilões
+		</a>
+	</div>
+
 	<?php if ( $sistema === 'pf1' ) : ?>
 		<!-- ALERTA DE SISTEMA PATHFINDER 1E SE SELECIONADO -->
 		<div class="alert alert-info">
@@ -779,9 +787,18 @@ document.addEventListener('click', function(e) {
 			<?php endif; ?>
 		</div>
 		<div class="col-md-9">
-			<div class="d-flex justify-content-between align-items-center">
+			<div class="d-flex justify-content-between align-items-center flex-wrap">
 				<h1 class="ficha-title mb-0"><?php echo esc_html( $nome ); ?></h1>
-				<span class="badge-dnd">D&D 3.5</span>
+				<div class="d-flex align-items-center" style="gap: 6px;">
+					<span class="badge-dnd"><?php echo ( $sistema === 'pf1' ) ? 'Pathfinder 1e' : 'D&D 3.5'; ?></span>
+					<?php if ( $status === 'morto' ) : ?>
+						<span class="badge badge-danger px-2 py-1" style="font-size: 0.75rem; font-weight: bold; background-color: #ff4d4f !important;">💀 MORTO</span>
+					<?php elseif ( $status === 'aposentado' ) : ?>
+						<span class="badge badge-warning px-2 py-1" style="font-size: 0.75rem; font-weight: bold; background-color: #faad14 !important; color: #111 !important;">🟡 APOSENTADO</span>
+					<?php else : ?>
+						<span class="badge badge-success px-2 py-1" style="font-size: 0.75rem; font-weight: bold; background-color: #52c41a !important;">🟢 ATIVO</span>
+					<?php endif; ?>
+				</div>
 			</div>
 			<p class="text-warning mb-2">
 				<strong><?php echo esc_html( $classes_str ?: 'Sem Classe' ); ?></strong> (Nível Total: <strong><?php echo esc_html( $nivel_total ); ?></strong>)
