@@ -66,6 +66,13 @@
             { "id": 102, "title": "Nível da Classe", "name": "nivel_classe", "type": "number" }
           ]
         },
+        {
+          "title": "XP Atual (Experiência)",
+          "name": "dnd35_xpatual",
+          "type": "number",
+          "width": "50%",
+          "description": "Pontos de experiência atuais. (Não pode ser menor que o mínimo necessário para o nível acumulado do personagem)"
+        },
         { "title": "Descrição Física / Aparência", "name": "dnd35_descricao", "type": "textarea" },
         { "title": "Histórico / Background", "name": "dnd35_historico", "type": "textarea" },
 

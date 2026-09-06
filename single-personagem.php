@@ -66,6 +66,18 @@ if ( ! function_exists( 'rhaokar_dnd35_size_mod' ) ) {
 	}
 }
 
+/**
+ * Tabela Oficial de XP D&D 3.5: XP(N) = N * (N - 1) / 2 * 1000
+ */
+if ( ! function_exists( 'rhaokar_dnd35_xp_for_level' ) ) {
+	function rhaokar_dnd35_xp_for_level( $level ) {
+		if ( $level <= 1 ) {
+			return 0;
+		}
+		return (int) ( ( $level * ( $level - 1 ) / 2 ) * 1000 );
+	}
+}
+
 if ( ! function_exists( 'rhaokar_dnd35_ca_variados' ) ) {
 	function rhaokar_dnd35_ca_variados( $variados ) {
 		if ( ! is_array( $variados ) || empty( $variados ) ) {
@@ -347,6 +359,23 @@ while ( have_posts() ) :
 		}
 	}
 	$classes_str = implode( ' / ', $classes_str_arr );
+
+	// CÁLCULO E VALIDAÇÃO DE XP (D&D 3.5)
+	$lvl_for_xp = max( 1, $nivel_total );
+	$min_xp_for_lvl = rhaokar_dnd35_xp_for_level( $lvl_for_xp );
+	$next_lvl_xp = rhaokar_dnd35_xp_for_level( $lvl_for_xp + 1 );
+
+	$raw_xp = get_post_meta( $post_id, 'dnd35_xpatual', true );
+	$xp_atual = ( $raw_xp !== '' && $raw_xp !== false ) ? intval( $raw_xp ) : $min_xp_for_lvl;
+
+	// Regra: O XP não pode ser menor que o mínimo necessário para o nível total acumulado do personagem
+	if ( $xp_atual < $min_xp_for_lvl ) {
+		$xp_atual = $min_xp_for_lvl;
+	}
+
+	$xp_needed = max( 0, $next_lvl_xp - $xp_atual );
+	$xp_range = $next_lvl_xp - $min_xp_for_lvl;
+	$xp_progress = ( $xp_range > 0 ) ? min( 100, max( 0, round( ( ( $xp_atual - $min_xp_for_lvl ) / $xp_range ) * 100 ) ) ) : 100;
 
 	// ATRIBUTOS (For, Des, Con, Int, Sab, Car)
 	$attrs = array( 'for', 'des', 'con', 'int', 'sab', 'car' );
@@ -719,9 +748,31 @@ document.addEventListener('click', function(e) {
 				<h1 class="ficha-title mb-0"><?php echo esc_html( $nome ); ?></h1>
 				<span class="badge-dnd">D&D 3.5</span>
 			</div>
-			<p class="text-warning mb-2"><strong><?php echo esc_html( $classes_str ?: 'Sem Classe' ); ?></strong> (Nível Total: <strong><?php echo esc_html( $nivel_total ); ?></strong>)</p>
-			
-			<div class="row mt-3">
+			<p class="text-warning mb-2">
+				<strong><?php echo esc_html( $classes_str ?: 'Sem Classe' ); ?></strong> (Nível Total: <strong><?php echo esc_html( $nivel_total ); ?></strong>)
+			</p>
+
+			<!-- BARRA E DETALHES DE PONTOS DE EXPERIÊNCIA (XP) -->
+			<div class="p-2 bg-dark rounded border border-secondary mb-3">
+				<div class="d-flex justify-content-between align-items-center mb-1 flex-wrap small">
+					<span class="mr-2">
+						<strong class="text-warning">XP ATUAL:</strong>
+						<span class="text-light font-weight-bold" style="font-size: 1.05rem;"><?php echo number_format( $xp_atual, 0, ',', '.' ); ?> XP</span>
+					</span>
+					<span class="mr-2">
+						<strong class="text-info">PRÓXIMO NÍVEL (Nível <?php echo $lvl_for_xp + 1; ?>):</strong>
+						<span><?php echo number_format( $next_lvl_xp, 0, ',', '.' ); ?> XP</span>
+					</span>
+					<span class="badge badge-warning py-1 px-2">
+						Faltam <?php echo number_format( $xp_needed, 0, ',', '.' ); ?> XP
+					</span>
+				</div>
+				<div class="progress" style="height: 10px; background-color: #252a32; border-radius: 5px;">
+					<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $xp_progress; ?>%;" aria-valuenow="<?php echo $xp_progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			</div>
+
+			<div class="row">
 				<div class="col-6 col-md-3 mb-2">
 					<small class="text-muted d-block">RAÇA</small>
 					<strong><?php echo esc_html( $raca ?: '-' ); ?></strong>

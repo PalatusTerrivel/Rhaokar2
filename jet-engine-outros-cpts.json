@@ -157,6 +157,13 @@
             { "id": 5102, "title": "Nível da Classe", "name": "nivel_classe", "type": "number" }
           ]
         },
+        {
+          "title": "XP Atual (Experiência)",
+          "name": "dnd35_xpatual",
+          "type": "number",
+          "width": "50%",
+          "description": "Pontos de experiência atuais. (Não pode ser menor que o mínimo necessário para o nível acumulado do personagem)"
+        },
         { "title": "Descrição Física / Aparência", "name": "dnd35_descricao", "type": "textarea" },
         { "title": "Histórico / Background", "name": "dnd35_historico", "type": "textarea" },
 
@@ -733,7 +740,7 @@
           "name": "dnd35_grimorio",
           "type": "repeater",
           "repeater-fields": [
-            { "id": 6901, "title": "Dados da Magia Conhecida", "name": "dados_magia", "type": "textarea" }
+            { "id": 1901, "title": "Dados da Magia Conhecida", "name": "dados_magia", "type": "textarea" }
           ]
         },
 
@@ -742,10 +749,10 @@
           "name": "dnd35_espacos_magia",
           "type": "repeater",
           "repeater-fields": [
-            { "id": 7001, "title": "Nível da Magia", "name": "nivel_magia", "type": "number" },
-            { "id": 7002, "title": "Classe de Dificuldade (CD)", "name": "cd", "type": "number" },
-            { "id": 7003, "title": "Origem da Magia", "name": "origem", "type": "text" },
-            { "id": 7004, "title": "Usos Diários", "name": "usos_diarios", "type": "number" }
+            { "id": 2001, "title": "Nível da Magia", "name": "nivel_magia", "type": "number" },
+            { "id": 2002, "title": "Classe de Dificuldade (CD)", "name": "cd", "type": "number" },
+            { "id": 2003, "title": "Origem da Magia", "name": "origem", "type": "text" },
+            { "id": 2004, "title": "Usos Diários", "name": "usos_diarios", "type": "number" }
           ]
         },
 
