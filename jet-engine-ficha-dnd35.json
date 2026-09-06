@@ -200,6 +200,36 @@
           "id": 1011
         },
         {
+          "title": "Trilha de XP (Pathfinder 1e)",
+          "name": "pf1_xp_tabela",
+          "type": "select",
+          "width": "50%",
+          "options": [
+            {
+              "key": "rapido",
+              "value": "Rápido (Fast)"
+            },
+            {
+              "key": "normal",
+              "value": "Normal"
+            },
+            {
+              "key": "lento",
+              "value": "Lento (Slow)"
+            }
+          ],
+          "default": "normal",
+          "description": "Selecione a tabela de evolução de XP para o Pathfinder 1e",
+          "conditional_logic": [
+            {
+              "field": "sistema_personagem",
+              "operator": "equal",
+              "value": "pf1"
+            }
+          ],
+          "id": 1012
+        },
+        {
           "title": "Status do Personagem",
           "name": "dnd35_status",
           "type": "select",
@@ -1452,6 +1482,19 @@
           ]
         },
         {
+          "title": "Iniciativa: Bônus Variados",
+          "name": "dnd35_iniciativa_variados",
+          "type": "number",
+          "default": "0",
+          "id": 1058
+        },
+        {
+          "title": "Iniciativa: Descrição dos Bônus Variados (Ex: Talentos, Habilidades de Classe, Itens)",
+          "name": "dnd35_iniciativa_variados_descricao",
+          "type": "text",
+          "id": 1059
+        },
+        {
           "title": "Bônus Base de Ataque (BBA)",
           "name": "dnd35_bba_repeater",
           "type": "repeater",
@@ -1498,6 +1541,60 @@
               "id": "5025"
             }
           ]
+        },
+        {
+          "title": "CMB: Bônus Variados (Pathfinder 1e)",
+          "name": "pf1_cmb_variados",
+          "type": "number",
+          "default": "0",
+          "conditional_logic": [
+            {
+              "field": "sistema_personagem",
+              "operator": "equal",
+              "value": "pf1"
+            }
+          ],
+          "id": 1062
+        },
+        {
+          "title": "CMB: Descrição dos Bônus Variados (Ex: Talentos, Itens)",
+          "name": "pf1_cmb_variados_descricao",
+          "type": "text",
+          "conditional_logic": [
+            {
+              "field": "sistema_personagem",
+              "operator": "equal",
+              "value": "pf1"
+            }
+          ],
+          "id": 1063
+        },
+        {
+          "title": "CMD: Bônus Variados (Pathfinder 1e)",
+          "name": "pf1_cmd_variados",
+          "type": "number",
+          "default": "0",
+          "conditional_logic": [
+            {
+              "field": "sistema_personagem",
+              "operator": "equal",
+              "value": "pf1"
+            }
+          ],
+          "id": 1065
+        },
+        {
+          "title": "CMD: Descrição dos Bônus Variados (Ex: Talentos, Itens)",
+          "name": "pf1_cmd_variados_descricao",
+          "type": "text",
+          "conditional_logic": [
+            {
+              "field": "sistema_personagem",
+              "operator": "equal",
+              "value": "pf1"
+            }
+          ],
+          "id": 1066
         },
         {
           "title": "Fortitude - Base por Classe",
@@ -2826,6 +2923,18 @@
               "id": "5063"
             },
             {
+              "title": "Perícia de Classe (PF1e: +3 de bônus se tiver graduação)",
+              "name": "e_classe",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "sim",
+                  "value": "É Perícia de Classe"
+                }
+              ],
+              "id": "5097"
+            },
+            {
               "title": "Atributo Chave",
               "name": "atributo_chave",
               "type": "select",
@@ -2893,6 +3002,18 @@
               "name": "classe_pericia",
               "type": "text",
               "id": "5063"
+            },
+            {
+              "title": "Perícia de Classe (PF1e: +3 de bônus se tiver graduação)",
+              "name": "e_classe",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "sim",
+                  "value": "É Perícia de Classe"
+                }
+              ],
+              "id": "5097"
             },
             {
               "title": "Atributo Chave",
@@ -2964,6 +3085,18 @@
               "id": "5063"
             },
             {
+              "title": "Perícia de Classe (PF1e: +3 de bônus se tiver graduação)",
+              "name": "e_classe",
+              "type": "checkbox",
+              "options": [
+                {
+                  "key": "sim",
+                  "value": "É Perícia de Classe"
+                }
+              ],
+              "id": "5097"
+            },
+            {
               "title": "Atributo Chave",
               "name": "atributo_chave",
               "type": "select",
@@ -3017,6 +3150,54 @@
               "name": "origem_bonus",
               "type": "text",
               "id": "5067"
+            }
+          ]
+        },
+        {
+          "title": "Idiomas Conhecidos",
+          "name": "dnd35_idiomas",
+          "type": "repeater",
+          "id": 1124,
+          "fields": [
+            {
+              "title": "Idioma",
+              "name": "idioma",
+              "type": "text",
+              "id": "5095"
+            },
+            {
+              "title": "Origem do Idioma (Ex: Bônus de INT, Perícia, Traço Racial, Classe, Item)",
+              "name": "origem",
+              "type": "text",
+              "id": "5096"
+            }
+          ],
+          "repeater-fields": [
+            {
+              "title": "Idioma",
+              "name": "idioma",
+              "type": "text",
+              "id": "5095"
+            },
+            {
+              "title": "Origem do Idioma (Ex: Bônus de INT, Perícia, Traço Racial, Classe, Item)",
+              "name": "origem",
+              "type": "text",
+              "id": "5096"
+            }
+          ],
+          "repeater_fields": [
+            {
+              "title": "Idioma",
+              "name": "idioma",
+              "type": "text",
+              "id": "5095"
+            },
+            {
+              "title": "Origem do Idioma (Ex: Bônus de INT, Perícia, Traço Racial, Classe, Item)",
+              "name": "origem",
+              "type": "text",
+              "id": "5096"
             }
           ]
         },
@@ -3207,6 +3388,43 @@
               "id": "5077"
             },
             {
+              "title": "Status do Item",
+              "name": "status_item",
+              "type": "select",
+              "options": [
+                { "key": "guardado", "value": "Guardado (Mochila / Inventário)" },
+                { "key": "equipado", "value": "Equipado" }
+              ],
+              "default": "guardado",
+              "id": "5079"
+            },
+            {
+              "title": "Slot de Item Equipado",
+              "name": "slot_item",
+              "type": "select",
+              "options": [
+                { "key": "cabeca", "value": "1 Cabeça (Head)" },
+                { "key": "rosto_olhos", "value": "1 Rosto/Olhos (Face/Eyes)" },
+                { "key": "garganta", "value": "1 Garganta (Throat)" },
+                { "key": "ombros", "value": "1 Ombros (Shoulders)" },
+                { "key": "torso", "value": "1 Torso" },
+                { "key": "corpo", "value": "1 Corpo (Body)" },
+                { "key": "cintura", "value": "1 Cintura (Waist)" },
+                { "key": "bracos", "value": "1 Braços (Arms)" },
+                { "key": "maos", "value": "1 Mãos (Hands)" },
+                { "key": "aneis", "value": "Anéis (Rings)" },
+                { "key": "pes", "value": "1 Pés (Feet)" },
+                { "key": "nao_ocupa_slot", "value": "Sem Slot / Não Ocupa Slot (Slotless)" }
+              ],
+              "id": "5080"
+            },
+            {
+              "title": "Local Guardado",
+              "name": "local_guardado",
+              "type": "text",
+              "id": "5081"
+            },
+            {
               "title": "Descrição / Propriedades",
               "name": "descricao",
               "type": "textarea",
@@ -3231,6 +3449,43 @@
               "name": "peso",
               "type": "text",
               "id": "5077"
+            },
+            {
+              "title": "Status do Item",
+              "name": "status_item",
+              "type": "select",
+              "options": [
+                { "key": "guardado", "value": "Guardado (Mochila / Inventário)" },
+                { "key": "equipado", "value": "Equipado" }
+              ],
+              "default": "guardado",
+              "id": "5079"
+            },
+            {
+              "title": "Slot de Item Equipado",
+              "name": "slot_item",
+              "type": "select",
+              "options": [
+                { "key": "cabeca", "value": "1 Cabeça (Head)" },
+                { "key": "rosto_olhos", "value": "1 Rosto/Olhos (Face/Eyes)" },
+                { "key": "garganta", "value": "1 Garganta (Throat)" },
+                { "key": "ombros", "value": "1 Ombros (Shoulders)" },
+                { "key": "torso", "value": "1 Torso" },
+                { "key": "corpo", "value": "1 Corpo (Body)" },
+                { "key": "cintura", "value": "1 Cintura (Waist)" },
+                { "key": "bracos", "value": "1 Braços (Arms)" },
+                { "key": "maos", "value": "1 Mãos (Hands)" },
+                { "key": "aneis", "value": "Anéis (Rings)" },
+                { "key": "pes", "value": "1 Pés (Feet)" },
+                { "key": "nao_ocupa_slot", "value": "Sem Slot / Não Ocupa Slot (Slotless)" }
+              ],
+              "id": "5080"
+            },
+            {
+              "title": "Local Guardado",
+              "name": "local_guardado",
+              "type": "text",
+              "id": "5081"
             },
             {
               "title": "Descrição / Propriedades",
@@ -3259,6 +3514,43 @@
               "id": "5077"
             },
             {
+              "title": "Status do Item",
+              "name": "status_item",
+              "type": "select",
+              "options": [
+                { "key": "guardado", "value": "Guardado (Mochila / Inventário)" },
+                { "key": "equipado", "value": "Equipado" }
+              ],
+              "default": "guardado",
+              "id": "5079"
+            },
+            {
+              "title": "Slot de Item Equipado",
+              "name": "slot_item",
+              "type": "select",
+              "options": [
+                { "key": "cabeca", "value": "1 Cabeça (Head)" },
+                { "key": "rosto_olhos", "value": "1 Rosto/Olhos (Face/Eyes)" },
+                { "key": "garganta", "value": "1 Garganta (Throat)" },
+                { "key": "ombros", "value": "1 Ombros (Shoulders)" },
+                { "key": "torso", "value": "1 Torso" },
+                { "key": "corpo", "value": "1 Corpo (Body)" },
+                { "key": "cintura", "value": "1 Cintura (Waist)" },
+                { "key": "bracos", "value": "1 Braços (Arms)" },
+                { "key": "maos", "value": "1 Mãos (Hands)" },
+                { "key": "aneis", "value": "Anéis (Rings)" },
+                { "key": "pes", "value": "1 Pés (Feet)" },
+                { "key": "nao_ocupa_slot", "value": "Sem Slot / Não Ocupa Slot (Slotless)" }
+              ],
+              "id": "5080"
+            },
+            {
+              "title": "Local Guardado",
+              "name": "local_guardado",
+              "type": "text",
+              "id": "5081"
+            },
+            {
               "title": "Descrição / Propriedades",
               "name": "descricao",
               "type": "textarea",
@@ -3267,122 +3559,75 @@
           ]
         },
         {
-          "title": "Montaria",
-          "name": "dnd35_montaria",
+          "title": "Qtd. Talentos Extra Rings",
+          "name": "dnd35_extra_rings_qtd",
+          "type": "number",
+          "default": "0",
+          "id": 1136
+        },
+        {
+          "title": "Companheiros & Aliados",
+          "name": "dnd35_companheiros",
           "type": "repeater",
           "id": 1138,
           "fields": [
             {
-              "title": "Dados da Montaria",
-              "name": "dados_montaria",
-              "type": "textarea",
+              "title": "Nome do Companheiro",
+              "name": "nome_companheiro",
+              "type": "text",
               "id": "5079"
-            }
-          ],
-          "repeater-fields": [
+            },
             {
-              "title": "Dados da Montaria",
-              "name": "dados_montaria",
-              "type": "textarea",
-              "id": "5079"
-            }
-          ],
-          "repeater_fields": [
-            {
-              "title": "Dados da Montaria",
-              "name": "dados_montaria",
-              "type": "textarea",
-              "id": "5079"
-            }
-          ]
-        },
-        {
-          "title": "Familiar",
-          "name": "dnd35_familiar",
-          "type": "repeater",
-          "id": 1140,
-          "fields": [
-            {
-              "title": "Dados do Familiar",
-              "name": "dados_familiar",
-              "type": "textarea",
+              "title": "Origem / Tipo (Ex: Montaria, Familiar, Companheiro Animal, Seguidor)",
+              "name": "origem_companheiro",
+              "type": "text",
               "id": "5080"
-            }
-          ],
-          "repeater-fields": [
+            },
             {
-              "title": "Dados do Familiar",
-              "name": "dados_familiar",
-              "type": "textarea",
-              "id": "5080"
-            }
-          ],
-          "repeater_fields": [
-            {
-              "title": "Dados do Familiar",
-              "name": "dados_familiar",
-              "type": "textarea",
-              "id": "5080"
-            }
-          ]
-        },
-        {
-          "title": "Companheiro Animal",
-          "name": "dnd35_companheiro_animal",
-          "type": "repeater",
-          "id": 1142,
-          "fields": [
-            {
-              "title": "Dados do Companheiro Animal",
-              "name": "dados_companheiro",
+              "title": "Descrição & Ficha do Companheiro",
+              "name": "descricao_companheiro",
               "type": "textarea",
               "id": "5081"
             }
           ],
           "repeater-fields": [
             {
-              "title": "Dados do Companheiro Animal",
-              "name": "dados_companheiro",
+              "title": "Nome do Companheiro",
+              "name": "nome_companheiro",
+              "type": "text",
+              "id": "5079"
+            },
+            {
+              "title": "Origem / Tipo (Ex: Montaria, Familiar, Companheiro Animal, Seguidor)",
+              "name": "origem_companheiro",
+              "type": "text",
+              "id": "5080"
+            },
+            {
+              "title": "Descrição & Ficha do Companheiro",
+              "name": "descricao_companheiro",
               "type": "textarea",
               "id": "5081"
             }
           ],
           "repeater_fields": [
             {
-              "title": "Dados do Companheiro Animal",
-              "name": "dados_companheiro",
+              "title": "Nome do Companheiro",
+              "name": "nome_companheiro",
+              "type": "text",
+              "id": "5079"
+            },
+            {
+              "title": "Origem / Tipo (Ex: Montaria, Familiar, Companheiro Animal, Seguidor)",
+              "name": "origem_companheiro",
+              "type": "text",
+              "id": "5080"
+            },
+            {
+              "title": "Descrição & Ficha do Companheiro",
+              "name": "descricao_companheiro",
               "type": "textarea",
               "id": "5081"
-            }
-          ]
-        },
-        {
-          "title": "Seguidor (Liderança)",
-          "name": "dnd35_seguidor",
-          "type": "repeater",
-          "id": 1144,
-          "fields": [
-            {
-              "title": "Dados do Seguidor",
-              "name": "dados_seguidor",
-              "type": "textarea",
-              "id": "5082"
-            }
-          ],
-          "repeater-fields": [
-            {
-              "title": "Dados do Seguidor",
-              "name": "dados_seguidor",
-              "type": "textarea",
-              "id": "5082"
-            }
-          ],
-          "repeater_fields": [
-            {
-              "title": "Dados do Seguidor",
-              "name": "dados_seguidor",
-              "type": "textarea",
-              "id": "5082"
             }
           ]
         },
@@ -3459,80 +3704,221 @@
           "id": 1151,
           "fields": [
             {
-              "title": "Nível da Magia",
+              "title": "Nível da Magia (Círculo 0 a 9)",
               "name": "nivel_magia",
-              "type": "number",
+              "type": "select",
+              "options": [
+                { "key": "0", "value": "Nível 0 (Truque / Cantrip)" },
+                { "key": "1", "value": "1º Nível" },
+                { "key": "2", "value": "2º Nível" },
+                { "key": "3", "value": "3º Nível" },
+                { "key": "4", "value": "4º Nível" },
+                { "key": "5", "value": "5º Nível" },
+                { "key": "6", "value": "6º Nível" },
+                { "key": "7", "value": "7º Nível" },
+                { "key": "8", "value": "8º Nível" },
+                { "key": "9", "value": "9º Nível" }
+              ],
+              "default": "1",
               "id": "5085"
             },
             {
-              "title": "Classe de Dificuldade (CD)",
+              "title": "Classe Conjuradora",
+              "name": "classe_magia",
+              "type": "text",
+              "id": "5087"
+            },
+            {
+              "title": "Habilidade Chave",
+              "name": "atributo_chave",
+              "type": "select",
+              "options": [
+                { "key": "int", "value": "Inteligência (INT)" },
+                { "key": "sab", "value": "Sabedoria (SAB)" },
+                { "key": "car", "value": "Carisma (CAR)" },
+                { "key": "for", "value": "Força (FOR)" },
+                { "key": "des", "value": "Destreza (DES)" },
+                { "key": "con", "value": "Constituição (CON)" }
+              ],
+              "default": "int",
+              "id": "5089"
+            },
+            {
+              "title": "Outros Bônus para CD",
+              "name": "outros_cd",
+              "type": "number",
+              "default": "0",
+              "id": "5090"
+            },
+            {
+              "title": "Explicação dos Outros Bônus (Ex: Foco em Magia +1)",
+              "name": "descricao_outros_cd",
+              "type": "text",
+              "id": "5091"
+            },
+            {
+              "title": "Classe de Dificuldade (CD) Manual/Calculada",
               "name": "cd",
               "type": "number",
               "id": "5086"
             },
             {
-              "title": "Origem da Magia",
-              "name": "origem",
-              "type": "text",
-              "id": "5087"
-            },
-            {
-              "title": "Usos Diários",
+              "title": "Espaços de Magia Base (Slots)",
               "name": "usos_diarios",
               "type": "number",
               "id": "5088"
+            },
+            {
+              "title": "Bônus de Habilidade (Magias Bônus SRD)",
+              "name": "bonus_habilidade",
+              "type": "number",
+              "id": "5092"
             }
           ],
           "repeater-fields": [
             {
-              "title": "Nível da Magia",
+              "title": "Nível da Magia (Círculo 0 a 9)",
               "name": "nivel_magia",
-              "type": "number",
+              "type": "select",
+              "options": [
+                { "key": "0", "value": "Nível 0 (Truque / Cantrip)" },
+                { "key": "1", "value": "1º Nível" },
+                { "key": "2", "value": "2º Nível" },
+                { "key": "3", "value": "3º Nível" },
+                { "key": "4", "value": "4º Nível" },
+                { "key": "5", "value": "5º Nível" },
+                { "key": "6", "value": "6º Nível" },
+                { "key": "7", "value": "7º Nível" },
+                { "key": "8", "value": "8º Nível" },
+                { "key": "9", "value": "9º Nível" }
+              ],
+              "default": "1",
               "id": "5085"
             },
             {
-              "title": "Classe de Dificuldade (CD)",
+              "title": "Classe Conjuradora",
+              "name": "classe_magia",
+              "type": "text",
+              "id": "5087"
+            },
+            {
+              "title": "Habilidade Chave",
+              "name": "atributo_chave",
+              "type": "select",
+              "options": [
+                { "key": "int", "value": "Inteligência (INT)" },
+                { "key": "sab", "value": "Sabedoria (SAB)" },
+                { "key": "car", "value": "Carisma (CAR)" },
+                { "key": "for", "value": "Força (FOR)" },
+                { "key": "des", "value": "Destreza (DES)" },
+                { "key": "con", "value": "Constituição (CON)" }
+              ],
+              "default": "int",
+              "id": "5089"
+            },
+            {
+              "title": "Outros Bônus para CD",
+              "name": "outros_cd",
+              "type": "number",
+              "default": "0",
+              "id": "5090"
+            },
+            {
+              "title": "Explicação dos Outros Bônus (Ex: Foco em Magia +1)",
+              "name": "descricao_outros_cd",
+              "type": "text",
+              "id": "5091"
+            },
+            {
+              "title": "Classe de Dificuldade (CD) Manual/Calculada",
               "name": "cd",
               "type": "number",
               "id": "5086"
             },
             {
-              "title": "Origem da Magia",
-              "name": "origem",
-              "type": "text",
-              "id": "5087"
-            },
-            {
-              "title": "Usos Diários",
+              "title": "Espaços de Magia Base (Slots)",
               "name": "usos_diarios",
               "type": "number",
               "id": "5088"
+            },
+            {
+              "title": "Bônus de Habilidade (Magias Bônus SRD)",
+              "name": "bonus_habilidade",
+              "type": "number",
+              "id": "5092"
             }
           ],
           "repeater_fields": [
             {
-              "title": "Nível da Magia",
+              "title": "Nível da Magia (Círculo 0 a 9)",
               "name": "nivel_magia",
-              "type": "number",
+              "type": "select",
+              "options": [
+                { "key": "0", "value": "Nível 0 (Truque / Cantrip)" },
+                { "key": "1", "value": "1º Nível" },
+                { "key": "2", "value": "2º Nível" },
+                { "key": "3", "value": "3º Nível" },
+                { "key": "4", "value": "4º Nível" },
+                { "key": "5", "value": "5º Nível" },
+                { "key": "6", "value": "6º Nível" },
+                { "key": "7", "value": "7º Nível" },
+                { "key": "8", "value": "8º Nível" },
+                { "key": "9", "value": "9º Nível" }
+              ],
+              "default": "1",
               "id": "5085"
             },
             {
-              "title": "Classe de Dificuldade (CD)",
+              "title": "Classe Conjuradora",
+              "name": "classe_magia",
+              "type": "text",
+              "id": "5087"
+            },
+            {
+              "title": "Habilidade Chave",
+              "name": "atributo_chave",
+              "type": "select",
+              "options": [
+                { "key": "int", "value": "Inteligência (INT)" },
+                { "key": "sab", "value": "Sabedoria (SAB)" },
+                { "key": "car", "value": "Carisma (CAR)" },
+                { "key": "for", "value": "Força (FOR)" },
+                { "key": "des", "value": "Destreza (DES)" },
+                { "key": "con", "value": "Constituição (CON)" }
+              ],
+              "default": "int",
+              "id": "5089"
+            },
+            {
+              "title": "Outros Bônus para CD",
+              "name": "outros_cd",
+              "type": "number",
+              "default": "0",
+              "id": "5090"
+            },
+            {
+              "title": "Explicação dos Outros Bônus (Ex: Foco em Magia +1)",
+              "name": "descricao_outros_cd",
+              "type": "text",
+              "id": "5091"
+            },
+            {
+              "title": "Classe de Dificuldade (CD) Manual/Calculada",
               "name": "cd",
               "type": "number",
               "id": "5086"
             },
             {
-              "title": "Origem da Magia",
-              "name": "origem",
-              "type": "text",
-              "id": "5087"
-            },
-            {
-              "title": "Usos Diários",
+              "title": "Espaços de Magia Base (Slots)",
               "name": "usos_diarios",
               "type": "number",
               "id": "5088"
+            },
+            {
+              "title": "Bônus de Habilidade (Magias Bônus SRD)",
+              "name": "bonus_habilidade",
+              "type": "number",
+              "id": "5092"
             }
           ]
         },

@@ -320,8 +320,14 @@ if ( $is_page ) {
 
 				// XP
 				$lvl_for_xp = max( 1, $nivel_total );
-				$min_xp_for_lvl = rhaokar_dnd35_xp_for_level( $lvl_for_xp );
-				$next_lvl_xp = rhaokar_dnd35_xp_for_level( $lvl_for_xp + 1 );
+				if ( $sistema === 'pf1' ) {
+					$pf1_trilha_xp = get_post_meta( $post_id, 'pf1_xp_tabela', true ) ?: 'normal';
+					$min_xp_for_lvl = rhaokar_pf1_xp_for_level( $lvl_for_xp, $pf1_trilha_xp );
+					$next_lvl_xp    = rhaokar_pf1_xp_for_level( $lvl_for_xp + 1, $pf1_trilha_xp );
+				} else {
+					$min_xp_for_lvl = rhaokar_dnd35_xp_for_level( $lvl_for_xp );
+					$next_lvl_xp    = rhaokar_dnd35_xp_for_level( $lvl_for_xp + 1 );
+				}
 				$raw_xp = get_post_meta( $post_id, 'dnd35_xpatual', true );
 				$xp_atual = ( $raw_xp !== '' && $raw_xp !== false ) ? rhaokar_dnd35_clean_num( $raw_xp, $min_xp_for_lvl ) : $min_xp_for_lvl;
 				if ( $xp_atual < $min_xp_for_lvl ) {

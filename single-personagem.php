@@ -94,6 +94,101 @@ if ( ! function_exists( 'rhaokar_dnd35_xp_for_level' ) ) {
 	}
 }
 
+if ( ! function_exists( 'rhaokar_pf1_xp_for_level' ) ) {
+	function rhaokar_pf1_xp_for_level( $level, $track = 'normal' ) {
+		$level = max( 1, min( 20, intval( $level ) ) );
+		$track = strtolower( trim( $track ) );
+		$xp_tables = array(
+			'rapido' => array(
+				1 => 0, 2 => 1300, 3 => 3300, 4 => 6000, 5 => 10000,
+				6 => 15000, 7 => 23000, 8 => 35000, 9 => 53000, 10 => 79000,
+				11 => 120000, 12 => 175000, 13 => 260000, 14 => 390000, 15 => 570000,
+				16 => 850000, 17 => 1250000, 18 => 1850000, 19 => 2700000, 20 => 3900000,
+			),
+			'normal' => array(
+				1 => 0, 2 => 2000, 3 => 5000, 4 => 9000, 5 => 15000,
+				6 => 23000, 7 => 35000, 8 => 53000, 9 => 79000, 10 => 120000,
+				11 => 175000, 12 => 260000, 13 => 390000, 14 => 570000, 15 => 850000,
+				16 => 1250000, 17 => 1850000, 18 => 2700000, 19 => 3900000, 20 => 5650000,
+			),
+			'lento' => array(
+				1 => 0, 2 => 3000, 3 => 7500, 4 => 13500, 5 => 22500,
+				6 => 34500, 7 => 52500, 8 => 79500, 9 => 118500, 10 => 180000,
+				11 => 262500, 12 => 390000, 13 => 585000, 14 => 855000, 15 => 1275000,
+				16 => 1875000, 17 => 2775000, 18 => 4125000, 19 => 6075000, 20 => 8475000,
+			),
+		);
+		$table = $xp_tables[ $track ] ?? $xp_tables['normal'];
+		return $table[ $level ] ?? $table[20];
+	}
+}
+
+if ( ! function_exists( 'rhaokar_pf1_cmb_size_mod' ) ) {
+	function rhaokar_pf1_cmb_size_mod( $size_name ) {
+		$size_name = strtolower( trim( $size_name ) );
+		switch ( $size_name ) {
+			case 'colossal': return 8;
+			case 'gargantua':
+			case 'gargântua':
+			case 'imenso':
+			case 'imensa': return 4;
+			case 'enorme': return 2;
+			case 'grande': return 1;
+			case 'médio':
+			case 'média':
+			case 'medio': return 0;
+			case 'pequeno':
+			case 'pequena': return -1;
+			case 'miúda':
+			case 'miúdo':
+			case 'miudo': return -2;
+			case 'diminuto': return -4;
+			case 'mínimo':
+			case 'minimo': return -8;
+			default: return 0;
+		}
+	}
+}
+
+if ( ! function_exists( 'rhaokar_dnd35_srd_bonus_spells' ) ) {
+	function rhaokar_dnd35_srd_bonus_spells( $spell_level, $attr_mod ) {
+		$spell_level = intval( $spell_level );
+		$attr_mod    = intval( $attr_mod );
+		if ( $spell_level <= 0 || $attr_mod < $spell_level ) {
+			return 0;
+		}
+		return (int) ( floor( ( $attr_mod - $spell_level ) / 4 ) + 1 );
+	}
+}
+
+if ( ! function_exists( 'rhaokar_dnd35_iterative_attacks' ) ) {
+	function rhaokar_dnd35_iterative_attacks( $bba, $extra_mod = 0 ) {
+		$bba = intval( $bba );
+		$extra_mod = intval( $extra_mod );
+		$attacks = array();
+
+		$val1 = $bba + $extra_mod;
+		$attacks[] = ( $val1 >= 0 ? '+' : '' ) . $val1;
+
+		if ( $bba >= 6 ) {
+			$val2 = ( $bba - 5 ) + $extra_mod;
+			$attacks[] = ( $val2 >= 0 ? '+' : '' ) . $val2;
+		}
+
+		if ( $bba >= 11 ) {
+			$val3 = ( $bba - 10 ) + $extra_mod;
+			$attacks[] = ( $val3 >= 0 ? '+' : '' ) . $val3;
+		}
+
+		if ( $bba >= 16 ) {
+			$val4 = ( $bba - 15 ) + $extra_mod;
+			$attacks[] = ( $val4 >= 0 ? '+' : '' ) . $val4;
+		}
+
+		return implode( '/', $attacks );
+	}
+}
+
 if ( ! function_exists( 'rhaokar_dnd35_ca_variados' ) ) {
 	function rhaokar_dnd35_ca_variados( $variados ) {
 		if ( ! is_array( $variados ) || empty( $variados ) ) {
@@ -377,10 +472,17 @@ while ( have_posts() ) :
 	}
 	$classes_str = implode( ' / ', $classes_str_arr );
 
-	// CÁLCULO E VALIDAÇÃO DE XP (D&D 3.5)
+	// CÁLCULO E VALIDAÇÃO DE XP (D&D 3.5 & Pathfinder 1e)
 	$lvl_for_xp = max( 1, $nivel_total );
-	$min_xp_for_lvl = rhaokar_dnd35_xp_for_level( $lvl_for_xp );
-	$next_lvl_xp = rhaokar_dnd35_xp_for_level( $lvl_for_xp + 1 );
+	$pf1_trilha_xp = get_post_meta( $post_id, 'pf1_xp_tabela', true ) ?: 'normal';
+
+	if ( $sistema === 'pf1' ) {
+		$min_xp_for_lvl = rhaokar_pf1_xp_for_level( $lvl_for_xp, $pf1_trilha_xp );
+		$next_lvl_xp    = rhaokar_pf1_xp_for_level( $lvl_for_xp + 1, $pf1_trilha_xp );
+	} else {
+		$min_xp_for_lvl = rhaokar_dnd35_xp_for_level( $lvl_for_xp );
+		$next_lvl_xp    = rhaokar_dnd35_xp_for_level( $lvl_for_xp + 1 );
+	}
 
 	$raw_xp = get_post_meta( $post_id, 'dnd35_xpatual', true );
 	$xp_atual = ( $raw_xp !== '' && $raw_xp !== false ) ? rhaokar_dnd35_clean_num( $raw_xp, $min_xp_for_lvl ) : $min_xp_for_lvl;
@@ -494,6 +596,12 @@ while ( have_posts() ) :
 	$ca_toque = 10 + $effective_des_mod + $size_mod + $ca_deflexao + $ca_variados['touch'];
 	$ca_surpresa = 10 + $armadura_bonus + $escudo_bonus + $size_mod + $ca_natural + $ca_deflexao + $ca_variados['flat_footed'];
 
+	// Iniciativa
+	$iniciativa_var = floatval( get_post_meta( $post_id, 'dnd35_iniciativa_variados', true ) ?: 0 );
+	$iniciativa_desc = trim( get_post_meta( $post_id, 'dnd35_iniciativa_variados_descricao', true ) ?: '' );
+	$iniciativa_des_mod = $attr_data['des']['mod'] ?? 0;
+	$iniciativa_total = $iniciativa_des_mod + $iniciativa_var;
+
 	// BBA e Ataques
 	$bba_raw = get_post_meta( $post_id, 'dnd35_bba_repeater', true );
 	$bba_total = 0;
@@ -505,6 +613,16 @@ while ( have_posts() ) :
 
 	$ataque_corpo_a_corpo = $bba_total + $attr_data['for']['mod'] + $size_mod;
 	$ataque_distancia = $bba_total + $attr_data['des']['mod'] + $size_mod;
+
+	// CMB e CMD (Pathfinder 1e)
+	$cmb_var = floatval( get_post_meta( $post_id, 'pf1_cmb_variados', true ) ?: 0 );
+	$cmb_desc = trim( get_post_meta( $post_id, 'pf1_cmb_variados_descricao', true ) ?: '' );
+	$cmd_var = floatval( get_post_meta( $post_id, 'pf1_cmd_variados', true ) ?: 0 );
+	$cmd_desc = trim( get_post_meta( $post_id, 'pf1_cmd_variados_descricao', true ) ?: '' );
+
+	$cmb_size_mod = rhaokar_pf1_cmb_size_mod( $tamanho );
+	$cmb_total = $bba_total + $attr_data['for']['mod'] + $cmb_size_mod + $cmb_var;
+	$cmd_total = 10 + $bba_total + $attr_data['for']['mod'] + $attr_data['des']['mod'] + $cmb_size_mod + $cmd_var;
 
 	// SAVES (Fortitude, Reflexos, Vontade)
 	$saves_config = array(
@@ -566,10 +684,13 @@ while ( have_posts() ) :
 	// Repeaters Variados
 	$armas = get_post_meta( $post_id, 'dnd35_armas', true );
 	$pericias = get_post_meta( $post_id, 'dnd35_pericias', true );
+	$idiomas = get_post_meta( $post_id, 'dnd35_idiomas', true );
 	$talentos = get_post_meta( $post_id, 'dnd35_talentos', true );
 	$tracos_raciais = get_post_meta( $post_id, 'dnd35_tracos_raciais', true );
 	$caracteristicas_classe = get_post_meta( $post_id, 'dnd35_caracteristicas_classe', true );
 	$equipamentos = get_post_meta( $post_id, 'dnd35_equipamento', true );
+	$extra_rings_qtd = get_post_meta( $post_id, 'dnd35_extra_rings_qtd', true );
+	$companheiros_unificados = get_post_meta( $post_id, 'dnd35_companheiros', true );
 	$montarias = get_post_meta( $post_id, 'dnd35_montaria', true );
 	$familiares = get_post_meta( $post_id, 'dnd35_familiar', true );
 	$companheiros = get_post_meta( $post_id, 'dnd35_companheiro_animal', true );
@@ -653,6 +774,16 @@ while ( have_posts() ) :
 	padding: 3px 8px;
 	border-radius: 4px;
 }
+.ficha-dnd35-container .badge-yellow-black,
+.ficha-dnd35-container .badge-yellow-black *,
+.ficha-dnd35-container span.badge-yellow-black,
+.ficha-dnd35-container span.badge-yellow-black * {
+	background-color: #ffd700 !important;
+	color: #000000 !important;
+	-webkit-text-fill-color: #000000 !important;
+	border-color: #b8860b !important;
+	font-weight: 700 !important;
+}
 .table-dnd {
 	color: #e0e6ed;
 	font-size: 0.9rem;
@@ -664,6 +795,20 @@ while ( have_posts() ) :
 }
 .table-dnd td {
 	border-color: #2e353e;
+}
+@media (max-width: 767.98px) {
+	.ficha-dnd35-container .table-pericias-responsive .col-pericia-hide-mobile {
+		display: none !important;
+	}
+	.ficha-dnd35-container .table-pericias-responsive th,
+	.ficha-dnd35-container .table-pericias-responsive td {
+		padding: 6px 4px !important;
+		font-size: 0.82rem !important;
+	}
+	.ficha-dnd35-container .table-pericias-responsive .btn-attr-detail {
+		padding: 2px 5px !important;
+		font-size: 0.68rem !important;
+	}
 }
 .btn-attr-detail {
 	background: rgba(184, 134, 11, 0.25);
@@ -930,25 +1075,92 @@ document.addEventListener('click', function(e) {
 				</small>
 			</div>
 
+			<!-- INICIATIVA -->
+			<div class="ficha-box">
+				<div class="ficha-box-title d-flex justify-content-between align-items-center">
+					<span>Iniciativa</span>
+					<span class="badge badge-yellow-black font-weight-bold" style="background-color: #ffd700 !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important; font-size: 0.85rem; padding: 4px 10px;">
+						TOTAL: <?php echo ( $iniciativa_total >= 0 ? '+' : '' ) . esc_html( $iniciativa_total ); ?>
+					</span>
+				</div>
+				<div class="row text-center align-items-center">
+					<div class="col-4">
+						<span class="stat-lbl d-block">MOD. DES</span>
+						<span class="stat-val text-info"><?php echo ( $iniciativa_des_mod >= 0 ? '+' : '' ) . $iniciativa_des_mod; ?></span>
+					</div>
+					<div class="col-4">
+						<span class="stat-lbl d-block">VARIADOS</span>
+						<span class="stat-val text-warning">+<?php echo esc_html( $iniciativa_var ); ?></span>
+					</div>
+					<div class="col-4">
+						<span class="stat-lbl d-block">TOTAL INICIATIVA</span>
+						<span class="stat-val text-warning font-weight-bold" style="font-size: 1.6rem; color: #ffd700;">
+							<?php echo ( $iniciativa_total >= 0 ? '+' : '' ) . esc_html( $iniciativa_total ); ?>
+						</span>
+					</div>
+				</div>
+				<?php if ( ! empty( $iniciativa_desc ) ) : ?>
+					<div class="mt-2 pt-2 border-top border-secondary small text-muted">
+						<strong class="text-light">Origem dos Variados:</strong> <?php echo esc_html( $iniciativa_desc ); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+
 			<!-- BBA E COMBATE -->
 			<div class="ficha-box">
 				<div class="ficha-box-title">Bônus Base de Ataque & Combate</div>
-				<div class="row text-center">
+				<div class="row text-center align-items-center">
 					<div class="col-4">
 						<span class="stat-lbl d-block">BBA TOTAL</span>
-						<span class="stat-val text-light"><?php echo ( $bba_total >= 0 ? '+' : '' ) . $bba_total; ?></span>
+						<span class="stat-val text-light" style="font-size: 1.25rem;">
+							<?php echo esc_html( rhaokar_dnd35_iterative_attacks( $bba_total, 0 ) ); ?>
+						</span>
 					</div>
 					<div class="col-4">
 						<span class="stat-lbl d-block">CORPO A CORPO</span>
-						<span class="stat-val text-success"><?php echo ( $ataque_corpo_a_corpo >= 0 ? '+' : '' ) . $ataque_corpo_a_corpo; ?></span>
+						<span class="stat-val text-success" style="font-size: 1.25rem;">
+							<?php echo esc_html( rhaokar_dnd35_iterative_attacks( $bba_total, $attr_data['for']['mod'] + $size_mod ) ); ?>
+						</span>
 						<small class="d-block text-muted" style="font-size: 0.65rem;">BBA + FOR + TAM</small>
 					</div>
 					<div class="col-4">
 						<span class="stat-lbl d-block">À DISTÂNCIA</span>
-						<span class="stat-val text-info"><?php echo ( $ataque_distancia >= 0 ? '+' : '' ) . $ataque_distancia; ?></span>
+						<span class="stat-val text-info" style="font-size: 1.25rem;">
+							<?php echo esc_html( rhaokar_dnd35_iterative_attacks( $bba_total, $attr_data['des']['mod'] + $size_mod ) ); ?>
+						</span>
 						<small class="d-block text-muted" style="font-size: 0.65rem;">BBA + DES + TAM</small>
 					</div>
 				</div>
+
+				<?php if ( $sistema === 'pf1' ) : ?>
+					<hr class="border-secondary my-2">
+					<div class="row text-center align-items-center">
+						<div class="col-6">
+							<span class="stat-lbl d-block">CMB (MANOBRA DE ATAQUE)</span>
+							<span class="stat-val text-warning font-weight-bold" style="font-size: 1.3rem;">
+								<?php echo ( $cmb_total >= 0 ? '+' : '' ) . esc_html( $cmb_total ); ?>
+							</span>
+							<small class="d-block text-muted" style="font-size: 0.65rem;">
+								BBA (+<?php echo $bba_total; ?>) + FOR (+<?php echo $attr_data['for']['mod']; ?>) + TAM (<?php echo ( $cmb_size_mod >= 0 ? '+' : '' ) . $cmb_size_mod; ?>) + VAR (+<?php echo $cmb_var; ?>)
+							</small>
+							<?php if ( ! empty( $cmb_desc ) ) : ?>
+								<small class="d-block text-warning font-italic" style="font-size: 0.65rem;"><?php echo esc_html( $cmb_desc ); ?></small>
+							<?php endif; ?>
+						</div>
+						<div class="col-6">
+							<span class="stat-lbl d-block">CMD (DEFESA DE MANOBRA)</span>
+							<span class="stat-val text-warning font-weight-bold" style="font-size: 1.3rem;">
+								<?php echo esc_html( $cmd_total ); ?>
+							</span>
+							<small class="d-block text-muted" style="font-size: 0.65rem;">
+								10 + BBA (+<?php echo $bba_total; ?>) + FOR (+<?php echo $attr_data['for']['mod']; ?>) + DES (+<?php echo $attr_data['des']['mod']; ?>) + TAM (<?php echo ( $cmb_size_mod >= 0 ? '+' : '' ) . $cmb_size_mod; ?>) + VAR (+<?php echo $cmd_var; ?>)
+							</small>
+							<?php if ( ! empty( $cmd_desc ) ) : ?>
+								<small class="d-block text-warning font-italic" style="font-size: 0.65rem;"><?php echo esc_html( $cmd_desc ); ?></small>
+							<?php endif; ?>
+						</div>
+					</div>
+				<?php endif; ?>
 			</div>
 
 			<!-- TESTES DE RESISTÊNCIA -->
@@ -1024,15 +1236,15 @@ document.addEventListener('click', function(e) {
 				<small class="text-muted" style="font-size: 0.65rem;">Clique em "Ver Bônus" para auditar qualquer perícia</small>
 			</div>
 			<div class="table-responsive">
-				<table class="table table-dark table-striped table-dnd mb-0">
+				<table class="table table-dark table-striped table-dnd table-pericias-responsive mb-0">
 					<thead>
 						<tr>
 							<th>Perícia</th>
-							<th>Classe</th>
-							<th>Atributo Chave</th>
-							<th>Mod. Atrib.</th>
-							<th>Graduação</th>
-							<th>Outros Bônus</th>
+							<th class="col-pericia-hide-mobile d-none d-md-table-cell">Classe</th>
+							<th class="col-pericia-hide-mobile d-none d-md-table-cell">Atributo Chave</th>
+							<th class="col-pericia-hide-mobile d-none d-md-table-cell">Mod. Atrib.</th>
+							<th class="col-pericia-hide-mobile d-none d-md-table-cell">Graduação</th>
+							<th class="col-pericia-hide-mobile d-none d-md-table-cell">Outros Bônus</th>
 							<th>TOTAL</th>
 							<th>Auditoria</th>
 						</tr>
@@ -1047,8 +1259,28 @@ document.addEventListener('click', function(e) {
 							$p_grad = floatval( $p['graduacao'] ?? 0 );
 							$p_outros = floatval( $p['outros_bonus'] ?? 0 );
 							$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array(), $p_outros );
-							$p_total = $p_attr_mod + $p_grad + $p_var;
+
+							// PF1e Class Skill Bonus (+3 se tiver graduação > 0 e for perícia de classe)
+							$is_e_classe = false;
+							if ( isset( $p['e_classe'] ) ) {
+								if ( is_array( $p['e_classe'] ) ) {
+									$is_e_classe = in_array( 'sim', $p['e_classe'] ) || in_array( '1', $p['e_classe'] );
+								} else {
+									$is_e_classe = ( $p['e_classe'] === 'sim' || $p['e_classe'] === '1' || $p['e_classe'] === true );
+								}
+							}
+							$p_class_bonus = ( $sistema === 'pf1' && $is_e_classe && $p_grad > 0 ) ? 3 : 0;
+
+							$p_total = $p_attr_mod + $p_grad + $p_class_bonus + $p_var;
 							$p_breakdown = rhaokar_dnd35_pericia_breakdown( $p['variados'] ?? array() );
+							if ( $p_class_bonus > 0 ) {
+								array_unshift( $p_breakdown, array(
+									'origem'  => 'Perícia de Classe (PF1e)',
+									'valor'   => 3,
+									'status'  => 'applied',
+									'efetivo' => 3,
+								) );
+							}
 							if ( empty( $p_breakdown ) && $p_outros != 0 ) {
 								$p_breakdown[] = array(
 									'origem'   => ! empty( $p['origem_bonus'] ) ? esc_html( $p['origem_bonus'] ) : 'Outros Bônus',
@@ -1062,11 +1294,11 @@ document.addEventListener('click', function(e) {
 							?>
 							<tr>
 								<td><strong><?php echo esc_html( $p_nome ); ?></strong></td>
-								<td><small class="text-muted"><?php echo esc_html( $p_classe ); ?></small></td>
-								<td><?php echo esc_html( strtoupper( $p_attr_key ) ); ?></td>
-								<td><?php echo ( $p_attr_mod >= 0 ? '+' : '' ) . $p_attr_mod; ?></td>
-								<td><?php echo esc_html( $p_grad ); ?></td>
-								<td>+<?php echo esc_html( $p_var ); ?></td>
+								<td class="col-pericia-hide-mobile d-none d-md-table-cell"><small class="text-muted"><?php echo esc_html( $p_classe ); ?></small></td>
+								<td class="col-pericia-hide-mobile d-none d-md-table-cell"><?php echo esc_html( strtoupper( $p_attr_key ) ); ?></td>
+								<td class="col-pericia-hide-mobile d-none d-md-table-cell"><?php echo ( $p_attr_mod >= 0 ? '+' : '' ) . $p_attr_mod; ?></td>
+								<td class="col-pericia-hide-mobile d-none d-md-table-cell"><?php echo esc_html( $p_grad ); ?></td>
+								<td class="col-pericia-hide-mobile d-none d-md-table-cell">+<?php echo esc_html( $p_var ); ?></td>
 								<td class="text-warning font-weight-bold" style="font-size: 1.1rem;">
 									<?php echo ( $p_total >= 0 ? '+' : '' ) . esc_html( $p_total ); ?>
 								</td>
@@ -1083,6 +1315,29 @@ document.addEventListener('click', function(e) {
 		</div>
 	<?php endif; ?>
 
+	<!-- IDIOMAS CONHECIDOS -->
+	<?php if ( is_array( $idiomas ) && ! empty( $idiomas ) ) : ?>
+		<div class="ficha-box mt-3">
+			<div class="ficha-box-title">Idiomas Conhecidos</div>
+			<div class="d-flex flex-wrap" style="gap: 10px;">
+				<?php foreach ( $idiomas as $idm ) : 
+					$i_nome   = trim( $idm['idioma'] ?? $idm['nome_idioma'] ?? $idm['nome'] ?? '' );
+					$i_origem = trim( $idm['origem'] ?? $idm['origem_idioma'] ?? '' );
+					if ( empty( $i_nome ) ) continue;
+				?>
+					<div class="p-2 rounded d-inline-flex align-items-center justify-content-between" style="background: #1d2127; border: 1px solid #3b424d; min-width: 180px;">
+						<strong class="text-light mr-2" style="font-size: 0.92rem;"><?php echo esc_html( $i_nome ); ?></strong>
+						<?php if ( ! empty( $i_origem ) ) : ?>
+							<span class="badge badge-yellow-black font-weight-bold px-2 py-1" style="font-size: 0.72rem; background-color: #ffd700 !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important; border: 1px solid #b8860b;">
+								<span style="color: #000000 !important; -webkit-text-fill-color: #000000 !important; font-weight: bold;"><?php echo esc_html( $i_origem ); ?></span>
+							</span>
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	<?php endif; ?>
+
 	<!-- TALENTOS & HABILIDADES DA RAÇA/CLASSE -->
 	<div class="row mt-3">
 		<!-- TALENTOS -->
@@ -1091,12 +1346,36 @@ document.addEventListener('click', function(e) {
 				<div class="ficha-box-title">Talentos</div>
 				<?php if ( is_array( $talentos ) && ! empty( $talentos ) ) : ?>
 					<ul class="list-unstyled mb-0">
-						<?php foreach ( $talentos as $t ) : ?>
-							<li class="mb-2 pb-2 border-bottom border-secondary">
-								<strong class="text-warning"><?php echo esc_html( $t['origem'] ?? 'Talento' ); ?> (Nível <?php echo esc_html( $t['nivel'] ?? '1' ); ?>):</strong>
-								<span><?php echo esc_html( $t['descricao'] ?? '' ); ?></span>
-								<?php if ( ! empty( $t['livro'] ) ) : ?>
-									<small class="text-muted d-block">Livro: <?php echo esc_html( $t['livro'] ); ?></small>
+						<?php foreach ( $talentos as $t ) : 
+							$t_nome   = $t['nome_talento'] ?? $t['nome'] ?? $t['nome_do_talento'] ?? '';
+							$t_origem = $t['origem'] ?? $t['tipo'] ?? '';
+							$t_nivel  = $t['nivel'] ?? $t['nivel_obtido'] ?? '';
+							$t_desc   = $t['descricao'] ?? $t['descricao_talento'] ?? '';
+							$t_livro  = $t['livro'] ?? '';
+						?>
+							<li class="mb-3 pb-2 border-bottom border-secondary">
+								<div class="d-flex justify-content-between align-items-baseline flex-wrap mb-1">
+									<strong class="text-warning font-weight-bold" style="font-size: 1.05rem;">
+										<?php echo esc_html( ! empty( $t_nome ) ? $t_nome : 'Talento' ); ?>
+									</strong>
+									<?php if ( ! empty( $t_origem ) || ! empty( $t_nivel ) ) : ?>
+										<small class="badge badge-dark text-info border border-secondary px-2 py-1" style="background: #141619;">
+											<?php 
+												$tags = array();
+												if ( ! empty( $t_origem ) ) $tags[] = esc_html( $t_origem );
+												if ( ! empty( $t_nivel ) )  $tags[] = 'Nível ' . esc_html( $t_nivel );
+												echo implode( ' • ', $tags );
+											?>
+										</small>
+									<?php endif; ?>
+								</div>
+								<?php if ( ! empty( $t_desc ) ) : ?>
+									<div class="small text-light mb-1" style="line-height: 1.4; color: #d0d7de !important;">
+										<?php echo nl2br( esc_html( $t_desc ) ); ?>
+									</div>
+								<?php endif; ?>
+								<?php if ( ! empty( $t_livro ) ) : ?>
+									<small class="text-muted d-block" style="font-size: 0.75rem;">Livro: <?php echo esc_html( $t_livro ); ?></small>
 								<?php endif; ?>
 							</li>
 						<?php endforeach; ?>
@@ -1135,48 +1414,131 @@ document.addEventListener('click', function(e) {
 		</div>
 	</div>
 
-	<!-- COMPANHEIROS, SEGUIDORES & BASES -->
-	<?php if ( ! empty( $montarias ) || ! empty( $familiares ) || ! empty( $companheiros ) || ! empty( $seguidores ) || ! empty( $bases ) ) : ?>
+	<!-- COMPANHEIROS, ALIADOS & BASES -->
+	<?php
+	$lista_companheiros = array();
+	$seen_descs = array();
+
+	// 1. Novos Companheiros unificados
+	if ( is_array( $companheiros_unificados ) && ! empty( $companheiros_unificados ) ) {
+		foreach ( $companheiros_unificados as $c ) {
+			$c_nome   = trim( $c['nome_companheiro'] ?? $c['nome'] ?? '' );
+			$c_origem = trim( $c['origem_companheiro'] ?? $c['origem'] ?? $c['tipo'] ?? '' );
+			$c_desc   = trim( $c['descricao_companheiro'] ?? $c['descricao'] ?? '' );
+			if ( ! empty( $c_nome ) || ! empty( $c_desc ) ) {
+				$norm_key = preg_replace( '/[^a-z0-9]/', '', strtolower( substr( $c_desc, 0, 100 ) ) );
+				if ( ! empty( $norm_key ) && isset( $seen_descs[ $norm_key ] ) ) {
+					continue;
+				}
+				if ( ! empty( $norm_key ) ) {
+					$seen_descs[ $norm_key ] = true;
+				}
+				$lista_companheiros[] = array(
+					'nome'      => ! empty( $c_nome ) ? $c_nome : 'Companheiro',
+					'origem'    => $c_origem,
+					'descricao' => $c_desc,
+				);
+			}
+		}
+	}
+
+	// 2. Fallbacks para dados antigos de repeaters legados (somente se não houver novos companheiros unificados)
+	if ( empty( $lista_companheiros ) ) {
+		if ( is_array( $montarias ) && ! empty( $montarias ) ) {
+			foreach ( $montarias as $m ) {
+				$desc = trim( $m['dados_montaria'] ?? '' );
+				if ( ! empty( $desc ) ) {
+					$norm_key = preg_replace( '/[^a-z0-9]/', '', strtolower( substr( $desc, 0, 100 ) ) );
+					if ( empty( $norm_key ) || ! isset( $seen_descs[ $norm_key ] ) ) {
+						if ( ! empty( $norm_key ) ) { $seen_descs[ $norm_key ] = true; }
+						$lista_companheiros[] = array( 'nome' => 'Montaria', 'origem' => 'Montaria', 'descricao' => $desc );
+					}
+				}
+			}
+		}
+		if ( is_array( $familiares ) && ! empty( $familiares ) ) {
+			foreach ( $familiares as $fam ) {
+				$desc = trim( $fam['dados_familiar'] ?? '' );
+				if ( ! empty( $desc ) ) {
+					$norm_key = preg_replace( '/[^a-z0-9]/', '', strtolower( substr( $desc, 0, 100 ) ) );
+					if ( empty( $norm_key ) || ! isset( $seen_descs[ $norm_key ] ) ) {
+						if ( ! empty( $norm_key ) ) { $seen_descs[ $norm_key ] = true; }
+						$lista_companheiros[] = array( 'nome' => 'Familiar', 'origem' => 'Familiar', 'descricao' => $desc );
+					}
+				}
+			}
+		}
+		if ( is_array( $companheiros ) && ! empty( $companheiros ) ) {
+			foreach ( $companheiros as $ca ) {
+				$desc = trim( $ca['dados_companheiro'] ?? '' );
+				if ( ! empty( $desc ) ) {
+					$norm_key = preg_replace( '/[^a-z0-9]/', '', strtolower( substr( $desc, 0, 100 ) ) );
+					if ( empty( $norm_key ) || ! isset( $seen_descs[ $norm_key ] ) ) {
+						if ( ! empty( $norm_key ) ) { $seen_descs[ $norm_key ] = true; }
+						$lista_companheiros[] = array( 'nome' => 'Companheiro Animal', 'origem' => 'Companheiro Animal', 'descricao' => $desc );
+					}
+				}
+			}
+		}
+		if ( is_array( $seguidores ) && ! empty( $seguidores ) ) {
+			foreach ( $seguidores as $seg ) {
+				$desc = trim( $seg['dados_seguidor'] ?? '' );
+				if ( ! empty( $desc ) ) {
+					$norm_key = preg_replace( '/[^a-z0-9]/', '', strtolower( substr( $desc, 0, 100 ) ) );
+					if ( empty( $norm_key ) || ! isset( $seen_descs[ $norm_key ] ) ) {
+						if ( ! empty( $norm_key ) ) { $seen_descs[ $norm_key ] = true; }
+						$lista_companheiros[] = array( 'nome' => 'Seguidor', 'origem' => 'Seguidor (Liderança)', 'descricao' => $desc );
+					}
+				}
+			}
+		}
+	}
+	?>
+
+	<?php if ( ! empty( $lista_companheiros ) || ! empty( $bases ) ) : ?>
 		<div class="ficha-box mt-3">
 			<div class="ficha-box-title">Companheiros, Aliados & Propriedades</div>
 			<div class="row">
-				<?php if ( ! empty( $montarias ) ) : ?>
-					<div class="col-md-4 mb-2">
-						<strong class="text-warning">Montarias:</strong>
-						<?php foreach ( $montarias as $m ) : ?>
-							<p class="small text-light mb-1"><?php echo esc_html( $m['dados_montaria'] ?? '' ); ?></p>
-						<?php endforeach; ?>
+				<?php if ( ! empty( $lista_companheiros ) ) : ?>
+					<div class="<?php echo ! empty( $bases ) ? 'col-lg-8' : 'col-12'; ?> mb-2">
+						<h6 class="text-warning font-weight-bold mb-2">
+							<i class="dashicons dashicons-groups"></i> Companheiros & Aliados:
+						</h6>
+						<div class="row">
+							<?php foreach ( $lista_companheiros as $comp ) : ?>
+								<div class="col-md-6 mb-2">
+									<div class="p-2 rounded h-100" style="background: #1d2127; border: 1px solid #3b424d;">
+										<div class="d-flex justify-content-between align-items-center mb-1 flex-wrap">
+											<strong class="text-warning font-weight-bold" style="font-size: 1.05rem;">
+												<?php echo esc_html( $comp['nome'] ); ?>
+											</strong>
+											<?php if ( ! empty( $comp['origem'] ) ) : ?>
+												<span class="badge badge-yellow-black font-weight-bold px-2 py-1" style="background-color: #ffd700 !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important; border: 1px solid #b8860b; font-size: 0.75rem;">
+													<span style="color: #000000 !important; -webkit-text-fill-color: #000000 !important; font-weight: bold;"><?php echo esc_html( $comp['origem'] ); ?></span>
+												</span>
+											<?php endif; ?>
+										</div>
+										<?php if ( ! empty( $comp['descricao'] ) ) : ?>
+											<div class="small text-light" style="font-size: 0.82rem; line-height: 1.4; color: #d0d7de !important;">
+												<?php echo nl2br( esc_html( $comp['descricao'] ) ); ?>
+											</div>
+										<?php endif; ?>
+									</div>
+								</div>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				<?php endif; ?>
-				<?php if ( ! empty( $familiares ) ) : ?>
-					<div class="col-md-4 mb-2">
-						<strong class="text-warning">Familiar:</strong>
-						<?php foreach ( $familiares as $fam ) : ?>
-							<p class="small text-light mb-1"><?php echo esc_html( $fam['dados_familiar'] ?? '' ); ?></p>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-				<?php if ( ! empty( $companheiros ) ) : ?>
-					<div class="col-md-4 mb-2">
-						<strong class="text-warning">Companheiro Animal:</strong>
-						<?php foreach ( $companheiros as $ca ) : ?>
-							<p class="small text-light mb-1"><?php echo esc_html( $ca['dados_companheiro'] ?? '' ); ?></p>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-				<?php if ( ! empty( $seguidores ) ) : ?>
-					<div class="col-md-4 mb-2">
-						<strong class="text-warning">Seguidor (Liderança):</strong>
-						<?php foreach ( $seguidores as $seg ) : ?>
-							<p class="small text-light mb-1"><?php echo esc_html( $seg['dados_seguidor'] ?? '' ); ?></p>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
+
 				<?php if ( ! empty( $bases ) ) : ?>
-					<div class="col-md-4 mb-2">
-						<strong class="text-warning">Bases & Fortalezas:</strong>
+					<div class="<?php echo ! empty( $lista_companheiros ) ? 'col-lg-4' : 'col-12'; ?> mb-2">
+						<h6 class="text-warning font-weight-bold mb-2">
+							<i class="dashicons dashicons-admin-multisite"></i> Bases & Fortalezas:
+						</h6>
 						<?php foreach ( $bases as $b ) : ?>
-							<p class="small text-light mb-1"><?php echo esc_html( $b['dados_base'] ?? '' ); ?></p>
+							<div class="p-2 mb-2 rounded" style="background: #1d2127; border: 1px solid #3b424d;">
+								<p class="small text-light mb-0" style="font-size: 0.82rem;"><?php echo nl2br( esc_html( $b['dados_base'] ?? '' ) ); ?></p>
+							</div>
 						<?php endforeach; ?>
 					</div>
 				<?php endif; ?>
@@ -1190,14 +1552,66 @@ document.addEventListener('click', function(e) {
 			<div class="ficha-box-title">Magias & Conjuração</div>
 			
 			<?php if ( is_array( $espacos_magia ) && ! empty( $espacos_magia ) ) : ?>
-				<h6 class="text-info">Espaços de Magia Diários:</h6>
-				<div class="row mb-3 text-center">
-					<?php foreach ( $espacos_magia as $em ) : ?>
-						<div class="col-3 col-md-2 mb-2">
-							<div class="stat-box p-1">
-								<small class="stat-lbl d-block">Nível <?php echo esc_html( $em['nivel_magia'] ?? '0' ); ?></small>
-								<strong class="text-warning"><?php echo esc_html( $em['usos_diarios'] ?? '0' ); ?>/dia</strong>
-								<small class="d-block text-muted" style="font-size: 0.65rem;">CD <?php echo esc_html( $em['cd'] ?? '10' ); ?></small>
+				<h6 class="text-warning font-weight-bold mb-2">
+					<i class="dashicons dashicons-book"></i> Espaços de Magia Diários & Classe de Dificuldade (CD):
+				</h6>
+				<div class="row mb-3">
+					<?php foreach ( $espacos_magia as $em ) : 
+						$lvl = intval( $em['nivel_magia'] ?? 0 );
+						$classe_m = trim( $em['classe_magia'] ?? $em['origem'] ?? '' );
+						$attr_key = strtolower( trim( $em['atributo_chave'] ?? 'int' ) );
+						if ( ! isset( $attr_data[ $attr_key ] ) ) {
+							$attr_key = 'int';
+						}
+						$attr_mod = $attr_data[ $attr_key ]['mod'] ?? 0;
+						$attr_label = strtoupper( $attr_key );
+
+						$outros_cd = intval( $em['outros_cd'] ?? 0 );
+						$desc_outros = trim( $em['descricao_outros_cd'] ?? '' );
+
+						$cd_calculada = 10 + $lvl + $attr_mod + $outros_cd;
+						$cd_final = ( isset( $em['cd'] ) && $em['cd'] !== '' && intval( $em['cd'] ) > 0 ) ? intval( $em['cd'] ) : $cd_calculada;
+
+						$slots_base = intval( $em['usos_diarios'] ?? $em['espacos_base'] ?? 0 );
+						$bonus_srd_calc = rhaokar_dnd35_srd_bonus_spells( $lvl, $attr_mod );
+						$bonus_hab = ( isset( $em['bonus_habilidade'] ) && $em['bonus_habilidade'] !== '' ) ? intval( $em['bonus_habilidade'] ) : $bonus_srd_calc;
+						$total_slots = $slots_base + $bonus_hab;
+					?>
+						<div class="col-6 col-md-4 col-lg-3 mb-2">
+							<div class="stat-box p-2 rounded text-center" style="background: #1c2026; border: 1px solid #3c4450; box-shadow: 0 2px 5px rgba(0,0,0,0.5);">
+								<div class="d-flex justify-content-center align-items-center mb-1">
+									<span class="badge badge-yellow-black font-weight-bold px-2 py-1" style="font-size: 0.78rem; background-color: #ffd700 !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important; border: 1px solid #b8860b; display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
+										<span style="color: #000000 !important; -webkit-text-fill-color: #000000 !important; font-weight: bold;"><?php echo ( $lvl === 0 ) ? 'Nível 0 (Truque)' : esc_html( $lvl . 'º Nível' ); ?></span>
+										<?php if ( ! empty( $classe_m ) ) : ?>
+											<span style="color: #000000 !important; -webkit-text-fill-color: #000000 !important; font-weight: bold;"> • <?php echo esc_html( $classe_m ); ?></span>
+										<?php endif; ?>
+									</span>
+								</div>
+
+								<div class="my-1">
+									<strong class="text-warning font-weight-bold" style="font-size: 1.3rem;">
+										<?php echo esc_html( $total_slots ); ?> <span style="font-size: 0.8rem;" class="text-light">/dia</span>
+									</strong>
+								</div>
+
+								<div class="small text-muted mb-1" style="font-size: 0.72rem; line-height: 1.3;">
+									<span>Base: <?php echo esc_html( $slots_base ); ?></span>
+									<?php if ( $bonus_hab > 0 ) : ?>
+										<span class="text-success font-weight-bold">+<?php echo esc_html( $bonus_hab ); ?> (<?php echo esc_html( $attr_label ); ?>)</span>
+									<?php endif; ?>
+								</div>
+
+								<div class="pt-1 border-top border-secondary">
+									<span class="badge badge-info text-dark font-weight-bold" style="font-size: 0.78rem; background: #17a2b8; color: #000000 !important;">
+										CD <?php echo esc_html( $cd_final ); ?>
+									</span>
+									<small class="d-block text-muted mt-1" style="font-size: 0.65rem; color: #a0aab8 !important;">
+										10 + <?php echo $lvl; ?> + <?php echo $attr_label; ?>(<?php echo ( $attr_mod >= 0 ? '+' : '' ) . $attr_mod; ?>)<?php echo ( $outros_cd != 0 ? ' + ' . ( $outros_cd > 0 ? '+' : '' ) . $outros_cd : '' ); ?>
+									</small>
+									<?php if ( ! empty( $desc_outros ) ) : ?>
+										<small class="d-block text-warning font-italic" style="font-size: 0.68rem;"><?php echo esc_html( $desc_outros ); ?></small>
+									<?php endif; ?>
+								</div>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -1220,45 +1634,231 @@ document.addEventListener('click', function(e) {
 		</div>
 	<?php endif; ?>
 
-	<!-- RECURSOS, EQUIPAMENTO E HISTÓRICO -->
-	<div class="row mt-3">
-		<div class="col-md-6 mb-3">
-			<div class="ficha-box h-100">
-				<div class="ficha-box-title">Equipamentos & Recursos</div>
-				<?php if ( ! empty( $recursos ) ) : ?>
-					<h6 class="text-warning">Recursos / Tesouros:</h6>
-					<p class="text-light small"><?php echo nl2br( esc_html( $recursos ) ); ?></p>
-				<?php endif; ?>
+	<!-- EQUIPAMENTOS, SLOTS CORPORAIS (D&D 3.5), INVENTÁRIO & RECURSOS -->
+	<?php
+	// Processamento de Equipamentos, Slots Corporais e Extra Rings
+	$total_extra_rings_feat = 0;
+	if ( is_array( $talentos ) ) {
+		foreach ( $talentos as $t ) {
+			$t_nome = strtolower( $t['nome_talento'] ?? $t['nome'] ?? '' );
+			if ( strpos( $t_nome, 'extra ring' ) !== false || strpos( $t_nome, 'anel extra' ) !== false || strpos( $t_nome, 'aneis extras' ) !== false ) {
+				$total_extra_rings_feat++;
+			}
+		}
+	}
+	$extra_rings_total_count = max( (int) $extra_rings_qtd, $total_extra_rings_feat );
+	$max_aneis_permitidos = 2 + $extra_rings_total_count;
 
-				<?php if ( is_array( $equipamentos ) && ! empty( $equipamentos ) ) : ?>
-					<h6 class="text-warning mt-2">Lista de Equipamentos:</h6>
-					<ul class="mb-0">
-						<?php foreach ( $equipamentos as $eq ) : ?>
-							<li class="small">
-								<strong><?php echo esc_html( $eq['nome_item'] ?? '' ); ?></strong>
-								<?php echo ! empty( $eq['local_guardado'] ) ? ' (' . esc_html( $eq['local_guardado'] ) . ')' : ''; ?>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				<?php endif; ?>
+	$slots_config = array(
+		'cabeca'         => array( 'nome' => '1 Cabeça (Head)', 'desc' => 'Tiaras, elmos, chapéus, filactérios' ),
+		'rosto_olhos'    => array( 'nome' => '1 Rosto/Olhos (Face/Eyes)', 'desc' => 'Lentes oculares, óculos, máscaras, terceiros olhos' ),
+		'garganta'       => array( 'nome' => '1 Garganta (Throat)', 'desc' => 'Amuletos, broches, medalhões, colares, periapts, escaravelhos, torcs' ),
+		'ombros'         => array( 'nome' => '1 Ombros (Shoulders)', 'desc' => 'Capas, mantos, xales' ),
+		'torso'          => array( 'nome' => '1 Torso', 'desc' => 'Camisas, coletes, túnicas, vestimentas' ),
+		'corpo'          => array( 'nome' => '1 Corpo (Body)', 'desc' => 'Armaduras, robes' ),
+		'cintura'        => array( 'nome' => '1 Cintura (Waist)', 'desc' => 'Cintos, faixas, gibões' ),
+		'bracos'         => array( 'nome' => '1 Braços (Arms)', 'desc' => 'Braceletes, braçadeiras' ),
+		'maos'           => array( 'nome' => '1 Mãos (Hands)', 'desc' => 'Luvas, manoplas' ),
+		'aneis'          => array( 'nome' => 'Anéis (Rings)', 'desc' => 'Até ' . $max_aneis_permitidos . ' anéis ativos' . ( $extra_rings_total_count > 0 ? ' (' . $extra_rings_total_count . ' Extra Ring' . ( $extra_rings_total_count > 1 ? 's' : '' ) . ')' : '' ) ),
+		'pes'            => array( 'nome' => '1 Pés (Feet)', 'desc' => 'Botas, sapatos, sandálias, sapatilhas' ),
+		'nao_ocupa_slot' => array( 'nome' => 'Sem Slot (Slotless)', 'desc' => 'Itens ativos que não ocupam slot corporal (Pedras Ioun, etc.)' ),
+	);
+
+	$itens_equipados = array();
+	foreach ( $slots_config as $s_key => $s_info ) {
+		$itens_equipados[ $s_key ] = array();
+	}
+	$itens_guardados = array();
+	$peso_total_acumulado = 0.0;
+
+	if ( is_array( $equipamentos ) && ! empty( $equipamentos ) ) {
+		foreach ( $equipamentos as $eq ) {
+			$nome = trim( $eq['nome_item'] ?? $eq['nome'] ?? '' );
+			if ( empty( $nome ) ) {
+				continue;
+			}
+			$qtd = max( 1, (int) ( $eq['quantidade'] ?? $eq['qtd'] ?? 1 ) );
+			$peso_raw = $eq['peso'] ?? '0';
+			$peso_num = floatval( str_replace( ',', '.', preg_replace( '/[^0-9.,]/', '', (string) $peso_raw ) ) );
+			$peso_total_item = $peso_num * $qtd;
+			$peso_total_acumulado += $peso_total_item;
+
+			$status = strtolower( trim( $eq['status_item'] ?? $eq['status'] ?? $eq['equipado'] ?? '' ) );
+			$slot = strtolower( trim( $eq['slot_item'] ?? $eq['slot'] ?? '' ) );
+
+			$slot_mapped = '';
+			if ( ! empty( $slot ) ) {
+				if ( strpos( $slot, 'nao_ocupa' ) !== false || strpos( $slot, 'sem_slot' ) !== false || strpos( $slot, 'slotless' ) !== false ) { $slot_mapped = 'nao_ocupa_slot'; }
+				elseif ( strpos( $slot, 'cabeca' ) !== false || strpos( $slot, 'head' ) !== false ) { $slot_mapped = 'cabeca'; }
+				elseif ( strpos( $slot, 'rosto' ) !== false || strpos( $slot, 'olhos' ) !== false || strpos( $slot, 'face' ) !== false || strpos( $slot, 'eyes' ) !== false ) { $slot_mapped = 'rosto_olhos'; }
+				elseif ( strpos( $slot, 'garganta' ) !== false || strpos( $slot, 'throat' ) !== false ) { $slot_mapped = 'garganta'; }
+				elseif ( strpos( $slot, 'ombro' ) !== false || strpos( $slot, 'shoulder' ) !== false ) { $slot_mapped = 'ombros'; }
+				elseif ( strpos( $slot, 'torso' ) !== false ) { $slot_mapped = 'torso'; }
+				elseif ( strpos( $slot, 'corpo' ) !== false || strpos( $slot, 'body' ) !== false ) { $slot_mapped = 'corpo'; }
+				elseif ( strpos( $slot, 'cintura' ) !== false || strpos( $slot, 'waist' ) !== false ) { $slot_mapped = 'cintura'; }
+				elseif ( strpos( $slot, 'braco' ) !== false || strpos( $slot, 'arm' ) !== false ) { $slot_mapped = 'bracos'; }
+				elseif ( strpos( $slot, 'mao' ) !== false || strpos( $slot, 'hand' ) !== false ) { $slot_mapped = 'maos'; }
+				elseif ( strpos( $slot, 'anel' ) !== false || strpos( $slot, 'ring' ) !== false || strpos( $slot, 'aneis' ) !== false ) { $slot_mapped = 'aneis'; }
+				elseif ( strpos( $slot, 'pe' ) !== false || strpos( $slot, 'feet' ) !== false || strpos( $slot, 'foot' ) !== false ) { $slot_mapped = 'pes'; }
+			}
+
+			$is_equipado = ( $status === 'equipado' || $status === '1' || $status === 'true' || $status === 'sim' || ( ! empty( $slot_mapped ) && $status !== 'guardado' ) );
+
+			$item_data = array(
+				'nome'           => $nome,
+				'quantidade'     => $qtd,
+				'peso'           => $peso_raw,
+				'peso_num'       => $peso_num,
+				'peso_total'     => $peso_total_item,
+				'descricao'      => $eq['descricao'] ?? $eq['descricao_item'] ?? '',
+				'local_guardado' => $eq['local_guardado'] ?? '',
+				'slot'           => $slot_mapped,
+				'status'         => $is_equipado ? 'equipado' : 'guardado',
+			);
+
+			if ( $is_equipado && ! empty( $slot_mapped ) && isset( $itens_equipados[ $slot_mapped ] ) ) {
+				$itens_equipados[ $slot_mapped ][] = $item_data;
+			} else {
+				$itens_guardados[] = $item_data;
+			}
+		}
+	}
+	?>
+
+	<div class="ficha-box mt-3">
+		<div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-warning flex-wrap">
+			<div class="ficha-box-title m-0" style="border: none; padding: 0;">Equipamentos & Slots de Itens Mágicos</div>
+			<div class="mt-2 mt-sm-0">
+				<span class="badge badge-yellow-black font-weight-bold px-3 py-2" style="font-size: 0.9rem; background-color: #ffd700 !important; color: #000000 !important; -webkit-text-fill-color: #000000 !important; border: 1px solid #b8860b; display: inline-flex; align-items: center; gap: 6px;">
+					<i class="dashicons dashicons-chart-pie" style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;"></i> <span style="color: #000000 !important; -webkit-text-fill-color: #000000 !important; font-weight: bold;">Peso Total Carregado: <?php echo esc_html( number_format( $peso_total_acumulado, 1, ',', '.' ) ); ?> Kg/Lbs</span>
+				</span>
 			</div>
 		</div>
 
-		<div class="col-md-6 mb-3">
-			<div class="ficha-box h-100">
-				<div class="ficha-box-title">Histórico & Notas</div>
-				<?php if ( ! empty( $historico ) ) : ?>
-					<h6 class="text-info">Histórico:</h6>
-					<p class="text-light small"><?php echo nl2br( esc_html( $historico ) ); ?></p>
+		<div class="row">
+			<!-- COLUNA ESQUERDA: 11 SLOTS CORPORAIS EQUIPADOS (D&D 3.5) -->
+			<div class="col-lg-6 mb-3">
+				<h6 class="text-warning font-weight-bold mb-2">
+					<i class="dashicons dashicons-shield"></i> Itens Equipados (11 Slots Corporais):
+				</h6>
+				<div class="equipment-slots-container" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+					<?php foreach ( $slots_config as $s_key => $s_conf ) : 
+						$eq_list = $itens_equipados[ $s_key ] ?? array();
+						$has_item = ! empty( $eq_list );
+						$is_aneis = ( $s_key === 'aneis' );
+						$qtd_aneis = count( $eq_list );
+						$excedeu_aneis = $is_aneis && ( $qtd_aneis > $max_aneis_permitidos );
+					?>
+						<div class="slot-box p-2 rounded" style="background: <?php echo $has_item ? '#232931' : '#181b20'; ?>; border: 1px solid <?php echo $has_item ? '#b8860b' : '#2d333b'; ?>;">
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									<strong class="<?php echo $has_item ? 'text-warning' : 'text-secondary'; ?>" style="font-size: 0.9rem;">
+										<?php echo esc_html( $s_conf['nome'] ); ?>
+									</strong>
+									<small class="d-block text-muted" style="font-size: 0.7rem;"><?php echo esc_html( $s_conf['desc'] ); ?></small>
+								</div>
+								<?php if ( $is_aneis ) : ?>
+									<span class="badge <?php echo $excedeu_aneis ? 'badge-danger' : ( $qtd_aneis > 0 ? 'badge-warning text-dark' : 'badge-secondary' ); ?> px-2 py-1">
+										<?php echo $qtd_aneis; ?> / <?php echo $max_aneis_permitidos; ?> Anéis
+									</span>
+								<?php endif; ?>
+							</div>
+
+							<div class="mt-1">
+								<?php if ( $has_item ) : ?>
+									<?php foreach ( $eq_list as $item ) : ?>
+										<div class="p-2 rounded mb-1" style="background: #191c21; border-left: 3px solid #ffd700;">
+											<div class="d-flex justify-content-between align-items-center">
+												<strong class="text-light small" style="font-size: 0.95rem;"><?php echo esc_html( $item['nome'] ); ?></strong>
+												<small class="text-muted">
+													<?php echo ( $item['quantidade'] > 1 ) ? 'Qtd: ' . esc_html( $item['quantidade'] ) . ' • ' : ''; ?>
+													<?php echo ! empty( $item['peso'] ) ? esc_html( $item['peso'] ) . ' kg' : ''; ?>
+												</small>
+											</div>
+											<?php if ( ! empty( $item['descricao'] ) ) : ?>
+												<div class="small text-light mt-1" style="font-size: 0.78rem; color: #b0b8c4 !important; line-height: 1.35;">
+													<?php echo nl2br( esc_html( $item['descricao'] ) ); ?>
+												</div>
+											<?php endif; ?>
+										</div>
+									<?php endforeach; ?>
+								<?php else : ?>
+									<small class="text-muted italic" style="font-size: 0.8rem;">— Nenhum item equipado —</small>
+								<?php endif; ?>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+
+			<!-- COLUNA DIREITA: INVENTÁRIO / GUARDADOS & RECURSOS -->
+			<div class="col-lg-6 mb-3">
+				<?php if ( ! empty( $recursos ) ) : ?>
+					<div class="p-3 mb-3 rounded" style="background: #1d2127; border: 1px solid #3b424d;">
+						<h6 class="text-warning font-weight-bold mb-1">Recursos, Tesouros & Moedas:</h6>
+						<p class="text-light small mb-0"><?php echo nl2br( esc_html( $recursos ) ); ?></p>
+					</div>
 				<?php endif; ?>
 
-				<?php if ( ! empty( $notas ) ) : ?>
-					<h6 class="text-info mt-2">Notas Adicionais:</h6>
-					<p class="text-light small"><?php echo nl2br( esc_html( $notas ) ); ?></p>
+				<h6 class="text-warning font-weight-bold mb-2">
+					<i class="dashicons dashicons-archive"></i> Inventário & Itens Guardados:
+				</h6>
+				<?php if ( ! empty( $itens_guardados ) ) : ?>
+					<div class="list-group">
+						<?php foreach ( $itens_guardados as $ig ) : ?>
+							<div class="list-group-item list-group-item-action p-2 mb-2 rounded" style="background: #1e2228; border: 1px solid #343a40; color: #e0e6ed;">
+								<div class="d-flex justify-content-between align-items-center flex-wrap">
+									<strong class="text-info" style="font-size: 0.95rem;"><?php echo esc_html( $ig['nome'] ); ?></strong>
+									<span class="badge badge-secondary px-2 py-1">
+										Qtd: <?php echo esc_html( $ig['quantidade'] ); ?>
+										<?php echo ! empty( $ig['peso'] ) ? ' • ' . esc_html( $ig['peso'] ) . ' kg' : ''; ?>
+									</span>
+								</div>
+								<?php if ( ! empty( $ig['local_guardado'] ) ) : ?>
+									<small class="text-warning d-block mt-1" style="font-size: 0.75rem;">
+										<i class="dashicons dashicons-location"></i> Local: <?php echo esc_html( $ig['local_guardado'] ); ?>
+									</small>
+								<?php endif; ?>
+								<?php if ( ! empty( $ig['descricao'] ) ) : ?>
+									<div class="small text-light mt-1" style="font-size: 0.8rem; color: #c2c9d6 !important; line-height: 1.35;">
+										<?php echo nl2br( esc_html( $ig['descricao'] ) ); ?>
+									</div>
+								<?php endif; ?>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				<?php else : ?>
+					<p class="text-muted small italic">Nenhum outro item guardado no inventário.</p>
 				<?php endif; ?>
 			</div>
 		</div>
 	</div>
+
+	<!-- HISTÓRICO E NOTAS -->
+	<?php if ( ! empty( $historico ) || ! empty( $notas ) ) : ?>
+		<div class="row mt-3">
+			<div class="col-12 mb-3">
+				<div class="ficha-box h-100">
+					<div class="ficha-box-title">Histórico & Notas</div>
+					<div class="row">
+						<?php if ( ! empty( $historico ) ) : ?>
+							<div class="col-md-6 mb-2">
+								<h6 class="text-info">Histórico:</h6>
+								<p class="text-light small"><?php echo nl2br( esc_html( $historico ) ); ?></p>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $notas ) ) : ?>
+							<div class="col-md-6 mb-2">
+								<h6 class="text-info">Notas Adicionais:</h6>
+								<p class="text-light small"><?php echo nl2br( esc_html( $notas ) ); ?></p>
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 
 </div>
 
@@ -1396,17 +1996,14 @@ document.addEventListener('click', function(e) {
 								<thead>
 									<tr>
 										<th>Origem</th>
-										<th>Tipo de Bônus</th>
 										<th>Valor Informado</th>
 										<th>Status na Soma</th>
-										<th>Explicação da Regra</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php foreach ( $p_breakdown as $b_item ) : ?>
 										<tr>
 											<td><strong><?php echo esc_html( $b_item['origem'] ); ?></strong></td>
-											<td><?php echo esc_html( $b_item['tipo'] ); ?></td>
 											<td>+<?php echo esc_html( $b_item['valor'] ); ?></td>
 											<td>
 												<?php if ( $b_item['status'] === 'applied' ) : ?>
@@ -1415,7 +2012,6 @@ document.addEventListener('click', function(e) {
 													<span class="badge badge-danger">❌ IGNORADO (+0)</span>
 												<?php endif; ?>
 											</td>
-											<td class="text-muted"><?php echo esc_html( $b_item['motivo'] ); ?></td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>

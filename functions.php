@@ -256,10 +256,13 @@ function rhaokar_inject_rpg_spawner_script() {
 		var themeImgDir = '<?php echo $theme_url; ?>/img/gifs/';
 
 		var RACES_DATA = [
+			// Heroes / Special Characters
+			{ name: 'wrench', height: 110, time: 'any', file: 'wrench.gif', facing: 'right' },
+			{ name: 'svokalor', height: 110, time: 'any', file: 'svokalor.gif', facing: 'right' },
 			// Bearfolk (2.5m)
 			{ name: 'bearfolk', height: 160, time: 'any', file: 'bearfolk.gif', facing: 'right', offsetY: -5 },
 			// Orc (2.0m)
-			{ name: 'orc', height: 128, time: 'any', file: 'orc.gif', facing: 'left', offsetY: -5 },
+			{ name: 'orc', height: 128, time: 'any', file: 'orc.gif', facing: 'right', offsetY: -5 },
 			// Warforged, Lionfolk, Human (1.7m - 1.9m)
 			{ name: 'warforged', height: 122, time: 'any', file: 'warforged.gif', facing: 'right' },
 			{ name: 'lionfolk', height: 116, time: 'any', file: 'lionfolk.gif', facing: 'right', offsetY: -5 },
@@ -278,7 +281,7 @@ function rhaokar_inject_rpg_spawner_script() {
 			// Gnome & Goblin (1.2m)
 			{ name: 'gnome day', height: 78, time: 'day', file: 'gnome-day.gif', facing: 'right' },
 			{ name: 'gnome day 2', height: 78, time: 'day', file: 'gnome-day-2.gif', facing: 'right' },
-			{ name: 'goblin 1', height: 78, time: 'any', file: 'goblin-1.gif', weight: 3, isGoblin: true, facing: 'left', offsetY: -5 },
+			{ name: 'goblin 1', height: 78, time: 'any', file: 'goblin-1.gif', weight: 3, isGoblin: true, facing: 'right', offsetY: -5 },
 			{ name: 'goblin 2', height: 78, time: 'any', file: 'goblin-2.gif', weight: 3, isGoblin: true, facing: 'right' },
 			// Halfling & Kobold (1.0m)
 			{ name: 'halfling day', height: 65, time: 'day', file: 'halfling-day.gif', isHalfling: true, facing: 'right' },
@@ -287,9 +290,9 @@ function rhaokar_inject_rpg_spawner_script() {
 			{ name: 'halfling day 4', height: 65, time: 'day', file: 'halfling-day-4.gif', isHalfling: true, facing: 'right' },
 			{ name: 'halfling night', height: 65, time: 'night', file: 'halfling-night.gif', light: true, isHalfling: true, weight: 2, facing: 'right' },
 			{ name: 'halfling night 2', height: 65, time: 'night', file: 'halfling-night-2.gif', light: true, isHalfling: true, weight: 2, facing: 'right' },
-			{ name: 'halfling night 3', height: 65, time: 'night', file: 'halfling-night-3.gif', light: true, isHalfling: true, weight: 2, facing: 'left', offsetY: -5 },
+			{ name: 'halfling night 3', height: 65, time: 'night', file: 'halfling-night-3.gif', light: true, isHalfling: true, weight: 2, facing: 'right', offsetY: -5 },
 			{ name: 'blue kobold', height: 65, time: 'any', file: 'blue-kobold.gif', facing: 'right' },
-			{ name: 'green kobold', height: 65, time: 'any', file: 'green-kobold.gif', facing: 'left', offsetY: -5 },
+			{ name: 'green kobold', height: 65, time: 'any', file: 'green-kobold.gif', facing: 'right', offsetY: -5 },
 			{ name: 'red kobold', height: 65, time: 'any', file: 'red-kobold.gif', facing: 'right', offsetY: -5 },
 			{ name: 'red kobold 2', height: 65, time: 'any', file: 'red-kobold-2.gif', facing: 'right', offsetY: -5 }
 		];
@@ -312,13 +315,19 @@ function rhaokar_inject_rpg_spawner_script() {
 			return 'night';
 		}
 
-		function getEligiblePool() {
+		function getEligiblePool(activeFiles) {
 			var activeSky = getActiveSkyTheme();
 			var isNight = (activeSky === 'night');
 			var pool = [];
 
 			for (var i = 0; i < RACES_DATA.length; i++) {
 				var r = RACES_DATA[i];
+
+				// Impede que um personagem que já esteja andando na tela seja spawnado novamente em duplicidade
+				if (activeFiles && activeFiles[r.file]) {
+					continue;
+				}
+
 				var allowed = false;
 
 				if (r.time === 'any') {
@@ -343,7 +352,15 @@ function rhaokar_inject_rpg_spawner_script() {
 			var containers = document.querySelectorAll('.contem_grama, .rhaokar-grama-container, .rhaokar-grama-box');
 			if (!containers.length) return;
 
-			var pool = getEligiblePool();
+			var activeFiles = {};
+			document.querySelectorAll('.rhaokar-walking-sprite').forEach(function(el) {
+				var file = el.getAttribute('data-file');
+				if (file) {
+					activeFiles[file] = true;
+				}
+			});
+
+			var pool = getEligiblePool(activeFiles);
 			if (!pool.length) return;
 
 			var chosen = pool[Math.floor(Math.random() * pool.length)];
@@ -364,6 +381,7 @@ function rhaokar_inject_rpg_spawner_script() {
 						var fallbackUrl = themeImgDir + chosen.file;
 
 						img.src = primaryUrl;
+						img.setAttribute('data-file', chosen.file);
 						img.onerror = function() {
 							if (this.src !== fallbackUrl) {
 								this.src = fallbackUrl;
