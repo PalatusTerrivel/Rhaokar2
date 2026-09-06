@@ -160,6 +160,19 @@
               "name": "nivel_classe",
               "type": "number",
               "id": "5002"
+            },
+            {
+              "title": "Dado de Vida (DV)",
+              "name": "dado_vida",
+              "type": "select",
+              "options": [
+                { "key": "d4", "value": "d4" },
+                { "key": "d6", "value": "d6" },
+                { "key": "d8", "value": "d8" },
+                { "key": "d10", "value": "d10" },
+                { "key": "d12", "value": "d12" }
+              ],
+              "id": "5003"
             }
           ],
           "repeater-fields": [
@@ -174,6 +187,19 @@
               "name": "nivel_classe",
               "type": "number",
               "id": "5002"
+            },
+            {
+              "title": "Dado de Vida (DV)",
+              "name": "dado_vida",
+              "type": "select",
+              "options": [
+                { "key": "d4", "value": "d4" },
+                { "key": "d6", "value": "d6" },
+                { "key": "d8", "value": "d8" },
+                { "key": "d10", "value": "d10" },
+                { "key": "d12", "value": "d12" }
+              ],
+              "id": "5003"
             }
           ],
           "repeater_fields": [
@@ -188,6 +214,19 @@
               "name": "nivel_classe",
               "type": "number",
               "id": "5002"
+            },
+            {
+              "title": "Dado de Vida (DV)",
+              "name": "dado_vida",
+              "type": "select",
+              "options": [
+                { "key": "d4", "value": "d4" },
+                { "key": "d6", "value": "d6" },
+                { "key": "d8", "value": "d8" },
+                { "key": "d10", "value": "d10" },
+                { "key": "d12", "value": "d12" }
+              ],
+              "id": "5003"
             }
           ]
         },
@@ -1288,7 +1327,24 @@
           "name": "dnd35_pv",
           "type": "number",
           "width": "25%",
+          "description": "Se deixado em branco, o PV será calculado automaticamente pela média do nível.",
           "id": 1051
+        },
+        {
+          "title": "PV Variados (Número)",
+          "name": "dnd35_pv_variados",
+          "type": "number",
+          "width": "25%",
+          "description": "Bônus numérico de PV variados (talentos como Vitalidade, itens mágicos, etc.)",
+          "id": 10511
+        },
+        {
+          "title": "Descrição dos PV Variados",
+          "name": "dnd35_pv_variados_desc",
+          "type": "text",
+          "width": "50%",
+          "description": "Explicação da origem do bônus variado de PV (ex: Talento Vitalidade, Item Mágico)",
+          "id": 10512
         },
         {
           "title": "Deslocamento",

@@ -293,8 +293,7 @@ function rhaokar_inject_rpg_spawner_script() {
 			{ name: 'halfling night 3', height: 65, time: 'night', file: 'halfling-night-3.gif', light: true, isHalfling: true, weight: 2, facing: 'right', offsetY: -5 },
 			{ name: 'blue kobold', height: 65, time: 'any', file: 'blue-kobold.gif', facing: 'right' },
 			{ name: 'green kobold', height: 65, time: 'any', file: 'green-kobold.gif', facing: 'right', offsetY: -5 },
-			{ name: 'red kobold', height: 65, time: 'any', file: 'red-kobold.gif', facing: 'right', offsetY: -5 },
-			{ name: 'red kobold 2', height: 65, time: 'any', file: 'red-kobold-2.gif', facing: 'right', offsetY: -5 }
+			{ name: 'red kobold', height: 65, time: 'any', file: 'red-kobold.gif', facing: 'right', offsetY: -5 }
 		];
 
 		function getActiveSkyTheme() {

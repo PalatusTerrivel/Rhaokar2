@@ -547,8 +547,97 @@ while ( have_posts() ) :
 		);
 	}
 
+	// ==================== CÁLCULO E AUDITORIA DE PONTOS DE VIDA (PV) ====================
+	$pv_manual_raw   = get_post_meta( $post_id, 'dnd35_pv', true );
+	$pv_variados_val  = floatval( get_post_meta( $post_id, 'dnd35_pv_variados', true ) ?: 0 );
+	$pv_variados_desc = trim( get_post_meta( $post_id, 'dnd35_pv_variados_desc', true ) ?: '' );
+
+	$con_mod = $attr_data['con']['mod'] ?? 0;
+
+	$hd_parts = array();
+	$calculated_base_hp = 0;
+	$total_hd_levels = 0;
+	$is_first_level_overall = true;
+
+	// Mapeamento de valores por Dado de Vida (Máximo no Nível 1, Média nos demais)
+	$dv_max_values = array( 'd4' => 4, 'd6' => 6, 'd8' => 8, 'd10' => 10, 'd12' => 12 );
+	$dv_avg_values = array( 'd4' => 2.5, 'd6' => 3.5, 'd8' => 4.5, 'd10' => 5.5, 'd12' => 6.5 );
+
+	if ( is_array( $classes_raw ) && ! empty( $classes_raw ) ) {
+		foreach ( $classes_raw as $c ) {
+			$lvl = intval( $c['nivel_classe'] ?? 0 );
+			if ( $lvl <= 0 ) {
+				continue;
+			}
+			$total_hd_levels += $lvl;
+
+			$dv = strtolower( trim( $c['dado_vida'] ?? '' ) );
+			if ( empty( $dv ) || ! isset( $dv_max_values[ $dv ] ) ) {
+				$cls_name_lower = strtolower( trim( $c['nome_classe'] ?? '' ) );
+				if ( strpos( $cls_name_lower, 'barb' ) !== false ) {
+					$dv = 'd12';
+				} elseif ( strpos( $cls_name_lower, 'guerreiro' ) !== false || strpos( $cls_name_lower, 'palad' ) !== false || strpos( $cls_name_lower, 'ranger' ) !== false || strpos( $cls_name_lower, 'fighter' ) !== false ) {
+					$dv = 'd10';
+				} elseif ( strpos( $cls_name_lower, 'mago' ) !== false || strpos( $cls_name_lower, 'feiticeiro' ) !== false || strpos( $cls_name_lower, 'wiz' ) !== false || strpos( $cls_name_lower, 'sorc' ) !== false ) {
+					$dv = 'd4';
+				} else {
+					$dv = 'd8';
+				}
+			}
+
+			$hd_parts[] = "{$lvl}{$dv}";
+
+			$max_v = $dv_max_values[ $dv ];
+			$avg_v = $dv_avg_values[ $dv ];
+
+			if ( $is_first_level_overall ) {
+				// 1º nível geral ganha o valor máximo do Dado de Vida
+				$calculated_base_hp += $max_v + ( ( $lvl - 1 ) * $avg_v );
+				$is_first_level_overall = false;
+			} else {
+				$calculated_base_hp += ( $lvl * $avg_v );
+			}
+		}
+	}
+
+	// Bônus de Constituição nos PV
+	$con_hp_bonus = $con_mod * $total_hd_levels;
+
+	// Total Calculado da Média de PV
+	$calculated_total_pv = max( 1, (int) round( $calculated_base_hp + $con_hp_bonus + $pv_variados_val ) );
+
+	// Se valor manual não for preenchido no campo de PV, utiliza a média calculada
+	$is_pv_manual = ( $pv_manual_raw !== '' && $pv_manual_raw !== false && is_numeric( $pv_manual_raw ) && intval( $pv_manual_raw ) > 0 );
+	if ( $is_pv_manual ) {
+		$pv_final = intval( $pv_manual_raw );
+	} else {
+		$pv_final = $calculated_total_pv;
+	}
+
+	// Fórmula textual dos Dados de Vida (Ex: 10d6 + (mod. con +2 x10) + 5 (Vitalidade))
+	$hd_dice_str = ! empty( $hd_parts ) ? implode( ' + ', $hd_parts ) : '1d8';
+
+	$hd_formula_components = array();
+	$hd_formula_components[] = $hd_dice_str;
+
+	if ( $total_hd_levels > 0 && $con_mod != 0 ) {
+		$con_mod_sign = ( $con_mod >= 0 ) ? "+{$con_mod}" : "{$con_mod}";
+		$hd_formula_components[] = "+ (mod. con {$con_mod_sign} x{$total_hd_levels})";
+	}
+
+	if ( $pv_variados_val != 0 ) {
+		$var_sign = ( $pv_variados_val >= 0 ) ? "+{$pv_variados_val}" : "{$pv_variados_val}";
+		if ( ! empty( $pv_variados_desc ) ) {
+			$hd_formula_components[] = "{$var_sign} ({$pv_variados_desc})";
+		} else {
+			$hd_formula_components[] = "{$var_sign} variados";
+		}
+	}
+
+	$hd_formula_str = implode( ' ', $hd_formula_components );
+
 	// Estatísticas de Defesa
-	$pv = get_post_meta( $post_id, 'dnd35_pv', true );
+	$pv = $pv_final;
 	$deslocamento = get_post_meta( $post_id, 'dnd35_deslocamento', true );
 	$rd = get_post_meta( $post_id, 'dnd35_reducao_dano', true );
 	$rm = get_post_meta( $post_id, 'dnd35_resistencia_magia', true );
@@ -911,13 +1000,6 @@ document.addEventListener('click', function(e) {
 		</a>
 	</div>
 
-	<?php if ( $sistema === 'pf1' ) : ?>
-		<!-- ALERTA DE SISTEMA PATHFINDER 1E SE SELECIONADO -->
-		<div class="alert alert-info">
-			<h4><i class="dashicons dashicons-info"></i> Ficha em Modo Pathfinder 1e</h4>
-			<p>Esta ficha está configurada para Pathfinder 1e. O resumo de alterações será configurado em breve.</p>
-		</div>
-	<?php endif; ?>
 
 	<!-- CABEÇALHO DA FICHA -->
 	<div class="row ficha-header align-items-center">
@@ -1028,8 +1110,14 @@ document.addEventListener('click', function(e) {
 			<div class="row">
 				<div class="col-6 col-md-3 mb-3">
 					<div class="stat-box">
-						<div class="stat-lbl">Pontos de Vida (PV)</div>
-						<div class="stat-val text-danger"><?php echo esc_html( $pv ?: '0' ); ?></div>
+						<div class="stat-lbl d-flex justify-content-between align-items-center">
+							<span>Pontos de Vida (PV)</span>
+							<button type="button" class="btn-attr-detail" style="font-size: 0.62rem; padding: 1px 4px;" onclick="rhaokarOpenModal('modal-pv-detail')">🔍 Detalhes</button>
+						</div>
+						<div class="stat-val text-danger" style="line-height: 1.1; margin-bottom: 2px;"><?php echo esc_html( $pv ); ?></div>
+						<small class="text-warning d-block font-weight-bold" style="font-size: 0.72rem; word-break: break-word; line-height: 1.2;" title="<?php echo esc_attr( $hd_formula_str ); ?>">
+							<?php echo esc_html( $hd_formula_str ); ?>
+						</small>
 					</div>
 				</div>
 				<div class="col-6 col-md-3 mb-3">
@@ -2028,6 +2116,96 @@ document.addEventListener('click', function(e) {
 		</div>
 	<?php endforeach; ?>
 <?php endif; ?>
+
+<!-- MODAL DE AUDITORIA E DETALHAMENTO DOS PONTOS DE VIDA (PV) -->
+<div class="rhaokar-modal-backdrop" id="modal-pv-detail">
+	<div class="rhaokar-modal-dialog">
+		<div class="rhaokar-modal-header">
+			<h5 class="m-0 font-weight-bold text-danger">
+				<i class="dashicons dashicons-heart"></i> Detalhamento dos Pontos de Vida (PV)
+			</h5>
+			<button type="button" class="rhaokar-modal-close" onclick="rhaokarCloseModal('modal-pv-detail')">&times;</button>
+		</div>
+		<div class="rhaokar-modal-body">
+			<div class="row text-center mb-3">
+				<div class="col-3">
+					<small class="text-muted d-block">MÉDIA DADOS DE VIDA</small>
+					<strong class="h5 text-light"><?php echo esc_html( round( $calculated_base_hp, 1 ) ); ?> HP</strong>
+				</div>
+				<div class="col-3">
+					<small class="text-muted d-block">MOD. CONSTITUIÇÃO</small>
+					<strong class="h5 text-info"><?php echo ( $con_hp_bonus >= 0 ? '+' : '' ) . esc_html( $con_hp_bonus ); ?> HP</strong>
+				</div>
+				<div class="col-3">
+					<small class="text-muted d-block">PV VARIADOS</small>
+					<strong class="h5 text-warning"><?php echo ( $pv_variados_val >= 0 ? '+' : '' ) . esc_html( $pv_variados_val ); ?> HP</strong>
+				</div>
+				<div class="col-3">
+					<small class="text-muted d-block">TOTAL FINAL DE PV</small>
+					<strong class="h4 text-danger font-weight-bold"><?php echo esc_html( $pv_final ); ?> HP</strong>
+				</div>
+			</div>
+
+			<div class="p-2 bg-dark rounded border border-secondary mb-3 small">
+				<strong class="text-warning">Fórmula dos Dados de Vida:</strong>
+				<div class="text-light font-weight-bold mt-1" style="font-size: 1rem;"><?php echo esc_html( $hd_formula_str ); ?></div>
+				<?php if ( $is_pv_manual ) : ?>
+					<div class="text-info mt-2" style="font-size: 0.8rem;">
+						ℹ️ <em>Nota: Valor inserido manualmente no campo de PV (<strong><?php echo esc_html( $pv_manual_raw ); ?> HP</strong>). Se este valor manual for apagado, a média calculada do nível será de <strong><?php echo esc_html( $calculated_total_pv ); ?> HP</strong>.</em>
+					</div>
+				<?php else : ?>
+					<div class="text-success mt-2" style="font-size: 0.8rem;">
+						✅ <em>Nota: Calculado automaticamente pela média do nível (1º nível máximo + média nos demais níveis).</em>
+					</div>
+				<?php endif; ?>
+			</div>
+
+			<h6 class="text-warning border-bottom border-secondary pb-1">Composição dos Dados de Vida por Classe:</h6>
+			<div class="table-responsive">
+				<table class="table table-dark table-striped table-sm mb-0 small">
+					<thead>
+						<tr>
+							<th>Componente</th>
+							<th>Detalhes / Dado de Vida</th>
+							<th>Cálculo Aplicado</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php if ( is_array( $classes_raw ) ) : ?>
+							<?php foreach ( $classes_raw as $c ) : ?>
+								<?php
+								$c_name = $c['nome_classe'] ?? 'Classe';
+								$c_lvl = intval( $c['nivel_classe'] ?? 0 );
+								$c_dv = strtolower( trim( $c['dado_vida'] ?? 'd8' ) );
+								?>
+								<tr>
+									<td><strong><?php echo esc_html( $c_name ); ?></strong></td>
+									<td>Nível <?php echo $c_lvl; ?> (Dado: <?php echo esc_html( $c_dv ); ?>)</td>
+									<td><?php echo $c_lvl; ?>x <?php echo esc_html( $c_dv ); ?></td>
+								</tr>
+							<?php endforeach; ?>
+						<?php endif; ?>
+						<tr>
+							<td><strong>Bônus de Constituição</strong></td>
+							<td>Modificador CON (<?php echo ( $con_mod >= 0 ? '+' : '' ) . $con_mod; ?>) × Total de Níveis (<?php echo $total_hd_levels; ?>)</td>
+							<td><?php echo ( $con_hp_bonus >= 0 ? '+' : '' ) . $con_hp_bonus; ?> HP</td>
+						</tr>
+						<?php if ( $pv_variados_val != 0 || ! empty( $pv_variados_desc ) ) : ?>
+							<tr>
+								<td><strong>PV Variados</strong></td>
+								<td><?php echo ! empty( $pv_variados_desc ) ? esc_html( $pv_variados_desc ) : 'Bônus Variado cadastrado'; ?></td>
+								<td><?php echo ( $pv_variados_val >= 0 ? '+' : '' ) . $pv_variados_val; ?> HP</td>
+							</tr>
+						<?php endif; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="text-right mt-3">
+			<button type="button" class="btn btn-secondary btn-sm" onclick="rhaokarCloseModal('modal-pv-detail')">Fechar</button>
+		</div>
+	</div>
+</div>
 
 <?php
 endwhile;
