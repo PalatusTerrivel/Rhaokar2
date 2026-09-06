@@ -377,13 +377,14 @@ function rhaokar_inject_rpg_spawner_script() {
 				for (var g = 0; g < groupCount; g++) {
 					(function(index) {
 						var img = document.createElement('img');
-						var primaryUrl = uploadsImgDir + chosen.file;
-						var fallbackUrl = themeImgDir + chosen.file;
+						var versionParam = '?v=' + new Date().getTime();
+						var primaryUrl = uploadsImgDir + chosen.file + versionParam;
+						var fallbackUrl = themeImgDir + chosen.file + versionParam;
 
 						img.src = primaryUrl;
 						img.setAttribute('data-file', chosen.file);
 						img.onerror = function() {
-							if (this.src !== fallbackUrl) {
+							if (this.src.indexOf(fallbackUrl) === -1) {
 								this.src = fallbackUrl;
 							}
 						};
