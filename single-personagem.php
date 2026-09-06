@@ -37,6 +37,22 @@ if ( ! function_exists( 'rhaokar_dnd35_bonus_sum' ) ) {
 	}
 }
 
+if ( ! function_exists( 'rhaokar_dnd35_clean_num' ) ) {
+	function rhaokar_dnd35_clean_num( $val, $default = 0 ) {
+		if ( $val === null || $val === '' || $val === false ) {
+			return $default;
+		}
+		if ( is_numeric( $val ) ) {
+			return intval( $val );
+		}
+		if ( is_string( $val ) ) {
+			$cleaned = preg_replace( '/[^\d\-]/', '', $val );
+			return ( $cleaned !== '' ) ? intval( $cleaned ) : $default;
+		}
+		return intval( $val );
+	}
+}
+
 if ( ! function_exists( 'rhaokar_dnd35_mod' ) ) {
 	function rhaokar_dnd35_mod( $total ) {
 		return (int) floor( ( $total - 10 ) / 2 );
@@ -366,7 +382,7 @@ while ( have_posts() ) :
 	$next_lvl_xp = rhaokar_dnd35_xp_for_level( $lvl_for_xp + 1 );
 
 	$raw_xp = get_post_meta( $post_id, 'dnd35_xpatual', true );
-	$xp_atual = ( $raw_xp !== '' && $raw_xp !== false ) ? intval( $raw_xp ) : $min_xp_for_lvl;
+	$xp_atual = ( $raw_xp !== '' && $raw_xp !== false ) ? rhaokar_dnd35_clean_num( $raw_xp, $min_xp_for_lvl ) : $min_xp_for_lvl;
 
 	// Regra: O XP não pode ser menor que o mínimo necessário para o nível total acumulado do personagem
 	if ( $xp_atual < $min_xp_for_lvl ) {
@@ -376,6 +392,25 @@ while ( have_posts() ) :
 	$xp_needed = max( 0, $next_lvl_xp - $xp_atual );
 	$xp_range = $next_lvl_xp - $min_xp_for_lvl;
 	$xp_progress = ( $xp_range > 0 ) ? min( 100, max( 0, round( ( ( $xp_atual - $min_xp_for_lvl ) / $xp_range ) * 100 ) ) ) : 100;
+
+	// Cor, Gradiente Dinâmico e Badge da Barra de XP com base na % de progresso
+	if ( $xp_progress >= 100 ) {
+		$xp_bar_style = 'background-color: #52c41a !important; background-image: linear-gradient(90deg, #389e0d 0%, #52c41a 50%, #73d13d 100%) !important; box-shadow: 0 0 14px #52c41a;';
+		$xp_badge_style = 'background-color: #52c41a !important; color: #ffffff !important; font-weight: bold; box-shadow: 0 0 8px rgba(82, 196, 26, 0.6);';
+		$xp_badge_label = 'PRONTO P/ SUBIR DE NÍVEL!';
+	} elseif ( $xp_progress >= 66 ) {
+		$xp_bar_style = 'background-color: #fadb14 !important; background-image: linear-gradient(90deg, #d4b106 0%, #fadb14 50%, #ffec3d 100%) !important;';
+		$xp_badge_style = 'background-color: #fadb14 !important; color: #111111 !important; font-weight: bold;';
+		$xp_badge_label = "Progresso: {$xp_progress}% (Faltam " . number_format( $xp_needed, 0, ',', '.' ) . ' XP)';
+	} elseif ( $xp_progress >= 33 ) {
+		$xp_bar_style = 'background-color: #fa8c16 !important; background-image: linear-gradient(90deg, #d46b08 0%, #fa8c16 50%, #ffa940 100%) !important;';
+		$xp_badge_style = 'background-color: #fa8c16 !important; color: #ffffff !important; font-weight: bold;';
+		$xp_badge_label = "Progresso: {$xp_progress}% (Faltam " . number_format( $xp_needed, 0, ',', '.' ) . ' XP)';
+	} else {
+		$xp_bar_style = 'background-color: #1890ff !important; background-image: linear-gradient(90deg, #096dd9 0%, #1890ff 50%, #40a9ff 100%) !important;';
+		$xp_badge_style = 'background-color: #1890ff !important; color: #ffffff !important; font-weight: bold;';
+		$xp_badge_label = "Progresso: {$xp_progress}% (Faltam " . number_format( $xp_needed, 0, ',', '.' ) . ' XP)';
+	}
 
 	// ATRIBUTOS (For, Des, Con, Int, Sab, Car)
 	$attrs = array( 'for', 'des', 'con', 'int', 'sab', 'car' );
@@ -752,7 +787,7 @@ document.addEventListener('click', function(e) {
 				<strong><?php echo esc_html( $classes_str ?: 'Sem Classe' ); ?></strong> (Nível Total: <strong><?php echo esc_html( $nivel_total ); ?></strong>)
 			</p>
 
-			<!-- BARRA E DETALHES DE PONTOS DE EXPERIÊNCIA (XP) -->
+			<!-- BARRA E DETALHES DE PONTOS DE EXPERIÊNCIA (XP DINÂMICA) -->
 			<div class="p-2 bg-dark rounded border border-secondary mb-3">
 				<div class="d-flex justify-content-between align-items-center mb-1 flex-wrap small">
 					<span class="mr-2">
@@ -763,12 +798,12 @@ document.addEventListener('click', function(e) {
 						<strong class="text-info">PRÓXIMO NÍVEL (Nível <?php echo $lvl_for_xp + 1; ?>):</strong>
 						<span><?php echo number_format( $next_lvl_xp, 0, ',', '.' ); ?> XP</span>
 					</span>
-					<span class="badge badge-warning py-1 px-2">
-						Faltam <?php echo number_format( $xp_needed, 0, ',', '.' ); ?> XP
+					<span class="badge py-1 px-2" style="<?php echo $xp_badge_style; ?>">
+						<?php echo esc_html( $xp_badge_label ); ?>
 					</span>
 				</div>
-				<div class="progress" style="height: 10px; background-color: #252a32; border-radius: 5px;">
-					<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $xp_progress; ?>%;" aria-valuenow="<?php echo $xp_progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+				<div class="progress" style="height: 14px; background-color: #1a1d22 !important; border-radius: 6px; overflow: hidden; border: 1px solid #3a424d;">
+					<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $xp_progress; ?>%; <?php echo $xp_bar_style; ?>" aria-valuenow="<?php echo $xp_progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 			</div>
 
