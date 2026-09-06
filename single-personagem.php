@@ -146,6 +146,108 @@ if ( ! function_exists( 'rhaokar_dnd35_pericia_variados' ) ) {
 	}
 }
 
+/**
+ * Análise Detalhada dos Bônus do Atributo (Verifica quais são somados e quais são ignorados)
+ */
+if ( ! function_exists( 'rhaokar_dnd35_attribute_breakdown' ) ) {
+	function rhaokar_dnd35_attribute_breakdown( $base, $racial, $outros ) {
+		$analysis = array();
+		$max_by_type = array();
+		$inerente_accumulated = 0;
+
+		if ( is_array( $outros ) && ! empty( $outros ) ) {
+			// Passo 1: Descobre o maior valor de cada tipo não-acumulativo
+			foreach ( $outros as $mod ) {
+				$val = intval( $mod['valor'] ?? 0 );
+				$type = strtolower( trim( $mod['tipo'] ?? 'sem_tipo' ) );
+				if ( ! in_array( $type, array( 'sem_tipo', 'inerente' ), true ) ) {
+					if ( ! isset( $max_by_type[ $type ] ) || $val > $max_by_type[ $type ] ) {
+						$max_by_type[ $type ] = $val;
+					}
+				}
+			}
+
+			// Passo 2: Avalia cada item para definir status (Somado, Ignorado, Parcial)
+			$applied_max_types = array();
+
+			foreach ( $outros as $mod ) {
+				$val = intval( $mod['valor'] ?? 0 );
+				$type = strtolower( trim( $mod['tipo'] ?? 'sem_tipo' ) );
+				$origem = ! empty( $mod['origem'] ) ? esc_html( $mod['origem'] ) : 'Não informada';
+				$type_name = ucfirst( $type );
+
+				if ( $type === 'sem_tipo' ) {
+					$analysis[] = array(
+						'origem'   => $origem,
+						'tipo'     => 'Sem Tipo',
+						'valor'    => $val,
+						'status'   => 'applied',
+						'motivo'   => 'Acumula livremente com todos os bônus.',
+						'efetivo'  => $val,
+					);
+				} elseif ( $type === 'inerente' ) {
+					$space_left = 5 - $inerente_accumulated;
+					if ( $space_left > 0 ) {
+						$added = min( $val, $space_left );
+						$inerente_accumulated += $added;
+						if ( $added === $val ) {
+							$analysis[] = array(
+								'origem'   => $origem,
+								'tipo'     => 'Inerente',
+								'valor'    => $val,
+								'status'   => 'applied',
+								'motivo'   => 'Acumula com outros inerentes até o teto máximo de +5.',
+								'efetivo'  => $val,
+							);
+						} else {
+							$analysis[] = array(
+								'origem'   => $origem,
+								'tipo'     => 'Inerente',
+								'valor'    => $val,
+								'status'   => 'partial',
+								'motivo'   => "Limitado pelo teto máximo de +5 (somado apenas +{$added}).",
+								'efetivo'  => $added,
+							);
+						}
+					} else {
+						$analysis[] = array(
+							'origem'   => $origem,
+							'tipo'     => 'Inerente',
+							'valor'    => $val,
+							'status'   => 'ignored',
+							'motivo'   => 'Ignorado: teto máximo de +5 para bônus inerente já foi atingido.',
+							'efetivo'  => 0,
+						);
+					}
+				} else {
+					if ( isset( $max_by_type[ $type ] ) && $val === $max_by_type[ $type ] && ! isset( $applied_max_types[ $type ] ) ) {
+						$applied_max_types[ $type ] = true;
+						$analysis[] = array(
+							'origem'   => $origem,
+							'tipo'     => $type_name,
+							'valor'    => $val,
+							'status'   => 'applied',
+							'motivo'   => 'Maior valor deste tipo de bônus.',
+							'efetivo'  => $val,
+						);
+					} else {
+						$analysis[] = array(
+							'origem'   => $origem,
+							'tipo'     => $type_name,
+							'valor'    => $val,
+							'status'   => 'ignored',
+							'motivo'   => "Ignorado: não acumula (já existe um bônus de {$type_name} igual ou maior na ficha).",
+							'efetivo'  => 0,
+						);
+					}
+				}
+			}
+		}
+
+		return $analysis;
+	}
+}
+
 while ( have_posts() ) :
 	the_post();
 	$post_id = get_the_ID();
@@ -203,14 +305,16 @@ while ( have_posts() ) :
 		$outros_total = rhaokar_dnd35_bonus_sum( $outros );
 		$total = $base + $racial + $outros_total;
 		$mod = rhaokar_dnd35_mod( $total );
+		$breakdown = rhaokar_dnd35_attribute_breakdown( $base, $racial, $outros );
 
 		$attr_data[ $a ] = array(
-			'name'   => $attr_names[ $a ],
-			'base'   => $base,
-			'racial' => $racial,
-			'outros' => $outros,
-			'total'  => $total,
-			'mod'    => $mod,
+			'name'      => $attr_names[ $a ],
+			'base'      => $base,
+			'racial'    => $racial,
+			'outros'    => $outros,
+			'total'     => $total,
+			'mod'       => $mod,
+			'breakdown' => $breakdown,
 		);
 	}
 
@@ -277,34 +381,61 @@ while ( have_posts() ) :
 
 	// SAVES (Fortitude, Reflexos, Vontade)
 	$saves_config = array(
-		'fortitude' => array( 'name' => 'Fortitude', 'default_attr' => 'con' ),
-		'reflexos'  => array( 'name' => 'Reflexos', 'default_attr' => 'des' ),
-		'vontade'   => array( 'name' => 'Vontade', 'default_attr' => 'sab' ),
+		'fort' => array( 'name' => 'Fortitude', 'default_attr' => 'con', 'alt_key' => 'fortitude' ),
+		'ref'  => array( 'name' => 'Reflexos', 'default_attr' => 'des', 'alt_key' => 'reflexos' ),
+		'von'  => array( 'name' => 'Vontade', 'default_attr' => 'sab', 'alt_key' => 'vontade' ),
 	);
 
 	$saves_data = array();
 	foreach ( $saves_config as $s_key => $s_conf ) {
+		// Tenta puxar dnd35_fort_base ou fallback dnd35_fortitude_base
 		$base_raw = get_post_meta( $post_id, "dnd35_{$s_key}_base", true );
+		if ( empty( $base_raw ) ) {
+			$base_raw = get_post_meta( $post_id, "dnd35_{$s_conf['alt_key']}_base", true );
+		}
+
 		$base_sum = 0;
-		if ( is_array( $base_raw ) ) {
+		$base_list = array();
+		if ( is_array( $base_raw ) && ! empty( $base_raw ) ) {
 			foreach ( $base_raw as $br ) {
-				$base_sum += intval( $br['bonus'] ?? 0 );
+				$val = intval( $br['bonus'] ?? $br['valor'] ?? $br['bonus_base'] ?? 0 );
+				$base_sum += $val;
+				if ( ! empty( $br['classe_origem'] ) || $val > 0 ) {
+					$base_list[] = array(
+						'classe' => esc_html( $br['classe_origem'] ?? 'Classe' ),
+						'bonus'  => $val,
+					);
+				}
 			}
 		}
-		$attr_key = get_post_meta( $post_id, "dnd35_{$s_key}_atributo", true ) ?: $s_conf['default_attr'];
+
+		// Atributo Chave
+		$attr_key = get_post_meta( $post_id, "dnd35_{$s_key}_atributo", true );
+		if ( empty( $attr_key ) ) {
+			$attr_key = get_post_meta( $post_id, "dnd35_{$s_conf['alt_key']}_atributo", true );
+		}
+		if ( empty( $attr_key ) ) {
+			$attr_key = $s_conf['default_attr'];
+		}
 		$attr_mod = $attr_data[ $attr_key ]['mod'] ?? 0;
+
+		// Variados
 		$var_raw = get_post_meta( $post_id, "dnd35_{$s_key}_variados", true );
+		if ( empty( $var_raw ) ) {
+			$var_raw = get_post_meta( $post_id, "dnd35_{$s_conf['alt_key']}_variados", true );
+		}
 		$var_sum = rhaokar_dnd35_save_variados( $var_raw );
 		$save_total = $base_sum + $attr_mod + $var_sum;
 
 		$saves_data[ $s_key ] = array(
-			'name'       => $s_conf['name'],
-			'base'       => $base_sum,
-			'attr_key'   => strtoupper( $attr_key ),
-			'attr_mod'   => $attr_mod,
-			'variados'   => $var_raw,
-			'var_sum'    => $var_sum,
-			'total'      => $save_total,
+			'name'      => $s_conf['name'],
+			'base'      => $base_sum,
+			'base_list' => $base_list,
+			'attr_key'  => strtoupper( $attr_key ),
+			'attr_mod'  => $attr_mod,
+			'variados'  => $var_raw,
+			'var_sum'   => $var_sum,
+			'total'     => $save_total,
 		);
 	}
 
@@ -410,6 +541,31 @@ while ( have_posts() ) :
 .table-dnd td {
 	border-color: #2e353e;
 }
+.btn-attr-detail {
+	background: rgba(184, 134, 11, 0.15);
+	border: 1px solid #b8860b;
+	color: #ffd700;
+	font-size: 0.65rem;
+	padding: 2px 6px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+}
+.btn-attr-detail:hover {
+	background: #b8860b;
+	color: #111;
+	text-decoration: none;
+}
+.modal-dnd .modal-content {
+	background: #1a1e24;
+	color: #e0e6ed;
+	border: 2px solid #b8860b;
+}
+.modal-dnd .modal-header {
+	border-bottom: 1px solid #3a424d;
+}
+.modal-dnd .modal-footer {
+	border-top: 1px solid #3a424d;
+}
 </style>
 
 <div class="container ficha-dnd35-container">
@@ -467,7 +623,10 @@ while ( have_posts() ) :
 		<!-- ATRIBUTOS DE HABILIDADE (ESQUERDA) -->
 		<div class="col-md-4">
 			<div class="ficha-box">
-				<div class="ficha-box-title">Atributos de Habilidade</div>
+				<div class="ficha-box-title d-flex justify-content-between align-items-center">
+					<span>Atributos de Habilidade</span>
+					<small class="text-muted" style="font-size: 0.65rem;">Clique em "Ver Bônus"</small>
+				</div>
 				
 				<?php foreach ( $attr_data as $key => $at ) : ?>
 					<div class="stat-box mb-2">
@@ -475,14 +634,94 @@ while ( have_posts() ) :
 							<span class="stat-lbl text-left font-weight-bold" style="font-size: 0.9rem; color: #ffd700;">
 								<?php echo esc_html( $at['name'] ); ?>
 							</span>
-							<div>
+							<div class="d-flex align-items-center">
 								<span class="stat-val mr-2"><?php echo esc_html( $at['total'] ); ?></span>
-								<span class="stat-mod"><?php echo ( $at['mod'] >= 0 ? '+' : '' ) . esc_html( $at['mod'] ); ?></span>
+								<span class="stat-mod mr-2"><?php echo ( $at['mod'] >= 0 ? '+' : '' ) . esc_html( $at['mod'] ); ?></span>
+								<button type="button" class="btn-attr-detail" data-toggle="modal" data-target="#modal-attr-<?php echo esc_attr( $key ); ?>">
+									🔍 Ver Bônus
+								</button>
 							</div>
 						</div>
 						<small class="text-muted d-block text-left" style="font-size: 0.7rem;">
-							Base: <?php echo $at['base']; ?> | Racial: <?php echo ( $at['racial'] >= 0 ? '+' : '' ) . $at['racial']; ?> | Outros: <?php echo ( $at['total'] - $at['base'] - $at['racial'] >= 0 ? '+' : '' ) . ( $at['total'] - $at['base'] - $at['racial'] ); ?>
+							Base: <?php echo $at['base']; ?> | Racial: <?php echo ( $at['racial'] >= 0 ? '+' : '' ) . $at['racial']; ?> | Outros Efetivos: <?php echo ( $at['total'] - $at['base'] - $at['racial'] >= 0 ? '+' : '' ) . ( $at['total'] - $at['base'] - $at['racial'] ); ?>
 						</small>
+					</div>
+
+					<!-- MODAL DE DETALHAMENTO DO ATRIBUTO -->
+					<div class="modal fade modal-dnd" id="modal-attr-<?php echo esc_attr( $key ); ?>" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title font-weight-bold text-warning">
+										<i class="dashicons dashicons-calculator"></i> Detalhamento de Bônus: <?php echo esc_html( $at['name'] ); ?>
+									</h5>
+									<button type="button" class="close text-light" data-dismiss="modal" aria-label="Fechar">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="row text-center mb-3">
+										<div class="col-3">
+											<small class="text-muted d-block">BASE</small>
+											<strong class="h4 text-light"><?php echo esc_html( $at['base'] ); ?></strong>
+										</div>
+										<div class="col-3">
+											<small class="text-muted d-block">MOD. RACIAL</small>
+											<strong class="h4 text-info"><?php echo ( $at['racial'] >= 0 ? '+' : '' ) . esc_html( $at['racial'] ); ?></strong>
+										</div>
+										<div class="col-3">
+											<small class="text-muted d-block">TOTAL FINAL</small>
+											<strong class="h4 text-warning"><?php echo esc_html( $at['total'] ); ?></strong>
+										</div>
+										<div class="col-3">
+											<small class="text-muted d-block">MODIFICADOR</small>
+											<strong class="h4 text-success"><?php echo ( $at['mod'] >= 0 ? '+' : '' ) . esc_html( $at['mod'] ); ?></strong>
+										</div>
+									</div>
+
+									<h6 class="text-warning border-bottom border-secondary pb-1">Auditoria de Modificadores (Outros Bônus):</h6>
+									<?php if ( ! empty( $at['breakdown'] ) ) : ?>
+										<div class="table-responsive">
+											<table class="table table-dark table-striped table-sm mb-0 small">
+												<thead>
+													<tr>
+														<th>Origem</th>
+														<th>Tipo de Bônus</th>
+														<th>Valor</th>
+														<th>Status na Soma</th>
+														<th>Explicação da Regra</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php foreach ( $at['breakdown'] as $b_item ) : ?>
+														<tr>
+															<td><strong><?php echo esc_html( $b_item['origem'] ); ?></strong></td>
+															<td><?php echo esc_html( $b_item['tipo'] ); ?></td>
+															<td>+<?php echo esc_html( $b_item['valor'] ); ?></td>
+															<td>
+																<?php if ( $b_item['status'] === 'applied' ) : ?>
+																	<span class="badge badge-success">✅ SOMADO (+<?php echo $b_item['efetivo']; ?>)</span>
+																<?php elseif ( $b_item['status'] === 'partial' ) : ?>
+																	<span class="badge badge-warning">⚠️ PARCIAL (+<?php echo $b_item['efetivo']; ?> de +<?php echo $b_item['valor']; ?>)</span>
+																<?php else : ?>
+																	<span class="badge badge-danger">❌ IGNORADO (+0)</span>
+																<?php endif; ?>
+															</td>
+															<td class="text-muted"><?php echo esc_html( $b_item['motivo'] ); ?></td>
+														</tr>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										</div>
+									<?php else : ?>
+										<em class="text-muted d-block my-2">Nenhum bônus adicional cadastrado para este atributo.</em>
+									<?php endif; ?>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				<?php endforeach; ?>
 			</div>
@@ -575,6 +814,13 @@ while ( have_posts() ) :
 							<small class="d-block text-muted" style="font-size: 0.7rem;">
 								Base: +<?php echo $sv['base']; ?> | <?php echo $sv['attr_key']; ?>: <?php echo ( $sv['attr_mod'] >= 0 ? '+' : '' ) . $sv['attr_mod']; ?> | Var: +<?php echo $sv['var_sum']; ?>
 							</small>
+							<?php if ( ! empty( $sv['base_list'] ) ) : ?>
+								<div class="mt-1" style="font-size: 0.65rem; color: #a0aec0;">
+									<?php foreach ( $sv['base_list'] as $bl ) : ?>
+										<div><?php echo esc_html( $bl['classe'] ); ?>: +<?php echo esc_html( $bl['bonus'] ); ?></div>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
