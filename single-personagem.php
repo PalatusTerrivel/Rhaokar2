@@ -152,9 +152,9 @@ if ( ! function_exists( 'rhaokar_dnd35_save_variados' ) ) {
 }
 
 if ( ! function_exists( 'rhaokar_dnd35_pericia_variados' ) ) {
-	function rhaokar_dnd35_pericia_variados( $variados ) {
+	function rhaokar_dnd35_pericia_variados( $variados, $outros_bonus = 0 ) {
 		if ( ! is_array( $variados ) || empty( $variados ) ) {
-			return 0;
+			return floatval( $variados ?: $outros_bonus );
 		}
 		$max_types = array();
 		$sum_all = 0;
@@ -170,7 +170,7 @@ if ( ! function_exists( 'rhaokar_dnd35_pericia_variados' ) ) {
 				}
 			}
 		}
-		return array_sum( $max_types ) + $sum_all;
+		return array_sum( $max_types ) + $sum_all + floatval( $outros_bonus );
 	}
 }
 
@@ -1045,9 +1045,20 @@ document.addEventListener('click', function(e) {
 							$p_attr_key = strtolower( trim( $p['atributo_chave'] ?? 'nenhum' ) );
 							$p_attr_mod = ( $p_attr_key !== 'nenhum' && isset( $attr_data[ $p_attr_key ] ) ) ? $attr_data[ $p_attr_key ]['mod'] : 0;
 							$p_grad = floatval( $p['graduacao'] ?? 0 );
-							$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array() );
+							$p_outros = floatval( $p['outros_bonus'] ?? 0 );
+							$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array(), $p_outros );
 							$p_total = $p_attr_mod + $p_grad + $p_var;
 							$p_breakdown = rhaokar_dnd35_pericia_breakdown( $p['variados'] ?? array() );
+							if ( empty( $p_breakdown ) && $p_outros != 0 ) {
+								$p_breakdown[] = array(
+									'origem'   => ! empty( $p['origem_bonus'] ) ? esc_html( $p['origem_bonus'] ) : 'Outros Bônus',
+									'tipo'     => 'Sem Tipo',
+									'valor'    => $p_outros,
+									'status'   => 'applied',
+									'motivo'   => 'Acumula livremente no total da perícia.',
+									'efetivo'  => $p_outros,
+								);
+							}
 							?>
 							<tr>
 								<td><strong><?php echo esc_html( $p_nome ); ?></strong></td>
@@ -1335,9 +1346,20 @@ document.addEventListener('click', function(e) {
 		$p_attr_key = strtolower( trim( $p['atributo_chave'] ?? 'nenhum' ) );
 		$p_attr_mod = ( $p_attr_key !== 'nenhum' && isset( $attr_data[ $p_attr_key ] ) ) ? $attr_data[ $p_attr_key ]['mod'] : 0;
 		$p_grad = floatval( $p['graduacao'] ?? 0 );
-		$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array() );
+		$p_outros = floatval( $p['outros_bonus'] ?? 0 );
+		$p_var = rhaokar_dnd35_pericia_variados( $p['variados'] ?? array(), $p_outros );
 		$p_total = $p_attr_mod + $p_grad + $p_var;
 		$p_breakdown = rhaokar_dnd35_pericia_breakdown( $p['variados'] ?? array() );
+		if ( empty( $p_breakdown ) && $p_outros != 0 ) {
+			$p_breakdown[] = array(
+				'origem'   => ! empty( $p['origem_bonus'] ) ? esc_html( $p['origem_bonus'] ) : 'Outros Bônus',
+				'tipo'     => 'Sem Tipo',
+				'valor'    => $p_outros,
+				'status'   => 'applied',
+				'motivo'   => 'Acumula livremente no total da perícia.',
+				'efetivo'  => $p_outros,
+			);
+		}
 		?>
 		<div class="rhaokar-modal-backdrop" id="modal-pericia-<?php echo $p_idx; ?>">
 			<div class="rhaokar-modal-dialog">

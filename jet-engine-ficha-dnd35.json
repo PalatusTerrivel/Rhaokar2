@@ -1281,7 +1281,8 @@
                   "key": "car",
                   "value": "Carisma"
                 }
-              ]
+              ],
+              "default": "nenhum"
             },
             {
               "title": "Graduação (Nº ou Fração ex: 2.5)",
@@ -1289,68 +1290,14 @@
               "type": "text"
             },
             {
-              "title": "Modificadores Variados",
-              "name": "variados",
-              "type": "repeater",
-              "fields": [
-                {
-                  "title": "Valor do Bônus",
-                  "name": "valor",
-                  "type": "number"
-                },
-                {
-                  "title": "Tipo de Bônus",
-                  "name": "tipo",
-                  "type": "select",
-                  "options": [
-                    {
-                      "key": "competencia",
-                      "value": "Competência (maior valor)"
-                    },
-                    {
-                      "key": "circunstancia",
-                      "value": "Circunstância (acumula tudo)"
-                    },
-                    {
-                      "key": "sinergia",
-                      "value": "Sinergia (acumula tudo)"
-                    },
-                    {
-                      "key": "racial",
-                      "value": "Racial (maior valor)"
-                    },
-                    {
-                      "key": "intuicao",
-                      "value": "Intuição (maior valor)"
-                    },
-                    {
-                      "key": "sorte",
-                      "value": "Sorte (maior valor)"
-                    },
-                    {
-                      "key": "moral",
-                      "value": "Moral (maior valor)"
-                    },
-                    {
-                      "key": "sagrado",
-                      "value": "Sagrado (maior valor)"
-                    },
-                    {
-                      "key": "profano",
-                      "value": "Profano (maior valor)"
-                    },
-                    {
-                      "key": "sem_tipo",
-                      "value": "Sem Tipo (acumula tudo)"
-                    }
-                  ]
-                },
-                {
-                  "title": "Origem do Bônus",
-                  "name": "origem",
-                  "type": "text"
-                }
-              ]
+              "title": "Outros Bônus (Valor)",
+              "name": "outros_bonus",
+              "type": "number"
+            },
+            {
+              "title": "Origem do Bônus / Descrição",
+              "name": "origem_bonus",
+              "type": "text"
             }
           ]
         },
