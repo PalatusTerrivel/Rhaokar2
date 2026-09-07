@@ -7,6 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+// Carrega o Módulo do Gerenciador do Hexcrawl e Mapa Interativo de Rhaokar
+require_once get_stylesheet_directory() . '/inc/class-rhaokar-hexmap.php';
+
 /**
  * Carrega CSS e Scripts JS do Tema Rhaokar
  */

@@ -1,0 +1,160 @@
+/* Estilos do Mapa Hexagonal Interativo e Hexcrawl - Rhaokar */
+
+.rhaokar-map-outer-container {
+	background: #141619;
+	color: #e0e6ed;
+	font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+	border: 2px solid #b8860b;
+	border-radius: 8px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.85);
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+.rhaokar-map-main-title {
+	font-family: 'Cinzel', Georgia, serif;
+	color: #ffd700;
+	font-weight: 700;
+	font-size: 2rem;
+	text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+/* Hex Content Base */
+.hexcontent {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	font-size: 14px;
+	color: #000;
+}
+.hexcontent div {
+	height: 100%;
+	width: 100%;
+}
+.batata span {
+	padding-top: 12px;
+	display: block;
+	font-weight: bold;
+	font-size: 0.75rem;
+	color: rgba(255,255,255,0.9);
+	text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+.batata {
+	transition: all 0.25s ease;
+	cursor: pointer;
+}
+.batata:hover {
+	opacity: 0.8;
+	filter: brightness(1.25);
+	transform: scale(1.05);
+}
+
+/* Destaque de Hexágonos Mapeados no Mapa Global */
+.rhaokar-mapped-hex {
+	box-shadow: 0 0 12px #ffd700 !important;
+	border: 2px solid #ffd700 !important;
+	position: relative;
+}
+.rhaokar-mapped-hex::after {
+	content: '📜';
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	font-size: 0.8rem;
+}
+
+/* TERRENOS DO MAPA (URLs em Uploads 2026/05 com fallback local) */
+.agua_profunda { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-AguaSemFundo.gif'); background-size: cover; background-position: center; background-color: rgb(0, 50, 187); }
+.agua_rasa { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-AguaSemFundo.gif'); background-size: cover; background-position: center; background-color: rgb(0, 127, 212); }
+.bosque { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Bosque.gif'); background-size: cover; background-position: center; background-color: rgb(86, 207, 112); }
+.bosque_nevado { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-BosqueNevado.gif'); background-size: cover; background-position: center; background-color: rgb(111, 177, 116); }
+.floresta { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Floresta.gif'); background-size: cover; background-position: center; background-color: rgb(46, 95, 61); }
+.floresta_nevada { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-FlorestaNevada.gif'); background-size: cover; background-position: center; background-color: rgb(70, 122, 78); }
+.floresta_nevada_rio { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-FlorestaNevada.gif'); background-size: cover; background-position: center; background-color: lightskyblue; }
+.floresta_nevada_trilho { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-FlorestaNevada.gif'); background-size: cover; background-position: center; background-color: darkgrey; }
+.montanha { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Montanha.gif'); background-size: cover; background-position: center; background-color: rgb(137, 199, 240); }
+.montanha_nevada { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-MontanhaNevada.gif'); background-size: cover; background-position: center; background-color: rgb(137, 199, 240); }
+.montanha_nevada_trilho { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-MontanhaNevada.gif'); background-size: cover; background-position: center; background-color: darkgrey; }
+.planicie { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Planicie.gif'); background-size: cover; background-position: center; background-color: rgb(121, 240, 147); }
+.planicie_nevada { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-PlanicieNevada.gif'); background-size: cover; background-position: center; background-color: rgb(169, 202, 171); }
+.planicie_nevada_trilho { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-PlanicieNevada.gif'); background-size: cover; background-position: center; background-color: darkgrey; }
+.deserto { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Deserto.gif'); background-size: cover; background-position: center; background-color: rgb(247, 255, 212); }
+.selva { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Selva.gif'); background-size: cover; background-position: center; background-color: rgb(6, 158, 74); }
+.montanha_com_floresta { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-MontanhaFloresta.gif'); background-size: cover; background-position: center; background-color: rgb(137, 199, 240); }
+.montanha_com_floresta_nevada { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-MontanhaFlorestaNevada.gif'); background-size: cover; background-position: center; background-color: rgb(137, 199, 240); }
+.montanha_com_selva { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-MontanhaSelva.gif'); background-size: cover; background-position: center; background-color: rgb(137, 199, 240); }
+.pantano { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Pantano.gif'); background-size: cover; background-position: center; background-color: rgb(76, 116, 82); }
+.vulcao { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-Vulcao.gif'); background-size: cover; background-position: center; background-color: rgb(137, 199, 240); }
+.mana_wastes { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Tile-ErmosDeMana.gif'); background-size: cover; background-position: center; background-color: rgb(67, 74, 78); }
+
+/* REINOS E ESTRUTURAS */
+.aetheomir { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Aetheomir.png'); background-size: cover; background-position: center; }
+.catarna { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Catarna.png'); background-size: cover; background-position: center; }
+.cordileiras_vermelhas { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Cordilheiras_Vermelhas.png'); background-size: cover; background-position: center; }
+.demios { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Demios.png'); background-size: cover; background-position: center; }
+.galorfindil { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Galorfindil.png'); background-size: cover; background-position: center; }
+.gliorith { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Gliorith.png'); background-size: cover; background-position: center; }
+.huntston { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Huntston.png'); background-size: cover; background-position: center; }
+.kaareth { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Kaareth.png'); background-size: cover; background-position: center; }
+.koba { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Koba.png'); background-size: cover; background-position: center; }
+.mao_do_aqueronte { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Mao_do_Aqueronte.png'); background-size: cover; background-position: center; }
+.montanha_de_ferro { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Montanha_de_Ferro.png'); background-size: cover; background-position: center; }
+.montanha_de_mithral { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Montanha_de_Mithral.png'); background-size: cover; background-position: center; }
+.orcshardhaven { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Orcshardhaven.png'); background-size: cover; background-position: center; }
+.shogunato { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/Shogunato.png'); background-size: cover; background-position: center; }
+
+/* CIDADES E ESTRUTURAS URBANAS */
+.capital { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/capital.png'); background-size: cover; background-position: center; }
+.capital_nevada { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/capital_nevada.png'); background-size: cover; background-position: center; }
+.hamlet { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/hamlet.png'); background-size: cover; background-position: center; }
+.hamlet_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/hamlet_snow.png'); background-size: cover; background-position: center; }
+.large_city { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/large_city.png'); background-size: cover; background-position: center; }
+.large_city_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/large_city_snow.png'); background-size: cover; background-position: center; }
+.large_town { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/large_town.png'); background-size: cover; background-position: center; }
+.large_town_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/large_town_snow.png'); background-size: cover; background-position: center; }
+.metropolis { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/metropolis.png'); background-size: cover; background-position: center; }
+.metropolis_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/metropolis_snow.png'); background-size: cover; background-position: center; }
+.military_fort { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/military_fort.png'); background-size: cover; background-position: center; }
+.mine { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/mine.png'); background-size: cover; background-position: center; }
+.oasis { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/oasis.png'); background-size: cover; background-position: center; }
+.ruin { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/ruin.png'); background-size: cover; background-position: center; }
+.ruin_large { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/ruin_large.png'); background-size: cover; background-position: center; }
+.small_city { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/small_city.png'); background-size: cover; background-position: center; }
+.small_city_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/small_city_snow.png'); background-size: cover; background-position: center; }
+.small_town { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/small_town.png'); background-size: cover; background-position: center; }
+.small_town_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/small_town_snow.png'); background-size: cover; background-position: center; }
+.thorp { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/thorp.png'); background-size: cover; background-position: center; }
+.thorp_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/thorp_snow.png'); background-size: cover; background-position: center; }
+.village { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/village.png'); background-size: cover; background-position: center; }
+.village_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/village_snow.png'); background-size: cover; background-position: center; }
+
+/* MODAL DE SUB-HEXÁGONOS */
+.rhaokar-modal-lg {
+	max-width: 950px !important;
+}
+.subtile-grid-row {
+	display: flex;
+	justify-content: center;
+	gap: 4px;
+	margin-bottom: -10px;
+}
+.subtile-hex-item {
+	width: 52px;
+	height: 60px;
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 0.72rem;
+	color: #fff;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	border: 1px solid rgba(255,215,0,0.4);
+}
+.subtile-hex-item:hover, .subtile-hex-item.selected-subtile {
+	transform: scale(1.15);
+	z-index: 10;
+	box-shadow: 0 0 10px #ffd700;
+	border: 2px solid #ffd700;
+}
