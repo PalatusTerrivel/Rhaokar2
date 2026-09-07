@@ -116,6 +116,19 @@
 		var totalHeight = (maxY > 0) ? (maxY + 100) : 2800;
 		canvas.css({ width: totalWidth + 'px', height: totalHeight + 'px' });
 
+		// Centraliza e ajusta o zoom inicial para caber na tela
+		var viewport = $('#rhaokar-hex-viewport');
+		var vpW = viewport.width() || 1000;
+		var vpH = viewport.height() || 600;
+
+		scale = Math.min(vpW / totalWidth, vpH / totalHeight);
+		scale = Math.max(0.35, Math.min(scale, 0.85));
+
+		panX = (vpW - (totalWidth * scale)) / 2;
+		panY = (vpH - (totalHeight * scale)) / 2;
+
+		updateTransform(canvas[0]);
+
 		canvas.off('click', '.rhaokar-macro-hex').on('click', '.rhaokar-macro-hex', function(e) {
 			e.preventDefault();
 			var id = $(this).attr('data-hex-id');
