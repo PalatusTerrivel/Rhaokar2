@@ -370,7 +370,7 @@ class Rhaokar_HexMap_Manager {
 			<!-- MAPA GLOBAL HEXAGONAL -->
 			<div id="rhaokar-world-hex-wrapper" class="position-relative text-center">
 				<div id="hexmap-8" class="rhaokar-hexmap-container">
-					<code><?php
+					<code style="display:none !important; visibility:hidden !important; opacity:0 !important; height:0 !important; width:0 !important; font-size:0 !important; overflow:hidden !important; position:absolute !important; text-indent:-9999px !important;"><?php
 					$html_map_path = get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html';
 					if ( file_exists( $html_map_path ) ) {
 						$content = file_get_contents( $html_map_path );
