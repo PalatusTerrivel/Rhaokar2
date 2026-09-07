@@ -1,15 +1,61 @@
-/* Oculta rigorosamente a tag code com o JSON bruto do mapa */
-#hexmap-8 code,
-.rhaokar-hexmap-container code,
-.rhaokar-map-outer-container code {
+/* Estilos do Mapa Hexagonal Interativo e Hexcrawl - Rhaokar */
+
+/* MODAL BACKDROP FAILSAFE */
+.rhaokar-modal-backdrop {
 	display: none !important;
-	opacity: 0 !important;
-	visibility: hidden !important;
-	height: 0 !important;
-	width: 0 !important;
-	overflow: hidden !important;
-	position: absolute !important;
-	left: -9999px !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	background: rgba(0, 0, 0, 0.85) !important;
+	z-index: 999999 !important;
+	align-items: center !important;
+	justify-content: center !important;
+	padding: 20px !important;
+	box-sizing: border-box !important;
+}
+.rhaokar-modal-backdrop.rhaokar-open {
+	display: flex !important;
+}
+.rhaokar-modal-dialog {
+	background: #1e2228 !important;
+	color: #e0e6ed !important;
+	border: 2px solid #b8860b !important;
+	border-radius: 8px !important;
+	max-width: 950px !important;
+	width: 100% !important;
+	max-height: 90vh !important;
+	overflow-y: auto !important;
+	padding: 20px !important;
+	box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
+	position: relative !important;
+}
+.rhaokar-modal-header {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	border-bottom: 1px solid #3a424d !important;
+	padding-bottom: 10px !important;
+	margin-bottom: 15px !important;
+}
+.rhaokar-modal-close {
+	background: none !important;
+	border: none !important;
+	color: #ffd700 !important;
+	font-size: 1.6rem !important;
+	cursor: pointer !important;
+	line-height: 1 !important;
+}
+.rhaokar-modal-close:hover {
+	color: #ff4d4f !important;
+}
+
+/* Oculta tag code durante o carregamento inicial */
+#hexmap-8 code,
+.rhaokar-hexmap-container code {
+	opacity: 0;
+	font-size: 0;
 }
 
 .rhaokar-map-outer-container {
@@ -140,9 +186,6 @@
 .village_snow { background-image: url('https://rhaokar.com.br/wp-content/uploads/2026/05/village_snow.png'); background-size: cover; background-position: center; }
 
 /* MODAL DE SUB-HEXÁGONOS */
-.rhaokar-modal-lg {
-	max-width: 950px !important;
-}
 .subtile-grid-row {
 	display: flex;
 	justify-content: center;

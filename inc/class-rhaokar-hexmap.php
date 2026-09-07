@@ -370,21 +370,22 @@ class Rhaokar_HexMap_Manager {
 			<!-- MAPA GLOBAL HEXAGONAL -->
 			<div id="rhaokar-world-hex-wrapper" class="position-relative text-center">
 				<div id="hexmap-8" class="rhaokar-hexmap-container">
-					<code style="display:none !important; visibility:hidden !important; opacity:0 !important; height:0 !important; width:0 !important;">
-					<?php
+					<code><?php
 					$html_map_path = get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html';
 					if ( file_exists( $html_map_path ) ) {
 						$content = file_get_contents( $html_map_path );
-						if ( preg_match( '/<code[^>]*>\s*(\{.*?\})\s*<\/code>/s', $content, $matches ) ) {
-							echo trim( $matches[1] );
+						$start = strpos( $content, '<code>' );
+						$end   = strpos( $content, '</code>' );
+						if ( false !== $start && false !== $end ) {
+							$json_str = substr( $content, $start + 6, $end - ( $start + 6 ) );
+							echo trim( $json_str );
 						} else {
 							echo '{"layout":"even-r","hexes":{}}';
 						}
 					} else {
 						echo '{"layout":"even-r","hexes":{}}';
 					}
-					?>
-					</code>
+					?></code>
 				</div>
 			</div>
 
