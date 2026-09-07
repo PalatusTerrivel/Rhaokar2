@@ -805,6 +805,77 @@ while ( have_posts() ) :
 	margin-top: 20px;
 	margin-bottom: 40px;
 }
+
+/* FORÇAR ESTRUTURA FLEX DE COLUNAS DA FICHA (PREVENIR EMPILHAMENTO VERTICAL DO TEMA) */
+.ficha-dnd35-container .row {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	margin-left: -15px !important;
+	margin-right: -15px !important;
+}
+.ficha-dnd35-container [class*="col-"] {
+	position: relative !important;
+	width: 100% !important;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) {
+	.ficha-dnd35-container .col-md-3 {
+		flex: 0 0 25% !important;
+		max-width: 25% !important;
+		width: 25% !important;
+	}
+	.ficha-dnd35-container .col-md-4 {
+		flex: 0 0 33.333333% !important;
+		max-width: 33.333333% !important;
+		width: 33.333333% !important;
+	}
+	.ficha-dnd35-container .col-md-5 {
+		flex: 0 0 41.666667% !important;
+		max-width: 41.666667% !important;
+		width: 41.666667% !important;
+	}
+	.ficha-dnd35-container .col-md-6 {
+		flex: 0 0 50% !important;
+		max-width: 50% !important;
+		width: 50% !important;
+	}
+	.ficha-dnd35-container .col-md-7 {
+		flex: 0 0 58.333333% !important;
+		max-width: 58.333333% !important;
+		width: 58.333333% !important;
+	}
+	.ficha-dnd35-container .col-md-8 {
+		flex: 0 0 66.666667% !important;
+		max-width: 66.666667% !important;
+		width: 66.666667% !important;
+	}
+	.ficha-dnd35-container .col-md-9 {
+		flex: 0 0 75% !important;
+		max-width: 75% !important;
+		width: 75% !important;
+	}
+	.ficha-dnd35-container .col-md-12 {
+		flex: 0 0 100% !important;
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.ficha-dnd35-container .col-lg-4 {
+		flex: 0 0 33.333333% !important;
+		max-width: 33.333333% !important;
+		width: 33.333333% !important;
+	}
+	.ficha-dnd35-container .col-lg-8 {
+		flex: 0 0 66.666667% !important;
+		max-width: 66.666667% !important;
+		width: 66.666667% !important;
+	}
+}
 .ficha-header {
 	border-bottom: 2px solid #b8860b;
 	padding-bottom: 15px;
