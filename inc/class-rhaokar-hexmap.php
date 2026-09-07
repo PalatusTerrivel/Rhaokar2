@@ -7,6 +7,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( file_exists( __DIR__ . '/rhaokar-map-json.php' ) ) {
+	require_once __DIR__ . '/rhaokar-map-json.php';
+}
+
 class Rhaokar_HexMap_Manager {
 
 	private static $instance = null;
@@ -339,38 +343,10 @@ class Rhaokar_HexMap_Manager {
 		wp_localize_script( 'rhaokar-hexmap-interactive', 'rhaokarHexData', $hex_data_obj );
 
 		// Extrai os dados do JSON do Mapa
-		$possible_map_paths = array(
-			get_stylesheet_directory() . '/js/rhaokar-worldmap-data.js',
-			get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html',
-			get_stylesheet_directory() . '/Mapa_rhaokar.html',
-			get_template_directory() . '/cenario/Mapa_rhaokar.html',
-			get_template_directory() . '/Mapa_rhaokar.html',
-			ABSPATH . 'wp-content/themes/hello-elementor-child/js/rhaokar-worldmap-data.js',
-			ABSPATH . 'wp-content/themes/hello-elementor-child/cenario/Mapa_rhaokar.html',
-			ABSPATH . 'wp-content/themes/hello-elementor-child/Mapa_rhaokar.html',
-			ABSPATH . 'wp-content/themes/hello-elementor-child-master/cenario/Mapa_rhaokar.html',
-			ABSPATH . 'wp-content/themes/Rhaokar/cenario/Mapa_rhaokar.html',
-		);
-
-		$map_json_str = '{"layout":"odd-r","hexes":{}}';
-		foreach ( $possible_map_paths as $html_map_path ) {
-			if ( file_exists( $html_map_path ) ) {
-				$content = file_get_contents( $html_map_path );
-				if ( strpos( $content, 'window.rhaokarMacroMapData' ) !== false ) {
-					$eq_pos   = strpos( $content, '=' );
-					$semi_pos = strrpos( $content, ';' );
-					if ( false !== $eq_pos && false !== $semi_pos ) {
-						$map_json_str = trim( substr( $content, $eq_pos + 1, $semi_pos - ( $eq_pos + 1 ) ) );
-						break;
-					}
-				}
-				$start = strpos( $content, '<code>' );
-				$end   = strpos( $content, '</code>' );
-				if ( false !== $start && false !== $end ) {
-					$map_json_str = trim( substr( $content, $start + 6, $end - ( $start + 6 ) ) );
-					break;
-				}
-			}
+		if ( function_exists( 'rhaokar_get_world_map_json' ) ) {
+			$map_json_str = rhaokar_get_world_map_json();
+		} else {
+			$map_json_str = '{"layout":"odd-r","hexes":{}}';
 		}
 
 		$theme_uri = get_stylesheet_directory_uri();
