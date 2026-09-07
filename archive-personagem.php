@@ -115,17 +115,30 @@ if ( $is_page ) {
 /* Painel de Filtros */
 .hall-filter-panel {
 	background: #1e2228;
-	border: 1px solid #3a424d;
+	border: 2px solid #b8860b;
 	border-radius: 8px;
-	padding: 15px 20px;
+	padding: 16px 20px;
 	margin-bottom: 30px;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.hall-filter-title {
+	font-family: 'Cinzel', Georgia, serif;
+	color: #ffd700;
+	font-weight: 700;
+	font-size: 1.05rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 .hall-filter-btn {
 	background: #252a32;
 	border: 1px solid #4a5463;
 	color: #a0aec0;
 	font-size: 0.85rem;
-	padding: 6px 14px;
+	padding: 6px 16px;
 	border-radius: 20px;
 	transition: all 0.25s ease;
 	cursor: pointer;
@@ -137,6 +150,38 @@ if ( $is_page ) {
 	color: #111;
 	border-color: #ffd700;
 	box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* GRID DE 4 COLUNAS CONFORME DIAGRAMA DO USUÁRIO */
+#rhaokar-hall-grid {
+	display: grid !important;
+	grid-template-columns: repeat(4, 1fr) !important;
+	gap: 20px !important;
+	margin: 0 !important;
+}
+@media (max-width: 1199px) {
+	#rhaokar-hall-grid {
+		grid-template-columns: repeat(3, 1fr) !important;
+		gap: 16px !important;
+	}
+}
+@media (max-width: 768px) {
+	#rhaokar-hall-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+		gap: 12px !important;
+	}
+}
+@media (max-width: 480px) {
+	#rhaokar-hall-grid {
+		grid-template-columns: repeat(1, 1fr) !important;
+		gap: 10px !important;
+	}
+}
+.hall-card-item {
+	width: 100% !important;
+	max-width: 100% !important;
+	padding: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 /* Cards dos Personagens */
@@ -293,21 +338,21 @@ if ( $is_page ) {
 		<p class="hall-subtitle mb-0">Galeria de Fichas de Personagens das Campanhas de Rhaokar</p>
 	</div>
 
-	<!-- BARRA DE FILTROS & BUSCA -->
+	<!-- BARRA DE FILTROS & BUSCA (FILTRO DE STATUS DO PERSONAGEM) -->
 	<div class="hall-filter-panel">
-		<div class="row align-items-center">
-			<div class="col-md-7 mb-3 mb-md-0">
-				<div class="d-flex flex-wrap align-items-center">
-					<span class="mr-2 text-warning small font-weight-bold">STATUS:</span>
-					<button type="button" class="hall-filter-btn active" onclick="rhaokarFilterHall('status', 'all', this)">Todos</button>
-					<button type="button" class="hall-filter-btn" onclick="rhaokarFilterHall('status', 'ativo', this)">🟢 Ativos</button>
-					<button type="button" class="hall-filter-btn" onclick="rhaokarFilterHall('status', 'aposentado', this)">🟡 Aposentados</button>
-					<button type="button" class="hall-filter-btn" onclick="rhaokarFilterHall('status', 'morto', this)">💀 Mortos</button>
-				</div>
+		<div class="hall-filter-title">
+			<i class="dashicons dashicons-filter"></i> Filtro de Status do Personagem
+		</div>
+		<div class="d-flex justify-content-between align-items-center flex-wrap" style="gap: 12px;">
+			<div class="d-flex flex-wrap align-items-center" style="gap: 4px;">
+				<button type="button" class="hall-filter-btn active" onclick="rhaokarFilterHall('status', 'all', this)">Todos</button>
+				<button type="button" class="hall-filter-btn" onclick="rhaokarFilterHall('status', 'ativo', this)">🟢 Ativos</button>
+				<button type="button" class="hall-filter-btn" onclick="rhaokarFilterHall('status', 'aposentado', this)">🟡 Aposentados</button>
+				<button type="button" class="hall-filter-btn" onclick="rhaokarFilterHall('status', 'morto', this)">💀 Mortos</button>
 			</div>
-			<div class="col-md-5">
+			<div style="min-width: 250px; flex-grow: 1; max-width: 350px;">
 				<div class="input-group">
-					<input type="text" id="rhaokar-search-input" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="Buscar por nome ou classe..." onkeyup="rhaokarSearchHall()">
+					<input type="text" id="rhaokar-search-input" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="Buscar por nome, raça ou classe..." onkeyup="rhaokarSearchHall()">
 					<div class="input-group-append">
 						<span class="input-group-text bg-dark border-secondary text-warning"><i class="dashicons dashicons-search"></i></span>
 					</div>
@@ -316,8 +361,8 @@ if ( $is_page ) {
 		</div>
 	</div>
 
-	<!-- GRID DE PERSONAGENS -->
-	<div class="row" id="rhaokar-hall-grid">
+	<!-- GRID DE PERSONAGENS (4 COLUNAS CONFORME DIAGRAMA) -->
+	<div id="rhaokar-hall-grid">
 		<?php
 		if ( $personagens_query->have_posts() ) :
 			while ( $personagens_query->have_posts() ) :
@@ -366,7 +411,7 @@ if ( $is_page ) {
 				$xp_progress = ( $xp_range > 0 ) ? min( 100, max( 0, round( ( ( $xp_atual - $min_xp_for_lvl ) / $xp_range ) * 100 ) ) ) : 100;
 				?>
 
-				<div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4 hall-card-item" 
+				<div class="hall-card-item" 
 					 data-status="<?php echo esc_attr( strtolower( $status ) ); ?>" 
 					 data-sistema="<?php echo esc_attr( strtolower( $sistema ) ); ?>"
 					 data-search="<?php echo esc_attr( strtolower( $nome . ' ' . $classes_str . ' ' . $raca ) ); ?>">
