@@ -298,7 +298,7 @@ class Rhaokar_HexMap_Manager {
 		$ver       = time();
 
 		wp_register_style( 'rhaokar-hexmap-custom-css', $theme_uri . '/css/rhaokar-hexmap.css', array(), $ver );
-		wp_register_script( 'rhaokar-hexmap-interactive', $theme_uri . '/js/rhaokar-hexmap-interactive.js', array( 'jquery' ), $ver, true );
+		wp_register_script( 'rhaokar-canvas-map', $theme_uri . '/js/rhaokar-canvas-map.js', array( 'jquery' ), $ver, true );
 	}
 
 	/**
@@ -309,7 +309,7 @@ class Rhaokar_HexMap_Manager {
 		wp_enqueue_style( 'rhaokar-hexmap-custom-css' );
 
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'rhaokar-hexmap-interactive' );
+		wp_enqueue_script( 'rhaokar-canvas-map' );
 
 		// Busca todos os Hexágonos Mapeados cadastrados no CPT
 		$mapped_query = new WP_Query( array(
@@ -391,11 +391,7 @@ class Rhaokar_HexMap_Manager {
 			window.rhaokarHexData = <?php echo json_encode( $hex_data_obj ); ?>;
 			window.rhaokarMacroMapData = <?php echo $map_json_str; ?>;
 		</script>
-		<script id="rhaokar-map-json-data" type="application/json">
-			<?php echo $map_json_str; ?>
-		</script>
-		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-worldmap-data.js' ); ?>?ver=<?php echo $ver; ?>"></script>
-		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-hexmap-interactive.js' ); ?>?ver=<?php echo $ver; ?>"></script>
+		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-canvas-map.js' ); ?>?ver=<?php echo $ver; ?>"></script>
 
 		<div class="container-fluid rhaokar-map-outer-container py-3">
 			<div class="text-center mb-3">
@@ -403,18 +399,16 @@ class Rhaokar_HexMap_Manager {
 				<p class="text-muted small">Passe o mouse ou toque nos hexágonos para identificar áreas mapeadas e explorar o Hexcrawl.</p>
 			</div>
 
-			<!-- MAPA GLOBAL HEXAGONAL INTERATIVO -->
-			<div class="rhaokar-map-wrapper">
-				<div class="rhaokar-map-toolbar">
+			<!-- MAPA CANVAS HTML5 INTERATIVO -->
+			<div class="rhaokar-map-wrapper text-center">
+				<div class="rhaokar-map-toolbar mb-2">
 					<button type="button" class="rhaokar-map-btn" id="rhaokar-zoom-in">➕ Zoom In</button>
 					<button type="button" class="rhaokar-map-btn" id="rhaokar-zoom-out">➖ Zoom Out</button>
 					<button type="button" class="rhaokar-map-btn" id="rhaokar-zoom-reset">↺ Reset</button>
 					<span class="rhaokar-map-hint">💡 Arraste para navegar pelo mapa | Clique no Hex para explorar</span>
 				</div>
-				<div class="rhaokar-map-viewport" id="rhaokar-hex-viewport">
-					<div class="rhaokar-map-canvas" id="rhaokar-hex-canvas">
-						<!-- Hexágonos do Mapa renderizados dinamicamente -->
-					</div>
+				<div class="rhaokar-canvas-container" style="position:relative; display:inline-block; max-width:100%; border:3px solid #b8860b; border-radius:8px; background:#0e1116; box-shadow:0 10px 30px rgba(0,0,0,0.85);">
+					<canvas id="rhaokarHexCanvas" width="1150" height="650" style="display:block; cursor:pointer; max-width:100%; height:auto;"></canvas>
 				</div>
 			</div>
 
@@ -459,8 +453,8 @@ class Rhaokar_HexMap_Manager {
 		</div>
 
 		<script>
-			if (typeof window.initRhaokarHexMapEngine === 'function') {
-				window.initRhaokarHexMapEngine();
+			if (typeof window.initRhaokarCanvasEngine === 'function') {
+				window.initRhaokarCanvasEngine();
 			}
 		</script>
 		<?php
