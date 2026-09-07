@@ -519,6 +519,16 @@ if ( ! function_exists( 'rhaokar_pf1_xp_for_level' ) ) {
 	}
 }
 
-
-
-
+/**
+ * Força o uso exclusivo do template single-personagem.php para todas as fichas de personagens
+ */
+function rhaokar_force_single_personagem_template( $template ) {
+	if ( is_singular( 'personagem' ) ) {
+		$theme_template = get_stylesheet_directory() . '/single-personagem.php';
+		if ( file_exists( $theme_template ) ) {
+			return $theme_template;
+		}
+	}
+	return $template;
+}
+add_filter( 'template_include', 'rhaokar_force_single_personagem_template', 999 );
