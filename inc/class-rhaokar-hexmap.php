@@ -293,12 +293,8 @@ class Rhaokar_HexMap_Manager {
 		$theme_uri = get_stylesheet_directory_uri();
 		$ver       = time();
 
-		wp_register_script( 'stuquery', $theme_uri . '/js/stuquery.js', array( 'jquery' ), '1.0', true );
-		wp_register_script( 'stuquery-hexmap', $theme_uri . '/js/stuquery.hexmap.js', array( 'stuquery' ), '1.0', true );
-		wp_register_style( 'stuquery-hexmap-css', $theme_uri . '/css/stuquery.hexmap.css', array(), '1.0' );
-
-		wp_register_style( 'rhaokar-hexmap-custom-css', $theme_uri . '/css/rhaokar-hexmap.css', array( 'stuquery-hexmap-css' ), $ver );
-		wp_register_script( 'rhaokar-hexmap-interactive', $theme_uri . '/js/rhaokar-hexmap-interactive.js', array( 'jquery', 'stuquery-hexmap' ), $ver, true );
+		wp_register_style( 'rhaokar-hexmap-custom-css', $theme_uri . '/css/rhaokar-hexmap.css', array(), $ver );
+		wp_register_script( 'rhaokar-hexmap-interactive', $theme_uri . '/js/rhaokar-hexmap-interactive.js', array( 'jquery' ), $ver, true );
 	}
 
 	/**
@@ -306,12 +302,9 @@ class Rhaokar_HexMap_Manager {
 	 */
 	public function render_mapa_shortcode( $atts ) {
 		wp_enqueue_style( 'rhaokar-bootstrap' );
-		wp_enqueue_style( 'stuquery-hexmap-css' );
 		wp_enqueue_style( 'rhaokar-hexmap-custom-css' );
 
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'stuquery' );
-		wp_enqueue_script( 'stuquery-hexmap' );
 		wp_enqueue_script( 'rhaokar-hexmap-interactive' );
 
 		// Busca todos os Hexágonos Mapeados cadastrados no CPT
@@ -345,64 +338,43 @@ class Rhaokar_HexMap_Manager {
 
 		wp_localize_script( 'rhaokar-hexmap-interactive', 'rhaokarHexData', $hex_data_obj );
 
+		// Extrai os dados do JSON do Mapa
+		$possible_map_paths = array(
+			get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html',
+			get_stylesheet_directory() . '/Mapa_rhaokar.html',
+			get_template_directory() . '/cenario/Mapa_rhaokar.html',
+			get_template_directory() . '/Mapa_rhaokar.html',
+			ABSPATH . 'wp-content/themes/hello-elementor-child/cenario/Mapa_rhaokar.html',
+			ABSPATH . 'wp-content/themes/hello-elementor-child/Mapa_rhaokar.html',
+			ABSPATH . 'wp-content/themes/hello-elementor-child-master/cenario/Mapa_rhaokar.html',
+			ABSPATH . 'wp-content/themes/Rhaokar/cenario/Mapa_rhaokar.html',
+		);
+
+		$map_json_str = '{"layout":"odd-r","hexes":{}}';
+		foreach ( $possible_map_paths as $html_map_path ) {
+			if ( file_exists( $html_map_path ) ) {
+				$content = file_get_contents( $html_map_path );
+				$start = strpos( $content, '<code>' );
+				$end   = strpos( $content, '</code>' );
+				if ( false !== $start && false !== $end ) {
+					$map_json_str = trim( substr( $content, $start + 6, $end - ( $start + 6 ) ) );
+					break;
+				}
+			}
+		}
+
 		$theme_uri = get_stylesheet_directory_uri();
 		$ver       = time();
 
 		ob_start();
 		?>
-		<!-- REGRAS CSS DO MAPA E SUPORTE AO ELEMENTOR -->
-		<style id="rhaokar-hexmap-fail-safe-css">
-			#hexmap-8 code,
-			.rhaokar-hexmap-container code,
-			.rhaokar-map-outer-container code {
-				display: none !important;
-				opacity: 0 !important;
-				visibility: hidden !important;
-				height: 0 !important;
-				width: 0 !important;
-				overflow: hidden !important;
-				position: absolute !important;
-				left: -9999px !important;
-			}
-			.rhaokar-modal-backdrop {
-				display: none !important;
-				position: fixed !important;
-				top: 0 !important;
-				left: 0 !important;
-				width: 100vw !important;
-				height: 100vh !important;
-				background: rgba(0, 0, 0, 0.85) !important;
-				z-index: 999999 !important;
-				align-items: center !important;
-				justify-content: center !important;
-				padding: 20px !important;
-				box-sizing: border-box !important;
-			}
-			.rhaokar-modal-backdrop.rhaokar-open {
-				display: flex !important;
-			}
-			.rhaokar-modal-dialog {
-				background: #1e2228 !important;
-				color: #e0e6ed !important;
-				border: 2px solid #b8860b !important;
-				border-radius: 8px !important;
-				max-width: 950px !important;
-				width: 100% !important;
-				max-height: 90vh !important;
-				overflow-y: auto !important;
-				padding: 20px !important;
-				box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
-				position: relative !important;
-			}
-		</style>
-		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/stuquery.hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
 		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/rhaokar-hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
-
 		<script>
 			window.rhaokarHexData = <?php echo json_encode( $hex_data_obj ); ?>;
 		</script>
-		<script src="<?php echo esc_url( $theme_uri . '/js/stuquery.js' ); ?>?ver=<?php echo $ver; ?>"></script>
-		<script src="<?php echo esc_url( $theme_uri . '/js/stuquery.hexmap.js' ); ?>?ver=<?php echo $ver; ?>"></script>
+		<script id="rhaokar-map-json-data" type="application/json">
+			<?php echo $map_json_str; ?>
+		</script>
 		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-hexmap-interactive.js' ); ?>?ver=<?php echo $ver; ?>"></script>
 
 		<div class="container-fluid rhaokar-map-outer-container py-3">
@@ -411,39 +383,18 @@ class Rhaokar_HexMap_Manager {
 				<p class="text-muted small">Passe o mouse ou toque nos hexágonos para identificar áreas mapeadas e explorar o Hexcrawl.</p>
 			</div>
 
-			<!-- MAPA GLOBAL HEXAGONAL -->
-			<div id="rhaokar-world-hex-wrapper" class="position-relative text-center">
-				<div id="hexmap-8" class="rhaokar-hexmap-container">
-					<code style="display:none !important; visibility:hidden !important; opacity:0 !important; height:0 !important; width:0 !important; font-size:0 !important; overflow:hidden !important; position:absolute !important; text-indent:-9999px !important;"><?php
-					$possible_map_paths = array(
-						get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html',
-						get_stylesheet_directory() . '/Mapa_rhaokar.html',
-						get_template_directory() . '/cenario/Mapa_rhaokar.html',
-						get_template_directory() . '/Mapa_rhaokar.html',
-						ABSPATH . 'wp-content/themes/hello-elementor-child/cenario/Mapa_rhaokar.html',
-						ABSPATH . 'wp-content/themes/hello-elementor-child/Mapa_rhaokar.html',
-						ABSPATH . 'wp-content/themes/hello-elementor-child-master/cenario/Mapa_rhaokar.html',
-						ABSPATH . 'wp-content/themes/Rhaokar/cenario/Mapa_rhaokar.html',
-					);
-
-					$json_found = false;
-					foreach ( $possible_map_paths as $html_map_path ) {
-						if ( file_exists( $html_map_path ) ) {
-							$content = file_get_contents( $html_map_path );
-							$start = strpos( $content, '<code>' );
-							$end   = strpos( $content, '</code>' );
-							if ( false !== $start && false !== $end ) {
-								$json_str = substr( $content, $start + 6, $end - ( $start + 6 ) );
-								echo trim( $json_str );
-								$json_found = true;
-								break;
-							}
-						}
-					}
-					if ( ! $json_found ) {
-						echo '{"layout":"even-r","hexes":{}}';
-					}
-					?></code>
+			<!-- MAPA GLOBAL HEXAGONAL INTERATIVO -->
+			<div class="rhaokar-map-wrapper">
+				<div class="rhaokar-map-toolbar">
+					<button type="button" class="rhaokar-map-btn" id="rhaokar-zoom-in">➕ Zoom In</button>
+					<button type="button" class="rhaokar-map-btn" id="rhaokar-zoom-out">➖ Zoom Out</button>
+					<button type="button" class="rhaokar-map-btn" id="rhaokar-zoom-reset">↺ Reset</button>
+					<span class="rhaokar-map-hint">💡 Arraste para navegar pelo mapa | Clique no Hex para explorar</span>
+				</div>
+				<div class="rhaokar-map-viewport" id="rhaokar-hex-viewport">
+					<div class="rhaokar-map-canvas" id="rhaokar-hex-canvas">
+						<!-- Hexágonos do Mapa renderizados dinamicamente -->
+					</div>
 				</div>
 			</div>
 
@@ -488,8 +439,8 @@ class Rhaokar_HexMap_Manager {
 		</div>
 
 		<script>
-			if (typeof tryInitRhaokarHexMap === 'function') {
-				tryInitRhaokarHexMap();
+			if (typeof window.initRhaokarHexMapEngine === 'function') {
+				window.initRhaokarHexMapEngine();
 			}
 		</script>
 		<?php
