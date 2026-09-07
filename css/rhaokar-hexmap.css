@@ -1,4 +1,16 @@
-/* Estilos do Mapa Hexagonal Interativo e Hexcrawl - Rhaokar */
+/* Oculta rigorosamente a tag code com o JSON bruto do mapa */
+#hexmap-8 code,
+.rhaokar-hexmap-container code,
+.rhaokar-map-outer-container code {
+	display: none !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	width: 0 !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	left: -9999px !important;
+}
 
 .rhaokar-map-outer-container {
 	background: #141619;

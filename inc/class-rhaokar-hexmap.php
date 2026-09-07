@@ -337,14 +337,30 @@ class Rhaokar_HexMap_Manager {
 			wp_reset_postdata();
 		}
 
-		wp_localize_script( 'rhaokar-hexmap-interactive', 'rhaokarHexData', array(
+		$hex_data_obj = array(
 			'mappedHexes' => $mapped_hexes_data,
 			'terrains'    => self::get_terrain_types(),
 			'matrix'      => self::get_subtile_matrix(),
-		) );
+		);
+
+		wp_localize_script( 'rhaokar-hexmap-interactive', 'rhaokarHexData', $hex_data_obj );
+
+		$theme_uri = get_stylesheet_directory_uri();
+		$ver       = time();
 
 		ob_start();
 		?>
+		<!-- REGRAS CSS DO MAPA E SUPORTE AO ELEMENTOR -->
+		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/stuquery.hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
+		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/rhaokar-hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
+
+		<script>
+			window.rhaokarHexData = <?php echo json_encode( $hex_data_obj ); ?>;
+		</script>
+		<script src="<?php echo esc_url( $theme_uri . '/js/stuquery.js' ); ?>?ver=<?php echo $ver; ?>"></script>
+		<script src="<?php echo esc_url( $theme_uri . '/js/stuquery.hexmap.js' ); ?>?ver=<?php echo $ver; ?>"></script>
+		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-hexmap-interactive.js' ); ?>?ver=<?php echo $ver; ?>"></script>
+
 		<div class="container-fluid rhaokar-map-outer-container py-3">
 			<div class="text-center mb-3">
 				<h1 class="rhaokar-map-main-title"><i class="dashicons dashicons-location-alt"></i> Mapa do Mundo de Rhaokar</h1>
@@ -354,13 +370,13 @@ class Rhaokar_HexMap_Manager {
 			<!-- MAPA GLOBAL HEXAGONAL -->
 			<div id="rhaokar-world-hex-wrapper" class="position-relative text-center">
 				<div id="hexmap-8" class="rhaokar-hexmap-container">
-					<code>
+					<code style="display:none !important; visibility:hidden !important; opacity:0 !important; height:0 !important; width:0 !important;">
 					<?php
 					$html_map_path = get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html';
 					if ( file_exists( $html_map_path ) ) {
 						$content = file_get_contents( $html_map_path );
 						if ( preg_match( '/<code[^>]*>\s*(\{.*?\})\s*<\/code>/s', $content, $matches ) ) {
-							echo $matches[1];
+							echo trim( $matches[1] );
 						} else {
 							echo '{"layout":"even-r","hexes":{}}';
 						}
@@ -411,6 +427,12 @@ class Rhaokar_HexMap_Manager {
 				</div>
 			</div>
 		</div>
+
+		<script>
+			if (typeof initRhaokarHexMap === 'function') {
+				initRhaokarHexMap();
+			}
+		</script>
 		<?php
 		return ob_get_clean();
 	}
