@@ -90,7 +90,6 @@
 	function preloadImages() {
 		$.each(terrainImageUrls, function(key, url) {
 			var img = new Image();
-			img.crossOrigin = 'anonymous';
 			img.onload = function() {
 				loadedImages[key] = img;
 				requestRedraw();
@@ -415,8 +414,16 @@
 			matrix      = window.rhaokarHexData.matrix || {};
 		}
 
-		if (window.rhaokarMacroMapData && window.rhaokarMacroMapData.hexes) {
-			mapData = window.rhaokarMacroMapData;
+		if (window.rhaokarMacroMapData) {
+			if (typeof window.rhaokarMacroMapData === 'string') {
+				try {
+					mapData = JSON.parse(window.rhaokarMacroMapData);
+				} catch (e) {
+					console.error("Erro ao analisar rhaokarMacroMapData:", e);
+				}
+			} else {
+				mapData = window.rhaokarMacroMapData;
+			}
 		}
 
 		preloadImages();

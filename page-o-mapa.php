@@ -22,9 +22,5 @@ get_header();
 	?>
 </main>
 
-<div class="contem_grama rhaokar-grama-container position-relative">
-	<div id="grass" class="rhaokar-grama-img"></div>
-</div>
-
 <?php
 get_footer();
