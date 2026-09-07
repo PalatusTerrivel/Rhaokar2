@@ -351,6 +351,50 @@ class Rhaokar_HexMap_Manager {
 		ob_start();
 		?>
 		<!-- REGRAS CSS DO MAPA E SUPORTE AO ELEMENTOR -->
+		<style id="rhaokar-hexmap-fail-safe-css">
+			#hexmap-8 code,
+			.rhaokar-hexmap-container code,
+			.rhaokar-map-outer-container code {
+				display: none !important;
+				opacity: 0 !important;
+				visibility: hidden !important;
+				height: 0 !important;
+				width: 0 !important;
+				overflow: hidden !important;
+				position: absolute !important;
+				left: -9999px !important;
+			}
+			.rhaokar-modal-backdrop {
+				display: none !important;
+				position: fixed !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100vw !important;
+				height: 100vh !important;
+				background: rgba(0, 0, 0, 0.85) !important;
+				z-index: 999999 !important;
+				align-items: center !important;
+				justify-content: center !important;
+				padding: 20px !important;
+				box-sizing: border-box !important;
+			}
+			.rhaokar-modal-backdrop.rhaokar-open {
+				display: flex !important;
+			}
+			.rhaokar-modal-dialog {
+				background: #1e2228 !important;
+				color: #e0e6ed !important;
+				border: 2px solid #b8860b !important;
+				border-radius: 8px !important;
+				max-width: 950px !important;
+				width: 100% !important;
+				max-height: 90vh !important;
+				overflow-y: auto !important;
+				padding: 20px !important;
+				box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
+				position: relative !important;
+			}
+		</style>
 		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/stuquery.hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
 		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/rhaokar-hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
 
@@ -371,18 +415,28 @@ class Rhaokar_HexMap_Manager {
 			<div id="rhaokar-world-hex-wrapper" class="position-relative text-center">
 				<div id="hexmap-8" class="rhaokar-hexmap-container">
 					<code style="display:none !important; visibility:hidden !important; opacity:0 !important; height:0 !important; width:0 !important; font-size:0 !important; overflow:hidden !important; position:absolute !important; text-indent:-9999px !important;"><?php
-					$html_map_path = get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html';
-					if ( file_exists( $html_map_path ) ) {
-						$content = file_get_contents( $html_map_path );
-						$start = strpos( $content, '<code>' );
-						$end   = strpos( $content, '</code>' );
-						if ( false !== $start && false !== $end ) {
-							$json_str = substr( $content, $start + 6, $end - ( $start + 6 ) );
-							echo trim( $json_str );
-						} else {
-							echo '{"layout":"even-r","hexes":{}}';
+					$possible_map_paths = array(
+						get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html',
+						get_template_directory() . '/cenario/Mapa_rhaokar.html',
+						ABSPATH . 'wp-content/themes/hello-elementor-child/cenario/Mapa_rhaokar.html',
+						ABSPATH . 'wp-content/themes/Rhaokar/cenario/Mapa_rhaokar.html',
+					);
+
+					$json_found = false;
+					foreach ( $possible_map_paths as $html_map_path ) {
+						if ( file_exists( $html_map_path ) ) {
+							$content = file_get_contents( $html_map_path );
+							$start = strpos( $content, '<code>' );
+							$end   = strpos( $content, '</code>' );
+							if ( false !== $start && false !== $end ) {
+								$json_str = substr( $content, $start + 6, $end - ( $start + 6 ) );
+								echo trim( $json_str );
+								$json_found = true;
+								break;
+							}
 						}
-					} else {
+					}
+					if ( ! $json_found ) {
 						echo '{"layout":"even-r","hexes":{}}';
 					}
 					?></code>
