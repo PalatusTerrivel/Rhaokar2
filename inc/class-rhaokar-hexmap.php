@@ -430,8 +430,8 @@ class Rhaokar_HexMap_Manager {
 		</div>
 
 		<script>
-			if (typeof initRhaokarHexMap === 'function') {
-				initRhaokarHexMap();
+			if (typeof tryInitRhaokarHexMap === 'function') {
+				tryInitRhaokarHexMap();
 			}
 		</script>
 		<?php

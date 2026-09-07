@@ -11,16 +11,21 @@ function rhaokarCloseSubhexModal() {
 }
 
 function initRhaokarHexMap() {
-	if (typeof jQuery === 'undefined') return;
+	if (typeof jQuery === 'undefined' || typeof window.S === 'undefined' || typeof window.S.hexmap !== 'function') {
+		return false;
+	}
 	var $ = jQuery;
 
-	if ($('#hexmap-8').length && typeof S !== 'undefined' && S.hexmap) {
-		if ($('#hexmap-8').data('rhaokar-initialized')) {
-			return;
-		}
-		$('#hexmap-8').data('rhaokar-initialized', true);
+	var mapElem = $('#hexmap-8');
+	if (!mapElem.length) return false;
 
-		var hexmap = S.hexmap('hexmap-8');
+	if (mapElem.data('rhaokar-initialized')) {
+		return true;
+	}
+	mapElem.data('rhaokar-initialized', true);
+
+	try {
+		var hexmap = window.S.hexmap('hexmap-8');
 		hexmap.setLayout('even-r');
 		hexmap.positionHexes();
 
@@ -40,7 +45,7 @@ function initRhaokarHexMap() {
 			$('[data-toggle="tooltip"]').tooltip();
 		}
 
-		$('#hexmap-8').on('click', '.batata', function(e) {
+		mapElem.off('click', '.batata').on('click', '.batata', function(e) {
 			e.preventDefault();
 			var hexId = $(this).attr('data-hex-id');
 			if (!hexId) return;
@@ -51,6 +56,11 @@ function initRhaokarHexMap() {
 				alert('🧭 Hexágono ' + hexId + ' ainda não foi explorado nas campanhas.');
 			}
 		});
+
+		return true;
+	} catch (err) {
+		console.error("Erro ao inicializar Rhaokar HexMap:", err);
+		return false;
 	}
 }
 
@@ -146,11 +156,29 @@ function renderSubtileDetail(code, tData, terrains) {
 	$('#rhaokar-subtile-detail-content').html(html);
 }
 
+function tryInitRhaokarHexMap(retries) {
+	if (typeof retries === 'undefined') retries = 25;
+
+	var success = initRhaokarHexMap();
+	if (!success && retries > 0) {
+		setTimeout(function() {
+			tryInitRhaokarHexMap(retries - 1);
+		}, 150);
+	}
+}
+
 if (typeof jQuery !== 'undefined') {
 	jQuery(document).ready(function() {
-		initRhaokarHexMap();
+		tryInitRhaokarHexMap();
+	});
+} else if (typeof window.S !== 'undefined') {
+	window.S(document).ready(function() {
+		tryInitRhaokarHexMap();
+	});
+} else {
+	window.addEventListener('DOMContentLoaded', function() {
+		tryInitRhaokarHexMap();
 	});
 }
-setTimeout(function() {
-	initRhaokarHexMap();
-}, 400);
+
+tryInitRhaokarHexMap();
