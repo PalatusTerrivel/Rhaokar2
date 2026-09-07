@@ -116,16 +116,10 @@
 		var totalHeight = (maxY > 0) ? (maxY + 100) : 2800;
 		canvas.css({ width: totalWidth + 'px', height: totalHeight + 'px' });
 
-		// Centraliza e ajusta o zoom inicial para caber na tela
-		var viewport = $('#rhaokar-hex-viewport');
-		var vpW = viewport.width() || 1000;
-		var vpH = viewport.height() || 600;
-
-		scale = Math.min(vpW / totalWidth, vpH / totalHeight);
-		scale = Math.max(0.35, Math.min(scale, 0.85));
-
-		panX = (vpW - (totalWidth * scale)) / 2;
-		panY = (vpH - (totalHeight * scale)) / 2;
+		// Inicializa o zoom e posição visível garantida no topo-esquerdo
+		scale = 0.6;
+		panX = 0;
+		panY = 0;
 
 		updateTransform(canvas[0]);
 
@@ -232,9 +226,9 @@
 		});
 
 		$('#rhaokar-zoom-reset').on('click', function() {
-			scale = 0.85;
-			panX = 20;
-			panY = 20;
+			scale = 0.6;
+			panX = 0;
+			panY = 0;
 			updateTransform(rawCanvas);
 		});
 	}
