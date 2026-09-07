@@ -385,13 +385,25 @@ class Rhaokar_HexMap_Manager {
 				box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
 				position: relative !important;
 			}
-		</style>
-		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/rhaokar-hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
 		<script>
 			window.rhaokarHexData = <?php echo json_encode( $hex_data_obj ); ?>;
 			window.rhaokarMacroMapData = <?php echo $map_json_str; ?>;
 		</script>
-		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-canvas-map.js' ); ?>?ver=<?php echo $ver; ?>"></script>
+		<?php
+		$css_file = get_stylesheet_directory() . '/css/rhaokar-hexmap.css';
+		if ( file_exists( $css_file ) ) {
+			echo '<style id="rhaokar-hexmap-inline-css">' . file_get_contents( $css_file ) . '</style>';
+		} else {
+			echo '<link rel="stylesheet" href="' . esc_url( $theme_uri . '/css/rhaokar-hexmap.css' ) . '?ver=' . $ver . '">';
+		}
+
+		$js_file = get_stylesheet_directory() . '/js/rhaokar-canvas-map.js';
+		if ( file_exists( $js_file ) ) {
+			echo '<script id="rhaokar-canvas-inline-js">' . file_get_contents( $js_file ) . '</script>';
+		} else {
+			echo '<script src="' . esc_url( $theme_uri . '/js/rhaokar-canvas-map.js' ) . '?ver=' . $ver . '"></script>';
+		}
+		?>
 
 		<div class="container-fluid rhaokar-map-outer-container py-3">
 			<div class="text-center mb-3">
