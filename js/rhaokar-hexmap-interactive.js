@@ -41,12 +41,16 @@
 			matrix      = window.rhaokarHexData.matrix || {};
 		}
 
-		var jsonSource = $('#rhaokar-map-json-data').text() || '{}';
-		try {
-			mapData = JSON.parse(jsonSource.trim());
-		} catch (e) {
-			console.error("Erro ao analisar dados do mapa Rhaokar:", e);
-			mapData = { layout: "odd-r", hexes: {} };
+		if (window.rhaokarMacroMapData && window.rhaokarMacroMapData.hexes) {
+			mapData = window.rhaokarMacroMapData;
+		} else {
+			var jsonSource = $('#rhaokar-map-json-data').text() || '{}';
+			try {
+				mapData = JSON.parse(jsonSource.trim());
+			} catch (e) {
+				console.error("Erro ao analisar dados do mapa Rhaokar:", e);
+				mapData = { layout: "odd-r", hexes: {} };
+			}
 		}
 
 		renderMacroMap(canvas, mapData.hexes || {});

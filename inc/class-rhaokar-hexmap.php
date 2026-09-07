@@ -368,6 +368,38 @@ class Rhaokar_HexMap_Manager {
 
 		ob_start();
 		?>
+		<style id="rhaokar-modal-critical-css">
+			.rhaokar-modal-backdrop {
+				display: none !important;
+				position: fixed !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100vw !important;
+				height: 100vh !important;
+				background: rgba(0, 0, 0, 0.85) !important;
+				z-index: 999999 !important;
+				align-items: center !important;
+				justify-content: center !important;
+				padding: 20px !important;
+				box-sizing: border-box !important;
+			}
+			.rhaokar-modal-backdrop.rhaokar-open {
+				display: flex !important;
+			}
+			.rhaokar-modal-dialog {
+				background: #1e2228 !important;
+				color: #e0e6ed !important;
+				border: 2px solid #b8860b !important;
+				border-radius: 8px !important;
+				max-width: 950px !important;
+				width: 100% !important;
+				max-height: 90vh !important;
+				overflow-y: auto !important;
+				padding: 20px !important;
+				box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
+				position: relative !important;
+			}
+		</style>
 		<link rel="stylesheet" href="<?php echo esc_url( $theme_uri . '/css/rhaokar-hexmap.css' ); ?>?ver=<?php echo $ver; ?>">
 		<script>
 			window.rhaokarHexData = <?php echo json_encode( $hex_data_obj ); ?>;
@@ -375,6 +407,7 @@ class Rhaokar_HexMap_Manager {
 		<script id="rhaokar-map-json-data" type="application/json">
 			<?php echo $map_json_str; ?>
 		</script>
+		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-worldmap-data.js' ); ?>?ver=<?php echo $ver; ?>"></script>
 		<script src="<?php echo esc_url( $theme_uri . '/js/rhaokar-hexmap-interactive.js' ); ?>?ver=<?php echo $ver; ?>"></script>
 
 		<div class="container-fluid rhaokar-map-outer-container py-3">
