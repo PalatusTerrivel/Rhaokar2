@@ -417,8 +417,12 @@ class Rhaokar_HexMap_Manager {
 					<code style="display:none !important; visibility:hidden !important; opacity:0 !important; height:0 !important; width:0 !important; font-size:0 !important; overflow:hidden !important; position:absolute !important; text-indent:-9999px !important;"><?php
 					$possible_map_paths = array(
 						get_stylesheet_directory() . '/cenario/Mapa_rhaokar.html',
+						get_stylesheet_directory() . '/Mapa_rhaokar.html',
 						get_template_directory() . '/cenario/Mapa_rhaokar.html',
+						get_template_directory() . '/Mapa_rhaokar.html',
 						ABSPATH . 'wp-content/themes/hello-elementor-child/cenario/Mapa_rhaokar.html',
+						ABSPATH . 'wp-content/themes/hello-elementor-child/Mapa_rhaokar.html',
+						ABSPATH . 'wp-content/themes/hello-elementor-child-master/cenario/Mapa_rhaokar.html',
 						ABSPATH . 'wp-content/themes/Rhaokar/cenario/Mapa_rhaokar.html',
 					);
 
